@@ -37,7 +37,7 @@ public class SaintTest{
     
     @Test
     public void descontarValorVidaAoPerderVida () {
-        Saint beatriz = new Saint ("Yola", new Armadura ("Yola", Categoria.OURO));
+        Saint beatriz = new Saint ("Beatriz", new Armadura ("Yola", Categoria.OURO));
         double vidaInicial = beatriz.getVida();
         beatriz.perderVida (10.0);
         assertEquals ((100.0 - 10.0), beatriz.getVida(), 0.001);
