@@ -3,6 +3,7 @@ public class Saint {
     private Armadura armadura;
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
+    private Saint saint = Saint.VIVO;
     
     public Saint (String nome, Armadura armadura) {
         this.nome = nome;
