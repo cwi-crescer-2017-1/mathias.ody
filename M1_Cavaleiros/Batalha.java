@@ -9,10 +9,10 @@ public class Batalha {
     
     public void iniciar () {
         if (saint1.getValorCategoriaArmadura() >= saint2.getValorCategoriaArmadura()) {
-            saint1.perderVida(10);
+            saint2.perderVida(10);
         }
         else {
-            saint2.perderVida(10);
+            saint1.perderVida(10);
         }
     }
 }
