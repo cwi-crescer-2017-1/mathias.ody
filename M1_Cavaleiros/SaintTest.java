@@ -36,6 +36,13 @@ public class SaintTest{
     }
     
     @Test
+    public void generoMudaAoTrocarGenero () {
+        Saint etienne = new Saint ("Etienne", new Armadura ("Loire", Categoria.PRATA));
+        etienne.setGenero(Genero.FEMININO);
+        assertEquals (Genero.FEMININO, etienne.getGenero());
+    }
+    
+    @Test
     public void descontarValorVidaAoPerderVida () {
         Saint beatriz = new Saint ("Beatriz", new Armadura ("Yola", Categoria.OURO));
         double vidaInicial = beatriz.getVida();
