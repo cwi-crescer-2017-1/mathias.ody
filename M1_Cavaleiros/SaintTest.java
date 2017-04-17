@@ -16,37 +16,50 @@ public class SaintTest{
         boolean resultado = milo.getArmaduraVestida();
         assertEquals (true, resultado);
     }
-    
+
     @Test
     public void naoVestirArmaduraDeixaArmaduraNaoVestida(){
         Saint hyoga = new Saint ("Hyoga", new Armadura ("Cisne", Categoria.BRONZE));
         assertEquals (false, hyoga.getArmaduraVestida());
     }
-    
+
     @Test
     public void aoCriarSaintGeneroENaoInformado() {
         Saint shaka = new Saint ("Shaka", new Armadura ("Virgem", Categoria.OURO));
         assertEquals (Genero.NAO_INFORMADO, shaka.getGenero());
     }
-    
+
     @Test
     public void aoCriarSaintStatusEVivo () {
         Saint juca = new Saint ("Juca", new Armadura ("Yolo", Categoria.PRATA));
         assertEquals (Status.VIVO, juca.getStatus());
     }
-    
+
+    @Test
+    public void aoCriarSaintVidaE100 () {
+        Saint yuri = new Saint ("Yuri", new Armadura ("Gagarin", Categoria.PRATA));
+        assertEquals (100.0, yuri.getVida(), 0.001);
+    }
+
     @Test
     public void generoMudaAoTrocarGenero () {
         Saint etienne = new Saint ("Etienne", new Armadura ("Loire", Categoria.PRATA));
         etienne.setGenero(Genero.FEMININO);
         assertEquals (Genero.FEMININO, etienne.getGenero());
     }
-    
+
     @Test
     public void descontarValorVidaAoPerderVida () {
         Saint beatriz = new Saint ("Beatriz", new Armadura ("Yola", Categoria.OURO));
-        double vidaInicial = beatriz.getVida();
         beatriz.perderVida (10.0);
-        assertEquals ((100.0 - 10.0), beatriz.getVida(), 0.001);
+        assertEquals (90.0, beatriz.getVida(), 0.001);
+        
+        Saint joao = new Saint ("João", new Armadura ("Caminhão", Categoria.OURO));
+        joao.perderVida (100.0);
+        assertEquals (0.0, joao.getVida(), 0.001);
+        
+        Saint fulano = new Saint ("Fulano", new Armadura ("Ciclana", Categoria.OURO));
+        fulano.perderVida (-1000.0);
+        assertEquals (1100.0, fulano.getVida(), 0.001);
     }
 }
