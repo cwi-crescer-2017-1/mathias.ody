@@ -10,6 +10,16 @@ public class Saint {
     public Saint (String nome, Armadura armadura) {
         this.nome = nome;
         this.armadura = armadura;
+        
+        if (this.armadura.getCategoria() == Categoria.PRATA) {
+            this.qtdeSentidosDespertados = 6;
+        }
+        else if (this.armadura.getCategoria() == Categoria.OURO) {
+            this.qtdeSentidosDespertados = 7;
+        }
+        else{
+            this.qtdeSentidosDespertados = 5;
+        }
     }
     
     public void vestirArmadura () {

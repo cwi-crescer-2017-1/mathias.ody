@@ -68,4 +68,22 @@ public class SaintTest{
         Saint santo = new Saint ("Santo", new Armadura ("Cruz", Categoria.BRONZE));
         assertEquals (5, santo.getQtdeDeSentidosDespertados());
     }
+    
+    @Test
+    public void criarSaintBronzeNasceCom5SentidosDespertados() {
+        Saint santo = new Saint ("Santo", new Armadura ("Cruz", Categoria.BRONZE));
+        assertEquals (5, santo.getQtdeDeSentidosDespertados());
+    }
+    
+    @Test
+    public void criarSaintPrataNasceCom6SentidosDespertados() {
+        Saint santo = new Saint ("Santo", new Armadura ("Cruz", Categoria.PRATA));
+        assertEquals (6, santo.getQtdeDeSentidosDespertados());
+    }
+    
+    @Test
+    public void criarSaintOuroNasceCom7SentidosDespertados() {
+        Saint santo = new Saint ("Santo", new Armadura ("Cruz", Categoria.OURO));
+        assertEquals (7, santo.getQtdeDeSentidosDespertados());
+    }
 }
