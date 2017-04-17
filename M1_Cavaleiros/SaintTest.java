@@ -71,7 +71,7 @@ public class SaintTest{
     
     @Test
     public void criarSaintBronzeNasceCom5SentidosDespertados() throws Exception {
-        Saint santo = new Saint ("Santo", new Armadura ("Cruz", Categoria.BRONZE));
+        Saint santo = new BronzeSaint ("Santo", new Armadura ("Cruz", Categoria.BRONZE));
         assertEquals (5, santo.getQtdeDeSentidosDespertados());
     }
     
