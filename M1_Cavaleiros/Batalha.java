@@ -1,6 +1,7 @@
 public class Batalha {
     private Saint saint1;
     private Saint saint2;
+    private final double dano = 10.0; //Final == constante
     
     public Batalha (Saint saint1, Saint saint2) {
         this.saint1 = saint1;
@@ -9,10 +10,10 @@ public class Batalha {
     
     public void iniciar () {
         if (saint1.getValorCategoriaArmadura() >= saint2.getValorCategoriaArmadura()) {
-            this.saint2.perderVida(10);
+            this.saint2.perderVida(dano);
         }
         else {
-            this.saint1.perderVida(10);
+            this.saint1.perderVida(dano);
         }
     }
 }
