@@ -62,4 +62,10 @@ public class SaintTest{
         fulano.perderVida (-1000.0);
         assertEquals (1100.0, fulano.getVida(), 0.001);
     }
+    
+    @Test
+    public void aoCriarSaintSentidosDespertadosDeveSer5 () {
+        Saint santo = new Saint ("Santo", new Armadura ("Cruz", Categoria.BRONZE));
+        assertEquals (5, santo.getQtdeDeSentidosDespertados());
+    }
 }
