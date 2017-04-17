@@ -71,24 +71,24 @@ public class SaintTest{
     
     @Test
     public void criarSaintBronzeNasceCom5SentidosDespertados() throws Exception {
-        Saint santo = new BronzeSaint ("Santo", new Armadura ("Cruz", Categoria.BRONZE));
+        BronzeSaint santo = new BronzeSaint ("Santo", new Armadura ("Cruz", Categoria.BRONZE));
         assertEquals (5, santo.getQtdeDeSentidosDespertados());
     }
     
     @Test
     public void criarSaintPrataNasceCom6SentidosDespertados() throws Exception {
-        Saint santo = new Saint ("Santo", new Armadura ("Cruz", Categoria.PRATA));
+        SilverSaint santo = new SilverSaint ("Santo", new Armadura ("Cruz", Categoria.PRATA));
         assertEquals (6, santo.getQtdeDeSentidosDespertados());
     }
     
     @Test
     public void criarSaintOuroNasceCom7SentidosDespertados() throws Exception {
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura ("Touro", Categoria.OURO));
+        GoldSaint aldebaran = new GoldSaint ("Aldebaran", new Armadura ("Touro", Categoria.OURO));
         assertEquals (7, aldebaran.getQtdeDeSentidosDespertados());
     }
     
     @Test(expected=Exception.class)
     public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception {
-        Saint jack = new Saint ("Jack", new Armadura ("Café", Categoria.OURO));
+        GoldSaint jack = new GoldSaint ("Jack", new Armadura ("Café", Categoria.OURO));
     }
 }
