@@ -6,7 +6,7 @@ import org.junit.Test;
 public class BatalhaTest
 {
    @Test
-   public void emSaintsDeMesmaCategoriaOPrimeiroAtaca () {
+   public void emSaintsDeMesmaCategoriaOPrimeiroAtaca () throws Exception {
        Saint saint1 = new Saint ("Silva", new Armadura ("Sauro", Categoria.PRATA));
        Saint saint2 = new Saint ("Santos", new Armadura ("Angeles", Categoria.PRATA));
        Batalha batalha = new Batalha (saint1, saint2);
@@ -16,8 +16,8 @@ public class BatalhaTest
     }
     
     @Test
-    public void primeiroSaintCategoriaMaisAltaSegundoTomaDano () {
-       Saint saint1 = new Saint ("Silva", new Armadura ("Sauro", Categoria.OURO));
+    public void primeiroSaintCategoriaMaisAltaSegundoTomaDano () throws Exception {
+       Saint saint1 = new Saint ("Máscara Da Morte", new Armadura ("Câncer", Categoria.OURO));
        Saint saint2 = new Saint ("Santos", new Armadura ("Angeles", Categoria.PRATA));
        Batalha batalha = new Batalha (saint1, saint2);
        batalha.iniciar();
@@ -33,9 +33,9 @@ public class BatalhaTest
     }
     
     @Test
-    public void segundoSaintCategoriaMaisAltaPrimeiroTomaDano () {
+    public void segundoSaintCategoriaMaisAltaPrimeiroTomaDano () throws Exception {
        Saint saint1 = new Saint ("Silva", new Armadura ("Sauro", Categoria.PRATA));
-       Saint saint2 = new Saint ("Santos", new Armadura ("Angeles", Categoria.OURO));
+       Saint saint2 = new Saint ("Máscara Da Morte", new Armadura ("Câncer", Categoria.OURO));
        Batalha batalha = new Batalha (saint1, saint2);
        batalha.iniciar();
        assertEquals (90.0, saint1.getVida(),0.001);
