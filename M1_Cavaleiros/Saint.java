@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.security.*;
 
 public class Saint {
     private String nome;
@@ -35,8 +36,8 @@ public class Saint {
         return this.status;
     }
     
-    public void perderVida (double valor) throws Exception {
-        if (valor < 0) {throw new Exception ("Parâmetro inválido!");}
+    public void perderVida (double valor) throws InvalidParameterException {
+        if (valor < 0) {throw new InvalidParameterException ("Parâmetro inválido!");}
         if (this.status != Status.MORTO) {
             this.vida -= valor;
             if (this.vida < 1) {

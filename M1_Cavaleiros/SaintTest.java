@@ -2,6 +2,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.security.*;
 
 public class SaintTest{
     @Test
@@ -59,8 +60,8 @@ public class SaintTest{
         assertEquals (0.0, shaka.getVida(), 0.001);
     }
 
-    @Test(expected=Exception.class)
-    public void lancarExcecaoSeParametroDeDanoIncorreto() throws Exception {
+    @Test(expected=InvalidParameterException.class)
+    public void lancarExcecaoSeParametroDeDanoIncorreto() throws InvalidParameterException, Exception {
         Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
         milo.perderVida (-1000.0);
     }
