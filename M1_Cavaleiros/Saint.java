@@ -32,8 +32,14 @@ public class Saint {
         return this.status;
     }
     
-    public void perderVida (double valor) {
-        this.vida -= valor;
+    public void perderVida (double valor) throws Exception {
+        if (valor < 0) {throw new Exception ("Parâmetro inválido!");}
+        if (this.status != Status.MORTO) {
+            this.vida -= valor;
+            if (this.vida < 1) {
+                this.status = Status.MORTO;
+            }
+        }
     } 
     
     public double getVida () {
