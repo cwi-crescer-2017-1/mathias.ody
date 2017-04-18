@@ -42,6 +42,7 @@ public class Saint {
             this.vida -= valor;
             if (this.vida < 1) {
                 this.status = Status.MORTO;
+                this.vida = 0.0;
             }
         }
     } 
