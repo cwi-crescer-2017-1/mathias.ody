@@ -149,10 +149,10 @@ public class SaintTest{
         hyoga.aprenderGolpe (new Golpe ("Trovão Aurora Ataque", 3));
         hyoga.aprenderGolpe (new Golpe ("Execução Aurora", 4));
 
-        assertEquals(hyoga.getProximoGolpe().getNome(), "Pó de Diamante");
-        assertEquals(hyoga.getProximoGolpe().getNome(), "Trovão Aurora Ataque");
-        assertEquals(hyoga.getProximoGolpe().getNome(), "Execução Aurora");
-        assertEquals(hyoga.getProximoGolpe().getNome(), "Pó de Diamante");
-        assertEquals(hyoga.getProximoGolpe().getNome(), "Trovão Aurora Ataque");
+        assertEquals(hyoga.getProximoGolpe(), new Golpe ("Pó de Diamante", 2));
+        assertEquals(hyoga.getProximoGolpe(), new Golpe ("Trovão Aurora Ataque", 3));
+        assertEquals(hyoga.getProximoGolpe(), new Golpe ("Execução Aurora", 4));
+        assertEquals(hyoga.getProximoGolpe(), new Golpe ("Pó de Diamante", 2));
+        assertEquals(hyoga.getProximoGolpe(), new Golpe ("Trovão Aurora Ataque", 3));
     }
 }
