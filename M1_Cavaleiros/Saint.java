@@ -59,17 +59,21 @@ public class Saint {
         return this.qtdeSentidosDespertados;
     }
     
+    private Constelacao getConstelacao() {
+        return this.armadura.getConstelacao();
+    }
+    
     public ArrayList<Golpe> getGolpes () {
-        return this.armadura.getConstelacao().getGolpes();
+        return getConstelacao().getGolpes();
     }
     
     public void aprenderGolpe (Golpe golpe) {
-        this.armadura.getConstelacao().adicionarGolpe(golpe);
+        getConstelacao().adicionarGolpe(golpe);
     }
     
     public Golpe getProximoGolpe() {
         Golpe retorno;
-        ArrayList<Golpe> golpes = this.armadura.getConstelacao().getGolpes();
+        ArrayList<Golpe> golpes = getConstelacao().getGolpes();
         retorno = golpes.get(proximoGolpe);
         proximoGolpe ++;
         
