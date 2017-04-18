@@ -2,11 +2,10 @@ import java.util.ArrayList;
 
 public class Constelacao {
     private String nome;
-    private ArrayList<Golpe> golpes;
+    private ArrayList<Golpe> golpes = new ArrayList<Golpe>();
 
     public Constelacao (String nome) {
         this.nome = nome;
-        golpes = new ArrayList<Golpe>();
     }
 
     public ArrayList<Golpe> getGolpes () {
