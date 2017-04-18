@@ -50,28 +50,28 @@ public class SaintTest{
     }
 
     @Test
-    public void descontarValorVidaAoPerderVida () throws Exception {
+    public void descontarValorVidaAoPerder10DeVida () throws Exception {
         Saint mu = new Saint ("Mu", new Armadura (new Constelacao ("Áries"), Categoria.OURO));
         mu.perderVida (10.0);
         assertEquals (90.0, mu.getVida(), 0.001);
+    }
 
+    @Test
+    public void descontarValorVidaAoPerder100DeVida () throws Exception {
         Saint shaka = new Saint ("Shaka", new Armadura (new Constelacao ("Virgem"), Categoria.OURO));
         shaka.perderVida (100.0);
         assertEquals (0.0, shaka.getVida(), 0.001);
     }
 
-    @Test(expected=InvalidParameterException.class)
-    public void lancarExcecaoSeParametroDeDanoIncorreto() throws InvalidParameterException, Exception {
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
-        milo.perderVida (-1000.0);
-    }
-
     @Test
-    public void atualizarStatusPraMortoQuandoVidaMenorQue1 () throws Exception {
+    public void atualizarStatusPraMortoQuandoVidaMenorQue1Dano100 () throws Exception {
         Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
         milo.perderVida (100.0);
         assertEquals (Status.MORTO, milo.getStatus());
+    }
 
+    @Test
+    public void atualizarStatusPraMortoQuandoVidaMenorQue1Dano60E60 () throws Exception {
         Saint shaka = new Saint ("Shaka", new Armadura (new Constelacao ("Virgem"), Categoria.OURO));
         shaka.perderVida (60.0);
         assertEquals (Status.VIVO, shaka.getStatus());
@@ -87,6 +87,12 @@ public class SaintTest{
         assertEquals (0.0, milo.getVida(), 0.001);
         milo.perderVida (10.0);
         assertEquals (0.0, milo.getVida(), 0.001);
+    }
+    
+    @Test(expected=InvalidParameterException.class)
+    public void lancarExcecaoSeParametroDeDanoNegativo() throws InvalidParameterException, Exception {
+        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        milo.perderVida (-1000.0);
     }
 
     @Test
@@ -117,21 +123,21 @@ public class SaintTest{
     public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception {
         GoldSaint jack = new GoldSaint ("Jack", new Armadura (new Constelacao ("Yolo"), Categoria.OURO));
     }
-    
+
     @Test
     public void aprenderGolpeInsereGolpeNaConstelacaoDoSaint () throws Exception {
         GoldSaint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         aldebaran.aprenderGolpe (new Golpe ("Grande Chifre", 6));
         assertEquals (aldebaran.getProximoGolpe().getNome(), "Grande Chifre");
     }
-    
+
     @Test 
     public void proximoGolpePegaGolpesDeManeiraCircular () throws Exception {
         BronzeSaint hyoga = new BronzeSaint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
         hyoga.aprenderGolpe (new Golpe ("Pó de Diamante", 2));
         hyoga.aprenderGolpe (new Golpe ("Trovão Aurora Ataque", 3));
         hyoga.aprenderGolpe (new Golpe ("Execução Aurora", 4));
-        
+
         assertEquals(hyoga.getProximoGolpe().getNome(), "Pó de Diamante");
         assertEquals(hyoga.getProximoGolpe().getNome(), "Trovão Aurora Ataque");
         assertEquals(hyoga.getProximoGolpe().getNome(), "Execução Aurora");

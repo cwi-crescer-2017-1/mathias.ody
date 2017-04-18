@@ -37,7 +37,7 @@ public class Saint {
     }
     
     public void perderVida (double dano) throws InvalidParameterException {
-        if (dano < 0) {throw new InvalidParameterException ("Parâmetro inválido!");}
+        if (dano < 0) {throw new InvalidParameterException ("Parâmetro de dano inválido!");}
         if (this.status != Status.MORTO) {
             this.vida -= dano;
             if (this.vida < 1) {
