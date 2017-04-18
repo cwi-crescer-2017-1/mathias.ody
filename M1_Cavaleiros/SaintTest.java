@@ -116,4 +116,25 @@ public class SaintTest{
     public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception {
         GoldSaint jack = new GoldSaint ("Jack", new Armadura (new Constelacao ("Yolo"), Categoria.OURO));
     }
+    
+    @Test
+    public void aprenderGolpeInsereGolpeNaConstelacaoDoSaint () throws Exception {
+        GoldSaint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        aldebaran.aprenderGolpe (new Golpe ("Grande Chifre", 6));
+        assertEquals (aldebaran.getProximoGolpe().getNome(), "Grande Chifre");
+    }
+    
+    @Test 
+    public void proximoGolpePegaGolpesDeManeiraCircular () throws Exception {
+        BronzeSaint hyoga = new BronzeSaint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
+        hyoga.aprenderGolpe (new Golpe ("Pó de Diamante", 2));
+        hyoga.aprenderGolpe (new Golpe ("Trovão Aurora Ataque", 3));
+        hyoga.aprenderGolpe (new Golpe ("Execução Aurora", 4));
+        
+        assertEquals(hyoga.getProximoGolpe().getNome(), "Pó de Diamante");
+        assertEquals(hyoga.getProximoGolpe().getNome(), "Trovão Aurora Ataque");
+        assertEquals(hyoga.getProximoGolpe().getNome(), "Execução Aurora");
+        assertEquals(hyoga.getProximoGolpe().getNome(), "Pó de Diamante");
+        assertEquals(hyoga.getProximoGolpe().getNome(), "Trovão Aurora Ataque");
+    }
 }

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Saint {
     private String nome;
     private Armadura armadura;
@@ -6,6 +8,7 @@ public class Saint {
     private Status status = Status.VIVO;
     private double vida = 100.0;
     protected int qtdeSentidosDespertados = 5;
+    private int proximoGolpe = 0;
     
     public Saint (String nome, Armadura armadura) throws Exception{
         this.nome = nome;
@@ -52,5 +55,25 @@ public class Saint {
     
     public int getQtdeDeSentidosDespertados () {
         return this.qtdeSentidosDespertados;
+    }
+    
+    public ArrayList<Golpe> getGolpes () {
+        return this.armadura.getConstelacao().getGolpes();
+    }
+    
+    public void aprenderGolpe (Golpe golpe) {
+        this.armadura.getConstelacao().adicionarGolpe(golpe);
+    }
+    
+    public Golpe getProximoGolpe() {
+        Golpe retorno;
+        ArrayList<Golpe> golpes = this.armadura.getConstelacao().getGolpes();
+        retorno = golpes.get(proximoGolpe);
+        proximoGolpe ++;
+        
+        if (proximoGolpe == golpes.size()) {
+            proximoGolpe = 0;
+        }
+        return retorno;
     }
 }
