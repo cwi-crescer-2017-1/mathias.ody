@@ -128,7 +128,18 @@ public class SaintTest{
     public void aprenderGolpeInsereGolpeNaConstelacaoDoSaint () throws Exception {
         GoldSaint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         aldebaran.aprenderGolpe (new Golpe ("Grande Chifre", 6));
-        assertEquals (aldebaran.getProximoGolpe().getNome(), "Grande Chifre");
+        assertEquals (aldebaran.getProximoGolpe(), new Golpe ("Grande Chifre", 6));
+    }
+    
+    @Test
+    public void aprenderVariosGolpesInsereGolpesNaConstelacaoDoSaint () throws Exception {
+        GoldSaint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        aldebaran.aprenderGolpe (new Golpe ("Grande Chifre", 6));
+        aldebaran.aprenderGolpe (new Golpe ("Socão", 3));
+        aldebaran.aprenderGolpe (new Golpe ("Chutão", 3));
+        assertEquals (aldebaran.getProximoGolpe(), new Golpe ("Grande Chifre", 6));
+        assertEquals (aldebaran.getProximoGolpe(), new Golpe ("Socão", 3));
+        assertEquals (aldebaran.getProximoGolpe(), new Golpe ("Chutão", 3));
     }
 
     @Test 
