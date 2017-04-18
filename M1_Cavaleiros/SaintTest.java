@@ -9,7 +9,7 @@ public class SaintTest{
         //AAA 
         //1. Arrange - Montagem dos dados de teste
         Armadura escorpiao = new Armadura (new Constelacao ("Escorpião"), Categoria.OURO);
-        Saint milo = new Saint ("Milo", escorpiao);
+        GoldSaint milo = new GoldSaint ("Milo", escorpiao);
         //2. Act - Invocar a ação a ser testada
         milo.vestirArmadura();
         //3. Assert - Verificação dos resultados do teste
@@ -19,31 +19,31 @@ public class SaintTest{
 
     @Test
     public void naoVestirArmaduraDeixaArmaduraNaoVestida() throws Exception{
-        Saint hyoga = new Saint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
+        BronzeSaint hyoga = new BronzeSaint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
         assertEquals (false, hyoga.getArmaduraVestida());
     }
 
     @Test
     public void aoCriarSaintGeneroENaoInformado() throws Exception {
-        Saint shaka = new Saint ("Shaka", new Armadura (new Constelacao ("Virgem"), Categoria.OURO));
+        BronzeSaint shaka = new BronzeSaint ("Shaka", new Armadura (new Constelacao ("Virgem"), Categoria.OURO));
         assertEquals (Genero.NAO_INFORMADO, shaka.getGenero());
     }
 
     @Test
     public void aoCriarSaintStatusEVivo () throws Exception {
-        Saint juca = new Saint ("Juca", new Armadura (new Constelacao ("Yolo"), Categoria.PRATA));
+        BronzeSaint juca = new BronzeSaint ("Juca", new Armadura (new Constelacao ("Yolo"), Categoria.PRATA));
         assertEquals (Status.VIVO, juca.getStatus());
     }
 
     @Test
     public void aoCriarSaintVidaE100 () throws Exception {
-        Saint yuri = new Saint ("Yuri", new Armadura (new Constelacao ("Yolo"), Categoria.PRATA));
+        BronzeSaint yuri = new BronzeSaint ("Yuri", new Armadura (new Constelacao ("Yolo"), Categoria.PRATA));
         assertEquals (100.0, yuri.getVida(), 0.001);
     }
 
     @Test
     public void generoMudaAoTrocarGenero () throws Exception {
-        Saint etienne = new Saint ("Etienne", new Armadura (new Constelacao ("Yolo"), Categoria.PRATA));
+        BronzeSaint etienne = new BronzeSaint ("Etienne", new Armadura (new Constelacao ("Yolo"), Categoria.PRATA));
         etienne.setGenero(Genero.FEMININO);
         assertEquals (Genero.FEMININO, etienne.getGenero());
     }
