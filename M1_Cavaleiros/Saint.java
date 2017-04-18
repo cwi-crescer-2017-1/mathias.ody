@@ -36,10 +36,10 @@ public class Saint {
         return this.status;
     }
     
-    public void perderVida (double valor) throws InvalidParameterException {
-        if (valor < 0) {throw new InvalidParameterException ("Parâmetro inválido!");}
+    public void perderVida (double dano) throws InvalidParameterException {
+        if (dano < 0) {throw new InvalidParameterException ("Parâmetro inválido!");}
         if (this.status != Status.MORTO) {
-            this.vida -= valor;
+            this.vida -= dano;
             if (this.vida < 1) {
                 this.status = Status.MORTO;
                 this.vida = 0.0;
