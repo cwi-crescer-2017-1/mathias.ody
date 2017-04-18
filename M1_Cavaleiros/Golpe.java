@@ -6,4 +6,12 @@ public class Golpe {
         this.nome = nome;
         this.fatorDano = fatorDano;
     }
+    
+    public String getNome () {
+        return this.nome;
+    }
+    
+     public int getFatorDano () {
+        return this.fatorDano;
+    }
 }
