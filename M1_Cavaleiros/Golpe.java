@@ -1,6 +1,6 @@
 public class Golpe {
-    String nome;
-    int fatorDano;
+    private String nome;
+    private int fatorDano;
     
     public Golpe (String nome, int fatorDano) {
         this.nome = nome;
