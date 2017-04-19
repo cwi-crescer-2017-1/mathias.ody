@@ -97,6 +97,7 @@ public class ListaSaints
     }
 
     public void ordenar () {
+        //Poderia ter sido utilizado o método da bolha
         int proximoIndice = 0;
         int size = this.listaSaints.size();
         Saint [] tempSaints = new Saint [listaSaints.size()];
