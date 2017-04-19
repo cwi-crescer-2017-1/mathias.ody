@@ -35,7 +35,7 @@ public class ListaSaintsTest
     }
     
     @Test
-    public void buscarPorNomeRetornaSaintComNome () throws Exception {
+    public void buscarSaintExistente () throws Exception {
         Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
         Saint hyoga = new Saint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
         Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
@@ -48,7 +48,7 @@ public class ListaSaintsTest
     }
     
     @Test
-    public void buscarPorNomeRetornaOPrimeiroSaintComNome () throws Exception {
+    public void buscarSaintExistenteComRepeticaoDeNome () throws Exception {
         Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
         Saint hyoga = new Saint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
         Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
@@ -60,6 +60,28 @@ public class ListaSaintsTest
         listaSaints.adicionar (hyoga2);
         Saint saint = listaSaints.buscarPorNome ("Hyoga");
         assertEquals(saint, hyoga);
+    }
+    
+    @Test
+    public void buscarPorSaintInexistente () throws Exception {
+        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint hyoga = new Saint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
+        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint hyoga2 = new Saint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
+        ListaSaints listaSaints = new ListaSaints();
+        listaSaints.adicionar (seiya);
+        listaSaints.adicionar (hyoga);
+        listaSaints.adicionar (shun);
+        listaSaints.adicionar (hyoga2);
+        Saint saint = listaSaints.buscarPorNome ("Manolo");
+        assertNull(saint);
+    }
+    
+    @Test
+    public void buscarPorSaintComListaVazia () throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        Saint saint = listaSaints.buscarPorNome ("Manolo");
+        assertNull(saint);
     }
     
     @Test
