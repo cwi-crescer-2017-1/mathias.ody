@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class ListaSaints
 {
@@ -39,23 +40,28 @@ public class ListaSaints
     }
 
     public ArrayList<Saint> buscarPorCategoria (Categoria categoria) {
-        ArrayList<Saint> saintsDaCategoria = new ArrayList<>();
+        /*ArrayList<Saint> saintsDaCategoria = new ArrayList<>();
         for (Saint saint : listaSaints){
             if (categoria.equals (saint.getCategoriaArmadura())) {
                 saintsDaCategoria.add(saint);
             }
         }
-        return saintsDaCategoria;
+        return saintsDaCategoria;*/
+		return (ArrayList<Saint>) this.listaSaints.stream()
+		.filter (s -> s.getCategoriaArmadura().equals(categoria))
+		.collect(Collectors.toList());
     }
 
     public ArrayList<Saint> buscarPorStatus (Status status) {
-        ArrayList<Saint> saintsComStatus = new ArrayList<>();
+        /*ArrayList<Saint> saintsComStatus = new ArrayList<>();
         for (Saint saint : listaSaints){
             if (status.equals (saint.getStatus())) {
                 saintsComStatus.add(saint);
             }
-        }
-        return saintsComStatus;
+        }*/
+        return (ArrayList<Saint>) this.listaSaints.stream()
+		.filter (s -> s.getStatus().equals(status))
+		.collect(Collectors.toList());
     }
 
     public Saint getSaintMaiorVida() {
