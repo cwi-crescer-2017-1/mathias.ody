@@ -100,7 +100,7 @@ public class ListaSaints
         boolean posicoesSendoTrocadas;
         do {
             posicoesSendoTrocadas = false;
-            for (int i = 0; i < listaSaints.size() - 1;i++) {
+            for (int i = 0; i < listaSaints.size() - 1; i++) {
                 Saint atual = this.listaSaints.get(i);
                 Saint proximo = this.listaSaints.get(i + 1);
                 boolean precisaTrocar = atual.getVida() > proximo.getVida();

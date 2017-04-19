@@ -187,4 +187,22 @@ public class ListaSaintsTest
         assertEquals(listaSaints.get(2), seiya);
         assertEquals(listaSaints.get(3), aldebaran);
     }
+    
+    @Test
+    public void ordenarComListaVazia() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        listaSaints.ordenar();
+        ArrayList<Saint> resultado = listaSaints.todos();
+        assertEquals(new ArrayList<Saint>(), resultado);
+    }
+    
+    @Test
+    public void ordenarOrdenaOsElementosEmOrdemAscendenteDeVidaComUmSo () throws Exception {
+        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        ListaSaints listaSaints = new ListaSaints();
+        listaSaints.adicionar(seiya);
+        seiya.perderVida (15.0);
+        listaSaints.ordenar();
+        assertEquals(listaSaints.get(0), seiya);
+    }
 }
