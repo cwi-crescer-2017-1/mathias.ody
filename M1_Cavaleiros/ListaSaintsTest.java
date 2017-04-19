@@ -167,7 +167,7 @@ public class ListaSaintsTest
     }
 
     @Test
-    public void ordenarOrdenaOsElementosEmOrdemAscendenteDeVida () throws Exception {
+    public void ordenarOsElementosEmOrdemAscendenteDeVida () throws Exception {
         Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
         Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
         Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
@@ -204,5 +204,67 @@ public class ListaSaintsTest
         seiya.perderVida (15.0);
         listaSaints.ordenar();
         assertEquals(listaSaints.get(0), seiya);
+    }
+    
+    @Test
+    public void ordenarOsElementosEmOrdemDescendenteDeVida () throws Exception {
+        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        ListaSaints listaSaints = new ListaSaints();
+        listaSaints.adicionar (seiya);
+        listaSaints.adicionar (milo);
+        listaSaints.adicionar (shun);
+        listaSaints.adicionar (aldebaran);
+        seiya.perderVida (15.0);
+        milo.perderVida (80.0);
+        shun.perderVida (50.0);
+        aldebaran.perderVida(5.0);
+        listaSaints.ordenar(TipoOrdenacao.DESCENDENTE);
+        assertEquals(listaSaints.get(0), aldebaran);
+        assertEquals(listaSaints.get(1), seiya);
+        assertEquals(listaSaints.get(2), shun);
+        assertEquals(listaSaints.get(3), milo);
+    }
+    
+    @Test
+    public void ordenarComListaVaziaComParametro() throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        listaSaints.ordenar(TipoOrdenacao.DESCENDENTE);
+        ArrayList<Saint> resultado = listaSaints.todos();
+        assertEquals(new ArrayList<Saint>(), resultado);
+    }
+    
+    @Test
+    public void ordenarOrdenaOsElementosEmOrdemDescendenteDeVidaComUmSo () throws Exception {
+        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        ListaSaints listaSaints = new ListaSaints();
+        listaSaints.adicionar(seiya);
+        seiya.perderVida (15.0);
+        listaSaints.ordenar(TipoOrdenacao.DESCENDENTE);
+        assertEquals(listaSaints.get(0), seiya);
+    }
+    
+    @Test
+    public void ordenarOsElementosEmOrdemAscendenteDeVidaComParametro () throws Exception {
+        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        ListaSaints listaSaints = new ListaSaints();
+        listaSaints.adicionar (seiya);
+        listaSaints.adicionar (milo);
+        listaSaints.adicionar (shun);
+        listaSaints.adicionar (aldebaran);
+        seiya.perderVida (15.0);
+        milo.perderVida (80.0);
+        shun.perderVida (50.0);
+        aldebaran.perderVida(5.0);
+        listaSaints.ordenar(TipoOrdenacao.ASCENDENTE);
+        assertEquals(listaSaints.get(0), milo);
+        assertEquals(listaSaints.get(1), shun);
+        assertEquals(listaSaints.get(2), seiya);
+        assertEquals(listaSaints.get(3), aldebaran);
     }
 }
