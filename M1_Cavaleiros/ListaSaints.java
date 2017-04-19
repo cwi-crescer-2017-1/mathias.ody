@@ -97,25 +97,19 @@ public class ListaSaints
     }
 
     public void ordenar () {
-        //Poderia ter sido utilizado o método da bolha
-        int proximoIndice = 0;
-        int size = this.listaSaints.size();
-        Saint [] tempSaints = new Saint [listaSaints.size()];
-        tempSaints = listaSaints.toArray(tempSaints);
-        listaSaints.clear();
-        for (int i = 0; i < size; i++) {
-            Saint saintComMenorVida = null;
-            double menorVida = 100.0;
-            int indiceMenorVida = -1;
-            for (int j = 0; j < size; j++) {
-                if (tempSaints[j] != null && tempSaints[j].getVida() < menorVida) {
-                    saintComMenorVida = tempSaints[j];
-                    menorVida = tempSaints[j].getVida();
-                    indiceMenorVida = j;
+        boolean posicoesSendoTrocadas;
+        do {
+            posicoesSendoTrocadas = false;
+            for (int i = 0; i < listaSaints.size() - 1;i++) {
+                Saint atual = this.listaSaints.get(i);
+                Saint proximo = this.listaSaints.get(i + 1);
+                boolean precisaTrocar = atual.getVida() > proximo.getVida();
+                if (precisaTrocar) {
+                    this.listaSaints.set(i, proximo);
+                    this.listaSaints.set(i + 1, atual);
+                    posicoesSendoTrocadas = true;
                 }
             }
-            tempSaints[indiceMenorVida] = null;
-            this.listaSaints.add(saintComMenorVida);
-        }
+        } while (posicoesSendoTrocadas);
     }
 }
