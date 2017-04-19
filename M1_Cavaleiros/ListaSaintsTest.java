@@ -19,7 +19,7 @@ public class ListaSaintsTest
         assertEquals(listaSaints.get(1), hyoga);
         assertEquals(listaSaints.get(2), shun);
     }
-    
+
     @Test
     public void removerSaintRetiraSaintDaLista () throws Exception {
         Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
@@ -33,7 +33,7 @@ public class ListaSaintsTest
         assertEquals(listaSaints.get(0), seiya);
         assertEquals(listaSaints.get(1), shun);
     }
-    
+
     @Test
     public void buscarSaintExistente () throws Exception {
         Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
@@ -46,7 +46,7 @@ public class ListaSaintsTest
         Saint saint = listaSaints.buscarPorNome ("Hyoga");
         assertEquals(saint, hyoga);
     }
-    
+
     @Test
     public void buscarSaintExistenteComRepeticaoDeNome () throws Exception {
         Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
@@ -61,7 +61,7 @@ public class ListaSaintsTest
         Saint saint = listaSaints.buscarPorNome ("Hyoga");
         assertEquals(saint, hyoga);
     }
-    
+
     @Test
     public void buscarPorSaintInexistente () throws Exception {
         Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
@@ -76,14 +76,14 @@ public class ListaSaintsTest
         Saint saint = listaSaints.buscarPorNome ("Manolo");
         assertNull(saint);
     }
-    
+
     @Test
     public void buscarPorSaintComListaVazia () throws Exception {
         ListaSaints listaSaints = new ListaSaints();
         Saint saint = listaSaints.buscarPorNome ("Manolo");
         assertNull(saint);
     }
-    
+
     @Test
     public void buscarPorCategoriaRetornaListaComSaintsDaCategoria () throws Exception {
         Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
@@ -99,7 +99,7 @@ public class ListaSaintsTest
         assertEquals(goldSaints.get(0), milo);
         assertEquals(goldSaints.get(1), aldebaran);
     }
-    
+
     @Test
     public void buscarPorStatusRetornaListaComSaintsNesseStatus () throws Exception {
         Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
@@ -117,7 +117,7 @@ public class ListaSaintsTest
         assertEquals(saintsMortos.get(0), milo);
         assertEquals(saintsMortos.get(1), shun);
     }
-    
+
     @Test
     public void getSaintMaiorVidaRetornaSaintMaiorDeVida () throws Exception {
         Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
@@ -135,7 +135,13 @@ public class ListaSaintsTest
         aldebaran.perderVida(5.0);
         assertEquals(listaSaints.getSaintMaiorVida(), aldebaran);
     }
-    
+
+    @Test
+    public void getSaintMaiorVidaListaSaintsNula () throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        assertNull(listaSaints.getSaintMaiorVida());
+    }
+
     @Test
     public void getSaintMenorVidaRetornaSaintMenorDeVida () throws Exception {
         Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
@@ -153,7 +159,13 @@ public class ListaSaintsTest
         aldebaran.perderVida(5.0);
         assertEquals(listaSaints.getSaintMenorVida(), milo);
     }
-    
+
+    @Test
+    public void getSaintMenorVidaListaSaintsNula () throws Exception {
+        ListaSaints listaSaints = new ListaSaints();
+        assertNull(listaSaints.getSaintMenorVida());
+    }
+
     @Test
     public void ordenarOrdenaOsElementosEmOrdemAscendenteDeVida () throws Exception {
         Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
