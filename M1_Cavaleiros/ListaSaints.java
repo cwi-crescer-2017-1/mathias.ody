@@ -21,12 +21,21 @@ public class ListaSaints
     }
 
     public Saint buscarPorNome (String nome){
+	/*
         for (Saint saint : listaSaints){
             if (nome.equals (saint.getNome())) {
                 return saint;
             }
         }
         return null;
+		*/
+		//JAVA 8 LAMBDA
+		return this.listaSaints.stream()
+		.filter (s -> s.getNome().equals(nome))
+		.findFirst()
+		.orElse(null);
+	
+		//interfaces fluentes
     }
 
     public ArrayList<Saint> buscarPorCategoria (Categoria categoria) {
@@ -78,7 +87,6 @@ public class ListaSaints
         int size = this.listaSaints.size();
         Saint [] tempSaints = new Saint [listaSaints.size()];
         tempSaints = listaSaints.toArray(tempSaints);
-        //Saint [] resultSaints = new Saint [listaSaints.size()];
         listaSaints.clear();
         for (int i = 0; i < size; i++) {
             Saint saintComMenorVida = null;
