@@ -100,12 +100,14 @@ public class ListaSaints
     
     public String getCSV() {
         if (listaSaints.isEmpty()) {return "";}
-        
-        String csv = listaSaints.get(0).getCSV() + "\n";
+        String separador = System.getProperty("line.separator");
+        StringBuilder builder = new StringBuilder (512);
+        builder.append (listaSaints.get(0).getCSV());
+        builder.append(separador);
         for (int i = 1; i < listaSaints.size(); i++) {
-            csv += listaSaints.get(i).getCSV();
-            if (i < (listaSaints.size() - 1)) {csv += "\n";}
+            builder.append (listaSaints.get(i).getCSV());
+            if (i < (listaSaints.size() - 1)) {builder.append (separador);}
         }
-        return csv;
+        return builder.toString();
     }
 }
