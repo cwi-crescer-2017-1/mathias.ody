@@ -77,33 +77,34 @@ dependency31.type=UsesDependency
 dependency32.from=SaintTest
 dependency32.to=Saint
 dependency32.type=UsesDependency
-dependency33.from=ListaSaintsTest
+dependency33.from=ListaSaints
 dependency33.to=Saint
 dependency33.type=UsesDependency
-dependency34.from=ListaSaintsTest
-dependency34.to=Armadura
+dependency34.from=ListaSaints
+dependency34.to=Categoria
 dependency34.type=UsesDependency
-dependency35.from=ListaSaintsTest
-dependency35.to=Constelacao
+dependency35.from=ListaSaints
+dependency35.to=Status
 dependency35.type=UsesDependency
-dependency36.from=ListaSaintsTest
-dependency36.to=Categoria
+dependency36.from=ListaSaints
+dependency36.to=TipoOrdenacao
 dependency36.type=UsesDependency
 dependency37.from=ListaSaintsTest
-dependency37.to=Status
+dependency37.to=Saint
 dependency37.type=UsesDependency
-dependency38.from=ListaSaints
-dependency38.to=Saint
+dependency38.from=ListaSaintsTest
+dependency38.to=Armadura
 dependency38.type=UsesDependency
-dependency39.from=ListaSaints
-dependency39.to=Categoria
+dependency39.from=ListaSaintsTest
+dependency39.to=Constelacao
 dependency39.type=UsesDependency
 dependency4.from=Armadura
 dependency4.to=Constelacao
 dependency4.type=UsesDependency
-dependency40.from=ListaSaints
-dependency40.to=Status
+dependency40.from=ListaSaintsTest
+dependency40.to=Categoria
 dependency40.type=UsesDependency
+<<<<<<< Updated upstream
 dependency41.from=ListaSaints
 dependency41.to=TipoOrdenacao
 dependency41.type=UsesDependency
@@ -113,6 +114,14 @@ dependency42.type=UsesDependency
 dependency43.from=ListaSaintsTest
 dependency43.to=TipoOrdenacao
 dependency43.type=UsesDependency
+=======
+dependency41.from=ListaSaintsTest
+dependency41.to=Status
+dependency41.type=UsesDependency
+dependency42.from=ListaSaintsTest
+dependency42.to=TipoOrdenacao
+dependency42.type=UsesDependency
+>>>>>>> Stashed changes
 dependency5.from=SilverSaint
 dependency5.to=Armadura
 dependency5.type=UsesDependency
@@ -128,21 +137,36 @@ dependency8.type=UsesDependency
 dependency9.from=BatalhaTest
 dependency9.to=Batalha
 dependency9.type=UsesDependency
+<<<<<<< Updated upstream
 editor.fx.0.height=0
 editor.fx.0.width=0
 editor.fx.0.x=0
+=======
+editor.fx.0.height=736
+editor.fx.0.width=697
+editor.fx.0.x=676
+>>>>>>> Stashed changes
 editor.fx.0.y=0
 objectbench.height=74
 objectbench.width=801
 package.divider.horizontal=0.600297176820208
+<<<<<<< Updated upstream
 package.divider.vertical=0.8744186046511628
 package.editor.height=557
+=======
+package.divider.vertical=0.8732394366197183
+package.editor.height=551
+>>>>>>> Stashed changes
 package.editor.width=1235
-package.editor.x=-8
-package.editor.y=-8
-package.frame.height=744
+package.editor.x=-27
+package.editor.y=60
+package.frame.height=739
 package.frame.width=1382
+<<<<<<< Updated upstream
 package.numDependencies=43
+=======
+package.numDependencies=42
+>>>>>>> Stashed changes
 package.numTargets=17
 package.showExtends=true
 package.showUses=true
@@ -286,8 +310,13 @@ target8.showInterface=false
 target8.type=EnumTarget
 target8.typeParameters=
 target8.width=110
+<<<<<<< Updated upstream
 target8.x=70
 target8.y=10
+=======
+target8.x=940
+target8.y=270
+>>>>>>> Stashed changes
 target9.height=50
 target9.name=Categoria
 target9.naviview.expanded=true

@@ -92,7 +92,7 @@ public class ListaSaints
                 Saint proximo = this.listaSaints.get(i + 1);
                 boolean precisaTrocar = false; 
                 precisaTrocar = isAscendente? atual.getVida() > proximo.getVida() : 
-                atual.getVida() < proximo.getVida();
+                                              atual.getVida() < proximo.getVida();
                 if (precisaTrocar) {
                     this.listaSaints.set(i, proximo);
                     this.listaSaints.set(i + 1, atual);
