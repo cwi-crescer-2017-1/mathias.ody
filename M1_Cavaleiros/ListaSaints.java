@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class ListaSaints
+public final class ListaSaints
 {
     private ArrayList<Saint> listaSaints = new ArrayList<Saint>();
 
