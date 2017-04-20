@@ -80,10 +80,7 @@ public class ListaSaints
     }
 
     public void ordenar (TipoOrdenacao ordenacao) {
-        boolean isAscendente = false;
-        if (TipoOrdenacao.ASCENDENTE == ordenacao) {
-            isAscendente = true;
-        }
+        boolean isAscendente = (TipoOrdenacao.ASCENDENTE == ordenacao);
         boolean posicoesSendoTrocadas;
         do {
             posicoesSendoTrocadas = false;
@@ -91,8 +88,7 @@ public class ListaSaints
                 Saint atual = this.listaSaints.get(i);
                 Saint proximo = this.listaSaints.get(i + 1);
                 boolean precisaTrocar = false; 
-                precisaTrocar = isAscendente? atual.getVida() > proximo.getVida() : 
-                                              atual.getVida() < proximo.getVida();
+                precisaTrocar = isAscendente? atual.getVida() > proximo.getVida() : atual.getVida() < proximo.getVida();
                 if (precisaTrocar) {
                     this.listaSaints.set(i, proximo);
                     this.listaSaints.set(i + 1, atual);
