@@ -54,20 +54,24 @@ public class Saint {
     public double getVida () {
         return this.vida;
     }
+    
+    public double getVidaArredondada () {
+        return (double) Math.round (this.vida * 100000.0) / 100000.0d;
+    }
 
     public int getValorCategoriaArmadura() {
         return armadura.getValorCategoria();
     }
 
-	public Categoria getCategoriaArmadura() {
-		return this.armadura.getCategoria();
-	}
+    public Categoria getCategoriaArmadura() {
+        return this.armadura.getCategoria();
+    }
 
     public int getQtdeDeSentidosDespertados () {
         return this.qtdeSentidosDespertados;
     }
 
-    private Constelacao getConstelacao() {
+    public Constelacao getConstelacao() {
         return this.armadura.getConstelacao();
     }
 

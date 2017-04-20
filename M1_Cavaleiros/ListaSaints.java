@@ -101,4 +101,20 @@ public class ListaSaints
             }
         } while (posicoesSendoTrocadas);
     }
+    
+    public String getCSV() {
+        String csv = "";
+        for (int i = 0; i < listaSaints.size(); i++) {
+            Saint saint = listaSaints.get(i);
+            csv += saint.getNome() + "," +
+            saint.getVidaArredondada() + "," +
+            saint.getGenero() + "," +
+            saint.getConstelacao().getNome() + "," +
+            saint.getCategoriaArmadura() + "," +
+            saint.getStatus() + "," +
+            saint.getGenero ();
+            if (i < (listaSaints.size() - 1)) {csv += "\n";}
+        }
+        return csv;
+    }
 }

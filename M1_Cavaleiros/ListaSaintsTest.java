@@ -267,4 +267,25 @@ public class ListaSaintsTest
         assertEquals(listaSaints.get(2), seiya);
         assertEquals(listaSaints.get(3), aldebaran);
     }
+    
+    @Test
+    public void getCSVRetornaStringComListaSaints () throws Exception{
+        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        ListaSaints listaSaints = new ListaSaints();
+        listaSaints.adicionar (seiya);
+        seiya.perderVida (89.3);
+        listaSaints.adicionar (milo);
+        String csv = listaSaints.getCSV();
+        String resultadoEsperado = "Seiya,10.7,NAO_INFORMADO,Pégaso,BRONZE,VIVO,NAO_INFORMADO\nMilo,100.0,NAO_INFORMADO,Escorpião,OURO,VIVO,NAO_INFORMADO";
+        assertEquals(csv, resultadoEsperado);
+    }
+    
+    @Test
+    public void getCSVComListaVazia () throws Exception{
+        ListaSaints listaSaints = new ListaSaints();
+        String csv = listaSaints.getCSV();
+        String resultadoEsperado = "";
+        assertEquals(csv, resultadoEsperado);
+    }
 }
