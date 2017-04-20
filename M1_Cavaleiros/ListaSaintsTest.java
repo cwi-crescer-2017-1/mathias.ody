@@ -277,7 +277,7 @@ public class ListaSaintsTest
         seiya.perderVida (89.3);
         listaSaints.adicionar (milo);
         String csv = listaSaints.getCSV();
-        String resultadoEsperado = "Seiya,10.7,NAO_INFORMADO,Pégaso,BRONZE,VIVO,NAO_INFORMADO\nMilo,100.0,NAO_INFORMADO,Escorpião,OURO,VIVO,NAO_INFORMADO";
+        String resultadoEsperado = "Seiya,10.7,Pégaso,BRONZE,VIVO,NAO_INFORMADO,false\nMilo,100.0,Escorpião,OURO,VIVO,NAO_INFORMADO,false";
         assertEquals(csv, resultadoEsperado);
     }
     

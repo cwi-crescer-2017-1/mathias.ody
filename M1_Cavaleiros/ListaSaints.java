@@ -99,16 +99,11 @@ public class ListaSaints
     }
     
     public String getCSV() {
-        String csv = "";
-        for (int i = 0; i < listaSaints.size(); i++) {
-            Saint saint = listaSaints.get(i);
-            csv += saint.getNome() + "," +
-            saint.getVidaArredondada() + "," +
-            saint.getGenero() + "," +
-            saint.getConstelacao().getNome() + "," +
-            saint.getCategoriaArmadura() + "," +
-            saint.getStatus() + "," +
-            saint.getGenero ();
+        if (listaSaints.isEmpty()) {return "";}
+        
+        String csv = listaSaints.get(0).getCSV() + "\n";
+        for (int i = 1; i < listaSaints.size(); i++) {
+            csv += listaSaints.get(i).getCSV();
             if (i < (listaSaints.size() - 1)) {csv += "\n";}
         }
         return csv;

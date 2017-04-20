@@ -54,7 +54,7 @@ public class Saint {
     public double getVida () {
         return this.vida;
     }
-    
+
     public double getVidaArredondada () {
         return (double) Math.round (this.vida * 100000.0) / 100000.0d;
     }
@@ -93,5 +93,18 @@ public class Saint {
             proximoGolpe = 0;
         }
         return retorno;
+    }
+
+    public String getCSV() {
+        return String.format(
+            "%s,%s,%s,%s,%s,%s,%s", 
+            this.nome, 
+            this.getVidaArredondada(), 
+            this.getConstelacao().getNome(),
+            this.armadura.getCategoria(),
+            this.status,
+            this.genero,
+            this.armaduraVestida
+        );
     }
 }
