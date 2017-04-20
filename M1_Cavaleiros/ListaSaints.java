@@ -22,14 +22,6 @@ public class ListaSaints
     }
 
     public Saint buscarPorNome (String nome){
-        /*
-        for (Saint saint : listaSaints){
-        if (nome.equals (saint.getNome())) {
-        return saint;
-        }
-        }
-        return null;
-         */
         //JAVA 8 LAMBDA
         return this.listaSaints.stream()
         .filter (s -> s.getNome().equals(nome))
@@ -40,25 +32,12 @@ public class ListaSaints
     }
 
     public ArrayList<Saint> buscarPorCategoria (Categoria categoria) {
-        /*ArrayList<Saint> saintsDaCategoria = new ArrayList<>();
-        for (Saint saint : listaSaints){
-        if (categoria.equals (saint.getCategoriaArmadura())) {
-        saintsDaCategoria.add(saint);
-        }
-        }
-        return saintsDaCategoria;*/
         return (ArrayList<Saint>) this.listaSaints.stream()
         .filter (s -> s.getCategoriaArmadura().equals(categoria))
         .collect(Collectors.toList());
     }
 
     public ArrayList<Saint> buscarPorStatus (Status status) {
-        /*ArrayList<Saint> saintsComStatus = new ArrayList<>();
-        for (Saint saint : listaSaints){
-        if (status.equals (saint.getStatus())) {
-        saintsComStatus.add(saint);
-        }
-        }*/
         return (ArrayList<Saint>) this.listaSaints.stream()
         .filter (s -> s.getStatus().equals(status))
         .collect(Collectors.toList());
