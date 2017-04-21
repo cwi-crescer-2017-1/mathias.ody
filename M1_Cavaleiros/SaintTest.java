@@ -154,4 +154,16 @@ public class SaintTest{
         assertEquals(hyoga.getProximoGolpe(), new Golpe ("Pó de Diamante", 2));
         assertEquals(hyoga.getProximoGolpe(), new Golpe ("Trovão Aurora Ataque", 3));
     }
+    
+    @Test 
+    public void proximoMovimentoDeManeiraCircular () throws Exception {
+        BronzeSaint hyoga = new BronzeSaint ("Hyoga", "Cisne");
+        BronzeSaint seiya = new BronzeSaint ("Seiya", "Pégaso");
+        hyoga.adicionarMovimento (new Golpear (hyoga, seiya));
+        hyoga.adicionarMovimento (new VestirArmadura (hyoga));
+
+        assertEquals(true, hyoga.getProximoMovimento() instanceof Golpear);
+        assertEquals(true, hyoga.getProximoMovimento() instanceof VestirArmadura);
+        assertEquals(true, hyoga.getProximoMovimento() instanceof Golpear);
+    }
 }
