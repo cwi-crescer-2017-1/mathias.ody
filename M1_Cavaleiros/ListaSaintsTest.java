@@ -8,9 +8,9 @@ public class ListaSaintsTest
 {
     @Test
     public void adicionarSaintAdicionaSaintAoFinalDaLista () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint hyoga = new Saint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint hyoga = new BronzeSaint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar (seiya);
         listaSaints.adicionar (hyoga);
@@ -22,9 +22,9 @@ public class ListaSaintsTest
 
     @Test
     public void removerSaintRetiraSaintDaLista () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint hyoga = new Saint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint hyoga = new BronzeSaint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar (seiya);
         listaSaints.adicionar (hyoga);
@@ -36,9 +36,9 @@ public class ListaSaintsTest
 
     @Test
     public void buscarSaintExistente () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint hyoga = new Saint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint hyoga = new BronzeSaint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar (seiya);
         listaSaints.adicionar (hyoga);
@@ -49,10 +49,10 @@ public class ListaSaintsTest
 
     @Test
     public void buscarSaintExistenteComRepeticaoDeNome () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint hyoga = new Saint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint hyoga2 = new Saint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint hyoga = new BronzeSaint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint hyoga2 = new BronzeSaint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar (seiya);
         listaSaints.adicionar (hyoga);
@@ -64,10 +64,10 @@ public class ListaSaintsTest
 
     @Test
     public void buscarPorSaintInexistente () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint hyoga = new Saint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint hyoga2 = new Saint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint hyoga = new BronzeSaint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint hyoga2 = new BronzeSaint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar (seiya);
         listaSaints.adicionar (hyoga);
@@ -86,10 +86,10 @@ public class ListaSaintsTest
 
     @Test
     public void buscarPorCategoriaRetornaListaComSaintsDaCategoria () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar (seiya);
         listaSaints.adicionar (milo);
@@ -102,10 +102,10 @@ public class ListaSaintsTest
 
     @Test
     public void buscarPorStatusRetornaListaComSaintsNesseStatus () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar (seiya);
         listaSaints.adicionar (milo);
@@ -120,10 +120,10 @@ public class ListaSaintsTest
 
     @Test
     public void getSaintMaiorVidaRetornaSaintMaiorDeVida () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar (seiya);
         listaSaints.adicionar (milo);
@@ -144,10 +144,10 @@ public class ListaSaintsTest
 
     @Test
     public void getSaintMenorVidaRetornaSaintMenorDeVida () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar (seiya);
         listaSaints.adicionar (milo);
@@ -168,10 +168,10 @@ public class ListaSaintsTest
 
     @Test
     public void ordenarOsElementosEmOrdemAscendenteDeVida () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar (seiya);
         listaSaints.adicionar (milo);
@@ -198,7 +198,7 @@ public class ListaSaintsTest
     
     @Test
     public void ordenarOrdenaOsElementosEmOrdemAscendenteDeVidaComUmSo () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar(seiya);
         seiya.perderVida (15.0);
@@ -208,10 +208,10 @@ public class ListaSaintsTest
     
     @Test
     public void ordenarOsElementosEmOrdemDescendenteDeVida () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar (seiya);
         listaSaints.adicionar (milo);
@@ -238,7 +238,7 @@ public class ListaSaintsTest
     
     @Test
     public void ordenarOrdenaOsElementosEmOrdemDescendenteDeVidaComUmSo () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar(seiya);
         seiya.perderVida (15.0);
@@ -248,10 +248,10 @@ public class ListaSaintsTest
     
     @Test
     public void ordenarOsElementosEmOrdemAscendenteDeVidaComParametro () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar (seiya);
         listaSaints.adicionar (milo);
@@ -270,8 +270,8 @@ public class ListaSaintsTest
     
     @Test
     public void getCSVRetornaStringComListaSaints () throws Exception{
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
         ListaSaints listaSaints = new ListaSaints();
         listaSaints.adicionar (seiya);
         seiya.perderVida (89.3);
@@ -292,10 +292,10 @@ public class ListaSaintsTest
     
     @Test
     public void unirDuasListas () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         ListaSaints lista1 = new ListaSaints();
         ListaSaints lista2 = new ListaSaints();
         lista1.adicionar (seiya);
@@ -311,8 +311,8 @@ public class ListaSaintsTest
     
     @Test
     public void unirDuasListasLista1Vazia() throws Exception {
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         ListaSaints lista1 = new ListaSaints();
         ListaSaints lista2 = new ListaSaints();
         lista2.adicionar (shun);
@@ -324,8 +324,8 @@ public class ListaSaintsTest
     
     @Test
     public void unirDuasListasLista2Vazia() throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
         ListaSaints lista1 = new ListaSaints();
         ListaSaints lista2 = new ListaSaints();
         lista1.adicionar (seiya);
@@ -337,11 +337,11 @@ public class ListaSaintsTest
     
     @Test
     public void diffDuasListas () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
-        Saint mu = new Saint ("Mu", new Armadura (new Constelacao ("Áries"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint mu = new GoldSaint ("Mu", new Armadura (new Constelacao ("Áries"), Categoria.OURO));
         ListaSaints lista1 = new ListaSaints();
         ListaSaints lista2 = new ListaSaints();
         lista1.adicionar (seiya);
@@ -359,8 +359,8 @@ public class ListaSaintsTest
     
     @Test
     public void diffDuasListasLista1Vazia() throws Exception {
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         ListaSaints lista1 = new ListaSaints();
         ListaSaints lista2 = new ListaSaints();
         lista2.adicionar (shun);
@@ -372,8 +372,8 @@ public class ListaSaintsTest
     
     @Test
     public void diffDuasListasLista2Vazia() throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
         ListaSaints lista1 = new ListaSaints();
         ListaSaints lista2 = new ListaSaints();
         lista1.adicionar (seiya);
@@ -385,11 +385,11 @@ public class ListaSaintsTest
     
     @Test
     public void intersecDuasListas () throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
-        Saint mu = new Saint ("Mu", new Armadura (new Constelacao ("Áries"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint mu = new GoldSaint ("Mu", new Armadura (new Constelacao ("Áries"), Categoria.OURO));
         ListaSaints lista1 = new ListaSaints();
         ListaSaints lista2 = new ListaSaints();
         lista1.adicionar (seiya);
@@ -408,8 +408,8 @@ public class ListaSaintsTest
     
     @Test
     public void intersecDuasListasLista1Vazia() throws Exception {
-        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
-        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint shun = new BronzeSaint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         ListaSaints lista1 = new ListaSaints();
         ListaSaints lista2 = new ListaSaints();
         lista2.adicionar (shun);
@@ -420,8 +420,8 @@ public class ListaSaintsTest
     
     @Test
     public void intersecDuasListasLista2Vazia() throws Exception {
-        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint seiya = new BronzeSaint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
         ListaSaints lista1 = new ListaSaints();
         ListaSaints lista2 = new ListaSaints();
         lista1.adicionar (seiya);

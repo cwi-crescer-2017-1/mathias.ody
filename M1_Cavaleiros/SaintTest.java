@@ -51,28 +51,28 @@ public class SaintTest{
 
     @Test
     public void descontarValorVidaAoPerder10DeVida () throws Exception {
-        Saint mu = new Saint ("Mu", new Armadura (new Constelacao ("Áries"), Categoria.OURO));
+        Saint mu = new GoldSaint ("Mu", new Armadura (new Constelacao ("Áries"), Categoria.OURO));
         mu.perderVida (10.0);
         assertEquals (90.0, mu.getVida(), 0.001);
     }
 
     @Test
     public void descontarValorVidaAoPerder100DeVida () throws Exception {
-        Saint shaka = new Saint ("Shaka", new Armadura (new Constelacao ("Virgem"), Categoria.OURO));
+        Saint shaka = new GoldSaint ("Shaka", new Armadura (new Constelacao ("Virgem"), Categoria.OURO));
         shaka.perderVida (100.0);
         assertEquals (0.0, shaka.getVida(), 0.001);
     }
 
     @Test
     public void atualizarStatusPraMortoQuandoVidaMenorQue1Dano100 () throws Exception {
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
         milo.perderVida (100.0);
         assertEquals (Status.MORTO, milo.getStatus());
     }
 
     @Test
     public void atualizarStatusPraMortoQuandoVidaMenorQue1Dano60E60 () throws Exception {
-        Saint shaka = new Saint ("Shaka", new Armadura (new Constelacao ("Virgem"), Categoria.OURO));
+        Saint shaka = new GoldSaint ("Shaka", new Armadura (new Constelacao ("Virgem"), Categoria.OURO));
         shaka.perderVida (60.0);
         assertEquals (Status.VIVO, shaka.getStatus());
         shaka.perderVida (60.0);
@@ -81,7 +81,7 @@ public class SaintTest{
 
     @Test
     public void saintNaoPodeTerVidaAlteradaQuandoMorto () throws Exception {
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
         milo.perderVida (100.0);
         assertEquals (Status.MORTO, milo.getStatus());
         assertEquals (0.0, milo.getVida(), 0.001);
@@ -91,13 +91,13 @@ public class SaintTest{
     
     @Test(expected=InvalidParameterException.class)
     public void lancarExcecaoSeParametroDeDanoNegativo() throws InvalidParameterException, Exception {
-        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
         milo.perderVida (-1000.0);
     }
 
     @Test
     public void aoCriarSaintSentidosDespertadosDeveSer5 () throws Exception {
-        Saint santo = new Saint ("Santo", new Armadura (new Constelacao ("Yolo"), Categoria.BRONZE));
+        Saint santo = new BronzeSaint ("Santo", new Armadura (new Constelacao ("Yolo"), Categoria.BRONZE));
         assertEquals (5, santo.getQtdeDeSentidosDespertados());
     }
 
