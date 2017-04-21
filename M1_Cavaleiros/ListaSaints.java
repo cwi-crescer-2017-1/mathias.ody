@@ -98,6 +98,19 @@ public final class ListaSaints
         } while (posicoesSendoTrocadas);
     }
     
+    public ListaSaints unir (ListaSaints lista) {
+        ArrayList<Saint> listaAtual = this.listaSaints;
+        ArrayList<Saint> listaParaAdicionar = lista.todos();
+        ListaSaints resultado = new ListaSaints();
+        for (Saint saint : listaAtual) {
+            resultado.adicionar (saint);
+        }
+        for (Saint saint : listaParaAdicionar) {
+            resultado.adicionar (saint);
+        }
+        return resultado;
+    }
+    
     public String getCSV() {
         if (listaSaints.isEmpty()) {return "";}
         String separador = System.getProperty("line.separator");
