@@ -116,7 +116,7 @@ public class BatalhaTest
         ouro.aprenderGolpe(new Golpe ("Outra Dimensão", 5));
         ouro.aprenderGolpe(new Golpe ("Explosão Galática", 10));
         prata.aprenderGolpe (new Golpe ("Eixo das Asas Negras", 5));
-        prata.aprenderGolpe (new Golpe ("Bicada Louca do Corvo", 3));
+        prata.aprenderGolpe (new Golpe ("Bicada Louca do Covo", 3));
         ouroGolpear.executar();
         prataGolpear.executar();
         ouroGolpear.executar();
