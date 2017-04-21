@@ -117,7 +117,6 @@ public final class ListaSaints
         ListaSaints resultado = new ListaSaints();
         for (int i = 0; i < listaTodos.size(); i++) {
             boolean duplicado = false;
-            System.out.print (i + "_" + listaTodos.get(i) + " ");
             for (int j = 0; j < listaTodos.size(); j++) {
                 System.out.print (i + "_" + listaTodos.get(j));
                 if (i == j) { continue;}
@@ -126,7 +125,7 @@ public final class ListaSaints
                     break;
                 }
             }
-            if (!duplicado) { resultado.adicionar (listaTodos.get(i)); System.out.print ("add\n");;} else {System.out.print ("duplicado\n");}
+            if (!duplicado) { resultado.adicionar (listaTodos.get(i));}
         }
         return resultado;
     }
