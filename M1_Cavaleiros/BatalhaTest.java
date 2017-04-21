@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class BatalhaTest
 {
-    @Test
+    /*@Test
     public void emSaintsDeMesmaCategoriaOPrimeiroAtaca () throws Exception {
         SilverSaint saint1 = new SilverSaint ("Silva", "Yolo");
         SilverSaint saint2 = new SilverSaint ("Santos","Yolo");
@@ -13,9 +13,9 @@ public class BatalhaTest
         batalha.iniciar();
         assertEquals (90.0, saint2.getVida(),0.001);
         assertEquals (100.0, saint1.getVida(),0.001);
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void primeiroSaintCategoriaMaisAltaSegundoTomaDano () throws Exception {
         GoldSaint saint1 = new GoldSaint ("Máscara Da Morte","Câncer");
         SilverSaint saint2 = new SilverSaint ("Santos", "Yolo");
@@ -30,9 +30,9 @@ public class BatalhaTest
         batalha2.iniciar();
         assertEquals (100.0, saint3.getVida(),0.001);
         assertEquals (90.0, saint4.getVida(),0.001);
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void segundoSaintCategoriaMaisAltaPrimeiroTomaDano () throws Exception {
         SilverSaint saint1 = new SilverSaint ("Silva", "Yolo");
         GoldSaint saint2 = new GoldSaint ("Máscara Da Morte", "Câncer");
@@ -47,7 +47,7 @@ public class BatalhaTest
         batalha2.iniciar();
         assertEquals (100.0, saint4.getVida(),0.001);
         assertEquals (90.0, saint3.getVida(),0.001);
-    }
+    }*/
 
     @Test
     public void vestirArmaduraComMovimentoVestirArmadura () throws Exception {
@@ -125,5 +125,38 @@ public class BatalhaTest
         prataGolpear.executar();
         assertEquals (20.0, prata.getVida(), 0.01);
         assertEquals (61.0, ouro.getVida(), 0.01);
+    }
+    
+    @Test
+    public void batalhaUsandoMovimentos () throws Exception {
+        SilverSaint prata = new SilverSaint ("Jamian", "Corvo");
+        GoldSaint ouro = new GoldSaint ("Saga", "Gêmeos");
+        ouro.aprenderGolpe(new Golpe ("Outra Dimensão", 10));
+        ouro.aprenderGolpe(new Golpe ("Explosão Galática", 20));
+        prata.aprenderGolpe (new Golpe ("Eixo das Asas Negras", 10));
+        prata.aprenderGolpe (new Golpe ("Bicada Louca do Covo", 10));
+        ouro.adicionarMovimento (new Golpear(ouro,prata));
+        prata.adicionarMovimento (new Golpear(prata,ouro));
+        Batalha batalha = new Batalha (ouro, prata);
+        batalha.iniciar();
+        assertEquals (0.0, prata.getVida(), 0.01);
+        assertEquals (40.0, ouro.getVida(), 0.01);
+    }
+    
+    @Test
+    public void batalhaUsandoMovimentosComArmadura () throws Exception {
+        SilverSaint prata = new SilverSaint ("Jamian", "Corvo");
+        GoldSaint ouro = new GoldSaint ("Saga", "Gêmeos");
+        ouro.aprenderGolpe(new Golpe ("Outra Dimensão", 10));
+        ouro.aprenderGolpe(new Golpe ("Explosão Galática", 20));
+        prata.aprenderGolpe (new Golpe ("Eixo das Asas Negras", 10));
+        prata.aprenderGolpe (new Golpe ("Bicada Louca do Covo", 10));
+        ouro.adicionarMovimento (new VestirArmadura (ouro));
+        ouro.adicionarMovimento (new Golpear(ouro,prata));
+        prata.adicionarMovimento (new Golpear(prata,ouro));
+        Batalha batalha = new Batalha (ouro, prata);
+        batalha.iniciar();
+        assertEquals (0.0, prata.getVida(), 0.01);
+        assertEquals (70.0, ouro.getVida(), 0.01);
     }
 }
