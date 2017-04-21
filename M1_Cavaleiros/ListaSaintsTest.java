@@ -382,4 +382,51 @@ public class ListaSaintsTest
         assertEquals(resultado.get(0), seiya);
         assertEquals(resultado.get(1), milo);
     }
+    
+    @Test
+    public void intersecDuasListas () throws Exception {
+        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint mu = new Saint ("Mu", new Armadura (new Constelacao ("Áries"), Categoria.OURO));
+        ListaSaints lista1 = new ListaSaints();
+        ListaSaints lista2 = new ListaSaints();
+        lista1.adicionar (seiya);
+        lista1.adicionar (milo);
+        lista1.adicionar (shun);
+        lista2.adicionar (mu);
+        lista2.adicionar (aldebaran);
+        lista2.adicionar (seiya);
+        lista2.adicionar (mu);
+        lista2.adicionar (milo);
+        ListaSaints resultado = lista1.intersec(lista2);
+        assertEquals(seiya, resultado.get(0));
+        assertEquals(milo, resultado.get(1));
+        assertEquals(mu, resultado.get(2));
+    }
+    
+    @Test
+    public void intersecDuasListasLista1Vazia() throws Exception {
+        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        ListaSaints lista1 = new ListaSaints();
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar (shun);
+        lista2.adicionar (aldebaran);
+        ListaSaints resultado = lista1.intersec(lista2);
+        assertEquals(resultado.todos().size(), 0);
+    }
+    
+    @Test
+    public void intersecDuasListasLista2Vazia() throws Exception {
+        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        ListaSaints lista1 = new ListaSaints();
+        ListaSaints lista2 = new ListaSaints();
+        lista1.adicionar (seiya);
+        lista1.adicionar (milo);
+        ListaSaints resultado = lista1.intersec(lista2);
+        assertEquals(resultado.todos().size(), 0);
+    }
 }

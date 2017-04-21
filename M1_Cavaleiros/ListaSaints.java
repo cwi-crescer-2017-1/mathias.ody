@@ -118,7 +118,6 @@ public final class ListaSaints
         for (int i = 0; i < listaTodos.size(); i++) {
             boolean duplicado = false;
             for (int j = 0; j < listaTodos.size(); j++) {
-                System.out.print (i + "_" + listaTodos.get(j));
                 if (i == j) { continue;}
                 if (listaTodos.get(i).equals(listaTodos.get(j))) {
                     duplicado = true;
@@ -126,6 +125,20 @@ public final class ListaSaints
                 }
             }
             if (!duplicado) { resultado.adicionar (listaTodos.get(i));}
+        }
+        return resultado;
+    }
+    
+        public ListaSaints intersec (ListaSaints lista) {
+        //Pessima performance porque compara todos com todos
+        ArrayList<Saint> listaTodos = (this.unir(lista)).todos();
+        ListaSaints resultado = new ListaSaints();
+        for (int i = 0; i < listaTodos.size() - 1; i++) {
+            for (int j = i + 1; j < listaTodos.size(); j++) {
+                if (listaTodos.get(i).equals(listaTodos.get(j))) {
+                    resultado.adicionar (listaTodos.get(i));
+                }
+            }
         }
         return resultado;
     }
