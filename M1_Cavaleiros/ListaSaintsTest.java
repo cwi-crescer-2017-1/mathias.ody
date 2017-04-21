@@ -315,8 +315,8 @@ public class ListaSaintsTest
         Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
         ListaSaints lista1 = new ListaSaints();
         ListaSaints lista2 = new ListaSaints();
-        lista1.adicionar (shun);
-        lista1.adicionar (aldebaran);
+        lista2.adicionar (shun);
+        lista2.adicionar (aldebaran);
         ListaSaints resultado = lista1.unir(lista2);
         assertEquals(resultado.get(0), shun);
         assertEquals(resultado.get(1), aldebaran);
@@ -331,6 +331,54 @@ public class ListaSaintsTest
         lista1.adicionar (seiya);
         lista1.adicionar (milo);
         ListaSaints resultado = lista1.unir(lista2);
+        assertEquals(resultado.get(0), seiya);
+        assertEquals(resultado.get(1), milo);
+    }
+    
+    @Test
+    public void diffDuasListas () throws Exception {
+        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        Saint mu = new Saint ("Mu", new Armadura (new Constelacao ("Áries"), Categoria.OURO));
+        ListaSaints lista1 = new ListaSaints();
+        ListaSaints lista2 = new ListaSaints();
+        lista1.adicionar (seiya);
+        lista1.adicionar (milo);
+        lista1.adicionar (shun);
+        lista2.adicionar (aldebaran);
+        lista2.adicionar (seiya);
+        lista2.adicionar (mu);
+        lista2.adicionar (milo);
+        ListaSaints resultado = lista1.diff(lista2);
+        assertEquals(shun, resultado.get(0));
+        assertEquals(aldebaran, resultado.get(1));
+        assertEquals(mu, resultado.get(2));
+    }
+    
+    @Test
+    public void diffDuasListasLista1Vazia() throws Exception {
+        Saint shun = new Saint ("Shun", new Armadura (new Constelacao ("Andrômeda"), Categoria.BRONZE));
+        Saint aldebaran = new Saint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        ListaSaints lista1 = new ListaSaints();
+        ListaSaints lista2 = new ListaSaints();
+        lista2.adicionar (shun);
+        lista2.adicionar (aldebaran);
+        ListaSaints resultado = lista1.diff(lista2);
+        assertEquals(resultado.get(0), shun);
+        assertEquals(resultado.get(1), aldebaran);
+    }
+    
+    @Test
+    public void diffDuasListasLista2Vazia() throws Exception {
+        Saint seiya = new Saint ("Seiya", new Armadura (new Constelacao ("Pégaso"), Categoria.BRONZE));
+        Saint milo = new Saint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        ListaSaints lista1 = new ListaSaints();
+        ListaSaints lista2 = new ListaSaints();
+        lista1.adicionar (seiya);
+        lista1.adicionar (milo);
+        ListaSaints resultado = lista1.diff(lista2);
         assertEquals(resultado.get(0), seiya);
         assertEquals(resultado.get(1), milo);
     }

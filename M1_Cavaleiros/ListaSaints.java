@@ -97,7 +97,7 @@ public final class ListaSaints
             }
         } while (posicoesSendoTrocadas);
     }
-    
+
     public ListaSaints unir (ListaSaints lista) {
         ArrayList<Saint> listaAtual = this.listaSaints;
         ArrayList<Saint> listaParaAdicionar = lista.todos();
@@ -110,7 +110,27 @@ public final class ListaSaints
         }
         return resultado;
     }
-    
+
+    public ListaSaints diff (ListaSaints lista) {
+        //Pessima performance porque compara todos com todos
+        ArrayList<Saint> listaTodos = (this.unir(lista)).todos();
+        ListaSaints resultado = new ListaSaints();
+        for (int i = 0; i < listaTodos.size(); i++) {
+            boolean duplicado = false;
+            System.out.print (i + "_" + listaTodos.get(i) + " ");
+            for (int j = 0; j < listaTodos.size(); j++) {
+                System.out.print (i + "_" + listaTodos.get(j));
+                if (i == j) { continue;}
+                if (listaTodos.get(i).equals(listaTodos.get(j))) {
+                    duplicado = true;
+                    break;
+                }
+            }
+            if (!duplicado) { resultado.adicionar (listaTodos.get(i)); System.out.print ("add\n");;} else {System.out.print ("duplicado\n");}
+        }
+        return resultado;
+    }
+
     public String getCSV() {
         if (listaSaints.isEmpty()) {return "";}
         String separador = System.getProperty("line.separator");

@@ -107,4 +107,15 @@ public class Saint {
             this.armaduraVestida
         );
     }
+    
+    public boolean equals (Object object) {
+        Saint saint = (Saint)object;
+        if (saint.getNome().equals(this.nome) && saint.getConstelacao().equals(this.getConstelacao())) { return true;}
+       
+        return false;
+    }
+    
+    public String toString() {
+        return this.nome;
+    }
 }
