@@ -9,8 +9,7 @@ public class SaintTest{
     public void vestirArmaduraDeixaArmaduraVestida () throws Exception {
         //AAA 
         //1. Arrange - Montagem dos dados de teste
-        Armadura escorpiao = new Armadura (new Constelacao ("Escorpião"), Categoria.OURO);
-        GoldSaint milo = new GoldSaint ("Milo", escorpiao);
+        GoldSaint milo = new GoldSaint ("Milo", "Escorpião");
         //2. Act - Invocar a ação a ser testada
         milo.vestirArmadura();
         //3. Assert - Verificação dos resultados do teste
@@ -20,59 +19,59 @@ public class SaintTest{
 
     @Test
     public void naoVestirArmaduraDeixaArmaduraNaoVestida() throws Exception{
-        BronzeSaint hyoga = new BronzeSaint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
+        BronzeSaint hyoga = new BronzeSaint ("Hyoga", "Cisne");
         assertEquals (false, hyoga.getArmaduraVestida());
     }
 
     @Test
     public void aoCriarSaintGeneroENaoInformado() throws Exception {
-        BronzeSaint shaka = new BronzeSaint ("Shaka", new Armadura (new Constelacao ("Virgem"), Categoria.OURO));
+        BronzeSaint shaka = new BronzeSaint ("Shaka", "Virgem");
         assertEquals (Genero.NAO_INFORMADO, shaka.getGenero());
     }
 
     @Test
     public void aoCriarSaintStatusEVivo () throws Exception {
-        BronzeSaint juca = new BronzeSaint ("Juca", new Armadura (new Constelacao ("Yolo"), Categoria.PRATA));
+        BronzeSaint juca = new BronzeSaint ("Juca", "Yolo");
         assertEquals (Status.VIVO, juca.getStatus());
     }
 
     @Test
     public void aoCriarSaintVidaE100 () throws Exception {
-        BronzeSaint yuri = new BronzeSaint ("Yuri", new Armadura (new Constelacao ("Yolo"), Categoria.PRATA));
+        BronzeSaint yuri = new BronzeSaint ("Yuri", "Yolo");
         assertEquals (100.0, yuri.getVida(), 0.001);
     }
 
     @Test
     public void generoMudaAoTrocarGenero () throws Exception {
-        BronzeSaint etienne = new BronzeSaint ("Etienne", new Armadura (new Constelacao ("Yolo"), Categoria.PRATA));
+        BronzeSaint etienne = new BronzeSaint ("Etienne", "Yolo");
         etienne.setGenero(Genero.FEMININO);
         assertEquals (Genero.FEMININO, etienne.getGenero());
     }
 
     @Test
     public void descontarValorVidaAoPerder10DeVida () throws Exception {
-        Saint mu = new GoldSaint ("Mu", new Armadura (new Constelacao ("Áries"), Categoria.OURO));
+        Saint mu = new GoldSaint ("Mu", "Áries");
         mu.perderVida (10.0);
         assertEquals (90.0, mu.getVida(), 0.001);
     }
 
     @Test
     public void descontarValorVidaAoPerder100DeVida () throws Exception {
-        Saint shaka = new GoldSaint ("Shaka", new Armadura (new Constelacao ("Virgem"), Categoria.OURO));
+        Saint shaka = new GoldSaint ("Shaka", "Virgem");
         shaka.perderVida (100.0);
         assertEquals (0.0, shaka.getVida(), 0.001);
     }
 
     @Test
     public void atualizarStatusPraMortoQuandoVidaMenorQue1Dano100 () throws Exception {
-        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint milo = new GoldSaint ("Milo", "Escorpião");
         milo.perderVida (100.0);
         assertEquals (Status.MORTO, milo.getStatus());
     }
 
     @Test
     public void atualizarStatusPraMortoQuandoVidaMenorQue1Dano60E60 () throws Exception {
-        Saint shaka = new GoldSaint ("Shaka", new Armadura (new Constelacao ("Virgem"), Categoria.OURO));
+        Saint shaka = new GoldSaint ("Shaka", "Virgem");
         shaka.perderVida (60.0);
         assertEquals (Status.VIVO, shaka.getStatus());
         shaka.perderVida (60.0);
@@ -81,7 +80,7 @@ public class SaintTest{
 
     @Test
     public void saintNaoPodeTerVidaAlteradaQuandoMorto () throws Exception {
-        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint milo = new GoldSaint ("Milo", "Escorpião");
         milo.perderVida (100.0);
         assertEquals (Status.MORTO, milo.getStatus());
         assertEquals (0.0, milo.getVida(), 0.001);
@@ -91,49 +90,49 @@ public class SaintTest{
     
     @Test(expected=InvalidParameterException.class)
     public void lancarExcecaoSeParametroDeDanoNegativo() throws InvalidParameterException, Exception {
-        Saint milo = new GoldSaint ("Milo", new Armadura (new Constelacao ("Escorpião"), Categoria.OURO));
+        Saint milo = new GoldSaint ("Milo", "Escorpião");
         milo.perderVida (-1000.0);
     }
 
     @Test
     public void aoCriarSaintSentidosDespertadosDeveSer5 () throws Exception {
-        Saint santo = new BronzeSaint ("Santo", new Armadura (new Constelacao ("Yolo"), Categoria.BRONZE));
+        Saint santo = new BronzeSaint ("Santo", "Yolo");
         assertEquals (5, santo.getQtdeDeSentidosDespertados());
     }
 
     @Test
     public void criarSaintBronzeNasceCom5SentidosDespertados() throws Exception {
-        BronzeSaint santo = new BronzeSaint ("Santo", new Armadura (new Constelacao ("Yolo"), Categoria.BRONZE));
+        BronzeSaint santo = new BronzeSaint ("Santo", "Yolo");
         assertEquals (5, santo.getQtdeDeSentidosDespertados());
     }
 
     @Test
     public void criarSaintPrataNasceCom6SentidosDespertados() throws Exception {
-        SilverSaint santo = new SilverSaint ("Santo", new Armadura (new Constelacao ("Yolo"), Categoria.PRATA));
+        SilverSaint santo = new SilverSaint ("Santo", "Yolo");
         assertEquals (6, santo.getQtdeDeSentidosDespertados());
     }
 
     @Test
     public void criarSaintOuroNasceCom7SentidosDespertados() throws Exception {
-        GoldSaint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        GoldSaint aldebaran = new GoldSaint ("Aldebaran", "Touro");
         assertEquals (7, aldebaran.getQtdeDeSentidosDespertados());
     }
 
     @Test(expected=Exception.class)
     public void constelacaoInvalidaDeOuroDeveLancarErro() throws Exception {
-        GoldSaint jack = new GoldSaint ("Jack", new Armadura (new Constelacao ("Yolo"), Categoria.OURO));
+        GoldSaint jack = new GoldSaint ("Jack", "Yolo");
     }
 
     @Test
     public void aprenderGolpeInsereGolpeNaConstelacaoDoSaint () throws Exception {
-        GoldSaint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        GoldSaint aldebaran = new GoldSaint ("Aldebaran", "Touro");
         aldebaran.aprenderGolpe (new Golpe ("Grande Chifre", 6));
         assertEquals (aldebaran.getProximoGolpe(), new Golpe ("Grande Chifre", 6));
     }
     
     @Test
     public void aprenderVariosGolpesInsereGolpesNaConstelacaoDoSaint () throws Exception {
-        GoldSaint aldebaran = new GoldSaint ("Aldebaran", new Armadura (new Constelacao ("Touro"), Categoria.OURO));
+        GoldSaint aldebaran = new GoldSaint ("Aldebaran", "Touro");
         aldebaran.aprenderGolpe (new Golpe ("Grande Chifre", 6));
         aldebaran.aprenderGolpe (new Golpe ("Socão", 3));
         aldebaran.aprenderGolpe (new Golpe ("Chutão", 3));
@@ -144,7 +143,7 @@ public class SaintTest{
 
     @Test 
     public void proximoGolpePegaGolpesDeManeiraCircular () throws Exception {
-        BronzeSaint hyoga = new BronzeSaint ("Hyoga", new Armadura (new Constelacao ("Cisne"), Categoria.BRONZE));
+        BronzeSaint hyoga = new BronzeSaint ("Hyoga", "Cisne");
         hyoga.aprenderGolpe (new Golpe ("Pó de Diamante", 2));
         hyoga.aprenderGolpe (new Golpe ("Trovão Aurora Ataque", 3));
         hyoga.aprenderGolpe (new Golpe ("Execução Aurora", 4));

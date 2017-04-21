@@ -3,7 +3,7 @@ import java.security.InvalidParameterException;
 
 public abstract class Saint {
     private String nome;
-    private Armadura armadura;
+    protected Armadura armadura;
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
