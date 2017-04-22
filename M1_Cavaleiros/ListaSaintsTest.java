@@ -347,14 +347,13 @@ public class ListaSaintsTest
         lista1.adicionar (seiya);
         lista1.adicionar (milo);
         lista1.adicionar (shun);
-        lista2.adicionar (aldebaran);
+        lista1.adicionar (aldebaran);
         lista2.adicionar (seiya);
         lista2.adicionar (mu);
         lista2.adicionar (milo);
         ListaSaints resultado = lista1.diff(lista2);
         assertEquals(shun, resultado.get(0));
         assertEquals(aldebaran, resultado.get(1));
-        assertEquals(mu, resultado.get(2));
     }
     
     @Test
@@ -366,8 +365,7 @@ public class ListaSaintsTest
         lista2.adicionar (shun);
         lista2.adicionar (aldebaran);
         ListaSaints resultado = lista1.diff(lista2);
-        assertEquals(resultado.get(0), shun);
-        assertEquals(resultado.get(1), aldebaran);
+        assertEquals(resultado.todos().size(),0);
     }
     
     @Test
@@ -403,7 +401,6 @@ public class ListaSaintsTest
         ListaSaints resultado = lista1.intersec(lista2);
         assertEquals(seiya, resultado.get(0));
         assertEquals(milo, resultado.get(1));
-        assertEquals(mu, resultado.get(2));
     }
     
     @Test

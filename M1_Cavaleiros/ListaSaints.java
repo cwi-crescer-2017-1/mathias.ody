@@ -112,31 +112,31 @@ public final class ListaSaints
     }
 
     public ListaSaints diff (ListaSaints lista) {
-        //Pessima performance porque compara todos com todos
-        ArrayList<Saint> listaTodos = (this.unir(lista)).todos();
         ListaSaints resultado = new ListaSaints();
-        for (int i = 0; i < listaTodos.size(); i++) {
+        ArrayList<Saint> lista1 = this.listaSaints;
+        ArrayList<Saint> lista2 = lista.todos();
+        for (Saint saint1 : lista1) {  
             boolean duplicado = false;
-            for (int j = 0; j < listaTodos.size(); j++) {
-                if (i == j) { continue;}
-                if (listaTodos.get(i).equals(listaTodos.get(j))) {
+            for (Saint saint2 : lista2) {
+                if (saint1.equals(saint2)) {
                     duplicado = true;
                     break;
                 }
             }
-            if (!duplicado) { resultado.adicionar (listaTodos.get(i));}
+            if (!duplicado) { resultado.adicionar (saint1);}
         }
         return resultado;
     }
-    
-        public ListaSaints intersec (ListaSaints lista) {
-        //Pessima performance porque compara todos com todos
-        ArrayList<Saint> listaTodos = (this.unir(lista)).todos();
+
+    public ListaSaints intersec (ListaSaints lista) {
         ListaSaints resultado = new ListaSaints();
-        for (int i = 0; i < listaTodos.size() - 1; i++) {
-            for (int j = i + 1; j < listaTodos.size(); j++) {
-                if (listaTodos.get(i).equals(listaTodos.get(j))) {
-                    resultado.adicionar (listaTodos.get(i));
+        ArrayList<Saint> lista1 = this.listaSaints;
+        ArrayList<Saint> lista2 = lista.todos();
+        for (Saint saint1 : lista1) {  
+            for (Saint saint2 : lista2) {
+                if (saint1.equals(saint2)) {
+                    resultado.adicionar (saint1);
+                    break;
                 }
             }
         }
