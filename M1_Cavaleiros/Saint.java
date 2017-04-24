@@ -12,10 +12,16 @@ public abstract class Saint {
     private int proximoGolpe = 0;
     private int proximoMovimento = 0;
     private ArrayList<Movimento> movimentos = new ArrayList<>();
+	private static int qtdSaints = 0;
 
-    public Saint (String nome, Armadura armadura) throws Exception{
+    protected Saint (String nome, Armadura armadura) throws Exception{
         this.nome = nome;
         this.armadura = armadura;
+		Saint.qtdSaints ++;
+    }
+
+	public static int getQtdSaints () {
+        return Saint.qtdSaints;
     }
 
     public String getNome () {
@@ -135,4 +141,8 @@ public abstract class Saint {
         }
         return retorno;
     }
+
+	public void golpear (Saint golpeado){
+		adicionarMovimento (new Golpear (this, golpeado));
+	}
 }

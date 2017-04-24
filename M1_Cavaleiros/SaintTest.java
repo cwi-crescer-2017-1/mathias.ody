@@ -162,8 +162,18 @@ public class SaintTest{
         hyoga.adicionarMovimento (new Golpear (hyoga, seiya));
         hyoga.adicionarMovimento (new VestirArmadura (hyoga));
 
-        assertEquals(true, hyoga.getProximoMovimento() instanceof Golpear);
-        assertEquals(true, hyoga.getProximoMovimento() instanceof VestirArmadura);
-        assertEquals(true, hyoga.getProximoMovimento() instanceof Golpear);
+        assertTrue(hyoga.getProximoMovimento() instanceof Golpear);
+        assertTrue(hyoga.getProximoMovimento() instanceof VestirArmadura);
+        assertTrue( hyoga.getProximoMovimento() instanceof Golpear);
+    }
+
+	@Test 
+    public void golpearAdicionaGolpeNaListaDeMovimentos () throws Exception {
+        BronzeSaint hyoga = new BronzeSaint ("Hyoga", "Cisne");
+        BronzeSaint seiya = new BronzeSaint ("Seiya", "Pégaso");
+		hyoga.aprenderGolpe (new Golpe ("Pó de Diamante", 10));
+        hyoga.golpear(seiya);
+
+        assertTrue(hyoga.getProximoMovimento().equals(new Golpear (hyoga, seiya)));
     }
 }

@@ -14,13 +14,13 @@ public class Batalha {
         while (nenhumMorto) {
             if (isVezDeSaint1) {
                 this.saint1.getProximoMovimento().executar();
-                if (saint2.getStatus() == Status.MORTO) { nenhumMorto = false;}
             }
             else {
                 this.saint2.getProximoMovimento().executar();
-                if (saint1.getStatus() == Status.MORTO) { nenhumMorto = false;}
             }
             isVezDeSaint1 = !isVezDeSaint1;
+            nenhumMorto = saint1.getStatus() != Status.MORTO && 
+            saint2.getStatus() != Status.MORTO;
         }
     }
 }

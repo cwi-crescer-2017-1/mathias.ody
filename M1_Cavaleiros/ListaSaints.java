@@ -113,11 +113,10 @@ public final class ListaSaints
 
     public ListaSaints diff (ListaSaints lista) {
         ListaSaints resultado = new ListaSaints();
-        ArrayList<Saint> lista1 = this.listaSaints;
-        ArrayList<Saint> lista2 = lista.todos();
-        for (Saint saint1 : lista1) {  
+        ArrayList<Saint> listaDiff = lista.todos();
+        for (Saint saint1 : this.listaSaints) {  
             boolean duplicado = false;
-            for (Saint saint2 : lista2) {
+            for (Saint saint2 : listaDiff) {
                 if (saint1.equals(saint2)) {
                     duplicado = true;
                     break;
@@ -130,10 +129,9 @@ public final class ListaSaints
 
     public ListaSaints intersec (ListaSaints lista) {
         ListaSaints resultado = new ListaSaints();
-        ArrayList<Saint> lista1 = this.listaSaints;
-        ArrayList<Saint> lista2 = lista.todos();
-        for (Saint saint1 : lista1) {  
-            for (Saint saint2 : lista2) {
+        ArrayList<Saint> listaIntersec = lista.todos();
+        for (Saint saint1 : this.listaSaints) {  
+            for (Saint saint2 : listaIntersec) {
                 if (saint1.equals(saint2)) {
                     resultado.adicionar (saint1);
                     break;

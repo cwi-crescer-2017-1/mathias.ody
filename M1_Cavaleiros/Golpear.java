@@ -17,4 +17,10 @@ public class Golpear implements Movimento
             golpeado.perderVida((double)danoBase);
         }
     }
+
+	public boolean equals (Object outroObj) {
+		Golpear outro = (Golpear)outroObj;
+		return outro.golpeador.equals(this.golpeador) &&
+			   outro.golpeado.equals(this.golpeado);
+	}
 }
