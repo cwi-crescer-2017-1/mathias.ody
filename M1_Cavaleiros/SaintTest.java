@@ -5,6 +5,12 @@ import org.junit.Test;
 import java.security.InvalidParameterException;
 
 public class SaintTest{
+    
+    @After
+    public void tearDown () {
+        System.gc();
+    }
+    
     @Test
     public void vestirArmaduraDeixaArmaduraVestida () throws Exception {
         //AAA 
@@ -167,11 +173,11 @@ public class SaintTest{
         assertTrue( hyoga.getProximoMovimento() instanceof Golpear);
     }
 
-	@Test 
+    @Test 
     public void golpearAdicionaGolpeNaListaDeMovimentos () throws Exception {
         BronzeSaint hyoga = new BronzeSaint ("Hyoga", "Cisne");
         BronzeSaint seiya = new BronzeSaint ("Seiya", "Pégaso");
-		hyoga.aprenderGolpe (new Golpe ("Pó de Diamante", 10));
+        hyoga.aprenderGolpe (new Golpe ("Pó de Diamante", 10));
         hyoga.golpear(seiya);
 
         assertTrue(hyoga.getProximoMovimento().equals(new Golpear (hyoga, seiya)));
@@ -179,18 +185,18 @@ public class SaintTest{
     
     @Test 
     public void criarSaintAumentaQtdSaints () throws Exception {
-        int qtdInicial = Saint.getQtdSaints();
         BronzeSaint hyoga = new BronzeSaint ("Hyoga", "Cisne");
-        assertEquals(qtdInicial + 1, Saint.getQtdSaints());
+        assertEquals(1, Saint.getQtdSaints());
     }
     
     @Test 
     public void saintsRecebemIdsEmSequencia () throws Exception {
+        int idAntes = Saint.getUltimoId();
         BronzeSaint hyoga = new BronzeSaint ("Hyoga", "Cisne");
-        int idSaintInicial = hyoga.getId();
         BronzeSaint seiya = new BronzeSaint ("Seiya", "Pégaso");
         GoldSaint afrodite = new GoldSaint ("Afrodite", "Peixes");
-        assertEquals(idSaintInicial + 1, seiya.getId());
-        assertEquals(idSaintInicial + 2, afrodite.getId());
+        assertEquals((idAntes + 1), hyoga.getId());
+        assertEquals((idAntes + 2), seiya.getId());
+        assertEquals((idAntes + 3), afrodite.getId());
     }
 }

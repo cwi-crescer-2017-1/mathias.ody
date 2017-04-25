@@ -13,17 +13,27 @@ public abstract class Saint {
     private int proximoMovimento = 0;
     private ArrayList<Movimento> movimentos = new ArrayList<>();
     private static int qtdSaints = 0;
+    private static int ultimoId = 0;
     private int id;
 
     protected Saint (String nome, Armadura armadura) throws Exception{
         this.nome = nome;
         this.armadura = armadura;
-        id = Saint.qtdSaints;
         Saint.qtdSaints ++;
+        id = ++ Saint.ultimoId;
+    }
+    
+    //destrutor
+    protected void finalize () throws Throwable {
+        Saint.qtdSaints--;
     }
 
     public static int getQtdSaints () {
         return Saint.qtdSaints;
+    }
+    
+    public static int getUltimoId() {
+        return Saint.ultimoId;
     }
 
     public int  getId () {
