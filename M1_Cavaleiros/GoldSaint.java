@@ -16,7 +16,7 @@ public class GoldSaint extends Saint {
             && !nomeConstelacao.equals("Aquário")
             && !nomeConstelacao.equals("Peixes")) {
                 // dar erro
-                throw new Exception("Constelação inválida");
+                throw new ConstelacaoInvalidaException();
             }
     }
 }
