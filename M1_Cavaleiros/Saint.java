@@ -16,7 +16,7 @@ public abstract class Saint {
     private static int ultimoId = 0;
     private int id;
 
-    protected Saint (String nome, Armadura armadura) throws Exception{
+    protected Saint (String nome, Armadura armadura) {
         this.nome = nome;
         this.armadura = armadura;
         Saint.qtdSaints ++;

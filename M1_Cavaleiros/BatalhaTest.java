@@ -115,4 +115,40 @@ public class BatalhaTest
         assertEquals (0.0, prata.getVida(), 0.01);
         assertEquals (70.0, ouro.getVida(), 0.01);
     }
+    
+    @Test
+    public void ataqueDuploComSucessoInfereDanoDuplo ()throws Exception {
+        SilverSaint prata = new SilverSaint ("Jamian", "Corvo");
+        GoldSaint ouro = new GoldSaint ("Saga", "Gêmeos");
+        ouro.aprenderGolpe(new Golpe ("Outra Dimensão", 10));
+        ouro.adicionarMovimento (new AtaqueDuplo(ouro,prata, new DadoFalso(3)));
+        ouro.getProximoMovimento().executar();
+        assertEquals (80.0, prata.getVida(), 0.01);
+        assertEquals (100.0, ouro.getVida(), 0.01);
+    }
+    
+    @Test
+    public void ataqueDuploInfereDanoSimplesEDiminiuVidaDoGolpeadorQuandoFalha ()throws Exception {
+        SilverSaint prata = new SilverSaint ("Jamian", "Corvo");
+        GoldSaint ouro = new GoldSaint ("Saga", "Gêmeos");
+        ouro.aprenderGolpe(new Golpe ("Outra Dimensão", 10));
+        ouro.adicionarMovimento (new AtaqueDuplo(ouro,prata, new DadoFalso(2)));
+        ouro.getProximoMovimento().executar();
+        assertEquals (90.0, prata.getVida(), 0.01);
+        assertEquals (95.0, ouro.getVida(), 0.01);
+    }
+    
+    @Test
+    public void saintMorreSeFalharAtaqueDuploComPoucaVida ()throws Exception {
+        SilverSaint prata = new SilverSaint ("Jamian", "Corvo");
+        GoldSaint ouro = new GoldSaint ("Saga", "Gêmeos");
+        ouro.aprenderGolpe(new Golpe ("Outra Dimensão", 10));
+        ouro.perderVida (99);
+        assertEquals (Status.VIVO, ouro.getStatus());
+        ouro.adicionarMovimento (new AtaqueDuplo(ouro,prata, new DadoFalso(1)));
+        ouro.getProximoMovimento().executar();
+        assertEquals (90.0, prata.getVida(), 0.01);
+        assertEquals (0.0, ouro.getVida(), 0.01);
+        assertEquals (Status.MORTO, ouro.getStatus());
+    }
 }

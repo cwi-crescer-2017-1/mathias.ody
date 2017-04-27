@@ -1,21 +1,27 @@
-public class AtaqueDuplo implements Movimento
-{
-    private Saint golpeador;
-    private Saint golpeado;
-    
-    public AtaqueDuplo (Saint golpeador, Saint golpeado) {
-        this.golpeador = golpeador;
-        this.golpeado = golpeado;
+public class AtaqueDuplo extends Golpear implements Movimento
+{   
+    Sorteador sorteador;
+    public AtaqueDuplo (Saint golpeador, Saint golpeado, Sorteador sorteador) {
+        super (golpeador, golpeado);
+        this.sorteador= sorteador;
     }
     
     public void executar () {
-        Sorteador dado = new DadoD6();
-        int valorDado = dado.sortear();
+        int valorDado = sorteador.sortear();
+        int danoBase = 0;
+        if(valorDado % 3 == 0) {
+            danoBase = golpeador.getProximoGolpe().getFatorDano() * 2;
+            super.aplicarGolpe(danoBase);
+        }
+        else {
+            super.executar();
+            golpeador.perderVida(golpeador.getVida() * 0.05);
+        }
     }
 
-	public boolean equals (Object outroObj) {
-		AtaqueDuplo outro = (AtaqueDuplo)outroObj;
-		return outro.golpeador.equals(this.golpeador) &&
-			   outro.golpeado.equals(this.golpeado);
-	}
+    public boolean equals (Object outroObj) {
+        AtaqueDuplo outro = (AtaqueDuplo)outroObj;
+        return outro.golpeador.equals(this.golpeador) &&
+               outro.golpeado.equals(this.golpeado);
+    }
 }

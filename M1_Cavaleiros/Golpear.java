@@ -1,7 +1,7 @@
 public class Golpear implements Movimento
 {
-    private Saint golpeador;
-    private Saint golpeado;
+    protected Saint golpeador;
+    protected Saint golpeado;
     public Golpear (Saint golpeador, Saint golpeado) {
         this.golpeador = golpeador;
         this.golpeado = golpeado;
@@ -9,18 +9,22 @@ public class Golpear implements Movimento
     
     public void executar () {
         int danoBase = golpeador.getProximoGolpe().getFatorDano();
+        aplicarGolpe(danoBase);
+    }
+    
+    protected void aplicarGolpe (int dano) {
         if (golpeador.getArmaduraVestida()){
             int multiplicador = golpeador.getValorCategoriaArmadura() + 1;
-            golpeado.perderVida((double)danoBase * multiplicador);
+            golpeado.perderVida((double)dano * multiplicador);
         }
         else {
-            golpeado.perderVida((double)danoBase);
+            golpeado.perderVida((double)dano);
         }
     }
 
-	public boolean equals (Object outroObj) {
-		Golpear outro = (Golpear)outroObj;
-		return outro.golpeador.equals(this.golpeador) &&
-			   outro.golpeado.equals(this.golpeado);
-	}
+    public boolean equals (Object outroObj) {
+        Golpear outro = (Golpear)outroObj;
+        return outro.golpeador.equals(this.golpeador) &&
+               outro.golpeado.equals(this.golpeado);
+    }
 }
