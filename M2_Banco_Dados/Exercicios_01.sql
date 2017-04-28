@@ -9,13 +9,13 @@ TRUNCATE TABLE CidadeAux;
 INSERT INTO CidadeAux (IDCidade, Nome, UF)
 SELECT * FROM Cidade WHERE UF = 'RS';
 /*
-1. … uma boa pr·tica escrever todos os nomes no select:
+1. √â uma boa pr√°tica escrever todos os nomes no select:
 INSERT INTO CidadeAux (IDCidade, Nome, UF)
 	SELECT IDCidade, Nome, UF 
 	FROM Cidade 
 	WHERE UF = 'RS';
 
-2. Os tipos precisam ser iguais, os nomes n„o, mas precisam ser os mesmos nomes da tabela:
+2. Os tipos precisam ser iguais, os nomes n√£o, mas precisam ser os mesmos nomes da tabela:
 Ex:
 	INSERT INTO CidadeAux (IDCidade, Nome, UF)
 	SELECT ID, AlgumNome, ESTADO -- A tabela precisa ter esse nomes
@@ -37,12 +37,12 @@ INSERT INTO CidadeAux (IDCidade, Nome, UF)
 
 
 CREATE TABLE InfoProdutos (
-IDProduto		int	identity		NOT NULL,
+IDProduto		int identity			NOT NULL,
 Nome			varchar(15)			NOT NULL,
-NomeDescritivo	varchar (40)		NOT NULL,
+NomeDescritivo		varchar (40)			NOT NULL,
 DataCriacao		date				NOT NULL,
-LocalEstoque	varchar (20)		NOT NULL,
-Quantidade		int					NOT NULL,
+LocalEstoque		varchar (20)			NOT NULL,
+Quantidade		int				NOT NULL,
 Preco			smallmoney			NOT NULL
 )
 
@@ -97,6 +97,6 @@ VALUES (
 	2,
 	2.49 ) 
 
-	-- Conves„o de data
+	-- Conves√£o de data
 	-- 103= dd/mm/aaaa
 SELECT CONVERT (DATETIME, '13/05/2017', 103)
