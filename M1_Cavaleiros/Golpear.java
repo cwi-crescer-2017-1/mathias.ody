@@ -2,6 +2,7 @@ public class Golpear implements Movimento
 {
     protected Saint golpeador;
     protected Saint golpeado;
+
     public Golpear (Saint golpeador, Saint golpeado) {
         this.golpeador = golpeador;
         this.golpeado = golpeado;

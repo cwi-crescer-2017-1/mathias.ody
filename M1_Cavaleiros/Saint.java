@@ -7,13 +7,14 @@ public abstract class Saint {
     private boolean armaduraVestida;
     private Genero genero = Genero.NAO_INFORMADO;
     private Status status = Status.VIVO;
-    private double vida = 100.0;
     protected int qtdeSentidosDespertados = 5;
     private int proximoGolpe = 0;
     private int proximoMovimento = 0;
     private ArrayList<Movimento> movimentos = new ArrayList<>();
     private static int qtdSaints = 0;
     private static int ultimoId = 0;
+    private static double maxVida = 100.0;
+    private double vida = maxVida;
     private int id;
 
     protected Saint (String nome, Armadura armadura) {
@@ -160,5 +161,9 @@ public abstract class Saint {
 
     public void golpear (Saint golpeado){
         adicionarMovimento (new Golpear (this, golpeado));
+    }
+    
+    public static double getMaxVida () {
+        return maxVida;
     }
 }

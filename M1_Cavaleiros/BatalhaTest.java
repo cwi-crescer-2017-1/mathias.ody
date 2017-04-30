@@ -151,4 +151,54 @@ public class BatalhaTest
         assertEquals (0.0, ouro.getVida(), 0.01);
         assertEquals (Status.MORTO, ouro.getStatus());
     }
+    
+    @Test
+    public void contraAtaqueEfetivo ()throws Exception {
+        SilverSaint prata = new SilverSaint ("Jamian", "Corvo");
+        GoldSaint ouro = new GoldSaint ("Saga", "Gêmeos");
+        ouro.aprenderGolpe(new Golpe ("Outra Dimensão", 10));
+        ouro.perderVida (60);
+        prata.perderVida (60);
+        prata.aprenderGolpe(new Golpe ("Mesma Dimensão", 10));
+        ouro.adicionarMovimento (new ContraAtacar(ouro,prata, new DadoFalso(6)));
+        prata.adicionarMovimento (new Golpear(prata,ouro));
+        Batalha batalha = new Batalha (ouro, prata);
+        batalha.iniciar();
+        assertEquals (0, prata.getVida(), 0.10);
+        assertEquals (40.0, ouro.getVida(), 0.10);
+    }
+    
+    @Test
+    public void contraAtaqueNaoEfetivo ()throws Exception {
+        SilverSaint prata = new SilverSaint ("Jamian", "Corvo");
+        GoldSaint ouro = new GoldSaint ("Saga", "Gêmeos");
+        ouro.aprenderGolpe(new Golpe ("Outra Dimensão", 10));
+        ouro.perderVida (60);
+        prata.perderVida (60);
+        prata.aprenderGolpe(new Golpe ("Mesma Dimensão", 10));
+        ouro.adicionarMovimento (new ContraAtacar(ouro,prata, new DadoFalso(1)));
+        prata.adicionarMovimento (new Golpear(prata,ouro));
+        Batalha batalha = new Batalha (ouro, prata);
+        batalha.iniciar();
+        assertEquals (40.00, prata.getVida(), 0.10);
+        assertEquals (0.0, ouro.getVida(), 0.10);
+    }
+    
+    @Test
+    public void contraAtaqueBatalha ()throws Exception {
+        SilverSaint prata = new SilverSaint ("Jamian", "Corvo");
+        GoldSaint ouro = new GoldSaint ("Saga", "Gêmeos");
+        ouro.aprenderGolpe(new Golpe ("Outra Dimensão", 20));
+        prata.aprenderGolpe(new Golpe ("Mesma Dimensão", 10));
+        prata.aprenderGolpe(new Golpe ("Quinta Dimensão", 30));
+        ouro.adicionarMovimento (new ContraAtacar(ouro,prata, new DadoFalso(6)));
+        ouro.adicionarMovimento (new Golpear(ouro,prata));
+        prata.adicionarMovimento (new Golpear(prata,ouro));
+        Batalha batalha = new Batalha (ouro, prata);
+        batalha.iniciar();
+        System.out.println (ouro + ""+(ouro.getVida()));
+        System.out.println (prata + ""+(prata.getVida()));
+        assertEquals (0.00, prata.getVida(), 0.10);
+        assertEquals (50.0, ouro.getVida(), 0.10);
+    }
 }
