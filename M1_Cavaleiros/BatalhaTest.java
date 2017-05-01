@@ -196,8 +196,6 @@ public class BatalhaTest
         prata.adicionarMovimento (new Golpear(prata,ouro));
         Batalha batalha = new Batalha (ouro, prata);
         batalha.iniciar();
-        System.out.println (ouro + ""+(ouro.getVida()));
-        System.out.println (prata + ""+(prata.getVida()));
         assertEquals (0.00, prata.getVida(), 0.10);
         assertEquals (50.0, ouro.getVida(), 0.10);
     }

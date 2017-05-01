@@ -6,6 +6,15 @@ public class AtaqueDuplo extends Golpear implements Movimento
         this.sorteador= sorteador;
     }
     
+    public AtaqueDuplo (Sorteador sorteador) {
+        this.sorteador= sorteador;
+    }
+    
+    public void setup (Saint saint1, Saint saint2) {
+        super.golpeador = saint1;
+        super.golpeado = saint2;
+    }
+    
     public void executar () {
         int valorDado = sorteador.sortear();
         int danoBase = 0;

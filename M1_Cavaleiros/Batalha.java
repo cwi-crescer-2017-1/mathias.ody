@@ -2,6 +2,7 @@ public class Batalha {
     private Saint saint1;
     private Saint saint2;
     private EventoEspecial evento;
+    private Saint vencedor;
     //private final double dano = 10.0; //Final == constante
 
     public Batalha (Saint saint1, Saint saint2) {
@@ -31,11 +32,17 @@ public class Batalha {
             }
         }
     }
+    
+    public Saint getVencedor () {
+        if (saint1.getStatus() == Status.MORTO) {vencedor = saint2;}
+        else if (saint2.getStatus() == Status.MORTO) {vencedor = saint1;}
+        return this.vencedor;
+    }
 
     private void executarMovimento (Movimento movimento) {
         if (evento == null && movimento instanceof EventoEspecial && ((EventoEspecial)movimento).isValido()){
             evento = (EventoEspecial)movimento;
         }
-        else {movimento.executar ();}
+        else {System.out.println (movimento);movimento.executar ();}
     }
 }

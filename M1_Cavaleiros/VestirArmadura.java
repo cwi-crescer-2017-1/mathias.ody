@@ -3,6 +3,9 @@ public class VestirArmadura implements Movimento {
    public VestirArmadura (Saint saint) {
        this.saint = saint;
    }
+   
+   public void setup (Saint saint1, Saint saint2) {}
+   
    public void executar() {
        this.saint.vestirArmadura();
    }

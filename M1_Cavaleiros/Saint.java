@@ -23,7 +23,7 @@ public abstract class Saint {
         Saint.qtdSaints ++;
         id = ++ Saint.ultimoId;
     }
-    
+
     //destrutor
     protected void finalize () throws Throwable {
         Saint.qtdSaints--;
@@ -32,7 +32,7 @@ public abstract class Saint {
     public static int getQtdSaints () {
         return Saint.qtdSaints;
     }
-    
+
     public static int getUltimoId() {
         return Saint.ultimoId;
     }
@@ -132,22 +132,22 @@ public abstract class Saint {
             this.armaduraVestida
         );
     }
-    
+
     public boolean equals (Object object) {
         Saint saint = (Saint)object;
         if (saint.getNome().equals(this.nome) && saint.getConstelacao().equals(this.getConstelacao())) { return true;}
-       
+
         return false;
     }
-    
+
     public String toString() {
         return this.nome;
     }
-    
+
     public void adicionarMovimento (Movimento movimento) {
         this.movimentos.add(movimento);
     }
-    
+
     public Movimento getProximoMovimento() {
         Movimento retorno;
         retorno = this.movimentos.get(proximoMovimento);
@@ -162,8 +162,15 @@ public abstract class Saint {
     public void golpear (Saint golpeado){
         adicionarMovimento (new Golpear (this, golpeado));
     }
-    
+
     public static double getMaxVida () {
         return maxVida;
+    }
+
+    public void inicializarTodosMovimentos(Saint outro) {
+        for (int i = 0; i < this.movimentos.size(); i ++) {
+            Movimento movimento = this.movimentos.get(i);
+            movimento.setup (this,outro);
+        }
     }
 }
