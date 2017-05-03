@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Plano_Tipo" directorySegmentName="seg_0" id="B859BD86-270D-77AB-2222-28BC206548D2">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:25:23 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<sourcePk>18A27D67-5B2A-50C4-35D9-36243174AC4C</sourcePk>
+<targetPk>1103243A-0A77-D4F6-3E15-A8885ABE8028</targetPk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>DDEE05BC-57FD-869D-9D35-BAB9E2D96E93</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>640A3305-8914-DDC8-1FD6-4C828808DA00</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

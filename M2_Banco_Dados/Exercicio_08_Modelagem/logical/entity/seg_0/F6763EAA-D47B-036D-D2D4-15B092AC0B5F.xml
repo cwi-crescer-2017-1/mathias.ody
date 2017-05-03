@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F6763EAA-D47B-036D-D2D4-15B092AC0B5F" name="Endereço">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:50:11 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Cidade" id="3091FFAF-D7D3-C492-1D76-705EBB2BA10D">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:50:19 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="UF" id="AEA63AC6-E6F8-7447-E9D4-037CD0266032">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:50:41 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<ownDataTypeParameters>2,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Bairro" id="C9D44A66-278C-8DA5-198C-F18A1495E986">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:51:05 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Rua" id="B5EC092F-8C01-6E3B-4CF6-8CE1DFF964F5">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:51:16 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Numero" id="E5EE7D7A-18D5-4A35-7BE1-0479C986E35C">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:51:32 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Complemento" id="064422F8-51F4-1009-18B8-37320735CBC8">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:51:52 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CEP" id="5A79CA85-705F-5BA6-8C51-A1243D248B90">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:52:17 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDEndereco" id="B4A4FCA3-54CC-14B0-B88F-73A95E139417">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:53:49 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDPessoa1" id="ED547A6A-C454-F60F-5183-9CC5576731DE">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:57:49 UTC</createdTime>
+<generatorID>7DA083AA-7B22-C7C4-2722-88F735CF7EE3</generatorID>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<referedAttribute>1E4D414C-C793-84E0-5E3E-C1AB4E603E9E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="AD6CA9FE-78E3-5F5E-5D5E-E70F4114A8FE" name="Endereço PK">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:54:00 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B4A4FCA3-54CC-14B0-B88F-73A95E139417</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

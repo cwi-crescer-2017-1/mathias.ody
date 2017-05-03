@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Beneficiados_Pessoa" directorySegmentName="seg_0" id="AF8EB7E3-A321-BB6E-B660-F77E5E49B434">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:02:35 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<sourcePk>4B467003-A8F8-4212-CF3F-6D21446A184B</sourcePk>
+<targetPk>F22FF166-1D0F-CEEB-38B1-ADD87F2AFC1E</targetPk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>09BA1B19-37F0-3EDD-6452-50EEF20B65AA</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>C3A4A4B9-8AE2-843B-4A12-5888B16D7F4E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

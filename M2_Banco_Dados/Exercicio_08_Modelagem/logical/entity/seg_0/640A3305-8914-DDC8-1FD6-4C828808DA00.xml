@@ -1,0 +1,69 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="640A3305-8914-DDC8-1FD6-4C828808DA00" name="Tipo Seguro">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:20:26 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDTipoSeguro" id="9DBEEFC8-B15F-8EDB-642A-4F9FD36122D2">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:20:34 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDSeguro" id="018223A3-8515-81EE-E627-6C11A4AF7CB9">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:20:50 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDPlano" id="6E1A7E3B-16A3-FF7A-9636-FDC36712A6D7">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:25:23 UTC</createdTime>
+<generatorID>B859BD86-270D-77AB-2222-28BC206548D2</generatorID>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<referedAttribute>496F6AE6-607E-EEE1-3F12-6E2B443F82FD</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="1103243A-0A77-D4F6-3E15-A8885ABE8028" name="Tipo Seguro PK">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:20:55 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9DBEEFC8-B15F-8EDB-642A-4F9FD36122D2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

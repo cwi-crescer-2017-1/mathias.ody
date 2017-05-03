@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Exercicio_08_Modelagem" id="AA06CBA9-B087-30D4-41DF-C0064E8B67D3" version="3.5">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:45:49 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>AA06CBA9-B087-30D4-41DF-C0064E8B67D3</designId>
+</OSDM_Design>

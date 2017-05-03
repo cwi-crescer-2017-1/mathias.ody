@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="DDEE05BC-57FD-869D-9D35-BAB9E2D96E93" name="Plano">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:03:44 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDPlanoPessoa" id="95ABCBB9-21A8-57F3-FD46-24C0FC084B31">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:04:47 UTC</createdTime>
+<generatorID>7A4960F6-275A-C186-A819-5ACE4D2946D6</generatorID>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<referedAttribute>D75F0592-F411-19DD-7435-036385CFFDE0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDPlano" id="496F6AE6-607E-EEE1-3F12-6E2B443F82FD">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:05:06 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Mensalidade" id="2A67D086-A36D-2D08-3217-9CDBEAF5990C">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:09:50 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT044</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="18A27D67-5B2A-50C4-35D9-36243174AC4C" name="Plano PK">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:05:24 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>496F6AE6-607E-EEE1-3F12-6E2B443F82FD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

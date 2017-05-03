@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C3A4A4B9-8AE2-843B-4A12-5888B16D7F4E" name="Pessoa">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:47:03 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Cliente" id="543180BF-C337-7591-FA6F-C4DA36B7EDB9">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:47:27 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Telefone" id="7B9CD4C0-E8EC-EAB6-BC2E-8FD0232EBEDA">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:48:14 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>11</dataTypeSize>
+<ownDataTypeParameters>11,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDPessoa" id="1E4D414C-C793-84E0-5E3E-C1AB4E603E9E">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:54:39 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDEndereco" id="38DC01CF-9814-F9CF-9587-E6AC4FE4E341">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:58:18 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDPessoaFísica" id="1E061271-35F9-CBB9-0977-3D86A259197E">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:13:56 UTC</createdTime>
+<generatorID>7A03DE1C-2AB3-0E76-AA84-764CF9492B67</generatorID>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<referedAttribute>810703E1-C32C-5DDF-CE27-6BFDF41C94A8</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDPessoaJuridica" id="A5B0F766-E2CF-2F5A-D4A3-8B9DA1F1A7D7">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:14:50 UTC</createdTime>
+<generatorID>55116768-EFA5-AD1C-5605-2093F65BC06C</generatorID>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<referedAttribute>0FD1B206-565F-D447-2AF2-1F6C04095233</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F22FF166-1D0F-CEEB-38B1-ADD87F2AFC1E" name="Pessoa PK">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 18:54:51 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1E4D414C-C793-84E0-5E3E-C1AB4E603E9E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

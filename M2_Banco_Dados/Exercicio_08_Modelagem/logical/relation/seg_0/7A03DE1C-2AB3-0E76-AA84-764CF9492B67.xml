@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Fisica_Pessoa" directorySegmentName="seg_0" id="7A03DE1C-2AB3-0E76-AA84-764CF9492B67">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:13:56 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<sourcePk>CE59BD79-3C3F-D4FD-F71C-50CEB5659F22</sourcePk>
+<targetPk>F22FF166-1D0F-CEEB-38B1-ADD87F2AFC1E</targetPk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>54B78116-1044-45B9-8009-FE2AA933E960</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>C3A4A4B9-8AE2-843B-4A12-5888B16D7F4E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

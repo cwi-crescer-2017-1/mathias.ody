@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Pessoa_PlanosDaPessoa" directorySegmentName="seg_0" id="90B7965D-EBAE-91F5-65C2-3D9AF1ED886D">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:04:05 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<sourcePk>F22FF166-1D0F-CEEB-38B1-ADD87F2AFC1E</sourcePk>
+<targetPk>AF599602-73E0-0CC3-9FF6-B2B9A1128798</targetPk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>C3A4A4B9-8AE2-843B-4A12-5888B16D7F4E</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>6FA8A752-A76B-1E4A-6F68-6E48514EC89F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

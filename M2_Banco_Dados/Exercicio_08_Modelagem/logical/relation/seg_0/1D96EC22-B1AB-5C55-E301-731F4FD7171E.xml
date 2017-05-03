@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Seguro_Tipo_Carro" directorySegmentName="seg_0" id="1D96EC22-B1AB-5C55-E301-731F4FD7171E">
+<createdBy>mathias.ody</createdBy>
+<createdTime>2017-05-03 19:26:04 UTC</createdTime>
+<ownerDesignName>Exercicio_08_Modelagem</ownerDesignName>
+<engineerTo>
+<item key="ADED5B2A-D058-C944-3FDC-A0B1A3F05B80" value="true"/>
+</engineerTo>
+<sourcePk>1103243A-0A77-D4F6-3E15-A8885ABE8028</sourcePk>
+<targetPk>BE2BE1AB-2A10-1122-D18A-6920F5F1116A</targetPk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>640A3305-8914-DDC8-1FD6-4C828808DA00</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>70782E32-19A7-1DF7-D084-510764204639</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
