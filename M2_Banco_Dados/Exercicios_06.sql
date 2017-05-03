@@ -80,10 +80,14 @@ SELECT
 */
 
 SELECT TOP 30
-		ped.IDProduto,
-		p.Nome,
-		SUM (ped.Quantidade) *(MAX (p.PrecoVenda) - MAX (p.PrecoCusto)) as [TotalVendas(R$)]
-		FROM PedidoItem ped
-		INNER JOIN Produto p ON p.IDProduto = ped.IDProduto
-		GROUP BY ped.IDProduto, p.Nome
+		prod.IDProduto as ID,
+		prod.Nome,
+		SUM (item.Quantidade) *(MAX (prod.PrecoVenda) - MAX (prod.PrecoCusto)) as [TotalVendas(R$)],
+		MAX (prod.PrecoVenda) - MAX (prod.PrecoCusto) as [Lucro p/ item],
+		SUM (item.Quantidade) as [Total Vendidos]
+		FROM PedidoItem item
+		INNER JOIN Produto prod ON prod.IDProduto = item.IDPedido
+		INNER JOIN Pedido pedido ON item.IDPedido = pedido.IDPedido
+		WHERE year (pedido.DataPedido) = 2016 --filtro
+		GROUP BY prod.IDProduto, prod.Nome
 		ORDER BY [TotalVendas(R$)] DESC
