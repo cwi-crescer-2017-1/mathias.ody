@@ -43,3 +43,22 @@ COMMIT
 4 - Liste todas as cidades duplicadas (nome e UF iguais).
 */
 
+SELECT
+	Nome as [Nome da Cidade],
+	UF
+	FROM Cidade
+	GROUP BY Nome, UF
+	HAVING COUNT (1) > 1
+
+/*
+5 A - Faça uma alteraçao nas cidades que tenham nome+UF duplicados, adicione no final do nome um asterisco. 
+Mas atenção! apenas a cidade com maior ID deve ser alterada.
+*/
+
+UPDATE Cidade
+	SET Nome = Nome + '*'
+	FROM Cidade c
+	WHERE IDCidade IN (SELECT DISTINCT MAX(IDCidade)
+					  FROM Cidade
+					  GROUP BY Nome, UF
+					  HAVING COUNT (*) > 1);
