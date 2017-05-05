@@ -1,0 +1,13 @@
+.title {
+  color:red;
+  font-size:100px;
+  text-shadow: 3px 3px black;
+  border-style: solid;
+  border-bottom-width: 8px;
+  text-align: center;
+}
+
+body {
+  margin-left:20%;
+  margin-right:20%
+}
