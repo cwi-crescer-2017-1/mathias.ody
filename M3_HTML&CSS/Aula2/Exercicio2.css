@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    font-size:0;
+}
+
+.row {
+    display:inline-block;
+    font-size: initial;
+    height:25vh;
+    border: 2px solid;
+}
+
+.col1 {
+    width:25%;
+    background : red;
+}
+
+.row:hover {
+    background:green;
+}
+
+.col2 {
+    width:50%;
+    background: blue;
+}
+
+.col3 {
+    width:100%;
+    background : purple;
+}
+
+.col4 {
+    width:10%;
+    background : yellow;
+}

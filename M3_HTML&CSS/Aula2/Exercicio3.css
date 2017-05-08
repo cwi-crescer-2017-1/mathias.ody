@@ -1,0 +1,35 @@
+body {
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.titulo_pagina{
+    background :#c4170c;
+    width : 100%;
+
+    padding: 23px;
+
+    font-size: 26px;
+    text-align: center;
+    font-weight: 900;
+    color : white;
+}
+
+.corpo {
+    margin: 5vh 7% 5vh;
+}
+
+.noticia {
+    padding : 40px 40px;
+    width : 43%;
+    border : 2px groove;
+
+}
+
+.titulo_noticia {
+    letter-spacing: -2px;
+    font-size: 36px;
+    font-weight : 800;
+    color : #c4170c;
+    line-height: 40px;
+}
