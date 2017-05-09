@@ -1,0 +1,11 @@
+* {
+    box-sizing:border-box;
+}
+
+body {
+    margin:0;
+    background-image: url("https://assets.vg247.it/current//2016/02/street-fighter-5-guida-mosse-trucchi.jpg");
+    background-size: cover;
+    width :100%;
+    height : 500vh;
+}
