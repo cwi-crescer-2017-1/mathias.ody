@@ -1,11 +1,11 @@
 body {
     margin: 0px;
     font-family: 'Open Sans', sans-serif;
+    background:rgba(248,248,248,1);
 }
 
 .titulo_pagina{
     background :#c4170c;
-    width : 100%;
 
     padding: 23px;
 
@@ -16,14 +16,17 @@ body {
 }
 
 .corpo {
-    margin: 5vh 7% 5vh;
+    margin: 5vh 4% 5vh 4%;
 }
 
 .noticia {
-    padding : 40px 40px;
-    width : 43%;
-    border : 2px groove;
-
+    margin: 0px 1.5% 5vh;
+    padding : 40px 55px 10px 24px;
+    width : 39%;
+    border : 2px groove rgba(122,122,122,0.1);
+    border-radius : 5px;
+    background:rgba(260,260,260,1);
+    float: left;
 }
 
 .titulo_noticia {
@@ -32,4 +35,44 @@ body {
     font-weight : 800;
     color : #c4170c;
     line-height: 40px;
+}
+
+.subtitulo_noticia{
+    color: #bbb;
+    padding-top: 20px;
+    font-size: 18px;
+    letter-spacing: -1px;
+}
+
+.corpo_noticia {
+    padding-top: 20px;
+    font-size: 18px;
+    line-height: 35px;
+    color: #333;
+}
+
+.corpo_noticia br {
+    line-height: 300%;
+}
+
+.corpo_noticia::first-letter {
+    font-size : 70px;
+    color : #c4170c;
+    line-height: 70px;
+    float: left;
+    letter-spacing: 10px;
+}
+
+.corpo_noticia > img {
+    padding-top: 15px;
+    width: 145px;
+    height: 95px;
+    float : right;
+}
+
+.noticia > footer {
+    opacity : 0.4;
+    float : right;
+    letter-spacing : -1px;
+    word-spacing: 2px;
 }
