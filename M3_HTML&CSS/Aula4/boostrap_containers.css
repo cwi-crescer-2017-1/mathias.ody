@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+.container .row h1 {
+  margin:0px;
+}
+
+.container-fluid .row div {
+
+}
+
+.container-fluid .row{
+  margin-top: 20px
+}
