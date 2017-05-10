@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+.container-fluid .row{
+  margin-top: 20px
+}
+
+body {
+  padding-right:70px;
+  padding-left:70px;
+}
+
+.btn-default[type="submit"] {
+    color:white;
+    background-color:dodgerblue;
+}
