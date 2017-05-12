@@ -15,3 +15,21 @@ function fibonacciSum (num) {
 }
 
 console.log (fibonacciSum (7));
+
+//RECURSÃO
+
+/*function recursao (num) {
+  if (num === 0) {return 0;}
+  return num + recursao(num - 1);
+}
+
+console.log(recursao(3));*/
+
+//num = 3
+// 3 + recursao (2)
+// 3 + recursao (2) + recursao (1)
+// 3 + recursao (2) + recursao(1) + recursao (0)
+// 3 + recursao (2) + recursao(1) + 0
+// 3 + recursao (2) + 1 + 0
+// 3 + 2 + 1 + 0
+// 6

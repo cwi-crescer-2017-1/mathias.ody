@@ -1,21 +1,15 @@
 function queroCafe (mascada, precos) {
   sort (precos);
-  var indiceDeCorte = 0;
   var resultado = "";
   for (var i = 0; i < precos.length; i++){
-    if (precos[i] > mascada) {
-      indiceDeCorte = i - 1;
-      break;
-    }
-  }
-
-  for (var j = 0; j < indiceDeCorte; j++){
-    if (j === 0) {
-      resultado += precos[j];
-      continue;
-    }
-    else {
-      resultado += ", " + precos[j];
+    if (precos[i] < mascada) {
+        if (i === 0) {
+          resultado += precos[i];
+          continue;
+        }
+        else {
+          resultado += ", " + precos[i];
+        }
     }
   }
   return resultado;

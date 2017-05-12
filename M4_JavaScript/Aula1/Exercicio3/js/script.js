@@ -14,3 +14,8 @@ function olaInstrutor (instrutor) {
 }
 
 console.log(imprime (['bernardo', 'nunes','pedro'], olaInstrutor));
+
+
+function imprime (textos, funcaoParaExecutar) {
+    lista.forEach(funcaoParaExecutar); //ela ja vai chamar as funções
+}
