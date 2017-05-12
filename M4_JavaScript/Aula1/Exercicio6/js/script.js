@@ -33,3 +33,23 @@ function sort(lista) {
 var listaPrecos = [ 5.16, 2.12, 1.15, 3.11, 17.5 ];
 
 console.log(queroCafe (5.16,listaPrecos));
+
+
+// Entenda isso:
+function queroCafe(mascada, precos) {
+    return precos
+    .filter (function (a){
+        return a <= mascada;
+    })
+    .sort (function (a,b) {
+        return a-b;
+    })
+    .join(',')
+}
+
+function queroCafe(mascada, precos) {
+    return precos
+    .filter (a => a <= mascada)
+    .sort ((a,b)=> a-b)
+    .join(',')
+}
