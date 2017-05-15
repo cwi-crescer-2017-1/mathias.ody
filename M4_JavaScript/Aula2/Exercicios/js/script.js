@@ -7,8 +7,8 @@ function seriesInvalidas(series) {
     if (serie.anoEstreia > anoAtual){
       retorno.push(serie.titulo);
     }
-    for(elemento of Object.values(serie)) {
-      if(typeof elemento === 'undefined' || elemento === null)
+    for(let elemento in serie) {
+      if(typeof serie[elemento] === 'undefined' || serie[elemento] === null)
         retorno.push(serie.titulo);
     }
   })
@@ -78,6 +78,7 @@ function queroGenero (genero) {
   })
   return resultado.toString();
 }
+//series.filter (s => s.genero.includes(genero));
 
 console.log(queroGenero("Caos"));
 
@@ -138,3 +139,12 @@ function detectarIlluminati (series){
   return "#" + resultado;
 }
 console.log (detectarIlluminati(series));
+
+
+//criação de método para classes standard
+String.prototype.pegarUltimoNome = function (){
+    //faça coisas
+}
+
+//RegEx
+"J. R. R. Tolkien".match (/ [a-zA-z][.]/g);
