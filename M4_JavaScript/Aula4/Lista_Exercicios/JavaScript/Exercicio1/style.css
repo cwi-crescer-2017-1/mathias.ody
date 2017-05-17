@@ -1,0 +1,33 @@
+body {
+    box-sizing: border-box;
+}
+
+.corpo {
+    width:50%;
+    margin: auto;
+    text-align: center;
+}
+
+.corpo > h1 {
+    font-size: 50px;
+    margin-top: 0px;
+    font-family: sans-serif;
+}
+
+.box {
+    font-family: sans-serif;
+    font-size: 20px;
+    padding-top: 30px;
+    border-bottom: 2px solid grey;
+}
+
+.box > img {
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+
+.box > ul {
+    padding-left: 40%;
+    padding-right: 40%;
+}
