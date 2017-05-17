@@ -5,7 +5,6 @@ var html = document.getElementById("scriptedElements");
 //////////////////////////////////////////////////////////////
 let btnPesquisar = document.getElementById("btnPesquisar");
 btnPesquisar.onclick = clicado;
-
 function clicado () {
     let input = document.getElementById("numPkm").value;
     let url = "http://pokeapi.co/api/v2/pokemon/" + input + "/";
@@ -16,48 +15,60 @@ function clicado () {
 }
 
 Object.prototype.mostrarPokemon = function(num) {
-    console.log(this);
-    //container
-    var box = document.createElement('div');
+    let box = document.createElement('div');
     box.className = "box";
-    //nome e id
-    var nomeSpan = document.createElement('span');
-    var nomeTxt = document.createTextNode(this.name.toUpperCase() + " - " + num);
-    nomeSpan.appendChild(nomeTxt);
+    let nomeSpan = getNome(this, num);
+    let img = getImg(this, num);
+    let tipos = getTipos(this);
+    let atributos = getAtributos (this);
     box.appendChild(nomeSpan);
-    //imagem
-    var img = document.createElement('img');
-    img.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + num + ".png";
     box.appendChild(img);
-    //tipos:
-    var lista = this.types;
-    var tipos = document.createElement ('ul');
-    lista.forEach(function (itemAtual){
-        var item = document.createElement ('li');
-        var itemTxt = document.createTextNode(itemAtual.type.name);
-        item.appendChild(itemTxt);
-        tipos.appendChild(item);
-    })
     box.appendChild(tipos);
-
-    //atributos
-    var stats = this.stats;
-    var atributos = document.createElement('div');
-    stats.forEach(function (stat) {
-        console.log(stat.stat.name);
-        console.log(stat.base_stat);
-        var atributo = document.createElement('div');
-        var atributoNome = document.createElement('div')
-        atributoNome.className = 'atributo';
-        atributoNome.innerHTML = stat.stat.name.toUpperCase();
-        var valor = document.createElement('progress');
-        valor.setAttribute("value",stat.base_stat);
-        valor.setAttribute("max",100);
-        atributo.appendChild(atributoNome);
-        atributos.appendChild(atributo);
-        atributo.appendChild(valor);
-    })
     box.appendChild(atributos);
 
     html.appendChild(box);
+}
+
+function getAtributos (pokemon){
+  let stats = pokemon.stats;
+  let atributos = document.createElement('div');
+  stats.forEach(function (stat) {
+      let atributo = document.createElement('div');
+      let atributoNome = document.createElement('div')
+      atributoNome.className = 'atributo';
+      atributoNome.innerHTML = stat.stat.name.toUpperCase();
+      let valor = document.createElement('progress');
+      valor.setAttribute("value",stat.base_stat);
+      valor.setAttribute("max",100);
+      atributo.appendChild(atributoNome);
+      atributo.appendChild(valor);
+      atributos.appendChild(atributo);
+  })
+  return atributos;
+}
+
+function getTipos (pokemon) {
+  let lista = pokemon.types;
+  let tipos = document.createElement ('ul');
+  lista.forEach(function (itemAtual){
+      let item = document.createElement ('li');
+      let itemTxt = document.createTextNode(itemAtual.type.name);
+      item.appendChild(itemTxt);
+      tipos.appendChild(item);
+      tipos.append(item);
+  })
+  return tipos;
+}
+
+function getImg (pokemon, num) {
+  let img = document.createElement('img');
+  img.src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + num + ".png";
+  return img;
+}
+
+function getNome (pokemon, num){
+  let nomeSpan = document.createElement('span');
+  let nomeTxt = document.createTextNode(pokemon.name.toUpperCase() + " - " + num);
+  nomeSpan.appendChild(nomeTxt);
+  return nomeSpan;
 }
