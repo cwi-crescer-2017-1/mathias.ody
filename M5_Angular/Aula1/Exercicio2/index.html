@@ -9,10 +9,15 @@
     <body ng-app="Exercicio2">
         <h1>GameList.io</h1>
         <div class="container">
-            <input class="prompt" type="text" placeholder="Start typing..." ng-model="input">
+            <input class="prompt" type="text" placeholder="Start typing..." autofocus="true" ng-model="input.nome">
                 <div ng-controller="MainController">
                     <ul>
-        	            <li ng-repeat="game in games | orderBy:game.nome | filter:input">
+                        <li>
+                            <div class="item1"><span>Título</span></div>
+                            <div class="item2"><span>Ano</span></div>
+                            <div class="item3"><span>Desenvolvedora</span></div>
+                        </li>
+        	            <li ng-repeat="game in games | orderBy:game | filter:input">
                             <div class="item1">{{game.nome}}</div>
                             <div class="item2">{{game.ano}} </div>
                             <div class="item3">{{game.dev}} </div>
