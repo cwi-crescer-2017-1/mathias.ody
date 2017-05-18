@@ -51,7 +51,7 @@ app.filter('mascada', function () {
         return input;*/
         //Esta solução é deselegante.
 
-        input = input.replace (/NUNES/ig, "$Nunes$") 
+        input = input.replace (/NUNES/ig, "$ " +  input + " $") 
         return input;
     }
 })
