@@ -1,12 +1,17 @@
-body {
+.container {
     margin : 50px auto;
     width : 60%;
-    height : 200px;
+    height : 195px;
     border: 2px groove;
     font-family: sans-serif;
 }
 
 h1 {
+    text-align: center;
+}
+
+h5{
+    margin:0px;
     text-align: center;
 }
 
@@ -20,4 +25,9 @@ h1 {
 
 .footer {
     text-align: center;
+}
+
+ul {
+    width: 15%;
+    margin: 10px auto;
 }

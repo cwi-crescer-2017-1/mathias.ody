@@ -7,14 +7,29 @@
         <script src="script.js"></script>
     </head>
     <body ng-controller="convertDate">
-        <h1>Super DataConverter.io</h1>
-        <div class="input">
-            <input type="text" input="text" placeholder="Ex: dd.mm.yyyy" ng-model="input">
-            <button name="button" ng-click="convert()">Convert!</button>
+        <div class="container">
+            <h1>Super DataConverter.io</h1>
+            <div class="input">
+                <input type="text" input="text" placeholder="Ex: dd.mm.yyyy" ng-model="input">
+                <button name="button" ng-click="convert()">Convert!</button>
+            </div>
+            <div class="output">
+                <h2>{{output | date : 'mediumDate'}}</h2>
+            </div>
+            <div class="footer">Forgive us the layout, we are under maintenance</div>
         </div>
-        <div class="output">
-            <h2>{{output | date : 'mediumDate'}}</h2>
+
+        <div class="container">
+            <h5>
+                $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$              
+            </h5>
+            <h1>Mascada$$$</h1>
+            <ul>
+                <li ng-repeat="instrutor in instrutores">{{instrutor.nome | mascada}}</li>
+            </ul>
+            <h5>
+                $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$              
+            </h5>
         </div>
-        <div class="footer">Forgive us the layout, we are under maintenance</div>
     </body>
 </html>
