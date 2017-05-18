@@ -1,0 +1,63 @@
+body{
+    margin-top: 0px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body > h1 {
+    text-align: center;
+    margin:0px;
+    padding: 20px 0px 20px;
+    font-size: 80px;
+    color: white;
+    text-shadow: 2px 2px 2px black, -2px -2px 2px black, -2px 2px 2px black, 2px -2px 2px black;
+    font-weight: bold;
+    background-image: url("http://gamereporter.uol.com.br/wp-content/uploads/2017/03/games.png");
+    border-bottom: 2px groove;
+}
+
+body > .container > input {
+    padding: 7px 4px;
+    border-radius: 15px;
+    transform: translate(50%,-30px);
+}
+
+.container {
+    width : 60%;
+    background-color : #F0F0F0;
+    margin: 0px auto 50px;
+    padding: 50px 20px 50px;
+}
+
+ul {
+    margin:0px;
+    list-style-type: none;
+}
+
+ul > li:nth-child(odd) > div {
+    background-color: #FFFFFF;
+}
+
+ul > li:nth-child(even) > div {
+    background-color: #E4E4E4;
+}
+
+li > div {
+    display: inline-block;
+    border: 2px groove;
+    border-radius: 2px;
+    margin:2px 0px;
+    padding: 4px;
+}
+
+.item1 {
+    width : 40%;
+}
+
+.item2 {
+    width : 20%;
+}
+
+.item3 {
+    width : 30%;
+}
