@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="App">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+        <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body ng-controller="Controller">
+        <div .corpo>
+            <form novalidate name="Form">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" autofocus="true" ng-model="novoInstrutor.nome" ng-minlength="3" ng-maxlength="20" required>
+
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" name="sobrenome" ng-model="novoInstrutor.sobrenome">
+
+                <label for="idade">Idade:</label>
+                <input type="number" name="idade" ng-model="novoInstrutor.idade">
+
+                <label for="email">Email:</label>
+                <input type="text" name="email" ng-model="novoInstrutor.email" required>
+
+                <label for="jaDeuAula">Já deu aula</label>
+                <input type="checkbox" name="jaDeuAula" ng-model="novoInstrutor.jaDeuAula">
+
+                <label for="disciplina">Disciplina</label>
+                <select name="disciplina" ng-model="novoInstrutor.disciplina" required>
+                    <option selected disabled value="">Selecione...</option>
+                    <option ng-repeat="disciplina in disciplinas">{{disciplina}}</option>
+                </select>
+
+                <button ng-click="incluir(novoInstrutor)">Incluir</button>
+
+            </form>
+
+            <table>
+                <tr>
+                    <td>Nome</td>
+                    <td>Idade</td>
+                    <td>Email</td>
+                    <td>Aula</td>
+                    <td>Deu Aula</td>
+                </tr>
+                <tr ng-repeat="instrutor in instrutores">
+                    <td>{{instrutor.nome + " " + instrutor.sobrenome}}</td>
+                    <td>{{instrutor.idade}}</td>
+                    <td>{{instrutor.email}}</td>
+                    <td>{{instrutor.disciplina}}</td>
+                    <td><input type="checkbox" name="jaDeuAula" ng-model="instrutor.jaDeuAula"></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
