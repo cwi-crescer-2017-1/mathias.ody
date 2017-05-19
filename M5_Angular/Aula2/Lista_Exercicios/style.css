@@ -1,7 +1,7 @@
 body {
     box-sizing: border-box;
     margin : 0px;
-    background-image: url(http://s4.pikabu.ru/post_img/big/2014/12/13/0/1418419244_988756355.jpg);
+    background-image: url(https://hdwallsbox.com/wallpapers/l/1920x1080/52/warriors-silmarillion-jrr-tolkien-gods-morgoth-fingolfin-1920x1080-51864.jpg);
     background-attachment: fixed;
     font-family: 'Ravi Prakash', cursive;
 }
@@ -53,6 +53,7 @@ body > h1 {
     text-align: left;
     margin-top:0px;
     padding-left:0px;
+    padding-right: 5px;
     list-style:square;
 }
 
