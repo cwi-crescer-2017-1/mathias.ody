@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="Exercicio">
+    <head>
+        <title>Mestres do Crescer</title>
+        <link href="style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
+        <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body ng-controller="controle">
+        <h1>MESTRES DO CRESCER</h1>
+
+        <div class="container">
+            <div class="elemento">
+                <h1>Exercício 1</h1>
+                <div class="centralizar">
+                    <ul class="lista-aulas">
+                        <li class="header">Aula</li>
+                        <li ng-repeat="aula in aulas">{{aula.nomeAula}}</li>
+                    </ul>
+                    <ul class="instrutor">
+                        <li class="header">Mestre</li>
+                        <li ng-repeat="aula in aulas">{{aula.nomeInstrutor}}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="elemento">
+                <h1>Exercício 2</h1>
+                <div class="centralizar">
+                    <ul>
+                        <li class="header">Aula</li>
+                        <li ng-repeat="aula in aulas">{{aula.nomeAula}}</li>
+                    </ul>
+                    <ul class="instrutor">
+                        <li class="header">Mestre</li>
+                        <li ng-repeat="aula in aulas">{{aula.nomeInstrutor | mascada}}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="elemento">
+                <h1>Exercício 3</h1>
+                <div class="centralizar">
+                    <ul>
+                        <li class="header">Aula</li>
+                        <li ng-repeat="aula in aulas">{{aula.nomeAula | lpadStandard}}</li>
+                    </ul>
+                    <ul class="instrutor">
+                        <li class="header">Mestre</li>
+                        <li ng-repeat="aula in aulas">{{aula.nomeInstrutor | mascada}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

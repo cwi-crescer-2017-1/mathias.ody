@@ -1,0 +1,73 @@
+body {
+    box-sizing: border-box;
+    margin : 0px;
+    background-image: url(http://s4.pikabu.ru/post_img/big/2014/12/13/0/1418419244_988756355.jpg);
+    background-attachment: fixed;
+    font-family: 'Ravi Prakash', cursive;
+}
+
+body > h1 {
+    text-align: center;
+    margin:0px;
+    font-size: 130px;
+    color: white;
+    text-shadow: 5px 5px black, -5px -5px black, -5px 5px black, 5px -5px black;
+    background-image: url(https://s-media-cache-ak0.pinimg.com/originals/42/57/81/4257815dc3315f87d0926183d90e9329.jpg);
+    background-position: center;
+    font-family: 'Anton', sans-serif;
+    height: 200px;
+    border-bottom: 3px groove grey;
+}
+
+.container {
+    margin: 0px auto;
+    width : 60%;
+}
+
+.elemento {
+    font-size: 18px;
+    margin : 30px auto 30px;
+    border: 2px groove;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 15px;
+}
+
+.elemento > h1 {
+    font-size: 30px;
+    margin:10px 0px 10px;
+    padding-left: 10px;
+    background-color: rgba(200,0,0,0.9);
+    width: 180px;
+    border-radius: 5px;
+}
+
+.centralizar{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    line-height: 25px;
+}
+
+.elemento > .centralizar > ul{
+    display: inline-block;
+    text-align: left;
+    margin-top:0px;
+    padding-left:0px;
+    list-style:square;
+}
+
+.elemento > .centralizar > ul > li{
+    border-bottom: 1px solid grey;
+    border-right: 1px solid grey;
+}
+
+.elemento > .centralizar > .instrutor {
+    list-style: none;
+}
+
+.elemento > .centralizar .header {
+    list-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-top: 1px solid grey;
+}
