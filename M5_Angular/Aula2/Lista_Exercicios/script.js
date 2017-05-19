@@ -40,9 +40,12 @@ app.controller ("controle", function ($scope) {
         let aulas = [];
         instrutores.forEach(function (instrutor) {
             instrutor.aulas.forEach(function(aula) {
-                aulas.push({nomeAula: aula.nome, nomeInstrutor:instrutor.nome});
+                aulas.push({nomeAula: aula.nome, numero: aula.numero, nomeInstrutor:instrutor.nome});
             })
         })
+        aulas = aulas.sort(function (a, b) {
+            return a.numero - b.numero;
+        });
         return aulas;
     }
 
