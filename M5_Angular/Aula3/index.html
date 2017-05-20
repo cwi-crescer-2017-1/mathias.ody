@@ -9,35 +9,46 @@
         <script src="script.js"></script>
     </head>
     <body ng-controller="Controller">
-        <div .corpo>
+        <div class="corpo">
+            <div class="sidebar">
+            <h2>Cadastrar Instrutor</h2>
             <form novalidate name="Form">
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" autofocus="true" ng-model="novoInstrutor.nome" ng-minlength="3" ng-maxlength="20" required>
+                <div class="inside-sidebar">
+                    <div class="input_block">
+                        <label for="nome">Nome:</label>
+                        <input class="input" type="text" name="nome" autofocus="true" ng-model="novoInstrutor.nome" ng-minlength="3" ng-maxlength="20" required>
+                    </div>
+                    <div class="input_block">
+                        <label for="sobrenome">Sobrenome:</label>
+                        <input class="input" type="text" name="sobrenome" ng-maxlength="30" ng-model="novoInstrutor.sobrenome">
+                    </div>
+                    <div class="input_block">
+                        <label for="idade">Idade:</label>
+                        <input class="input" type="number" name="idade" ng-model="novoInstrutor.idade">
+                    </div>
+                    <div class="input_block">
+                        <label for="email">Email:</label>
+                        <input class="input" type="text" name="email" ng-model="novoInstrutor.email" required>
+                    </div>
+                    <div class="input_block">
+                        <label for="jaDeuAula">Já deu aula</label>
+                        <input id="checkmark" class="input" type="checkbox" name="jaDeuAula" ng-model="novoInstrutor.jaDeuAula">
+                    </div>
+                    <div class="input_block">
+                        <label for="disciplina">Disciplina</label>
+                        <select class="input" name="disciplina" ng-model="novoInstrutor.disciplina" required>
+                            <option selected disabled value="">Selecione...</option>
+                            <option ng-repeat="disciplina in disciplinas">{{disciplina}}</option>
+                        </select>
+                    </div>
 
-                <label for="sobrenome">Sobrenome:</label>
-                <input type="text" name="sobrenome" ng-model="novoInstrutor.sobrenome">
-
-                <label for="idade">Idade:</label>
-                <input type="number" name="idade" ng-model="novoInstrutor.idade">
-
-                <label for="email">Email:</label>
-                <input type="text" name="email" ng-model="novoInstrutor.email" required>
-
-                <label for="jaDeuAula">Já deu aula</label>
-                <input type="checkbox" name="jaDeuAula" ng-model="novoInstrutor.jaDeuAula">
-
-                <label for="disciplina">Disciplina</label>
-                <select name="disciplina" ng-model="novoInstrutor.disciplina" required>
-                    <option selected disabled value="">Selecione...</option>
-                    <option ng-repeat="disciplina in disciplinas">{{disciplina}}</option>
-                </select>
-
-                <button ng-click="incluir(novoInstrutor)">Incluir</button>
-
+                        <button ng-click="incluir(novoInstrutor)">Incluir</button>
+                </div>
             </form>
+        </div>
 
             <table>
-                <tr>
+                <tr class="header">
                     <td>Nome</td>
                     <td>Idade</td>
                     <td>Email</td>
