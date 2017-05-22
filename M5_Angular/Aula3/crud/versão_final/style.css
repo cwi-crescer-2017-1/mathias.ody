@@ -51,6 +51,11 @@ input[type="checkbox"] {
 .listaInstrutores{
 	width: 1000px;
 	margin: 0px auto;
+	transform: translate(10%,0);
+}
+
+ul {
+	list-style: none;
 }
 
 .log {
@@ -179,4 +184,9 @@ input[type="checkbox"] {
 	height : 45px;
 	padding-top: 10px;
 	margin-top : 8px;
+}
+
+.deleteButton {
+	color: red;
+	background-color: rgba(200,0,0,0.2)
 }
