@@ -1,0 +1,173 @@
+/*
+*
+* Está página começou inicalmente sem nenhum framework
+* O Sekeleon foi adicionado ao final para melhorar o layout, mas nem tudo foi terminado
+*
+*/
+
+h1 {
+	text-align : center;
+	margin: 0px 0px 100px 0px;
+	background-color : rgb(51,195,240);
+	padding-top: 25px;
+	padding-bottom: 25px;
+	border-bottom : 2px solid lightblue;
+}
+
+.row {
+	margin-bottom: 50px;
+}
+
+table {
+	margin-bottom: 50px;
+}
+
+body {
+	margin:0px;
+	box-sizing: border-box;
+}
+
+.footer {
+	color:white;
+	font-size: 30px;
+	text-align: center;
+	position:fixed;
+   left:0px;
+   bottom:0px;
+   height:50px;
+   width:100%;
+   background: #009900;
+}
+
+.selecionarAulas {
+	height: 120px;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-left: 10px;
+}
+
+
+.log {
+	background:red;
+}
+
+.erro {
+	background-color: lightcoral !important;
+	opacity: 0.5;
+	border: 2px solid red !important;
+	/*Os !important foram necessários*/
+}
+
+.insideBox {
+	display: inline-block;
+	list-style: none;
+	border: 1px groove lightgrey;
+	margin: 5px;
+	padding : 5px;
+	text-align: center;
+	border-radius: 2px;
+	float: left;
+	
+}
+
+.idInstrutor {
+	width: 20px;
+}
+
+.nomeInstrutor {
+	width: 210px;
+	height: 24px;
+}
+
+.imagemInstrutor {
+	height: 100px;
+	width : 110px;
+	display: inline-block;
+	float:left;
+}
+
+.imagemEdit{
+	display: block;
+}
+
+.urlEdit input {
+	width: 115px;
+	padding : 0px;
+	height: 20px;
+	margin : 0px;
+}
+
+.nomeEdit input{
+	display: inline-block;
+	width : 80px;
+	padding : 0px;
+	height: 20px;
+	margin : 0px;
+}
+
+.sobrenomeEdit input{
+	display: inline-block;
+	width : 100px;
+	padding : 0px;
+	height: 20px;
+	margin : 0px;
+}
+
+.idadeInstrutor {
+	width: 80px;
+}
+
+.idadeEdit input {
+	width : 50px;
+	padding : 0px;
+	height: 20px;
+	margin : 0px;
+}
+
+.emailInstrutor {
+	width: 262px;
+	background-color: white;
+}
+
+.emailEdit input {
+	padding : 0px;
+	height: 20px;
+	width: 250px;
+	margin : 0px;
+}
+
+.aulasInstrutor {
+	width: 270px;
+	height : 50px;
+	margin-top : 8px;
+	overflow : auto;
+	font-size: 14px;
+}
+
+.aulasInstrutor select {
+	width: 250px !important;
+	height : 50px !important;
+	margin : 0px !important;
+	padding:0px !important;
+}
+
+.dandoAulaInstrutor {
+	width: 100px;
+	height: 50px;
+	font-size: 14px;
+	margin-top : 8px;
+}
+
+.editAulaInstrutor {
+	height : 45px;
+	padding-top: 10px;
+	margin-top : 8px;
+}
+
+.deleteAulaInstrutor {
+	height : 45px;
+	padding-top: 10px;
+	margin-top : 8px;
+}

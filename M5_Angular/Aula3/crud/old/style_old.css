@@ -1,0 +1,178 @@
+body {
+	margin:0px;
+	box-sizing: border-box;
+}
+
+body .blocoAulas {
+	display:inline-block;
+	width: 400px;
+	margin : 30px 30%;
+}
+
+body .blocoInstrutores {
+	display:inline-block;
+	width: 600px;
+}
+
+.container {
+	margin-bottom: 50px;
+}
+
+.aulas{
+	list-style: none;
+	width :350px;
+}
+
+.instrutores {
+	list-style: none;
+	width: 420px;
+}
+
+.instrutor {
+	overflow:auto;
+}
+
+.insideBox {
+	display: inline-block;
+	list-style: none;
+	border: 1px groove lightgrey;
+	margin: 0px;
+	padding : 5px;
+	text-align: center;
+	border-radius: 2px;
+	float: left;
+}
+
+.idAula {
+	width: 20px;
+}
+
+.nomeAula {
+	width: 200px;
+	height: 18px;
+}
+
+ul > li > div input{
+	text-align: center;
+} 
+
+ul > li > div button {
+	margin: 0px auto;
+}
+
+.buttonAula {
+	padding-top: 3.5px;
+	padding-bottom: 3.5px;
+	margin: 2px auto;
+	border:0px;
+}
+
+.nonClickable {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+.editAula{
+	width: 50px;
+}
+
+.deleteButton {
+	color : red;
+}
+
+.footer {
+	color:white;
+	font-size: 30px;
+	text-align: center;
+	position:fixed;
+   left:0px;
+   bottom:0px;
+   height:50px;
+   width:100%;
+   background: #009900;
+}
+
+.log {
+	background:red;
+}
+
+.erro {
+	background-color: lightcoral;
+	opacity: 0.5;
+	border: 2px solid red;
+}
+
+.idInstrutor {
+	width: 20px;
+}
+
+.nomeInstrutor {
+	width: 200px;
+	height: 18px;
+}
+
+.imagemInstrutor {
+	height: 100px;
+	width : 110px;
+	display: inline-block;
+	float:left;
+}
+
+.imagemEdit{
+	display: block;
+}
+
+.urlEdit input {
+	width: 105px;
+}
+
+.nomeEdit input{
+	display: inline-block;
+	width : 80px;
+}
+
+.sobrenomeEdit input{
+	display: inline-block;
+	width : 100px;
+}
+
+.idadeInstrutor {
+	width: 50px;
+}
+
+.idadeEdit input {
+	width : 30px;
+}
+
+.emailInstrutor {
+	width: 262px;
+	background-color: white;
+}
+
+.emailEdit input {
+	width: 250px;
+}
+
+.aulasInstrutor {
+	width: 150px;
+	height : 45px;
+	overflow : auto;
+	font-size: 14px;
+}
+
+.aulasEdit {
+
+}
+
+.dandoAulaInstrutor {
+	width: 100px;
+	font-size: 14px;
+}
+
+.editAulaInstrutor {
+	float:right;
+}
+
+.deleteAulaInstrutor {
+	float:right;
+}
