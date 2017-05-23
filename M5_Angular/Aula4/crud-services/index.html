@@ -10,12 +10,12 @@
         <link href="css/style.css" rel="stylesheet">
         <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
         <script src="https://code.angularjs.org/1.6.4/angular-route.js"></script>
-        <script src="js/utils.js"></script>
-        <script src="js/aulaFactory.js"></script>
-        <script src="js/instrutorFactory.js"></script>
         <script src="js/script.js"></script>
+        <script src="js/utils.js"></script>
+        <script src="js/aulaService.js"></script>
+        <script src="js/instrutorService.js"></script>
     </head>
-    <body ng-controller="PrincipalController">
+    <body>
         <h1>Controle de peões do Nunes Illuminati</h1>
             <div class="linksInternos two columns offset-by-six">
                 <a href="#!/aulas">Aulas</a>
@@ -27,6 +27,5 @@
         <div class="footer">
             <div ng-model="errorOutput">{{errorOutput}}</div>         
         </div>
-
     </body>
 </html>

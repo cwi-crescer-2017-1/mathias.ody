@@ -1,3 +1,5 @@
+var app = angular.module('App', ['ngRoute']);
+
 app.config(function ($routeProvider) {
 
   $routeProvider
@@ -9,22 +11,21 @@ app.config(function ($routeProvider) {
       controller: 'Pagina02Controller',
       templateUrl: 'html/instrutores.html'
     })
-    .otherwise({redirectTo: 'html/aulas'});
+    .otherwise({redirectTo: '/aulas'});
 });
 
-app.controller ("PrincipalController", function ($scope, $routeParams, aulaFactory, instrutorFactory) {
+app.controller ("PrincipalController", function ($scope, $routeParams) {
     $scope.controller = 'PrincipalController';
 
     //
-    console.log(aulaFactory.list());
+    //console.log(aulaFactory.list().then (function (retorno) {console.log(retorno)}));
     //
 
-    $scope.editingId = 0;
+    $scope.editingId = -1;
     $scope.aulaEdit = { string : "" };
     $scope.lastIdAula = 1;
     $scope.lastIdInstrutor = 1;
-    $scope.inputEditAulas = {};
-    $scope.inputEditAulas.aulas = [];
+    $scope.inputEditAulas = {aulas : []};
     $scope.inputInstrutor = {                    
         nome: '',                  
         sobrenome: '',          
@@ -63,7 +64,7 @@ app.controller ("PrincipalController", function ($scope, $routeParams, aulaFacto
         let id = $scope.aulas.getIdDeNome (nome);
         let posInArray = $scope.aulas.getPosArrayDeNome (nome);
         $scope.aulas[posInArray].nome = $scope.aulaEdit.string;
-        $scope.editingId = 0;
+        $scope.editingId = -1;
         blockButtons(false);
         lancar_texto("Aula editada com sucesso!")
     }
@@ -202,7 +203,7 @@ app.controller ("PrincipalController", function ($scope, $routeParams, aulaFacto
                 $scope.instrutores[posInArray].aulas.push({id : elemento})
             })
 
-            $scope.editingIdInstrutor = 0;
+            $scope.editingIdInstrutor = -1;
             blockButtons(false);
             lancar_texto("Instrutor editado com sucesso!");
             $limparVariaveis();
@@ -272,11 +273,6 @@ app.controller ("PrincipalController", function ($scope, $routeParams, aulaFacto
       }
   }
 
-  var lancar_texto = function (texto) {
-      limpar_erros();
-      $scope.errorOutput = texto;
-  }
-
   //
   //Devido a problemas utilizando o ng-message, resolvi fazer meu próprio sistema de erros
   //
@@ -321,41 +317,139 @@ app.controller ("PrincipalController", function ($scope, $routeParams, aulaFacto
   }
 })
 
-Array.prototype.contemNome = function (nome, id = true) {
-    resultado = false;
-    this.forEach(function (elemento) {
-        if (elemento.nome === nome && elemento.id !== id) {
-            resultado = true;
+app.controller('Pagina01Controller', function ($scope, $routeParams, aulaService) {
+    $scope.editingId = -1;
+    $scope.aulaEdit = { string : "" };
+    $scope.inputEditAulas = {aulas : []};
+
+    listarAulas();
+
+    //
+    //Adicionar aulas
+    //
+    $scope.incluirAula = function(inputNomeAula) {
+        //Checagem de erros
+        if (Object.keys($scope.Form.cadastrarAula.$error).length > 0) {
+            check_erro($scope.Form.cadastrarAula.$error, document.getElementsByName("cadastrarAula"))
         }
-    })
-    return resultado;
-}
-
-Array.prototype.contemEmail = function (email, id = true) {
-    resultado = false;
-    this.forEach(function (elemento) {
-        if (elemento.email === email && elemento.id !== id) {
-            resultado = true;
+        else {
+            //Dar push local nas aulas
+            tempAula = {nome : inputNomeAula};
+            aulaService.create(tempAula).then(function(resposta){
+                listarAulas();
+            });
+            $scope.aulaInput = "";
+            lancar_texto("Aula incluída!")
         }
-    })
-    return resultado;
-}
+    }
 
-Array.prototype.getIdDeNome = function (nome) {
-    let resultado = -1;
-    this.forEach(function(elemento) {
-        if (elemento.nome === nome) {
-            resultado = elemento.id;
-        }
-    });
+    //
+    //Deletar aula
+    //
+    $scope.deletarAula = function (id) {
+        let posInArray = $scope.aulas.getPosArrayById (id);
+        aulaService.removeById(id).then(function(resposta){
+            listarAulas();
+        });
+        lancar_texto("Aula excluída com sucesso!");
+    }
 
-    return resultado;
-}
+    //
+    //Editar aula
+    //
+    $scope.editarAula = function(id) {
+        let posInArray = $scope.aulas.getPosArrayById (id);
+        $scope.editingId = id;
+        aulaService.getAulaById(id).then(function (resposta) {
+            $scope.aulaEdit.string = resposta.data.nome;
+        })
+        blockButtons(true);
+        lancar_texto("Digite e clique em apply");
+    }
 
-  app.controller('Pagina01Controller', function ($scope) {
-  $scope.controller = 'Pagina01Controller';
+    // 
+    //Pegar as aulas no servidor e listar
+    //
+    function listarAulas () {
+        aulaService.listar().then(function (resposta) {
+            //recebe e manipula uma promessa(resposta)
+            $scope.aulas = resposta.data;
+        })
+    }
 });
 
 app.controller('Pagina02Controller', function ($scope) {
   $scope.controller = 'Pagina02Controller';
 });
+
+
+    //
+    //Mostrar texto na tela
+    //
+    function lancar_texto (texto) {
+      limpar_erros();
+      $scope.errorOutput = texto;
+    }
+
+    //
+    //Limpar erros no log da tela
+    //
+    function limpar_erros () {
+        $scope.errorOutput = "";
+        let footer = document.getElementsByClassName("footer");
+        footer[0].classList.remove("log");
+        let elementosErro = document.getElementsByClassName("erro");
+        for (let i = 0; i < elementosErro.length; i++) {
+            elementosErro[i].classList.remove ("erro");
+        }
+    }
+
+    //
+    //Checar tipo do erro e chamar retorno necessário
+    //
+    function check_erro (erro, elemento) {
+        if (elemento[0].toString() === "[object HTMLInputElement]") {
+            elemento[0].classList.add ("erro");
+        }
+
+        if (erro.required === true) {
+            lancar_erro("Preencha o campo!");
+        }
+
+        else if (erro.minlength === true) {
+            lancar_erro("Informação muito curta!");
+        }
+
+        else if (erro.maxlength === true) {
+            lancar_erro("Informação muito longa!");
+        }
+
+        else if (erro.email === true) {
+            lancar_erro("Insira um e-mail válido!");
+        }
+    }
+
+    //
+    //Bloquear botões e impedir a interação
+    //
+    function blockButtons  (block) {
+      editButtons = document.getElementsByClassName("editButton");
+      deleteButtons = document.getElementsByClassName("deleteButton");
+      
+      if (block) {
+        for (let i = 0; i < editButtons.length; i++) {
+            editButtons[i].classList.add("nonClickable");
+        }
+        for (let i = 0; i < deleteButtons.length; i++) {
+            deleteButtons[i].classList.add("nonClickable");
+        }
+      }
+      else {
+            for (let i = 0; i < editButtons.length; i++) {
+            editButtons[i].classList.remove("nonClickable");
+            }
+            for (let i = 0; i < deleteButtons.length; i++) {
+            deleteButtons[i].classList.remove("nonClickable");
+            }
+      }
+  }

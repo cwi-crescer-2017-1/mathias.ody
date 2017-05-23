@@ -1,38 +1,39 @@
 <div class="container">
-                <div class="row">
-                    <div class="six columns offset-by-four">
-                        <label for="cadastrarAula">Nova aula:</label>
-                        <input name="cadastrarAula" type="text" placeholder="Insira a aula" ng-focus="focou()" ng-model="aulaInput" ng-minlength="3" required>
-                        <button class="button-primary" type="submit" ng-click="incluirAula(aulaInput)">Adicionar</button>
-                    </div>
-                </div>
+    <div class="row">
+        <div class="six columns offset-by-four">
+            <label for="cadastrarAula">Nova aula:</label>
+            <input name="cadastrarAula" type="text" placeholder="Insira a aula" ng-focus="focou()" ng-model="aulaInput" ng-minlength="3" required>
+            <button class="button-primary" type="submit" ng-click="incluirAula(aulaInput)">Adicionar</button>
+        </div>
+    </div>
 
-                <table class="seven columns offset-by-three">
-                <thead>
-                    <tr>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="aula in aulas | orderBy: aula.nome">
-                        <td>    
-                            <span class="idAula">{{aula.id}}</span>
-                        </td>
-                        <td>
-                            <span class="nomeAula" ng-switch="editingId == aula.id">
-                                    <span ng-switch-when="false">{{aula.nome}}</span>
-                                    <span ng-switch-when="true"><input type="text" ng-model="aulaEdit.string"></span>
-                            </span>
-                        </td>
-                        <td>
-                            <span class="editAula buttonAula" ng-switch="editingId == aula.id">
-                                <span ng-switch-when="false"><button class="editButton" ng-click="editarAula(aula.nome)">Edit</button></span>
-                                <span ng-switch-when="true"><button class="applyButton" ng-click="applyAula(aula.nome)">Apply</button></span>
-                            </span>
-                            <span class="deleteAula buttonAula"><button class="deleteButton" ng-click="deletarAula(aula.nome)">X</button></span>
-                        </td>
-                    </tr>
-                </tbody>
-                </table> 
+    <table class="seven columns offset-by-three">
+    <thead>
+        <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="aula in aulas | orderBy: 'nome'">
+            <td>    
+                <span class="idAula">{{aula.id}}</span>
+            </td>
+            <td>
+                <span class="nomeAula" ng-switch="editingId == aula.id">
+                    <span ng-switch-when="false">{{aula.nome}}</span>
+                    <span ng-switch-when="true"><input type="text" ng-model="aulaEdit.string"></span>
+                </span>
+            </td>
+            <td>
+                <span class="editAula buttonAula" ng-switch="editingId == aula.id">
+                    <span ng-switch-when="false"><button class="editButton" ng-click="editarAula(aula.id)">Edit</button></span>
+                    <span ng-switch-when="true"><button class="applyButton" ng-click="applyAula(aula.id)">Apply</button></span>
+                </span>
+                <span class="deleteAula buttonAula"><button class="deleteButton" ng-click="deletarAula(aula.id)">X</button></span>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+</div> 
