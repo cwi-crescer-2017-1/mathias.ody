@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html ng-app="App">
     <head>
-        <title>M-Ody Routes</title>
+        <title>M-Ody Services</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/skeleton.css">
-        <link href="style.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
         <script src="https://code.angularjs.org/1.6.4/angular-route.js"></script>
-        <script src="script.js"></script>
+        <script src="js/utils.js"></script>
+        <script src="js/aulaFactory.js"></script>
+        <script src="js/instrutorFactory.js"></script>
+        <script src="js/script.js"></script>
     </head>
     <body ng-controller="PrincipalController">
         <h1>Controle de peões do Nunes Illuminati</h1>
-        
-            <ng-view></ng-view>
-
+            <div class="linksInternos two columns offset-by-six">
+                <a href="#!/aulas">Aulas</a>
+                <a href="#!/instrutores">Instrutores</a>
+            </div>
+            <form novalidate name="Form">
+                <ng-view></ng-view>
+            </form>
         <div class="footer">
             <div ng-model="errorOutput">{{errorOutput}}</div>         
         </div>

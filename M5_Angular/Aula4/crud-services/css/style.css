@@ -7,11 +7,15 @@
 
 h1 {
 	text-align : center;
-	margin: 0px 0px 100px 0px;
+	margin: 0px 0px 10px 0px;
 	background-color : rgb(51,195,240);
 	padding-top: 25px;
 	padding-bottom: 25px;
 	border-bottom : 2px solid lightblue;
+}
+
+.linksInternos {
+	margin-bottom: 80px;
 }
 
 .row {

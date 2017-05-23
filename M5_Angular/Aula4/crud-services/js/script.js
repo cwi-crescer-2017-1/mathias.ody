@@ -1,21 +1,24 @@
-let app = angular.module('App', ['ngRoute']);
-
 app.config(function ($routeProvider) {
 
   $routeProvider
     .when('/aulas', {
       controller: 'Pagina01Controller',
-      templateUrl: 'aulas.html'
+      templateUrl: 'html/aulas.html'
     })
     .when('/instrutores', {
       controller: 'Pagina02Controller',
-      templateUrl: 'instrutores.html'
+      templateUrl: 'html/instrutores.html'
     })
-    .otherwise({redirectTo: '/aulas'});
+    .otherwise({redirectTo: 'html/aulas'});
 });
 
-app.controller ("PrincipalController", function ($scope) {
+app.controller ("PrincipalController", function ($scope, $routeParams, aulaFactory, instrutorFactory) {
     $scope.controller = 'PrincipalController';
+
+    //
+    console.log(aulaFactory.list());
+    //
+
     $scope.editingId = 0;
     $scope.aulaEdit = { string : "" };
     $scope.lastIdAula = 1;
@@ -348,51 +351,6 @@ Array.prototype.getIdDeNome = function (nome) {
 
     return resultado;
 }
-
-Array.prototype.getPosArrayDeNome = function (nome) {
-    let resultado = -1;
-    this.forEach(function(elemento, index) {
-        if (elemento.nome === nome) {
-            resultado = index;
-        }
-    });
-
-    return resultado;
-}
-
-Array.prototype.estaSendoUsada = function (id, instrutores) {
-    let resultado = false;
-    instrutores.forEach (function (instrutor){
-        instrutor.aulas.forEach (function (aula) {
-            if (aula.id == id){
-                resultado = true;
-            }
-        })
-    })
-    return resultado;
-}
-
-app.filter('contem', function() {
-      return function (lista, filtro) {
-         let resultado = [];
-         lista.forEach(function (aula){
-              filtro.forEach(function (aulaInstrutor){
-                if(aulaInstrutor.id === aula.id) {
-                    resultado.push(aula);
-                }
-              })
-         })
-         return resultado;
-      }
-  })
-
-  Object.prototype.clone = function () {
-      retorno = {};
-      for (var elemento in this) {
-          retorno[elemento] = this[elemento];
-      }
-      return retorno;
-  }
 
   app.controller('Pagina01Controller', function ($scope) {
   $scope.controller = 'Pagina01Controller';
