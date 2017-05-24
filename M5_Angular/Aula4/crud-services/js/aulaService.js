@@ -33,10 +33,11 @@ app.factory('aulaService', function ($http) {
 
 app.filter('contem', function() {
       return function (lista, filtro) {
+         if (lista == null) {return [];}
          let resultado = [];
          lista.forEach(function (aula){
               filtro.forEach(function (aulaInstrutor){
-                if(aulaInstrutor.id === aula.id) {
+                if(aulaInstrutor === aula.id) {
                     resultado.push(aula);
                 }
               })

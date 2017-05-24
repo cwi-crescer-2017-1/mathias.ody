@@ -1,95 +1,99 @@
 <div class="row">
-                    <div class="ten columns offset-by-two">
-                        <div class="four columns">
-                            <label ng-model="instrutorInput" for="cadastrarNomeInstrutor">Nome*:</label>
-                            <input class="u-full-width" name="cadastrarNomeInstrutor" type="text" placeholder="Insira o nome" ng-focus="focou()" ng-model="inputInstrutor.nome" ng-minlength="3" ng-maxlength="20" required>
-                        </div>
-                         <div class="four columns">
-                            <label ng-model="instrutorInput" for="cadastrarSobrenomeInstrutor">Sobrenome:</label>
-                            <input class="u-full-width" name="cadastrarSobrenomeInstrutor" type="text" placeholder="Insira o sobrenome" ng-focus="focou()" ng-model="inputInstrutor.sobrenome" ng-maxlength="30">
-                         </div>
-                          <div class="two columns">
-                            <label ng-model="instrutorInput" for="cadastrarIdadeInstrutor">Idade*:</label>
-                            <input class="u-full-width" name="cadastrarIdadeInstrutor" type="number" placeholder="Insira a idade" ng-focus="focou()" ng-model="inputInstrutor.idade" min="0" max="90" required>
-                        </div>
-                    </div>
-                    <div class="five columns offset-by-two"> 
-                        <div class="u-full-width">                 
-                            <label ng-model="instrutorInput" for="cadastrarEmailInstrutor">Email*:</label>
-                            <input class="u-full-width" name="cadastrarEmailInstrutor" type="email" placeholder="Insira o email" ng-focus="focou()" ng-model="inputInstrutor.email" required>
-                        </div>
-                        <div class="u-full-width"> 
-                            <label ng-model="instrutorInput" for="cadastrarInstrutor">Foto de perfil:</label>
-                            <input  class="u-full-width" name="cadastrarInstrutor" type="text" placeholder="Insira a URL da imagem" ng-focus="focou()" ng-model="inputInstrutor.urlFoto" ng-minlength="3" required>
-                        </div>
-                    </div>
-                    
-                    <div class="four columns">
-                        <label>Aulas:</label>
-                        <select class="selecionarAulas nine columns" ng-model="inputInstrutorAulas" ng-change="focouSelected()" multiple>
-                            <option ng-repeat="aula in aulas" ng-value="aula.id">{{aula.nome}}</option>
-                        </select>
-                    </div>
-
-                    <div class="ten columns offset-by-two">
-                        <div class="four columns"> 
-                            <span ng-model="instrutorInput" >Já lecionou:</span>
-                            <input type="checkbox" ng-focus="focou()" ng-model="inputInstrutor.dandoAula">
-                        </div>
-                        <div class="three columns offset-by-four"> 
-                            <button class="button-primary" type="submit" ng-click="incluirInstrutor(instrutorInput)">Adicionar</button>
-                        </div>
-                    </div>
+        <div class="ten columns offset-by-two">
+            <div class="four columns">
+                <label ng-model="instrutorInput" for="cadastrarNomeInstrutor">Nome*:</label>
+                <input class="u-full-width" name="cadastrarNomeInstrutor" type="text" placeholder="Insira o nome" ng-focus="focou()" ng-model="inputInstrutor.nome" ng-minlength="3" ng-maxlength="20" required>
+            </div>
+                <div class="four columns">
+                <label ng-model="instrutorInput" for="cadastrarSobrenomeInstrutor">Sobrenome:</label>
+                <input class="u-full-width" name="cadastrarSobrenomeInstrutor" type="text" placeholder="Insira o sobrenome" ng-focus="focou()" ng-model="inputInstrutor.sobrenome" ng-maxlength="30">
                 </div>
+                <div class="two columns">
+                <label ng-model="instrutorInput" for="cadastrarIdadeInstrutor">Idade*:</label>
+                <input class="u-full-width" name="cadastrarIdadeInstrutor" type="number" placeholder="Insira a idade" ng-focus="focou()" ng-model="inputInstrutor.idade" min="0" max="90" required>
+            </div>
+        </div>
+        <div class="five columns offset-by-two"> 
+            <div class="u-full-width">                 
+                <label ng-model="instrutorInput" for="cadastrarEmailInstrutor">Email*:</label>
+                <input class="u-full-width" name="cadastrarEmailInstrutor" type="email" placeholder="Insira o email" ng-focus="focou()" ng-model="inputInstrutor.email" required>
+            </div>
+            <div class="u-full-width"> 
+                <label ng-model="instrutorInput" for="cadastrarInstrutor">Foto de perfil:</label>
+                <input  class="u-full-width" name="cadastrarInstrutor" type="text" placeholder="Insira a URL da imagem" ng-focus="focou()" ng-model="inputInstrutor.urlFoto" ng-minlength="3" required>
+            </div>
+        </div>
+        
+        <div class="four columns">
+            <label>Aulas:</label>
+            <select class="selecionarAulas nine columns" ng-model="inputInstrutorAulas" ng-change="focouSelected()" multiple>
+                <option ng-repeat="aula in aulas" ng-value="aula.id">{{aula.nome}}</option>
+            </select>
+        </div>
+
+        <div class="ten columns offset-by-two">
+            <div class="four columns"> 
+                <span ng-model="instrutorInput" >Já lecionou:</span>
+                <input type="checkbox" ng-focus="focou()" ng-model="inputInstrutor.dandoAula">
+            </div>
+            <div class="three columns offset-by-four"> 
+                <button class="button-primary" type="submit" ng-click="incluirInstrutor(instrutorInput)">Adicionar</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="listaInstrutores">
+        <ul class="instrutores u-full-width">
+            <li ng-repeat="instrutor in instrutores | orderBy: instrutor.nome">
+                <div class="instrutor row">
+                        <div class="insideBox idInstrutor">{{instrutor.id}}</div>
+                        
+                        <div class="insideBox imagemInstrutor" ng-switch="editingIdInstrutor == instrutor.id">
+                            <div class="imgInstrutor"><img ng-src="{{instrutor.urlFoto}}" alt="{{instrutor.id}}" height="100" width="100"></div>
+                            <div class="urlEdit"><input ng-switch-when="true" type="text" ng-model="instrutorEdit.urlFoto"></div>
+                        </div>
+
+                        <div class="insideBox nomeInstrutor" ng-switch="editingIdInstrutor == instrutor.id">
+                                <span ng-switch-when="false">{{instrutor.nome}} {{instrutor.sobrenome}}</span>
+                                <span class="nomeEdit" ng-switch-when="true"><input ng-focus="focou()" name="nomeEdit" type="text" ng-model="instrutorEdit.nome" ng-minlength="3" ng-maxlength="20" required></span>
+                                <span class="sobrenomeEdit" ng-switch-when="true"><input ng-focus="focou()" name="sobrenomeEdit" type="text" ng-model="instrutorEdit.sobrenome"></span>
+                        </div>
+
+                        <div class="insideBox emailInstrutor" ng-switch="editingIdInstrutor == instrutor.id">
+                                <span ng-switch-when="false">{{instrutor.email}}</span>
+                                <span class="emailEdit" ng-switch-when="true"><input ng-focus="focou()" name="emailEdit" type="email" ng-model="instrutorEdit.email" required></span>
+                        </div>
+
+                        <div class="insideBox idadeInstrutor" ng-switch="editingIdInstrutor == instrutor.id">
+                                <span ng-switch-when="false">{{instrutor.idade}} anos</span>
+                                <span class="idadeEdit" ng-switch-when="true"><input ng-focus="focou()" name="idadeEdit" type="number" min="0" max="90" required ng-model="instrutorEdit.idade"></span>
+                        </div>
+
+                        <div class="insideBox aulasInstrutor" ng-switch="editingIdInstrutor == instrutor.id">
+                                <div ng-switch-when="false" ng-repeat="aula in aulas | contem : instrutor.aulas">{{aula.nome}}</div>
+                                <select class="aulasEdit" name="aulasEdit" ng-switch-when="true" ng-model="inputEditAulas.aulas" ng-change="focouSelected()" multiple>
+                                    <option ng-repeat="aula in aulas" ng-value="aula.id">{{aula.nome}}</option>
+                                </select>
+                        </div>
+
+                        <div class="insideBox dandoAulaInstrutor">
+                            <span>Lecionando:</span>
+                            <input id="checkmark" class="checkBox" type="checkbox" ng-model="instrutor.dandoAula">
+                        </div>
+
+                        <div class="insideBox editAulaInstrutor buttonAula" ng-switch="editingIdInstrutor == instrutor.id">
+                                <span ng-switch-when="false"><button class="editButton" ng-click="editarInstrutor(instrutor.id)">Edit</button></span>
+                                <span ng-switch-when="true"><button class="applyButton" ng-click="applyInstrutor(instrutorEdit.id)">Apply</button></span>
+                        </div>
+
+                        <div class="insideBox deleteAulaInstrutor buttonAula"><button class="deleteButton" ng-click="deletarInstrutor(instrutor.id)">X</button></div>
                 </div>
+            </li>
+        </ul>
+    </div>
+</div>
 
-                <div class="listaInstrutores">
-                 <ul class="instrutores u-full-width">
-                        <li ng-repeat="instrutor in instrutores | orderBy: instrutor.nome">
-                            <div class="instrutor row">
-                                    <div class="insideBox idInstrutor">{{instrutor.id}}</div>
-                                    
-                                    <div class="insideBox imagemInstrutor" ng-switch="editingIdInstrutor == instrutor.id">
-                                        <div class="imgInstrutor"><img ng-src="{{instrutor.urlFoto}}" alt="{{instrutor.id}}" height="100" width="100"></div>
-                                        <div class="urlEdit"><input ng-switch-when="true" type="text" ng-model="instrutorEdit.urlFoto"></div>
-                                    </div>
-
-                                    <div class="insideBox nomeInstrutor" ng-switch="editingIdInstrutor == instrutor.id">
-                                            <span ng-switch-when="false">{{instrutor.nome}} {{instrutor.sobrenome}}</span>
-                                            <span class="nomeEdit" ng-switch-when="true"><input ng-focus="focou()" name="nomeEdit" type="text" ng-model="instrutorEdit.nome" ng-minlength="3" ng-maxlength="20" required></span>
-                                            <span class="sobrenomeEdit" ng-switch-when="true"><input ng-focus="focou()" name="sobrenomeEdit" type="text" ng-model="instrutorEdit.sobrenome"></span>
-                                    </div>
-
-                                    <div class="insideBox emailInstrutor" ng-switch="editingIdInstrutor == instrutor.id">
-                                            <span ng-switch-when="false">{{instrutor.email}}</span>
-                                            <span class="emailEdit" ng-switch-when="true"><input ng-focus="focou()" name="emailEdit" type="email" ng-model="instrutorEdit.email" required></span>
-                                    </div>
-
-                                    <div class="insideBox idadeInstrutor" ng-switch="editingIdInstrutor == instrutor.id" ng-maxlength="30">
-                                            <span ng-switch-when="false">{{instrutor.idade}} anos</span>
-                                            <span class="idadeEdit" ng-switch-when="true"><input ng-focus="focou()" name="idadeEdit" type="number" min="0" max="90" required ng-model="instrutorEdit.idade"></span>
-                                    </div>
-
-                                    <div class="insideBox aulasInstrutor" ng-switch="editingIdInstrutor == instrutor.id">
-                                            <div ng-switch-when="false" ng-repeat="aula in aulas | contem : instrutor.aulas">{{aula.nome}}</div>
-                                            <select class="aulasEdit" name="aulasEdit" ng-switch-when="true" ng-model="inputEditAulas.aulas" ng-change="focouSelected()" multiple>
-                                                <option ng-repeat="aula in aulas" ng-value="aula.id">{{aula.nome}}</option>
-                                            </select>
-                                    </div>
-
-                                    <div class="insideBox dandoAulaInstrutor">
-                                        <span>Lecionando:</span>
-                                        <input id="checkmark" class="checkBox" type="checkbox" ng-model="instrutor.dandoAula">
-                                    </div>
-
-                                    <div class="insideBox editAulaInstrutor buttonAula" ng-switch="editingIdInstrutor == instrutor.id">
-                                            <span ng-switch-when="false"><button class="editButton" ng-click="editarInstrutor(instrutor.nome)">Edit</button></span>
-                                            <span ng-switch-when="true"><button class="applyButton" ng-click="applyInstrutor(instrutorEdit.nome)">Apply</button></span>
-                                    </div>
-
-                                    <div class="insideBox deleteAulaInstrutor buttonAula"><button class="deleteButton" ng-click="deletarInstrutor(instrutor.nome)">X</button></div>
-
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+<div class="footer">
+    <div ng-model="errorOutput">{{errorOutput}}</div>         
+</div>

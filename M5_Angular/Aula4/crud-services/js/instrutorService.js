@@ -2,18 +2,24 @@ app.factory('instrutorService', function ($http) {
 
   let urlBase = 'http://localhost:3000/instrutor';
 
-  function getTodosInstrutores() {
+  function getTodosOsInstrutores() {
     return $http.get(urlBase);
-    //retorna uma promessa que é tratada no controller
   };
 
-  function atualizar(instrutor) {
+  function getTodasAsAulas() {
+    return $http.get('http://localhost:3000/aula');
+  };
+
+  function getInstrutorById (id) {
+    return $http.get(urlBase + '/' + id);
+  }
+
+  function update(instrutor) {
     return $http.put(urlBase + '/' + instrutor.id, instrutor);
   };
 
-  function criar(instrutor) {
-    instrutor.id = ++instrutor;
-    instrutores.push(angular.copy(instrutor));
+  function incluir(instrutor) {
+    return $http.post(urlBase + '/', instrutor);
   };
 
   function removeById (id) {
@@ -21,9 +27,11 @@ app.factory('instrutorService', function ($http) {
   }
 
   return {
-    list: getTodosInstrutores,
-    update: atualizar,
-    create: criar,
+    listar: getTodosOsInstrutores,
+    listarAulas : getTodasAsAulas,
+    update: update,
+    create: incluir,
     removeById : removeById,
+    getInstrutorById : getInstrutorById
   };
 });
