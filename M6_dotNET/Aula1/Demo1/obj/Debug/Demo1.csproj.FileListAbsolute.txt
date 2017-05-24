@@ -1,0 +1,6 @@
+C:\Users\mathias.ody\Documents\Repos\mathias.ody\M6_dotNET\Aula1\Demo1\bin\Debug\Demo1.exe.config
+C:\Users\mathias.ody\Documents\Repos\mathias.ody\M6_dotNET\Aula1\Demo1\bin\Debug\Demo1.exe
+C:\Users\mathias.ody\Documents\Repos\mathias.ody\M6_dotNET\Aula1\Demo1\bin\Debug\Demo1.pdb
+C:\Users\mathias.ody\Documents\Repos\mathias.ody\M6_dotNET\Aula1\Demo1\obj\Debug\Demo1.csprojResolveAssemblyReference.cache
+C:\Users\mathias.ody\Documents\Repos\mathias.ody\M6_dotNET\Aula1\Demo1\obj\Debug\Demo1.exe
+C:\Users\mathias.ody\Documents\Repos\mathias.ody\M6_dotNET\Aula1\Demo1\obj\Debug\Demo1.pdb

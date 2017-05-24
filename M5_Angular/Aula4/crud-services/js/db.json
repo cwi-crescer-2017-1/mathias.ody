@@ -29,8 +29,12 @@
       "id": 8
     },
     {
-      "nome": "Ciências Contábeis",
-      "id": 9
+      "id": 9,
+      "nome": "Ciências Contábeis"
+    },
+    {
+      "nome": "Técnicas avançadas de combate",
+      "id": 10
     }
   ],
   "instrutor": [
@@ -71,6 +75,18 @@
       "aulas": [
         7,
         8
+      ]
+    },
+    {
+      "nome": "Cabo",
+      "sobrenome": "Alexandre",
+      "idade": 20,
+      "email": "caboalexandre@outlook.com.br",
+      "dandoAula": true,
+      "urlFoto": "http://www.freeiconspng.com/uploads/illuminati-icon-png-1.png",
+      "id": 4,
+      "aulas": [
+        10
       ]
     }
   ]
