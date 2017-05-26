@@ -95,7 +95,7 @@ namespace Repositorio
 
         public IList<Funcionario> BuscarPorNome(string nome)
         {
-            return Funcionarios.Where(f => f.Nome.IndexOf(nome,StringComparison.OrdinalIgnoreCase) > 0).ToList();
+            return Funcionarios.Where(f => f.Nome.IndexOf(nome,StringComparison.InvariantCultureIgnoreCase) > 0).ToList();
         }        
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
