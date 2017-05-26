@@ -135,17 +135,56 @@ namespace Repositorio
 
         public IList<dynamic> BuscaRapida()
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                .Select(f => new { NomeFuncionario = f.Nome, TituloCargo = f.Cargo.Titulo })
+                .Cast<dynamic>()
+                .ToList();
         }
 
         public IList<dynamic> QuantidadeFuncionariosPorTurno()
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                .GroupBy(f => f.TurnoTrabalho)
+                .Select(f => new { Turno = f.Key, Quantidade = f.Count()})
+                .Cast<dynamic>()
+                .ToList();
         }
 
         public dynamic FuncionarioMaisComplexo()
         {
-            throw new NotImplementedException();
+            return Funcionarios
+                .Where(f => f.Cargo.Titulo != "Desenvolvedor Júnior")
+                .OrderByDescending(f => GetNumeroDeConsoantes(f.Nome)).Take(1)
+                .Select(f => new {
+                    Nome = f.Nome,
+                    DataNascimento = f.DataNascimento.ToString("dd/MM/yyyy"),
+                    SalarioRS = f.Cargo.GetSalarioReais(),
+                    SalarioUS = f.Cargo.GetSalarioDolares(),
+                    QuantidadeMesmoCargo = Funcionarios.Where(fcargo => fcargo.Cargo.Titulo == f.Cargo.Titulo)
+                                                       .Count()
+                })
+                .Cast<dynamic>()
+                .First();
+        }
+
+        private char[] vogais = { 'A', 'E', 'I', 'O', 'U' };
+        public int GetNumeroDeConsoantes (string texto)
+        {
+            int numeroConsoantes = 0;
+            texto = texto.ToUpper();
+            foreach (char letra in texto)
+            {
+                bool ehConsoante = true;
+                foreach (char vogal in vogais)
+                {
+                    if (letra == vogal)
+                    {
+                        ehConsoante = false;
+                    }
+                }
+                if (ehConsoante) { numeroConsoantes++; }
+            }
+            return numeroConsoantes;
         }
     }
 }

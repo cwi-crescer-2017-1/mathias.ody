@@ -163,5 +163,14 @@ namespace Testes
             Assert.AreEqual("$550.50", funcionarioComplex.SalarioUS);
             Assert.AreEqual(1, funcionarioComplex.QuantidadeMesmoCargo);
         }
+
+        //Numero de Consoantes
+        [TestMethod]
+        public void NumeroDeConsoantesDeMaciotaEh3()
+        {
+            var repositorioFuncionarios = new RepositorioFuncionarios();
+
+            Assert.AreEqual(3, repositorioFuncionarios.GetNumeroDeConsoantes("Maciota"));
+        }
     }
 }
