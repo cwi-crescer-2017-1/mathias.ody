@@ -66,7 +66,16 @@ namespace Testes
             IList<Funcionario> funcionariosManha = repositorioFuncionarios.BuscarPorTurno(TurnoTrabalho.Manha, TurnoTrabalho.Tarde);
 
             Assert.AreEqual(9, funcionariosManha.Count);
-        }        
+        }
+
+        [TestMethod]
+        public void BuscaSemTurnoERetorna11Registros()
+        {
+            var repositorioFuncionarios = new RepositorioFuncionarios();
+            IList<Funcionario> funcionariosManha = repositorioFuncionarios.BuscarPorTurno();
+
+            Assert.AreEqual(11, funcionariosManha.Count);
+        }
 
         //FiltrarPorIdadeAproximada
         [TestMethod]

@@ -100,8 +100,10 @@ namespace Repositorio
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
         {
-            return Funcionarios.Where(f => turnos.Contains(f.TurnoTrabalho)).ToList();
-            
+            if (turnos.Length > 0)
+                return Funcionarios.Where(f => turnos.Contains(f.TurnoTrabalho)).ToList();
+            else
+                return Funcionarios.ToList();
         }        
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
