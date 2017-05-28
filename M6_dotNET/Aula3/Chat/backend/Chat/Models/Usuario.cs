@@ -5,7 +5,9 @@ using System.Web;
 
 namespace Chat.Models
 {
-    public class Mensagem
+    public class Usuario
     {
+        public string Nome { get; set; }
+        public string LinkFoto { get; set; }
     }
 }
