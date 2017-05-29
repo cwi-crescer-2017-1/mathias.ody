@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="message-box">
-        <textarea type="text" id="input" class="message-input" ng-model="input" placeholder="Escreva sua mensagem..."></textarea>
+        <textarea type="text" id="input" class="message-input" ng-enter="sendMessage()" ng-model="input" placeholder="Escreva sua mensagem..."></textarea>
         <button type="submit" class="message-submit" ng-click="sendMessage()">Enviar</button>
     </div>
 

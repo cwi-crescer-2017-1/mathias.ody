@@ -13,6 +13,7 @@ namespace Chat.Models
             new PalavraReservada("BERNARDO", "Illuminati"),
             new PalavraReservada("PUTA MERDA", "PUTA VIDA"),
             new PalavraReservada("Oi", "Oi, gata ;)"),
+            new PalavraReservada("Tudo bem?", "Quer tc?")
         };
 
         public static string Filtrar (string frase)
