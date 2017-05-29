@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="chat">
+    <div class="chat-title">
+        <h1>Crescer 2017-1</h1>
+        <button ng-click="clearCache()">Limpar Cache</button>
+    </div>
+    <div class="messages" id="message-list">
+        <div ng-repeat="mensagem in mensagens">
+            <div class="messages-self" ng-if="mensagem.Usuario.Nome == username">
+                <img src="{{mensagem.Usuario.LinkFoto}}" height="30" width="30">
+                <div class="texto">{{mensagem.Texto}}</div>
+                <div class="data" ng-bind="mensagem.DataEnvio | date:'hh:mm'"></div>
+            </div>
+            <div class="messages-received" ng-if="mensagem.Usuario.Nome != username">
+                <div class="header-message">
+                    <div class="nome">{{mensagem.Usuario.Nome}}</div>
+                    <img src="{{mensagem.Usuario.LinkFoto}}" height="30" width="30">
+                </div>
+                <div class="texto">{{mensagem.Texto}}</div>
+                <div class="data" ng-bind="mensagem.DataEnvio | date:'hh:mm'"></div>
+            </div>
+        </div>
+    </div>
+    <div class="message-box">
+        <textarea type="text" id="input" class="message-input" ng-model="input" placeholder="Escreva sua mensagem..."></textarea>
+        <button type="submit" class="message-submit" ng-click="sendMessage()">Enviar</button>
+    </div>
+
+    </div>
+</div>
+<div class="bg"></div>

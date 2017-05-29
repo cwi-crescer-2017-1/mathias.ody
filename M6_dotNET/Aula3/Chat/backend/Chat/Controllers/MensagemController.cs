@@ -14,9 +14,9 @@ namespace Chat.Controllers
         private static int contadorIds = 1;
         private static object @lock = new object();
 
-        public IEnumerable<Mensagem> Get(int? id = null)
+        public IEnumerable<Mensagem> Get()
         {
-            return mensagens.Where(x => (id == null || x.Id == id));
+            return mensagens;
         }
 
         public IHttpActionResult Post(Mensagem mensagem)
@@ -29,6 +29,9 @@ namespace Chat.Controllers
             {
                 lock (@lock)
                 {
+                    mensagem.DataEnvio = DateTime.Now;
+                    mensagem.Id = contadorIds++;
+                    mensagem.Texto = PalavrasReservadas.Filtrar(mensagem.Texto);
                     mensagens.Add(mensagem);
                 }
 
