@@ -136,7 +136,11 @@ namespace Demo1.Infraestrutura.Repositorios
                 using (var comando = conexao.CreateCommand())
                 {
                     comando.CommandText =
-                        @"SELECT Pedido.Id, Pedido.NomeCliente, ItemPedido.Id, ItemPedido.ProdutoId, ItemPedido.Quantidade
+                        @"SELECT Pedido.Id AS IdPedido, 
+                                 Pedido.NomeCliente, 
+                                 ItemPedido.Id AS ItemPedidoId, 
+                                 ItemPedido.ProdutoId, 
+                                 ItemPedido.Quantidade
                         FROM (Pedido
                         INNER JOIN ItemPedido ON Pedido.Id = ItemPedido.PedidoId)
                         WHERE Pedido.Id = @id";
@@ -146,12 +150,16 @@ namespace Demo1.Infraestrutura.Repositorios
                     var dataReader = comando.ExecuteReader();
                     while (dataReader.Read())
                     {
-                        pedido = new Pedido();
-                        pedido.Id = (int)dataReader["Id"];
-                        pedido.NomeCliente = (string)dataReader["NomeCliente"];
-                        pedido.Itens.Add (new ItemPedido ((int)dataReader["Id"],
-                                                          (int)dataReader["ProdutoId"],
-                                                          (int)dataReader["Quantidade"]));
+                        if (pedido == null)
+                        {
+                            pedido = new Pedido();
+                            pedido.Id = (int)dataReader["IdPedido"];
+                            pedido.NomeCliente = (string)dataReader["NomeCliente"];
+                        }
+
+                        pedido.Itens.Add(new ItemPedido((int)dataReader["ItemPedidoId"],
+                                                              (int)dataReader["ProdutoId"],
+                                                              (int)dataReader["Quantidade"]));
                     }
                 }
             }
