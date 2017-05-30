@@ -1,5 +1,5 @@
 ﻿using Demo1.Dominio.Entidades;
-using Demo1.Infraestrutura.Repositiorios;
+using Demo1.Infraestrutura.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
