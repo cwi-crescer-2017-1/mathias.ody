@@ -24,11 +24,24 @@ namespace Demo1.WebApi.Controllers
             return Ok(produto);
         }
 
-        public IHttpActionResult Get ()
+        public IHttpActionResult Get(int? id = null)
         {
-            var produtos = produtoRepositorio.Listar();
+            if (id != null)
+            {
+                var produto = produtoRepositorio.Obter((int)id);
+                return Ok(produto);
+            }
+            else
+            {
+                var produtos = produtoRepositorio.Listar();
+                return Ok(produtos);
+            }
+        }
 
-            return Ok(produtos);
+        public IHttpActionResult Delete(int id)
+        {
+            var produto = produtoRepositorio.Excluir(id);
+            return Ok(produto);
         }
     }
 }
