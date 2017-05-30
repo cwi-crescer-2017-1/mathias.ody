@@ -50,6 +50,7 @@
     <Compile Include="Contexto.cs" />
     <Compile Include="Entidades\Autor.cs" />
     <Compile Include="Entidades\Livro.cs" />
+    <Compile Include="Entidades\Revisor.cs" />
     <Compile Include="Mapppings\AutorMap.cs" />
     <Compile Include="Mapppings\LivroMap.cs" />
     <Compile Include="Migrations\201705301948240_CriacaoDoBanco.cs" />

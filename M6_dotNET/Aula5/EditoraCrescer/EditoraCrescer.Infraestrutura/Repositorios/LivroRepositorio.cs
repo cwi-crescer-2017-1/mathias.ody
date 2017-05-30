@@ -15,5 +15,18 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
         {
             return contexto.Livros.ToList();
         }
+
+        public Livro Criar(Livro livro) {
+            contexto.Livros.Add(livro);
+            contexto.SaveChanges();
+            return livro;
+        }
+
+        public void Excluir(Livro livro)
+        {
+            contexto.Livros.Remove(livro);
+            contexto.SaveChanges();
+        }
+
     }
 }
