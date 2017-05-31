@@ -26,17 +26,33 @@ namespace EditoraCrescer.Infraestrutura.Migrations
                         Genero = c.String(),
                         DataPublicacao = c.DateTime(nullable: false),
                         IdAutor = c.Int(nullable: false),
+                        IdRevisor = c.Int(nullable: false),
+                        DataRevisao = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Isbn)
                 .ForeignKey("dbo.Autores", t => t.IdAutor, cascadeDelete: true)
-                .Index(t => t.IdAutor);
+                .ForeignKey("dbo.Revisores", t => t.IdRevisor, cascadeDelete: true)
+                .Index(t => t.IdAutor)
+                .Index(t => t.IdRevisor);
+            
+            CreateTable(
+                "dbo.Revisores",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nome = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
             
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Livros", "IdRevisor", "dbo.Revisores");
             DropForeignKey("dbo.Livros", "IdAutor", "dbo.Autores");
+            DropIndex("dbo.Livros", new[] { "IdRevisor" });
             DropIndex("dbo.Livros", new[] { "IdAutor" });
+            DropTable("dbo.Revisores");
             DropTable("dbo.Livros");
             DropTable("dbo.Autores");
         }

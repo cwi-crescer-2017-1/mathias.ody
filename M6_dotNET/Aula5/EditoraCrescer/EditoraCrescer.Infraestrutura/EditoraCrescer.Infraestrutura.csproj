@@ -53,21 +53,24 @@
     <Compile Include="Entidades\Revisor.cs" />
     <Compile Include="Mapppings\AutorMap.cs" />
     <Compile Include="Mapppings\LivroMap.cs" />
-    <Compile Include="Migrations\201705301948240_CriacaoDoBanco.cs" />
-    <Compile Include="Migrations\201705301948240_CriacaoDoBanco.Designer.cs">
-      <DependentUpon>201705301948240_CriacaoDoBanco.cs</DependentUpon>
+    <Compile Include="Mapppings\RevisorMap.cs" />
+    <Compile Include="Migrations\201705310448162_CriacaoDoBanco.cs" />
+    <Compile Include="Migrations\201705310448162_CriacaoDoBanco.Designer.cs">
+      <DependentUpon>201705310448162_CriacaoDoBanco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\AutoresRepositorio.cs" />
     <Compile Include="Repositorios\LivroRepositorio.cs" />
+    <Compile Include="Repositorios\RevisorRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705301948240_CriacaoDoBanco.resx">
-      <DependentUpon>201705301948240_CriacaoDoBanco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705310448162_CriacaoDoBanco.resx">
+      <DependentUpon>201705310448162_CriacaoDoBanco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

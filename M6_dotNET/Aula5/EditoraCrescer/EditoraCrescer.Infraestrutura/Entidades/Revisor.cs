@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace EditoraCrescer.Infraestrutura.Entidades
 {
-    class Revisor
+    public class Revisor
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public DateTime DataRevisao { get; set; }
     }
 }
