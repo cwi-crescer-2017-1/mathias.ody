@@ -8,24 +8,62 @@ using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
 {
+    [RoutePrefix("api/autores")]
     public class AutoresController : ApiController
     {
         private AutoresRepositorio repositorio = new AutoresRepositorio();
 
-        public IHttpActionResult Get()
+        [HttpGet]
+        [Route("")]
+        public IHttpActionResult ObterLista()
         {
-            return Ok(repositorio.Obter());
+            var autores = repositorio.ObterLista();
+            return Ok(new { dados = autores });
         }
 
-        public IHttpActionResult Post(Autor autor)
+        [HttpGet]
+        [Route("{id:int}")]
+        public IHttpActionResult ObterAutor(int id)
         {
-            return Ok(repositorio.Criar(autor));
+            var autor = repositorio.ObterAutor(id);
+            return Ok(new { dados = autor });
         }
 
+        [HttpGet]
+        [Route("{id}/Livros")]
+        public IHttpActionResult ObterLivrosDoAutor(int id)
+        {
+            var livros = repositorio.ObterLivrosAutor(id);
+            return Ok(new { dados = livros });
+        }
+
+        [HttpPost]
+        [Route("")]
+        public IHttpActionResult AdicionarAutor(Autor autor)
+        {
+            var autorRetorno = repositorio.Criar(autor);
+            return Ok(autorRetorno);
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public IHttpActionResult AlterarAutor(int id, Autor autor)
+        {
+            repositorio.Alterar(id, autor);
+            return Ok();
+        }
+
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             repositorio.Excluir(id);
             return Ok();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            repositorio.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
