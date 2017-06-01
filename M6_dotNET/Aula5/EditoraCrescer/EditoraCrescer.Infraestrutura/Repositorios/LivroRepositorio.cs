@@ -12,12 +12,17 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
     {
         private Contexto contexto = new Contexto();
 
-        public List<Livro> ObterLista()
+        public object ObterLista()
         {
             return contexto.Livros
-                .Include(l => l.Autor)
-                .Include(l => l.Revisor)
-                .ToList();
+                .Select(l => new
+                {
+                    l.Isbn,
+                    l.Titulo,
+                    l.Capa,
+                    l.Autor.Nome,
+                    l.Genero
+                }).ToList();
         }
 
         public Livro ObterLivro(int isbn)
@@ -28,12 +33,33 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                 .FirstOrDefault(l => l.Isbn == isbn);
         }
 
-        public List<Livro> ObterLivrosGenero(string genero)
+        public dynamic ObterLivrosGenero(string genero)
         {
             return contexto.Livros
-                .Include(l => l.Autor)
-                .Include(l => l.Revisor)
-                .Where(l => l.Genero.Contains(genero)).ToList();
+                .Where(l => l.Genero.Contains(genero))
+                .Select(l => new
+                {
+                    l.Isbn,
+                    l.Titulo,
+                    l.Capa,
+                    l.Autor.Nome,
+                    l.Genero
+                }).ToList();
+        }
+
+        public dynamic ObterLancamentos()
+        {
+            DateTime semanaAnterior = DateTime.Now.AddDays(-7);
+            return contexto.Livros
+                .Where(l => (l.DataPublicacao > semanaAnterior))
+                .Select(l => new
+                {
+                    l.Isbn,
+                    l.Titulo,
+                    l.Capa,
+                    l.Autor.Nome,
+                    l.Genero
+                }).ToList();
         }
 
         public Livro Criar(Livro livro) {
