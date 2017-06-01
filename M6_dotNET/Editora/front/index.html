@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title>Crescer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
+        <script src="https://code.angularjs.org/1.6.4/angular-route.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/livroService.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <nav class="container-fluid">
+                <nav class="row">
+                    <nav class="col-md-12">
+                        <nav class="col-md-offset-3 col-md-6 titulo-pagina">
+                            <h1>FreelaBooks.NET</h1>
+                        </nav>
+                    </nav>
+                </nav>
+                <nav class="row">
+                    <nav class="col-md-12">
+                        <span class="col-md-offset-3 col-md-2 nav-link">Assinar</span>
+                        <span class="col-md-offset-2 col-md-2 nav-link">Login</span>
+                    </nav>
+                </nav>
+            </nav>
+        </nav>
+
+        <ng-view></ng-view>
+
+    </body>
+</html>
