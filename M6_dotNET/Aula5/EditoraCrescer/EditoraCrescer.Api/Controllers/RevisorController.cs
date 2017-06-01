@@ -1,10 +1,5 @@
 ﻿using EditoraCrescer.Infraestrutura.Entidades;
 using EditoraCrescer.Infraestrutura.Repositorios;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
@@ -27,6 +22,10 @@ namespace EditoraCrescer.Api.Controllers
         public IHttpActionResult ObterRevisor(int id)
         {
             var revisor = repositorio.ObterRevisor(id);
+
+            if (revisor == null)
+                return BadRequest("Esse revisor não se encontra cadastrado");
+
             return Ok(new { dados = revisor });
         }
 
@@ -35,22 +34,33 @@ namespace EditoraCrescer.Api.Controllers
         public IHttpActionResult AdicionarRevisor(Revisor revisor)
         {
             var revisorRetorno = repositorio.Criar(revisor);
-            return Ok(revisorRetorno);
+            return Ok(new { dados = revisorRetorno });
         }
 
         [HttpPut]
         [Route("{id}")]
         public IHttpActionResult AlterarRevisor(int id, Revisor revisor)
         {
+            if (id != revisor.Id)
+                return BadRequest("O revisor que você informou não é o mesmo que quer editar");
+
+            if (!repositorio.RevisorExiste(revisor.Id))
+                return BadRequest("Esse revisor não se encontra cadastrado");
+
             repositorio.Alterar(id, revisor);
-            return Ok();
+            return Ok((new { dados = revisor }));
         }
 
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
-            repositorio.Excluir(id);
-            return Ok();
+            bool sucesso = repositorio.Excluir(id);
+
+            if (sucesso)
+                return Ok();
+
+            else
+                return BadRequest("Esse revisor não se encontra cadastrado");
         }
 
         protected override void Dispose(bool disposing)

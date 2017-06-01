@@ -1,10 +1,7 @@
 ﻿using EditoraCrescer.Infraestrutura.Entidades;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EditoraCrescer.Infraestrutura.Repositorios
 {
@@ -35,14 +32,22 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             contexto.SaveChanges();
         }
 
-        public void Excluir(int idRevisor)
+        public bool Excluir(int idRevisor)
         {
             Revisor revisor = contexto.Revisores.FirstOrDefault(l => l.Id == idRevisor);
             if (revisor != null)
             {
                 contexto.Revisores.Remove(revisor);
                 contexto.SaveChanges();
+                return true;
             }
+
+            return false;
+        }
+
+        public bool RevisorExiste(int id)
+        {
+            return contexto.Revisores.Count(r => r.Id == id) > 0;
         }
 
         public void Dispose()

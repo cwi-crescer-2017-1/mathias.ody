@@ -1,9 +1,5 @@
 ﻿using EditoraCrescer.Infraestrutura.Entidades;
 using EditoraCrescer.Infraestrutura.Repositorios;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
@@ -26,6 +22,10 @@ namespace EditoraCrescer.Api.Controllers
         public IHttpActionResult ObterAutor(int id)
         {
             var autor = repositorio.ObterAutor(id);
+
+            if (autor == null)
+                return BadRequest("Esse autor não se encontra cadastrado");
+
             return Ok(new { dados = autor });
         }
 
@@ -42,22 +42,33 @@ namespace EditoraCrescer.Api.Controllers
         public IHttpActionResult AdicionarAutor(Autor autor)
         {
             var autorRetorno = repositorio.Criar(autor);
-            return Ok(autorRetorno);
+            return Ok(new { dados = autorRetorno });
         }
 
         [HttpPut]
         [Route("{id}")]
         public IHttpActionResult AlterarAutor(int id, Autor autor)
         {
+            if (id != autor.Id)
+                return BadRequest("O autor que você informou não é o mesmo que quer editar");
+
+            if (!repositorio.AutorExiste(autor.Id))
+                return BadRequest("Esse autor não se encontra cadastrado");
+
             repositorio.Alterar(id, autor);
-            return Ok();
+            return Ok(new { dados = autor });
         }
 
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
-            repositorio.Excluir(id);
-            return Ok();
+            bool sucesso = repositorio.Excluir(id);
+
+            if (sucesso)
+                return Ok();
+
+            else
+                return BadRequest("Esse autor não se encontra cadastrado");
         }
 
         protected override void Dispose(bool disposing)

@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EditoraCrescer.Infraestrutura.Repositorios
 {
@@ -40,14 +38,21 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             contexto.SaveChanges();
         }
 
-        public void Excluir(int idAutor)
+        public bool Excluir(int idAutor)
         {
             Autor autor = contexto.Autores.FirstOrDefault(l => l.Id == idAutor);
             if (autor != null)
             {
                 contexto.Autores.Remove(autor);
                 contexto.SaveChanges();
+                return true;
             }
+            return false;
+        }
+
+        public bool AutorExiste(int id)
+        {
+            return contexto.Autores.Count(a => a.Id == id) > 0;
         }
 
         public void Dispose()

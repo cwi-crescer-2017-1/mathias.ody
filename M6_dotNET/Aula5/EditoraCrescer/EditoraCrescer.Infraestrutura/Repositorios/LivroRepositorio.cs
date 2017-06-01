@@ -1,9 +1,6 @@
 ﻿using EditoraCrescer.Infraestrutura.Entidades;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
 
 namespace EditoraCrescer.Infraestrutura.Repositorios
@@ -20,7 +17,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                     l.Isbn,
                     l.Titulo,
                     l.Capa,
-                    l.Autor.Nome,
+                    Autor = l.Autor.Nome,
                     l.Genero
                 }).ToList();
         }
@@ -42,7 +39,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                     l.Isbn,
                     l.Titulo,
                     l.Capa,
-                    l.Autor.Nome,
+                    Autor =  l.Autor.Nome,
                     l.Genero
                 }).ToList();
         }
@@ -57,7 +54,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                     l.Isbn,
                     l.Titulo,
                     l.Capa,
-                    l.Autor.Nome,
+                    Autor =  l.Autor.Nome,
                     l.Genero
                 }).ToList();
         }
@@ -74,14 +71,22 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
             contexto.SaveChanges();
         }
 
-        public void Excluir(int isbnLivro)
+        public bool Excluir(int isbnLivro)
         {
             Livro livro = contexto.Livros.FirstOrDefault(l => l.Isbn == isbnLivro);
             if (livro != null)
             {
                 contexto.Livros.Remove(livro);
                 contexto.SaveChanges();
+                return true;
             }
+
+            return false;
+        }
+
+        public bool LivroExiste(int isbn)
+        {
+            return contexto.Livros.Count(l => l.Isbn == isbn) > 0;
         }
 
         public void Dispose()

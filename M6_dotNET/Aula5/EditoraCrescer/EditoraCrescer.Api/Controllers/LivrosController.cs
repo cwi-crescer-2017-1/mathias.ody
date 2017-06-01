@@ -1,10 +1,5 @@
 ﻿using EditoraCrescer.Infraestrutura.Entidades;
 using EditoraCrescer.Infraestrutura.Repositorios;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
@@ -26,6 +21,10 @@ namespace EditoraCrescer.Api.Controllers
         public IHttpActionResult ObterLivro(int isbn)
         {
             var livro = repositorio.ObterLivro(isbn);
+
+            if (livro == null)
+                return BadRequest("Esse livro não se encontra cadastrado");
+
             return Ok(new { dados = livro });
         }
 
@@ -49,7 +48,7 @@ namespace EditoraCrescer.Api.Controllers
         public IHttpActionResult AdicionarLivro(Livro livro)
         {
             var livroRetorno = repositorio.Criar(livro);
-            return Ok(livroRetorno);
+            return Ok(new { dados = livro });
         }
 
 
@@ -57,6 +56,12 @@ namespace EditoraCrescer.Api.Controllers
         [Route("{isbn}")]
         public IHttpActionResult AlterarLivro(int isbn, Livro livro)
         {
+            if (isbn != livro.Isbn)
+                return BadRequest("O livro que você informou não é o mesmo que quer editar");
+
+            if (!repositorio.LivroExiste(livro.Isbn))
+                return BadRequest("Esse livro não se encontra cadastrado");
+
             repositorio.Alterar(isbn,livro);
             return Ok();
         }
@@ -65,8 +70,12 @@ namespace EditoraCrescer.Api.Controllers
         [Route("{isbn}")]
         public IHttpActionResult Delete(int isbn)
         {
-            repositorio.Excluir(isbn);
-            return Ok();
+            bool sucesso = repositorio.Excluir(isbn);
+            if (sucesso)
+                return Ok();
+
+            else
+                return BadRequest("Esse livro não se encontra cadastrado");
         }
 
         protected override void Dispose(bool disposing)
