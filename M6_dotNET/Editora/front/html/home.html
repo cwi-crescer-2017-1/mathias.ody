@@ -1,10 +1,8 @@
-<div class="container">
-    <div class="row">
-        <h1>Lançamentos</h1>
-    </div>
-    <div class="row" ng-repeat="livro in lancamentos">
-        <div class="lancamentos">
-            <img src="{{livro.Capa}}">
+<h1>Lançamentos</h1>
+<div class="livros" ng-repeat="livro in lancamentos">
+    <div class="row livros">
+        <div class="livro col-md-4">     
+            <img src="{{livro.Capa}}" width="150px" height="200px">
             <div>{{livro.Titulo}}</div>
         </div>
     </div>
