@@ -1,9 +1,9 @@
 <h1>Lançamentos</h1>
-<div class="livros" ng-repeat="livro in lancamentos">
-    <div class="row livros">
-        <div class="livro col-md-4">     
-            <img src="{{livro.Capa}}" width="150px" height="200px">
-            <div>{{livro.Titulo}}</div>
-        </div>
+<div scale-resize class="livros" ng-repeat="livro in lancamentos">
+    <div class="livro">     
+        <img class="capa" src="{{livro.Capa}}">
+        <div class="titulo-livro">{{livro.Titulo}}</div>
+        <div class="genero-livro">{{livro.Genero}}</div>
+        <div class="autor-livro">{{livro.Autor}}</div>
     </div>
 </div>

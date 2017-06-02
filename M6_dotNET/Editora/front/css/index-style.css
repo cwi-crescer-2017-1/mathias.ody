@@ -1,5 +1,5 @@
 body {
-    margin-top:0px;
+    margin:0px;
     padding:0px;
     box-sizing: border-box;
 }
@@ -17,6 +17,7 @@ div {
 
 .titulo-pagina {
     text-align: center;
+    margin:0px;
 }
 
 .borda-inferior {
@@ -27,15 +28,6 @@ div {
 
 .container {
     padding-top: 90px;
-}
-
-.lancamentos {
-    height:120px;
-}
-
-.livros {
-    float: left;
-    display: inline-block;
 }
 
 .corpo {

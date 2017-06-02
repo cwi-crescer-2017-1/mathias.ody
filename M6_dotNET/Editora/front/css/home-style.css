@@ -1,0 +1,35 @@
+.livros {
+    float: left;
+    display: inline-block;
+    margin-left: 3vw;
+    margin-right: 1vw;
+    width: 20.5%;
+    height: 300px;
+    margin : 10px 2%;
+}
+
+.lancamentos {
+    height:120px;
+}
+
+.livro {
+    text-align: center;
+}
+
+.capa {
+    height: 80%;
+    width : 80%;
+    margin : 5px 10% 8px;
+}
+
+.titulo-livro{
+    font-size : 2vw;
+}
+
+.genero-livro{
+    font-size : 1.25vw;
+}
+
+.autor-livro{
+    font-size : 1.25vw;
+}
