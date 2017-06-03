@@ -17,6 +17,13 @@ namespace EditoraCrescer.Api.Controllers
         }
 
         [HttpGet]
+        public IHttpActionResult ObterPagina(int jump, int bring)
+        {
+            var livros = repositorio.ObterPagina(jump, bring);
+            return Ok(new { dados = livros });
+        }
+
+        [HttpGet]
         [Route("{isbn:int}")]
         public IHttpActionResult ObterLivro(int isbn)
         {
@@ -51,6 +58,16 @@ namespace EditoraCrescer.Api.Controllers
             return Ok(new { dados = livro });
         }
 
+        [HttpPost]
+        [Route("lista")]
+        public IHttpActionResult AdicionarListaLivros(Livro[] livros)
+        {
+            foreach (Livro livro in livros)
+            {
+                repositorio.Criar(livro);
+            }
+            return Ok(new { dados = livros });
+        }
 
         [HttpPut]
         [Route("{isbn}")]

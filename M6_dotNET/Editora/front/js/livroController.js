@@ -1,30 +1,33 @@
-var app = angular.module ('app', ['ngRoute']);
-
-app.config (function ($routeProvider) {
-
-    $routeProvider
-        .when('/', {
-            controller : 'livroController',
-            templateUrl: '/html/home.html'
-        })
-
-        .otherwise({redirectTo: '/'});
-});
-
 app.controller('livroController', function ($window,
                                             $scope,
                                             $routeParams,
+                                            $location,
                                             livroService){
 
+    setParametros(0,5);
     listarLancamentos();
+    listarOutros();
     setTimeout(resize, 500)
+
+    function setParametros() {
+        $scope.parametros = {
+            jump: 0,
+            bring: 12
+        };
+    }
 
     function listarLancamentos() {
         livroService.lancamentos().then(function(response){
             $scope.lancamentos = response.data.dados;
-            console.log(response.data.dados);
         })
     }
+
+    function listarOutros() {
+        livroService.outros($scope.parametros).then(function(response){
+            $scope.outrosLivros = response.data.dados;
+        })
+    }
+
     addEvent(window, "resize", resizeEvent);
 })
 

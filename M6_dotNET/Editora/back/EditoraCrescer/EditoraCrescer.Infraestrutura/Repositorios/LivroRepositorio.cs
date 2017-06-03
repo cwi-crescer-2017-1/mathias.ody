@@ -30,10 +30,27 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                 .FirstOrDefault(l => l.Isbn == isbn);
         }
 
+        public object ObterPagina(int pular, int trazer)
+        {
+            DateTime semanaAnterior = DateTime.Now.AddDays(-7);
+            return contexto.Livros
+                .Where(l => (l.DataPublicacao < semanaAnterior))
+                .OrderBy(l => l.Isbn)
+                .Skip(pular)
+                .Take(trazer)
+                .Select(l => new
+                {
+                    l.Isbn,
+                    l.Titulo,
+                    l.Capa,
+                    Autor = l.Autor.Nome,
+                    l.Genero
+                }).ToList();
+        }
+
         public dynamic ObterLivrosGenero(string genero)
         {
             return contexto.Livros
-                .Where(l => l.Genero.Contains(genero))
                 .Select(l => new
                 {
                     l.Isbn,
