@@ -5,7 +5,7 @@ app.factory('livroService', function ($http){
         return $http.get(urlBase + "/lancamentos");
     }
 
-    function getOutrosLivros(parametros) {
+    function getLivros(parametros) {
         return $http({
             url: urlBase,
             method: 'GET',
@@ -13,8 +13,16 @@ app.factory('livroService', function ($http){
         })
     }
 
+    function getLivroById (id) {
+        return $http({
+            url: urlBase + "/" + id,
+            method: 'GET',
+        })
+    }
+
     return {
         lancamentos : getLancamentos,
-        outros : getOutrosLivros
+        getLivros : getLivros,
+        livroId : getLivroById
     }
 })

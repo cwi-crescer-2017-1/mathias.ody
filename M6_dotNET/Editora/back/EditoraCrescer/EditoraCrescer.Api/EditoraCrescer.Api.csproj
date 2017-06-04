@@ -96,17 +96,18 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\Autenticacao.cs" />
     <Compile Include="App_Start\BasicAuthorizationAttribute.cs" />
     <Compile Include="App_Start\ErrosGlobaisFilterAttribute.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AutoresController.cs" />
+    <Compile Include="Controllers\ControllerBasica.cs" />
     <Compile Include="Controllers\LivrosController.cs" />
     <Compile Include="Controllers\RevisorController.cs" />
-    <Compile Include="Controllers\TesteController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\RegistrarUsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EditoraCrescer.Infraestrutura\EditoraCrescer.Infraestrutura.csproj">

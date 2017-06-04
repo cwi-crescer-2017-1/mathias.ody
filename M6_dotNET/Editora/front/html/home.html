@@ -1,18 +1,22 @@
-<h1>Lançamentos</h1>
-<div scale-resize class="livros" ng-repeat="livro in lancamentos">
-    <div class="livro">     
-        <img class="capa" src="{{livro.Capa}}">
-        <div class="titulo-livro">{{livro.Titulo}}</div>
-        <div class="genero-livro">{{livro.Genero}}</div>
-        <div class="autor-livro">{{livro.Autor}}</div>
+<h1 class="indice">Lançamentos</h1>
+<div class="catalogo">
+    <div scale-resize class="livros" ng-repeat="livro in lancamentos">
+        <div class="livro">     
+            <img class="capa" ng-src="{{livro.Capa}}">
+            <div class="titulo-livro"><a ng-href="#!/livros/{{livro.Isbn}}">{{livro.Titulo}}</a></div>
+            <div class="genero-livro">{{livro.Genero}}</div>
+            <div class="autor-livro">{{livro.Autor}}</div>
+        </div>
     </div>
 </div>
-<h1>Nosso catálogo</h1>
-<div scale-resize class="livros" ng-repeat="livro in outrosLivros">
-    <div class="livro">     
-        <img class="capa" src="{{livro.Capa}}">
-        <div class="titulo-livro">{{livro.Titulo}}</div>
-        <div class="genero-livro">{{livro.Genero}}</div>
-        <div class="autor-livro">{{livro.Autor}}</div>
+<h1 class="indice">Nosso catálogo</h1>
+<div class="catalogo">
+    <div scale-resize class="livros" ng-repeat="livro in outrosLivros">
+        <div class="livro">     
+            <img class="capa" ng-src="{{livro.Capa}}">
+            <div class="titulo-livro"><a ng-href="#!/livros/{{livro.Isbn}}" >{{livro.Titulo}}</a></div>
+            <div class="genero-livro">{{livro.Genero}}</div>
+            <div class="autor-livro">{{livro.Autor}}</div>
+        </div>
     </div>
 </div>

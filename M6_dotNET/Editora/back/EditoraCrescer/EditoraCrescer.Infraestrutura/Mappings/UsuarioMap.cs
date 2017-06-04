@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EditoraCrescer.Infraestrutura.Mapppings
+namespace EditoraCrescer.Infraestrutura.Mappings
 {
-    public class RevisorMap : EntityTypeConfiguration<Revisor>
+    class UsuarioMap : EntityTypeConfiguration<Usuario>
     {
-        public RevisorMap()
+        public UsuarioMap()
         {
-            ToTable("Revisores");
+            ToTable("Usuarios");
         }
     }
 }

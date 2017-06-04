@@ -1,0 +1,35 @@
+.login {
+    margin-top: 50px; 
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+.login-titulo {
+    text-align: center;
+}
+
+.login-subtitulo {
+    text-align: center;
+}
+
+.row-login {
+    margin: 30px 0px;
+}
+
+.input-login {
+    font-size: 20px;
+    display: inline-block;
+    float: right;
+}
+
+.label-login {
+    font-size: 24px;
+    display: inline-block;
+}
+
+.login-button {
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    font-size: 24px;
+}

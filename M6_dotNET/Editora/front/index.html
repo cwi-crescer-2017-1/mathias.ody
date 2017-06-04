@@ -7,12 +7,20 @@
         
         <link href="css/index-style.css" rel="stylesheet">
         <link href="css/home-style.css" rel="stylesheet">
+        <link href="css/detalhes-style.css" rel="stylesheet">
+        <link href="css/login-style.css" rel="stylesheet">
+        <link href="css/crud-style.css" rel="stylesheet">
         <link href="css/utils.css" rel="stylesheet">
         <script src="https://code.angularjs.org/1.6.4/angular.js"></script>
         <script src="https://code.angularjs.org/1.6.4/angular-route.js"></script>
         <script src="js/routes.js"></script>
+        <script src="js/utils.js"></script>
         <script src="js/livroController.js"></script>
+        <script src="js/loginController.js"></script>
+        <script src="js/loginService.js"></script>
         <script src="js/livroService.js"></script>
+        <script src="js/detalhesController.js"></script>
+        <script src="js/crudController.js"></script>
     </head>
     <body>
         <div class="nav">
@@ -20,8 +28,8 @@
                 <h1>FreelaBooks.NET</h1>
             </div>
             <div class="borda-inferior">
-                <span class="float-left">Assinar</span>
-                <span class="float-right">Login</span>
+                <span class="float-left"><a ng-href="#!/assinar">Assinar</a></span>
+                <span class="float-right"><a ng-href="#!/login">Login</a></span>
             </div>
         </div>
 

@@ -1,48 +1,48 @@
-app.controller('livroController', function ($window,
+app.controller('crudController', function ( livroService,
                                             $scope,
                                             $routeParams,
                                             $location,
-                                            livroService){
+                                            $window,
+                                            ){ 
 
-    setParametros(0,5);
-    listarLancamentos();
-    listarOutros();
+    setParametros();
+    listarLivrosCompleto();
     setTimeout(resize, 500)
 
     function setParametros() {
         $scope.parametros = {
             jump: 0,
-            bring: 12,
-            full:false
+            bring: 20,
+            full:true
         };
     }
 
-    function listarLancamentos() {
-        livroService.lancamentos().then(function(response){
-            $scope.lancamentos = response.data.dados;
-        })
-    }
-
-    function listarOutros() {
+    function listarLivrosCompleto() {
         livroService.getLivros($scope.parametros).then(function(response){
-            $scope.outrosLivros = response.data.dados;
+            let livros = response.data.dados;
+            livros.forEach(function(livro) {
+                if (livro.DataRevisao == null) {
+                    
+                }
+            });
+            $scope.livros = livros;
         })
     }
 
     function resize () {
-        let list = document.getElementsByClassName("livros");
+        let list = document.getElementsByClassName("crud-capa");
         let width = 0;
         for (let i = 0; i < list.length; i++) {
             if (i == 0) {
                 width = list[i].clientWidth;
             }
-            list[i].style.height = '' + width *2 + 'px';
+            list[i].style.height = '' + width *1.5 + 'px';
         }
     }
 
     function resizeEvent (event) {
         resize();
     }
-
+    
     addEvent(window, "resize", resizeEvent);
 })

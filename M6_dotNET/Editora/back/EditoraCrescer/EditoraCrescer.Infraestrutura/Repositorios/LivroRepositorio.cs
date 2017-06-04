@@ -30,6 +30,17 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                 .FirstOrDefault(l => l.Isbn == isbn);
         }
 
+        public object ObterPaginaCompleta(int pular, int trazer)
+        {
+            return contexto.Livros
+                .OrderBy(l => l.Isbn)
+                .Skip(pular)
+                .Take(trazer)
+                .Include(l => l.Autor)
+                .Include(l => l.Revisor)
+                .ToList();
+        }
+
         public object ObterPagina(int pular, int trazer)
         {
             DateTime semanaAnterior = DateTime.Now.AddDays(-7);

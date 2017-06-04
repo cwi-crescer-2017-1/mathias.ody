@@ -17,9 +17,14 @@ namespace EditoraCrescer.Api.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult ObterPagina(int jump, int bring)
+       
+        public IHttpActionResult ObterPagina(int jump, int bring, bool full = false)
         {
-            var livros = repositorio.ObterPagina(jump, bring);
+            object livros;
+            if (full == true)
+                livros = repositorio.ObterPaginaCompleta(jump, bring);
+            else
+                livros = repositorio.ObterPagina(jump, bring);
             return Ok(new { dados = livros });
         }
 

@@ -1,0 +1,10 @@
+<h1 class="titulo-detalhes-livro">{{detalhes.Titulo}}</h1> 
+    <img class="capa-detalhes-livro" ng-src="{{detalhes.Capa}}">
+    <div class="detalhes"> 
+        <div><strong>Título:</strong> {{detalhes.Titulo}} (ISBN: {{detalhes.Isbn}})</div>
+        <div><strong>Autor:</strong> {{detalhes.Autor.Nome}}</div>
+        <div><strong>Gênero:</strong> {{detalhes.Genero}}</div>
+        <div><strong>Data publicação:</strong> {{detalhes.DataPublicacao | date: 'dd/MM/yyyy'}}</div>
+        <div><strong>Descrição:</strong> {{detalhes.Descricao}}</div>
+    </div>
+</div>
