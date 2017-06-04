@@ -1,6 +1,12 @@
 app.controller('detalhesController', function ( $scope,
                                                 $routeParams,
-                                                livroService){
+                                                livroService,
+                                                authService){
+    
+    $scope.usuario = authService.getUsuario();
+    if ($scope.usuario != null) {
+        $scope.logado = true;
+    }
     
     detalhesLivro ();
     
@@ -8,11 +14,9 @@ app.controller('detalhesController', function ( $scope,
         livroService.livroId($routeParams.id)
         .then(function (response) {
             $scope.detalhes = response.data.dados;
-            console.log(response.data.dados);
         },
         function (response) {
             $scope.detalhes = response.data;
-            console.log(response.data);
         })
     }
 })

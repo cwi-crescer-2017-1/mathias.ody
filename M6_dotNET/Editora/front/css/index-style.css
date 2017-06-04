@@ -2,6 +2,24 @@ body {
     margin:0px;
     padding:0px;
     box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:visited {
+    color:initial;
+}
+
+a:link {
+    color:initial;
 }
 
 .nav {
@@ -18,12 +36,22 @@ div {
 .titulo-pagina {
     text-align: center;
     margin:0px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .borda-inferior {
-    width: 30%;
-    margin-right:auto;
-    margin-left:auto;
+    width: 40%;
+    margin: 10px auto;
+    margin-bottom: 10px;
+    font-size: 1.6vw;
+}
+
+.borda-inferior a:hover {
+    font-size: 1.8vw;
+}
+
+.borda-inferior span {
+    height: 40px;
 }
 
 .container {

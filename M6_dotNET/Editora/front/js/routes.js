@@ -1,4 +1,4 @@
-var app = angular.module ('app', ['ngRoute']);
+var app = angular.module ('app', ['ngRoute', 'auth', 'toastr']);
 
 app.config (function ($routeProvider) {
 
@@ -21,7 +21,13 @@ app.config (function ($routeProvider) {
         })
         .when('/crud', {
             controller : 'crudController',
-            templateUrl: '/html/crud.html'
+            templateUrl: '/html/crud.html',
+            resolve: {
+                    // define que para acessar esta página deve ser um usuário autenticado (mas não restringe o tipo de permissão)
+                autenticado: function (authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
         })
         .when('/registrar', {
             controller : 'registrarController',
@@ -37,4 +43,19 @@ app.config (function ($routeProvider) {
         })
 
         .otherwise({redirectTo: '/'});
+});
+
+app.constant('authConfig', {
+
+    // Obrigatória - URL da API que retorna o usuário
+    urlUsuario: 'http://localhost:50255/api/acessos/usuario',
+
+    // Obrigatória - URL da aplicação que possui o formulário de login
+    urlLogin: '/login',
+
+    // Opcional - URL da aplicação para onde será redirecionado (se for informado) após o LOGIN com sucesso
+    urlPrivado: '/crud',
+
+    // Opcional - URL da aplicação para onde será redirecionado (se for informado) após o LOGOUT
+    urlLogout: '/'
 });

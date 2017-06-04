@@ -2,12 +2,17 @@ app.controller('livroController', function ($window,
                                             $scope,
                                             $routeParams,
                                             $location,
-                                            livroService){
+                                            livroService,
+                                            authService){
 
     setParametros(0,5);
     listarLancamentos();
     listarOutros();
-    setTimeout(resize, 500)
+
+    $scope.usuario = authService.getUsuario();
+    if ($scope.usuario != null) {
+        $scope.logado = true;
+    }
 
     function setParametros() {
         $scope.parametros = {
@@ -16,6 +21,11 @@ app.controller('livroController', function ($window,
             full:false
         };
     }
+
+     //pagina carregada
+    angular.element(document).ready(function () {
+       setTimeout(resize, 500);
+    });
 
     function listarLancamentos() {
         livroService.lancamentos().then(function(response){

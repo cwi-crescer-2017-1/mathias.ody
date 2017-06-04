@@ -5,3 +5,9 @@
 .float-left{
     float: left;
 }
+
+.center{
+    transform: translate(-50%,0px);
+    position: absolute;
+    left: 50%;
+}

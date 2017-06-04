@@ -3,8 +3,13 @@ app.controller('crudController', function ( livroService,
                                             $routeParams,
                                             $location,
                                             $window,
+                                            authService
                                             ){ 
 
+    $scope.logout = authService.logout;
+    
+    $scope.usuario = authService.getUsuario();
+    
     setParametros();
     listarLivrosCompleto();
     setTimeout(resize, 500)
