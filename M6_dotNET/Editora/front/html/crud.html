@@ -1,17 +1,30 @@
-<div class="item-lista-livro" ng-repeat="livro in livros">
-    <div class="crud-capa">
-        <img class="crud-img" ng-src="{{livro.Capa}}">
+<div class="nav">
+    <div class="titulo-pagina">
+        <h1>FreelaBooks.NET</h1>
     </div>
-    <div class="header-crud">
-        <div class="crud-titulo-livro"><strong>{{livro.Titulo}}</strong></div>
-        <div class="crud-autor-livro">{{livro.Autor.Nome}}</div>
+    <div class="borda-inferior">
+        <span class="float-left"><a ng-href="#!/assinar">Assinar</a></span>
+        <span class="float-right"><a ng-if="logado == true" ng-href="#!/login">Login</a></span>
+        <span class="float-right"><a ng-if="logado != true" ng-href="#!/login">Olá, {{userLogado}}</a></span>
     </div>
-    <div class="crud-descricao-livro"><strong>{{livro.Genero}}: </strong>{{livro.Descricao}}</div>
-    <div class="footer-crud">
-        <div class="crud-isbn-livro">ISBN: {{livro.Isbn}}</div>
-        <div class="crud-revisor-livro">{{livro.Autor.Nome}}</div>
-        <div class="crud-publicador-livro">{{livro.Autor.Nome}}</div>
+</div>
+
+<div class="corpo">
+    <div class="item-lista-livro" ng-repeat="livro in livros">
+        <div class="crud-capa">
+            <img class="crud-img" ng-src="{{livro.Capa}}">
+        </div>
+        <div class="header-crud">
+            <div class="crud-titulo-livro"><strong>{{livro.Titulo}}</strong></div>
+            <div class="crud-autor-livro">{{livro.Autor.Nome}}</div>
+        </div>
+        <div class="crud-descricao-livro"><strong>{{livro.Genero}}: </strong>{{livro.Descricao}}</div>
+        <div class="footer-crud">
+            <div class="crud-isbn-livro">ISBN: {{livro.Isbn}}</div>
+            <div class="crud-revisor-livro">{{livro.Autor.Nome}}</div>
+            <div class="crud-publicador-livro">{{livro.Autor.Nome}}</div>
+        </div>
+        <button class="button-crud">Deletar</button>
+        <button class="button-crud">Editar</button>
     </div>
-    <button class="button-crud">Deletar</button>
-    <button class="button-crud">Editar</button>
 </div>
