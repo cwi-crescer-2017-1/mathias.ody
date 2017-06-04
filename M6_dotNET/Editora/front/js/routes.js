@@ -12,6 +12,7 @@ app.config (function ($routeProvider) {
             templateUrl: '/html/login.html'
         })
         .when('/assinar', {
+            controller : 'assinarController',
             templateUrl: '/html/assinar.html'
         })
         .when('/livros/:id', {
@@ -21,6 +22,18 @@ app.config (function ($routeProvider) {
         .when('/crud', {
             controller : 'crudController',
             templateUrl: '/html/crud.html'
+        })
+        .when('/registrar', {
+            controller : 'registrarController',
+            templateUrl: '/html/registrar.html'
+        })
+        .when('/editar/:id', {
+            controller : 'editarController',
+            templateUrl: '/html/editar.html'
+        })
+        .when('/adicionar', {
+            controller : 'adicionarController',
+            templateUrl: '/html/adicionar.html'
         })
 
         .otherwise({redirectTo: '/'});
