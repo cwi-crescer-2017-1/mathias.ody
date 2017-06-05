@@ -20,9 +20,64 @@ app.factory('livroService', function ($http){
         })
     }
 
+    function removeLivroById (id) {
+        return $http({
+            url: urlBase + "/" + id,
+            method: 'DELETE',
+        })
+    }
+
+    function criar(livro, autorizacao) {
+        return $http({
+            url: urlBase,
+            method: 'POST',
+            headers: {
+                Authorization: autorizacao
+            },
+            data: livro
+        });
+    }
+
+    function editar(livro, autorizacao) {
+        return $http({
+            url: urlBase + '/' + livro.Isbn,
+            method: 'PUT',
+            headers: {
+            Authorization: autorizacao
+            },
+            data: livro
+        });
+    }
+
+    function revisar(livro, autorizacao) {
+        return $http({
+            url:urlBase+ '/' + livro.Isbn,
+            method: 'PUT',
+            headers: {
+            Authorization: autorizacao
+            },
+            data:livro
+        })
+    }
+
+    function publicar(livro, autorizacao) {
+        return $http({
+            url:urlBase+ '/' + livro.Isbn,
+            method: 'PUT',
+            headers: {
+            Authorization: autorizacao
+            },
+            data:livro
+        })
+    }
+
     return {
         lancamentos : getLancamentos,
         getLivros : getLivros,
-        livroId : getLivroById
+        livroId : getLivroById,
+        removeLivroById : removeLivroById,
+        editar : editar,
+        criar : criar,
+        revisar:revisar
     }
 })

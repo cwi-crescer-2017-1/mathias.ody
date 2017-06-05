@@ -3,7 +3,8 @@ app.controller('crudController', function ( livroService,
                                             $routeParams,
                                             $location,
                                             $window,
-                                            authService
+                                            authService,
+                                            toastr
                                             ){ 
 
     $scope.logout = authService.logout;
@@ -22,6 +23,9 @@ app.controller('crudController', function ( livroService,
         };
     }
 
+    //
+    //Listar
+    //
     function listarLivrosCompleto() {
         livroService.getLivros($scope.parametros).then(function(response){
             let livros = response.data.dados;
@@ -32,6 +36,17 @@ app.controller('crudController', function ( livroService,
             });
             $scope.livros = livros;
         })
+    }
+
+    //
+    //Deletar
+    //
+    $scope.deletar = function (id) {
+        let posInArray = $scope.livros.getPosArrayById (id);
+        livroService.removeLivroById(id).then(function(resposta){
+            listarLivrosCompleto();
+        });
+        toastr.success("Livro excluído com sucesso!");
     }
 
     function resize () {

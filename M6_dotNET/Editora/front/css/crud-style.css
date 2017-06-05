@@ -16,6 +16,7 @@
 .header-crud {
     width: 80%;
     display: inline-block;
+    border-top: 2px groove lightgrey;
 }
 
 .crud-titulo-livro{
@@ -39,7 +40,10 @@
 
 .footer-crud{
     margin:0px;
-    margin-top:3px;
+    margin-top:15px;
+    margin-bottom:15px;
+    border-bottom: 2px groove lightgrey;
+    height:2vw;
 }
 
 .crud-isbn-livro {
@@ -70,6 +74,7 @@
 .button-crud{
     font-size: 1vw;
     height: 1.5vw;
-    width : 8vw; 
+    width : 5vw; 
+    margin-left : 1vw;
     float:right;
 }

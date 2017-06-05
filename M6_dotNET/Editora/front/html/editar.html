@@ -15,22 +15,27 @@
         <div class="login-subtitulo">Altere os campos abaixo</div>
         <div class="row-login">
             <span class="label-login">URL Capa</span>
-            <input class="input-login" type="text">
+            <input class="input-login" type="text" ng-model="editando.Capa">
         </div>
         <div class="row-login">
             <span class="label-login">Título</span>
-            <input class="input-login" type="e-text">
+            <input class="input-login" type="text" ng-model="editando.Titulo">
         </div>
         <div class="row-login">
             <span class="label-login">Autor</span>
-            <input class="input-login" type="text">
+            <input class="input-login" type="text" ng-model="editando.Autor.Nome">
+        </div>
+        <div class="row-login">
+            <span class="label-login">Gênero</span>
+            <input class="input-login" type="text" ng-model="editando.Genero">
         </div>
         <div class="row-login">
             <span class="label-login">Descrição</span>
-            <textarea class="input-box" rows="5"></textarea>
+            <textarea class="input-box" rows="5" ng-model="editando.Descricao"></textarea>
         </div>
         <div class="row-login">
-            <button class="login-button">Ok</button>
+            <button ng-click="cancelar()" class="login-button-duble float-left">Cancelar</button>
+            <button ng-click="aceitar()" class="login-button-duble float-right">Ok</button>
         </div>
     </div>
 </div>

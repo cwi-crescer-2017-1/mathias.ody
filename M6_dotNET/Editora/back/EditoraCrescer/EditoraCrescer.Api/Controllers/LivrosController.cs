@@ -24,7 +24,7 @@ namespace EditoraCrescer.Api.Controllers
             if (full == true)
                 livros = repositorio.ObterPaginaCompleta(jump, bring);
             else
-                livros = repositorio.ObterPagina(jump, bring);
+                livros = repositorio.ObterPaginaApenasPublicados(jump, bring);
             return Ok(new { dados = livros });
         }
 
@@ -57,6 +57,7 @@ namespace EditoraCrescer.Api.Controllers
         }
 
         [HttpPost]
+        [BasicAuthorization(Roles = "Administrador,Publicador,Revisor,Colaborador")]
         public IHttpActionResult AdicionarLivro(Livro livro)
         {
             var livroRetorno = repositorio.Criar(livro);
@@ -65,6 +66,7 @@ namespace EditoraCrescer.Api.Controllers
 
         [HttpPost]
         [Route("lista")]
+        [BasicAuthorization(Roles = "Administrador,Publicador,Revisor,Colaborador")]
         public IHttpActionResult AdicionarListaLivros(Livro[] livros)
         {
             foreach (Livro livro in livros)
@@ -76,6 +78,7 @@ namespace EditoraCrescer.Api.Controllers
 
         [HttpPut]
         [Route("{isbn}")]
+        [BasicAuthorization(Roles = "Administrador,Publicador,Revisor,Colaborador")]
         public IHttpActionResult AlterarLivro(int isbn, Livro livro)
         {
             if (isbn != livro.Isbn)
@@ -90,6 +93,7 @@ namespace EditoraCrescer.Api.Controllers
 
         [HttpDelete]
         [Route("{isbn}")]
+        [BasicAuthorization(Roles = "Administrador,Publicador,Revisor,Colaborador")]
         public IHttpActionResult Delete(int isbn)
         {
             bool sucesso = repositorio.Excluir(isbn);

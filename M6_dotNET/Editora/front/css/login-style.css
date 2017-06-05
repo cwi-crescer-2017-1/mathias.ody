@@ -1,7 +1,9 @@
 .login {
     margin-top: 50px; 
-    padding-left: 30%;
-    padding-right: 30%;
+    margin-left: 30%;
+    margin-right: 30%;
+    border: 2px groove rgba(0,0,0, 0.1);
+    padding: 2vw;
 }
 
 .login-titulo {
@@ -19,7 +21,6 @@
 .input-login {
     font-size: 20px;
     display: inline-block;
-    float: right;
 }
 
 .input-box {
@@ -39,5 +40,11 @@
     width: 30%;
     margin-left: 35%;
     margin-right: 35%;
+    font-size: 24px;
+}
+
+.login-button-duble {
+    display:inline-block;
+    width: 30%;
     font-size: 24px;
 }

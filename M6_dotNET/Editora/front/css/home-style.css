@@ -1,7 +1,8 @@
 .indice {
     width:100%;
-    margin: 50px 0px;
+    margin: 10px 0px;
     text-align: left;
+    padding-top:0px;
 }
 
 .catalogo {
@@ -43,4 +44,12 @@
 
 .autor-livro{
     font-size : 1.25vw;
+}
+
+.pages {
+    width:20vw;
+    margin:20px auto;
+    font-size: 15px;
+    margin-bottom: 50px;
+    transform: translateY(-35px);
 }

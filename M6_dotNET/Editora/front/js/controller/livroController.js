@@ -5,6 +5,12 @@ app.controller('livroController', function ($window,
                                             livroService,
                                             authService){
 
+
+    $scope.isAdm = false;
+    $scope.podeRevisar = false;
+    $scope.podePublicar = false;                                            
+
+    verificarPermissoes();                                     
     setParametros(0,5);
     listarLancamentos();
     listarOutros();
@@ -22,10 +28,51 @@ app.controller('livroController', function ($window,
         };
     }
 
+    function verificarPermissoes () {  
+        usuario.Permissoes.forEach(function(permissao) {
+            if(permissao == "Revisor"){
+                podeRevisar = true;
+            }
+            if(permissao == "Publicador"){
+                podePublicar = true;
+            }
+            if(permissao == "Administrador"){
+                isAdm = true;
+            }
+        })
+    }
+
+    $scope.revisar = function(livro) {
+        livroService.revisar(livro).then(function(response){
+            //$scope.outrosLivros = response.data.dados;
+        })
+    }
+
+    $scope.avancar = function () {
+        $scope.parametros.jump += $scope.parametros.bring;  
+        listarOutros();
+        assegurarResize();
+    }
+
+    $scope.voltar = function  () {
+        $scope.parametros.jump -= $scope.parametros.bring; 
+        if($scope.parametros.jump < 0){
+            $scope.parametros.jump = 0;
+        }
+        listarOutros();
+        assegurarResize();
+    }
+
      //pagina carregada
     angular.element(document).ready(function () {
-       setTimeout(resize, 500);
+       assegurarResize()
     });
+
+    function assegurarResize() {
+        setTimeout(resize, 500);
+        setTimeout(resize, 1000);
+        setTimeout(resize, 2000);
+    }
 
     function listarLancamentos() {
         livroService.lancamentos().then(function(response){

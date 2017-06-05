@@ -41,11 +41,12 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                 .ToList();
         }
 
-        public object ObterPagina(int pular, int trazer)
+        public object ObterPaginaApenasPublicados(int pular, int trazer)
         {
             DateTime semanaAnterior = DateTime.Now.AddDays(-7);
             return contexto.Livros
-                .Where(l => (l.DataPublicacao < semanaAnterior))
+                .Where(l => (l.DataPublicacao != null
+                            && l.DataPublicacao < semanaAnterior))
                 .OrderBy(l => l.Isbn)
                 .Skip(pular)
                 .Take(trazer)
@@ -86,7 +87,7 @@ namespace EditoraCrescer.Infraestrutura.Repositorios
                     l.Genero
                 }).ToList();
         }
-
+        
         public Livro Criar(Livro livro) {
             contexto.Livros.Add(livro);
             contexto.SaveChanges();

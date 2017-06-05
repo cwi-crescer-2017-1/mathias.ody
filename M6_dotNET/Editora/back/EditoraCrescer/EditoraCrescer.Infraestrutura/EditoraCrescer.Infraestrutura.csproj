@@ -71,6 +71,14 @@
     <Compile Include="Migrations\201706031704293_CriarUsuarioEPermissoes.Designer.cs">
       <DependentUpon>201706031704293_CriarUsuarioEPermissoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706050252134_TornarRevisorOpcionalEmLivro.cs" />
+    <Compile Include="Migrations\201706050252134_TornarRevisorOpcionalEmLivro.Designer.cs">
+      <DependentUpon>201706050252134_TornarRevisorOpcionalEmLivro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706050328062_TornarDatasOpcionaisEmLivro.cs" />
+    <Compile Include="Migrations\201706050328062_TornarDatasOpcionaisEmLivro.Designer.cs">
+      <DependentUpon>201706050328062_TornarDatasOpcionaisEmLivro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\AutoresRepositorio.cs" />
@@ -92,6 +100,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706031704293_CriarUsuarioEPermissoes.resx">
       <DependentUpon>201706031704293_CriarUsuarioEPermissoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706050252134_TornarRevisorOpcionalEmLivro.resx">
+      <DependentUpon>201706050252134_TornarRevisorOpcionalEmLivro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706050328062_TornarDatasOpcionaisEmLivro.resx">
+      <DependentUpon>201706050328062_TornarDatasOpcionaisEmLivro.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

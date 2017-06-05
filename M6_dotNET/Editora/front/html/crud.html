@@ -21,10 +21,28 @@
         <div class="crud-descricao-livro"><strong>{{livro.Genero}}: </strong>{{livro.Descricao}}</div>
         <div class="footer-crud">
             <div class="crud-isbn-livro">ISBN: {{livro.Isbn}}</div>
-            <div class="crud-revisor-livro">{{livro.Autor.Nome}}</div>
-            <div class="crud-publicador-livro">{{livro.Autor.Nome}}</div>
+
+            <div ng-if="livro.DataRevisao == null && podeRevisar" class="crud-revisor-livro">
+                <button>Revisar</button>
+            </div>
+            <div ng-if="livro.DataRevisao == null && !podeRevisar" class="crud-revisor-livro">
+                N/revisado
+            </div>
+            <div ng-if="livro.DataRevisao != null" class="crud-revisor-livro">
+                {{livro.DataRevisao}};
+            </div>
+
+            <div ng-if="livro.DataPublicacao == null && podePublicar" class="crud-revisor-livro">
+                <button>Publicar</button>
+            </div>
+            <div ng-if="livro.DataPublicacao == null && !podePublicar" class="crud-revisor-livro">
+                N/publicado
+            </div>
+            <div ng-if="livro.DataPublicacao != null" class="crud-revisor-livro">
+                {{livro.DataPublicacao}};
+            </div>
         </div>
-        <button class="button-crud">Deletar</button>
-        <button class="button-crud">Editar</button>
+        <button class="button-crud" ng-click="deletar(livro.Isbn)"><a href="">Deletar</a></button>
+        <button class="button-crud"><a ng-href="#!/editar/{{livro.Isbn}}">Editar</a></button>
     </div>
 </div>

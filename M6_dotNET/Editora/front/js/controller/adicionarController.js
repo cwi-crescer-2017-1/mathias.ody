@@ -1,3 +1,5 @@
 app.controller('adicionarController', function ( $scope,
                                                 $routeParams,
-                                                usuarioService){})
+                                                livroService,
+                                                authService,
+                                                toastr){})
