@@ -51,7 +51,7 @@ app.factory('livroService', function ($http){
 
     function revisar(livro, autorizacao) {
         return $http({
-            url:urlBase+ '/' + livro.Isbn,
+            url:urlBase+ '/revisar/' + livro.Isbn,
             method: 'PUT',
             headers: {
             Authorization: autorizacao

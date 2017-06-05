@@ -1,17 +1,6 @@
 ﻿@ECHO OFF
 
-REM -------------------------CAMINHO PARA O VISUAL STUDIO-------------------------------------
-START "" "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe"
-REM -------------------------------------------------------------------------------------------
-FOR /L %%i IN (1,1,100) DO (
-  (TASKLIST | FIND /I "devenv.exe") && GOTO :startnext
 
-  PING 1.1.1.1 -n 1 -w 2000 > NUL
-)
-GOTO :EOF
-
-
-:startnext
 PING 1.1.1.1 -n 1 -w 5000 > NUL
 
 REM ---------------CAMINHO PARA O VISUAL STUDIO CODE-------

@@ -1,15 +1,18 @@
 app.controller('crudController', function ( livroService,
+                                            $localStorage,
                                             $scope,
                                             $routeParams,
                                             $location,
                                             $window,
                                             authService,
+                                            usuarioService,
                                             toastr
                                             ){ 
 
-    $scope.logout = authService.logout;
-    
+    $scope.logout = authService.logout;    
     $scope.usuario = authService.getUsuario();
+    $scope.isRevisor = authService.possuiPermissao("Revisor");
+    $scope.isPublicador = authService.possuiPermissao("Publicar");
     
     setParametros();
     listarLivrosCompleto();
@@ -23,6 +26,26 @@ app.controller('crudController', function ( livroService,
         };
     }
 
+    $scope.revisar = function(livro) {
+        livro.Revisor = usuarioService.addRevisor({Nome: $scope.usuario.Nome}).then (function(response){
+            livroService.revisar(livro, $localStorage.headerAuth).then(function(response){
+                //$scope.outrosLivros = response.data.dados;
+            },function(response){
+                toastr.error("Algo deu errado!");
+            })
+            listarLivrosCompleto();
+        })
+    }
+
+    $scope.publicador = function(livro) {
+        livroService.publicar(livro, $localStorage.headerAuth).then(function(response){
+            //$scope.outrosLivros = response.data.dados;
+        },function(response){
+            toastr.error("Algo deu errado!");
+        })
+        listarLivrosCompleto();
+    }
+
     //
     //Listar
     //
@@ -30,9 +53,7 @@ app.controller('crudController', function ( livroService,
         livroService.getLivros($scope.parametros).then(function(response){
             let livros = response.data.dados;
             livros.forEach(function(livro) {
-                if (livro.DataRevisao == null) {
-                    
-                }
+
             });
             $scope.livros = livros;
         })

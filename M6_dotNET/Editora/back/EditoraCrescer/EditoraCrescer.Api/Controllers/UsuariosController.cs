@@ -13,7 +13,6 @@ using System.Web.Http;
     // Permite usuário não autenticados acessarem a controller
     [AllowAnonymous]
     [RoutePrefix("api/acessos")]
-
     public class UsuariosController : ControllerBasica
     {
         UsuarioRepositorio repositorio = new UsuarioRepositorio();

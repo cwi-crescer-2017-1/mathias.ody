@@ -10,6 +10,7 @@
 </div>
 
 <div class="corpo">
+    <div class="header-criar-livro"></div>
     <div class="item-lista-livro" ng-repeat="livro in livros">
         <div class="crud-capa">
             <img class="crud-img" ng-src="{{livro.Capa}}">
@@ -22,20 +23,20 @@
         <div class="footer-crud">
             <div class="crud-isbn-livro">ISBN: {{livro.Isbn}}</div>
 
-            <div ng-if="livro.DataRevisao == null && podeRevisar" class="crud-revisor-livro">
-                <button>Revisar</button>
+            <div ng-if="livro.DataRevisao == null && isRevisor" class="crud-revisor-livro">
+                <button ng-click="revisar(livro)">Revisar</button>
             </div>
-            <div ng-if="livro.DataRevisao == null && !podeRevisar" class="crud-revisor-livro">
+            <div ng-if="livro.DataRevisao == null && !isRevisor" class="crud-revisor-livro">
                 N/revisado
             </div>
             <div ng-if="livro.DataRevisao != null" class="crud-revisor-livro">
-                {{livro.DataRevisao}};
+                {{livro.DataRevisao | date: dd/MM/yyyy}};
             </div>
 
-            <div ng-if="livro.DataPublicacao == null && podePublicar" class="crud-revisor-livro">
+            <div ng-if="livro.DataPublicacao == null && isPublicador" class="crud-revisor-livro">
                 <button>Publicar</button>
             </div>
-            <div ng-if="livro.DataPublicacao == null && !podePublicar" class="crud-revisor-livro">
+            <div ng-if="livro.DataPublicacao == null && !isPublicador" class="crud-revisor-livro">
                 N/publicado
             </div>
             <div ng-if="livro.DataPublicacao != null" class="crud-revisor-livro">

@@ -1,9 +1,11 @@
 ﻿using EditoraCrescer.Infraestrutura.Entidades;
 using EditoraCrescer.Infraestrutura.Repositorios;
+using System;
 using System.Web.Http;
 
 namespace EditoraCrescer.Api.Controllers
 {
+
     [RoutePrefix("api/livros")]
     public class LivrosController : ApiController
     {
@@ -88,6 +90,40 @@ namespace EditoraCrescer.Api.Controllers
                 return BadRequest("Esse livro não se encontra cadastrado");
 
             repositorio.Alterar(isbn,livro);
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("revisar/{isbn}")]
+        [BasicAuthorization(Roles = "Revisor")]
+        public IHttpActionResult RevisarLivro(int isbn, Livro livro)
+        {
+            if (isbn != livro.Isbn)
+                return BadRequest("O livro que você informou não é o mesmo que quer editar");
+
+            if (!repositorio.LivroExiste(livro.Isbn))
+                return BadRequest("Esse livro não se encontra cadastrado");
+
+            livro.DataRevisao = DateTime.Now;
+            
+            repositorio.Alterar(isbn, livro);
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("publicar/{isbn}")]
+        [BasicAuthorization(Roles = "Publicador")]
+        public IHttpActionResult PublicarLivro(int isbn, Livro livro)
+        {
+            if (isbn != livro.Isbn)
+                return BadRequest("O livro que você informou não é o mesmo que quer editar");
+
+            if (!repositorio.LivroExiste(livro.Isbn))
+                return BadRequest("Esse livro não se encontra cadastrado");
+
+            livro.DataPublicacao = DateTime.Now;
+
+            repositorio.Alterar(isbn, livro);
             return Ok();
         }
 
