@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\EntidadeBasica.cs" />
     <Compile Include="Entidades\ItemPedido.cs" />
     <Compile Include="Entidades\Pedido.cs" />
     <Compile Include="Entidades\Permissao.cs" />

@@ -9,12 +9,12 @@ namespace Infraestrutura
         public Contexto() : base("name=ExemploEFSP")
         { }
 
-        public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<Cliente> Cliente { get; set; }
-        public DbSet<ItemPedido> ItemPedido { get; set; }
-        public DbSet<Permissao> Permissao { get; set; }
-        public DbSet<Produto> Produto { get; set; }
-        public DbSet<Pedido> Pedido { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<ItemPedido> ItemPedidos { get; set; }
+        public DbSet<Permissao> Permissoes { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Pedido> Pedidos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
