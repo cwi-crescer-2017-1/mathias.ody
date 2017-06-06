@@ -54,6 +54,14 @@
     <Compile Include="Mappings\PermissaoMap.cs" />
     <Compile Include="Mappings\ProdutoMap.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
+    <Compile Include="Migrations\201706061151388_CriacaoBancoDados.cs" />
+    <Compile Include="Migrations\201706061151388_CriacaoBancoDados.Designer.cs">
+      <DependentUpon>201706061151388_CriacaoBancoDados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706061206427_TornarValoresObrigatorios.cs" />
+    <Compile Include="Migrations\201706061206427_TornarValoresObrigatorios.Designer.cs">
+      <DependentUpon>201706061206427_TornarValoresObrigatorios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,6 +78,14 @@
       <Project>{442eb387-78b6-4cbb-896d-b25f7f57c3d1}</Project>
       <Name>Imobiliaria.Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706061151388_CriacaoBancoDados.resx">
+      <DependentUpon>201706061151388_CriacaoBancoDados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706061206427_TornarValoresObrigatorios.resx">
+      <DependentUpon>201706061206427_TornarValoresObrigatorios.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
