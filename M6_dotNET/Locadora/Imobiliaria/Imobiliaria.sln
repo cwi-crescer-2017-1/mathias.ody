@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imobiliaria.Api", "Imobiliaria.Api\Imobiliaria.Api.csproj", "{5DC39247-AD0D-4E5B-B477-5243A40C2571}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imobiliaria.Dominio", "Imobiliaria.Dominio\Imobiliaria.Dominio.csproj", "{442EB387-78B6-4CBB-896D-B25F7F57C3D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imobiliaria.Infraestrutura", "Imobiliaria.Infraestrutura\Imobiliaria.Infraestrutura.csproj", "{11BC55C3-94A0-406D-93BF-575D899B5AE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imobiliaria.UnitTests", "Imobiliaria.UnitTests\Imobiliaria.UnitTests.csproj", "{48D0B9C3-3589-4034-9476-604998F0939B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{11BC55C3-94A0-406D-93BF-575D899B5AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11BC55C3-94A0-406D-93BF-575D899B5AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11BC55C3-94A0-406D-93BF-575D899B5AE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48D0B9C3-3589-4034-9476-604998F0939B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48D0B9C3-3589-4034-9476-604998F0939B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48D0B9C3-3589-4034-9476-604998F0939B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48D0B9C3-3589-4034-9476-604998F0939B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

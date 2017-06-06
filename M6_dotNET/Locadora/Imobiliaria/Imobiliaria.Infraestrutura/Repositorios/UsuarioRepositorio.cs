@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
-namespace Infraestrutura.Repositorios
+namespace Imobiliaria.Infraestrutura.Repositorios
 {
     public class UsuarioRepositorio
     {
@@ -39,6 +39,8 @@ namespace Infraestrutura.Repositorios
         }
         public void Excluir(Usuario usuario)
         {
+            //contexto.Permissoes.Remove(contexto.Permissoes.
+            contexto.Usuarios.RemoveRange(contexto.Usuarios.Where(u => u.Id == usuario.Id));
             contexto.Usuarios.Remove(usuario);
             contexto.SaveChanges();
         }

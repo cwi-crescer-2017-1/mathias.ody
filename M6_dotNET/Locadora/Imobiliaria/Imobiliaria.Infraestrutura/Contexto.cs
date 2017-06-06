@@ -1,8 +1,8 @@
 ﻿using Imobiliaria.Dominio.Entidades;
-using Infraestrutura.Mappings;
+using Imobiliaria.Infraestrutura.Mappings;
 using System.Data.Entity;
 
-namespace Infraestrutura
+namespace Imobiliaria.Infraestrutura
 {
     public class Contexto : DbContext
     {

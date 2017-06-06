@@ -1,4 +1,4 @@
-namespace Infraestrutura.Migrations
+namespace Imobiliaria.Infraestrutura.Migrations
 {
     using System;
     using System.Data.Entity;

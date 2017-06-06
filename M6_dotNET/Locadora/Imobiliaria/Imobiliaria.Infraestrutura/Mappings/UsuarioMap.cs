@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity.ModelConfiguration;
 using Imobiliaria.Dominio.Entidades;
 
-namespace Infraestrutura.Mappings
+namespace Imobiliaria.Infraestrutura.Mappings
 {
     class UsuarioMap : EntityTypeConfiguration<Usuario>
     {

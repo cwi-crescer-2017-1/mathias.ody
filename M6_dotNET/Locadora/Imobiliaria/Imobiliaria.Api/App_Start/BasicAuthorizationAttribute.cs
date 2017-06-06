@@ -1,5 +1,5 @@
 ﻿using Imobiliaria.Dominio.Entidades;
-using Infraestrutura.Repositorios;
+using Imobiliaria.Infraestrutura.Repositorios;
 using System;
 using System.Linq;
 using System.Net;
