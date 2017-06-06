@@ -4,6 +4,7 @@ using Imobiliaria.Api.Controllers;
 using Imobiliaria.Api.Models;
 using Imobiliaria.Infraestrutura.Repositorios;
 using Imobiliaria.Dominio.Entidades;
+using System.Collections.Generic;
 
 namespace Imobiliaria.UnitTests
 {
@@ -11,11 +12,17 @@ namespace Imobiliaria.UnitTests
     public class UsuariosTest
     {
         UsuarioRepositorio UsuarioRepositorio = new UsuarioRepositorio();
+        Usuario Usuario;
 
+        public UsuariosTest()
+        {
+
+        }
+ 
         [TestMethod]
         public void AdicionarAdicionaUsuario ()
         {
-            Usuario Usuario = new Usuario("Usuario Teste", "usuarioTeste@Teste.com", "asdrtyvbnm");
+            Usuario = new Usuario("Usuario Teste", "usuarioTeste@Teste.com", "asdrtyvbnm");
             UsuarioRepositorio.Criar(Usuario);
             Usuario UsuarioCriado = UsuarioRepositorio.Obter("usuarioTeste@Teste.com");
 
@@ -26,11 +33,8 @@ namespace Imobiliaria.UnitTests
         [TestMethod]
         public void ExcluirDeletaUsuario()
         {
-            Usuario Usuario = new Usuario("Usuario Teste", "usuarioTeste@Teste.com", "asdrtyvbnm");
             UsuarioRepositorio.Excluir(Usuario);
-            Usuario UsuarioDeletado = UsuarioRepositorio.Obter("usuarioTeste@Teste.com");
-
-            Assert.IsNull(UsuarioDeletado);
+            Assert.IsNull(UsuarioRepositorio.Obter("usuarioTeste@Teste.com"));
         }
     }
 }

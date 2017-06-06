@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrderedTest name="orderedtest1" storage="c:\users\0176416\documents\mathias.ody\m6_dotnet\locadora\imobiliaria\imobiliaria.unittests\orderedtest1.orderedtest" id="13b30d37-4151-40e9-a419-9d47f4397804" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestLinks>
+    <TestLink id="9d727810-37fd-0eb1-cac0-1f3e8569c9d1" name="AdicionarAdicionaUsuario" storage="bin\debug\imobiliaria.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="d72251cb-ad3f-3edd-785b-5c4aff0ce11b" name="ExcluirDeletaUsuario" storage="bin\debug\imobiliaria.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestLinks>
+</OrderedTest>
