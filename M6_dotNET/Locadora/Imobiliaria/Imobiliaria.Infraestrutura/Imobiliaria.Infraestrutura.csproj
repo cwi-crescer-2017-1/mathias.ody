@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{11BC55C3-94A0-406D-93BF-575D899B5AE0}</ProjectGuid>
+    <ProjectGuid>{AC3CBC43-DD52-4439-B0AC-ACB526A275EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Infraestrutura</RootNamespace>
-    <AssemblyName>Infraestrutura</AssemblyName>
+    <RootNamespace>Imobiliaria.Infraestrutura</RootNamespace>
+    <AssemblyName>Imobiliaria.Infraestrutura</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -54,17 +54,13 @@
     <Compile Include="Mappings\PermissaoMap.cs" />
     <Compile Include="Mappings\ProdutoMap.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
-    <Compile Include="Migrations\201706061151388_CriacaoBancoDados.cs" />
-    <Compile Include="Migrations\201706061151388_CriacaoBancoDados.Designer.cs">
-      <DependentUpon>201706061151388_CriacaoBancoDados.cs</DependentUpon>
+    <Compile Include="Migrations\201706062010103_CriacaoBancoDados.cs" />
+    <Compile Include="Migrations\201706062010103_CriacaoBancoDados.Designer.cs">
+      <DependentUpon>201706062010103_CriacaoBancoDados.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706061206427_TornarValoresObrigatorios.cs" />
-    <Compile Include="Migrations\201706061206427_TornarValoresObrigatorios.Designer.cs">
-      <DependentUpon>201706061206427_TornarValoresObrigatorios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706061310229_SubstituirIdIntPorIdGuid.cs" />
-    <Compile Include="Migrations\201706061310229_SubstituirIdIntPorIdGuid.Designer.cs">
-      <DependentUpon>201706061310229_SubstituirIdIntPorIdGuid.cs</DependentUpon>
+    <Compile Include="Migrations\201706062027501_ImplementarNPraN.cs" />
+    <Compile Include="Migrations\201706062027501_ImplementarNPraN.Designer.cs">
+      <DependentUpon>201706062027501_ImplementarNPraN.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,19 +72,16 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Imobiliaria.Dominio\Imobiliaria.Dominio.csproj">
-      <Project>{442eb387-78b6-4cbb-896d-b25f7f57c3d1}</Project>
+      <Project>{f04b40bc-3ae7-4eee-94a4-64bbf627be20}</Project>
       <Name>Imobiliaria.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706061151388_CriacaoBancoDados.resx">
-      <DependentUpon>201706061151388_CriacaoBancoDados.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706062010103_CriacaoBancoDados.resx">
+      <DependentUpon>201706062010103_CriacaoBancoDados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706061206427_TornarValoresObrigatorios.resx">
-      <DependentUpon>201706061206427_TornarValoresObrigatorios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706061310229_SubstituirIdIntPorIdGuid.resx">
-      <DependentUpon>201706061310229_SubstituirIdIntPorIdGuid.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706062027501_ImplementarNPraN.resx">
+      <DependentUpon>201706062027501_ImplementarNPraN.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

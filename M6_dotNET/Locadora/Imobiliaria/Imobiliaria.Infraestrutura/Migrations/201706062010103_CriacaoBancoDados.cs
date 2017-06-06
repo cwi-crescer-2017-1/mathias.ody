@@ -1,4 +1,4 @@
-namespace Infraestrutura.Migrations
+namespace Imobiliaria.Infraestrutura.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -12,10 +12,11 @@ namespace Infraestrutura.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(),
-                        CPF = c.Int(nullable: false),
-                        Telefone = c.Int(nullable: false),
-                        Endereco = c.String(),
+                        Nome = c.String(nullable: false, maxLength: 100),
+                        CPF = c.String(nullable: false, maxLength: 20),
+                        Telefone = c.String(nullable: false, maxLength: 12),
+                        Endereco = c.String(nullable: false, maxLength: 100),
+                        Genero = c.Int(nullable: false),
                         DataNascimento = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
@@ -25,9 +26,9 @@ namespace Infraestrutura.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        IdProduto = c.Int(nullable: false),
                         Quantidade = c.Int(nullable: false),
                         PrecoUnidade = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        IdProduto = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Produtos", t => t.IdProduto, cascadeDelete: true)
@@ -38,8 +39,8 @@ namespace Infraestrutura.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(),
-                        Tipo = c.String(),
+                        Nome = c.String(nullable: false, maxLength: 100),
+                        TipoProduto = c.Int(nullable: false),
                         Quantidade = c.Int(nullable: false),
                         Preco = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
@@ -50,13 +51,13 @@ namespace Infraestrutura.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        IdCliente = c.Int(nullable: false),
-                        IdItemPedido = c.Int(nullable: false),
                         DataPedido = c.DateTime(nullable: false),
                         DataVencimento = c.DateTime(nullable: false),
                         DataEntrega = c.DateTime(),
                         Multa = c.Decimal(nullable: false, precision: 18, scale: 2),
                         ValorTotal = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        IdCliente = c.Int(nullable: false),
+                        IdItemPedido = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Clientes", t => t.IdCliente, cascadeDelete: true)
@@ -70,17 +71,20 @@ namespace Infraestrutura.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Nome = c.String(),
+                        Usuario_Id = c.Guid(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Usuarios", t => t.Usuario_Id)
+                .Index(t => t.Usuario_Id);
             
             CreateTable(
                 "dbo.Usuarios",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(),
-                        Email = c.String(),
-                        Senha = c.String(),
+                        Id = c.Guid(nullable: false),
+                        Nome = c.String(nullable: false, maxLength: 100),
+                        Email = c.String(nullable: false, maxLength: 100),
+                        Senha = c.String(nullable: false, maxLength: 100),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -88,9 +92,11 @@ namespace Infraestrutura.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.Permissoes", "Usuario_Id", "dbo.Usuarios");
             DropForeignKey("dbo.Pedidos", "IdItemPedido", "dbo.ItensPedido");
             DropForeignKey("dbo.Pedidos", "IdCliente", "dbo.Clientes");
             DropForeignKey("dbo.ItensPedido", "IdProduto", "dbo.Produtos");
+            DropIndex("dbo.Permissoes", new[] { "Usuario_Id" });
             DropIndex("dbo.Pedidos", new[] { "IdItemPedido" });
             DropIndex("dbo.Pedidos", new[] { "IdCliente" });
             DropIndex("dbo.ItensPedido", new[] { "IdProduto" });

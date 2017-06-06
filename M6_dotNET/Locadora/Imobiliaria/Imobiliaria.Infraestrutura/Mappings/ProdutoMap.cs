@@ -8,6 +8,10 @@ namespace Imobiliaria.Infraestrutura.Mappings
         public ProdutoMap()
         {
             ToTable("Produtos");
+
+            Property(x => x.Nome)
+                .IsRequired()
+                .HasMaxLength(100);
         }
     }
 }

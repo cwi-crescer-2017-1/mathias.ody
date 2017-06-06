@@ -9,13 +9,9 @@ namespace Imobiliaria.Infraestrutura.Mappings
         {
             ToTable("Pedidos");
 
-            HasRequired(x => x.ItemPedido)
-                .WithMany()
-                .HasForeignKey(x => x.IdItemPedido);
-
             HasRequired(x => x.Cliente)
                 .WithMany()
-                .HasForeignKey(x => x.IdCliente);
+                .Map(x => x.MapKey("IdCliente"));
         }
     }
 }

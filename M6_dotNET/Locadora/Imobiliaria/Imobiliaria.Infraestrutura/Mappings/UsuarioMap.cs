@@ -8,6 +8,18 @@ namespace Imobiliaria.Infraestrutura.Mappings
         public UsuarioMap()
         {
             ToTable("Usuarios");
+
+            Property(x => x.Nome)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            Property(x => x.Email)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            Property(x => x.Senha)
+                .IsRequired()
+                .HasMaxLength(100);
         }
     }
 }

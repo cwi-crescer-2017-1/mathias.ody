@@ -6,15 +6,12 @@ namespace Imobiliaria.Dominio.Entidades
 {
     public class Pedido
     {
-        public int Id { get; set; }
-        public Cliente Cliente { get; set; }
-        public int IdCliente { get; set; }
-        public ItemPedido ItemPedido { get; set; }
-        public int IdItemPedido { get; set; }
-        public DateTime DataPedido { get; set; }
-        public DateTime DataVencimento { get; set; }
-        public DateTime? DataEntrega { get; set; }
-        public decimal Multa { get; set; } //multa de acordo com diarias atrasadas
-        public decimal ValorTotal { get; set; }
+        public int Id { get; private set; }
+        public Cliente Cliente { get; private set; }
+        public DateTime DataPedido { get; private set; }
+        public DateTime DataVencimento { get; private set; }
+        public DateTime? DataEntrega { get; private set; }
+        public decimal Multa { get; private set; } //multa de acordo com diarias atrasadas
+        public decimal ValorTotal { get; private set; }
     }
 }

@@ -5,14 +5,14 @@ namespace Imobiliaria.Infraestrutura.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Infraestrutura.Contexto>
+    internal sealed class Configuration : DbMigrationsConfiguration<Imobiliaria.Infraestrutura.Contexto>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Infraestrutura.Contexto context)
+        protected override void Seed(Imobiliaria.Infraestrutura.Contexto context)
         {
             //  This method will be called after migrating to the latest version.
 
