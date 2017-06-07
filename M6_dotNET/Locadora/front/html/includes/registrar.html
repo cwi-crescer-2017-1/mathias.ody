@@ -1,0 +1,42 @@
+<div class="corpo-mini">
+    <h1 class="indice">Cadastrar Cliente</h1><br>
+
+    <div class="row-form">
+        <span>Insira o CPF:</span>
+        <input type="search" value="000000000-00" ng-model="cliente.Cpf">
+    </div>
+    <div ng-if="!mostrarCadastro" class="row-form margin-top">
+        <button class="login-button" ng-click="buscarCliente()">Buscar</button>
+    </div>
+    <form ng-if="mostrarCadastro" novalidate ng-submit="setCliente(cliente)">
+            <div class="row-form">
+                <span>Nome</span>
+                <input type="text" placeholder="Ex.: Fausto Silva" required ng-model="cliente.Nome">
+            </div>
+            <div class="row-form">
+                <span>Endereço</span>
+                <input type="text" placeholder="Ex.: Rua Ignácio Nacho, 1567 - Novo Hamburgo(RS)" required ng-model="cliente.Endereco">
+            </div>
+            <div class="row-form">
+                <span>CPF</span>
+                <input placeholder="XXXXXXXXX-XX" required ng-model="cliente.Cpf">
+            </div>
+            <div class="row-form">
+                <span>Data Nascimento</span>
+                <input type="date" placeholder="dd/mm/aaaa" required ng-model="cliente.DataNascimento">
+            </div>
+            <div class="row-form">
+                <span>Telefone</span>
+                <input type="text" placeholder="(XX)XXXXX-XXXX" required ng-model="cliente.DataNascimento">
+            </div>
+            <div class="row-form row-divide">
+                <div><input type="radio" value="0" required ng-model="cliente.Genero"> Não informado</div>
+                <div><input type="radio" value="1" required ng-model="cliente.Genero"> Masculino</div>
+                <div><input type="radio" value="2" required ng-model="cliente.Genero"> Feminino</div>
+            </div>
+
+            <div class="row-form margin-top">
+                <button type="submit" class="abs-right" ng-click="avancarCliente()">Avançar</button>
+            </div>
+    </form>
+</div>

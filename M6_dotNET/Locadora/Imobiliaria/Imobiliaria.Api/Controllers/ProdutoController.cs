@@ -6,12 +6,12 @@ using System.Web.Http;
 namespace Imobiliaria.Api.Controllers
 {
     [RoutePrefix("api/produtos")]
+    [BasicAuthorization]
     public class ProdutoController : ApiController
     {
         private ProdutoRepositorio repositorio = new ProdutoRepositorio();
 
-        [HttpGet]
-        [Route("")]
+        [HttpGet,Route("")]
         public IHttpActionResult ObterLista()
         {
             var produtos = repositorio.Listar();

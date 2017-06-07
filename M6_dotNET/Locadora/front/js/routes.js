@@ -4,8 +4,17 @@ app.config (function ($routeProvider) {
 
     $routeProvider
         .when('/', {
-            controller : 'produtoController',
+            controller : 'pedidoController',
             templateUrl: '/html/home.html',
+            resolve: {
+                autenticado: function (authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
+        })
+        .when('/pedido', {
+            controller : 'pedidoController',
+            templateUrl: '/html/pedidos.html',
             resolve: {
                 autenticado: function (authService) {
                     return authService.isAutenticadoPromise();

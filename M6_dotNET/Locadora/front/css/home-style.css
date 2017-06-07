@@ -5,6 +5,13 @@
     padding-top:0px;
 }
 
+.welcome {
+    margin-bottom: 5vw;
+    width: 100%;
+    text-align: center;
+    padding-top: 0px;
+}
+
 .catalogo {
     overflow: auto;
 }
@@ -61,3 +68,41 @@
 .item-tabela-lista {
     border: 2px groove lightgray;
 }
+
+.row-form{
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    height: 3vw;
+}
+
+.row-form input {
+    width: 60%;
+    float: right;
+    font-size: 1.2vw;
+    border-radius: 0.3vw;
+    border: 0.1vw solid lightblue;
+    
+    
+}
+
+.row-form span {
+    width: 38%;
+    float: left;
+    font-size: 1.2vw;
+}
+
+.row-form span {
+    width: 38%;
+    float: left;
+    font-size: 1.2vw;
+}
+
+.row-form input [type="input"] {
+    height: 2vw;    
+}
+
+.row-divide {
+    width:50% !important;
+    margin-left : 24%;
+}
+

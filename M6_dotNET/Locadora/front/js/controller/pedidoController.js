@@ -1,28 +1,55 @@
-app.controller('produtoController', function ($window,
+app.controller('pedidoController', function ($window,
                                             $scope,
                                             $routeParams,
                                             $location,
-                                            produtoService,
-                                            authService){
+                                            pedidoService,
+                                            authService,
+                                            toastr){
                                           
-                                   
-    listarProdutos();
+    $scope.estagio = 1;
 
+
+    //
+    // Usuarios
+    //
     $scope.usuario = authService.getUsuario();
     if ($scope.usuario != null) {
         $scope.logado = true;
     }
 
-    function listarProdutos() {
-        produtoService.getProdutos().then(function(response){
+    //
+    // Clientes
+    //
+    //$scope.cliente;
+    $scope.mostrarCadastro = false;
+    $scope.avancarCliente = function () {
+        $scope.estagio = 2; //estagio do pedido = 2 => escolher produto
+        console.log($scope.cliente);
+    }
+
+    $scope.buscarCliente = function (){
+        console.log($scope.search);
+        $scope.mostrarCadastro = true;
+        
+        toastr.info("Usuário não cadastrado")
+    }
+
+    //
+    // Produtos
+    //
+     function listarProdutos() {
+        pedidoService.getProdutos().then(function(response){
             $scope.produtos = response.data.dados;
             console.log($scope.listaTipoProdutos);
         })
     }
 
-    $scope.avancar = function () {
+    $scope.avancarProdutos = function () {
         let produtosEscolhidos = (getProdutosEscolhidos());
         console.log(produtosEscolhidos);
+
+        listarProdutos();
+        $scope.estagio = 3; //estagio do pedido = 3 => confirmar produto
     }
 
     $scope.setProduto = function (produtoId, produtos, produto) {

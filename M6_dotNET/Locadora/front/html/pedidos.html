@@ -11,9 +11,5 @@
     </div>
 </div>
 
-<div class="corpo">
-    <h1 class="welcome">Bem-vindo!</h1>
-    <div class="pages">
-        <button class="center medium-size-btn margin-bottom"><a ng-href="#!pedido">NOVO PEDIDO</a></button>
-    </div>
-</div>
+<div ng-if="estagio == 1" ng-include="'html/includes/registrar'"></div>
+<div ng-if="estagio == 2" ng-include="'html/includes/produtos'"></div>

@@ -1,0 +1,58 @@
+<div class="corpo">
+    <h1 class="indice">Produtos</h1>
+    
+    <table scale-resize class="table">
+        <tbody>
+            <tr>
+                <td class="item-tabela">Produto</td>
+                <td class="item-tabela">Preço</td>
+                <td class="item-tabela">Qtde disponíveis</td>
+                <td class="item-tabela">Selecione</td>
+            </tr>
+            <tr ng-repeat="produto in produtos[0]">
+                <td class="item-tabela-lista">{{produto.Nome}}</td>
+                <td class="item-tabela-lista">{{produto.Preco}}</td>
+                <td class="item-tabela-lista">{{produto.Quantidade}}</td>
+                <td class="item-tabela-lista"><input type="checkbox" ng-model="produto.checked" ng-click="setProduto($index, produtos[0], produto)"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table scale-resize class="table">
+        <tbody>
+            <tr>
+                <td class="item-tabela">Produto</td>
+                <td class="item-tabela">Preço</td>
+                <td class="item-tabela">Qtde disponíveis</td>
+                <td class="item-tabela">Selecione</td>
+            </tr>
+            <tr ng-repeat="produto in produtos[1]">
+                <td class="item-tabela-lista">{{produto.Nome}}</td>
+                <td class="item-tabela-lista">{{produto.Preco}}</td>
+                <td class="item-tabela-lista">{{produto.Quantidade}}</td>
+                <td class="item-tabela-lista"><input type="checkbox" ng-model="produto.checked" ng-click="setPacote($index, produtos[1], produto)"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table scale-resize class="table">
+        <tbody>
+            <tr>
+                <td class="item-tabela">Produto</td>
+                <td class="item-tabela">Preço</td>
+                <td class="item-tabela">Qtde disponíveis</td>
+                <td class="item-tabela">Selecione</td>
+            </tr>
+            <tr ng-repeat="produto in produtos[2]">
+                <td class="item-tabela-lista">{{produto.Nome}}</td>
+                <td class="item-tabela-lista">{{produto.Preco}}</td>
+                <td class="item-tabela-lista">{{produto.Quantidade}}</td>
+                <td class="item-tabela-lista"><input type="checkbox" ng-click="setProduto(produto)"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="pages">
+        <button class="center medium-size-btn margin-bottom"><a href="" ng-click="avancarProdutos()">Próximo</a></button>
+    </div>
+</div>

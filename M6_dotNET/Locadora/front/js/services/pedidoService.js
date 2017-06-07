@@ -1,4 +1,4 @@
-app.factory('produtoService', function ($http){
+app.factory('pedidoService', function ($http){
     let urlBase = 'http://localhost:50675/api/produtos';
 
     function getProdutos() {
