@@ -11,7 +11,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
-namespace EditoraCrescer.Api
+namespace Imobiliaria.Api
 {
     public class BasicAuthorization : AuthorizeAttribute
     {

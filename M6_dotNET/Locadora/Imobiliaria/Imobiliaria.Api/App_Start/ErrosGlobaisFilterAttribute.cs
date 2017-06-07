@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Web.Http.Filters;
 
-namespace EditoraCrescer.Api
+namespace Imobiliaria.Api
 {
     public class ErrosGlobaisFilterAttribute : ExceptionFilterAttribute
     {

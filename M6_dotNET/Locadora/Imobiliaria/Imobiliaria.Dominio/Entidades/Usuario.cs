@@ -1,4 +1,4 @@
-﻿using Dominio.Entidades;
+﻿using Imobiliaria.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;

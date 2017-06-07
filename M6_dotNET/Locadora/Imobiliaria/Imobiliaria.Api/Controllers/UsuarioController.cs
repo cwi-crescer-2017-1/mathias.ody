@@ -1,5 +1,4 @@
-﻿using EditoraCrescer.Api;
-using Imobiliaria.Api.Models;
+﻿using Imobiliaria.Api.Models;
 using Imobiliaria.Dominio.Entidades;
 using Imobiliaria.Infraestrutura.Repositorios;
 using System.Net.Http;
