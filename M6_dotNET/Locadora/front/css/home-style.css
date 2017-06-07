@@ -1,0 +1,63 @@
+.indice {
+    width:100%;
+    margin: 10px 15vw;
+    text-align: left;
+    padding-top:0px;
+}
+
+.catalogo {
+    overflow: auto;
+}
+
+.produtos {
+    float: left;
+    clear:right;
+    display: inline-block;
+    margin-left: 3vw;
+    margin-right: 1vw;
+    width: 20.5%;
+    height: 300px;
+    margin : 10px 2%;
+}
+
+.produto {
+    text-align: center;
+}
+
+.nome-produto{
+    font-size : 2vw;
+}
+
+.genero-livro{
+    font-size : 1.25vw;
+}
+
+.autor-livro{
+    font-size : 1.25vw;
+}
+
+.pages {
+    width:20vw;
+    margin:20px auto;
+    font-size: 15px;
+    margin-bottom: 50px;
+    transform: translateY(-35px);
+}
+
+.table {
+    width:60%;
+    margin:2vw 18% 5vw;
+    text-align:center;
+}
+
+.item-tabela {
+    width: 30%;
+    border: 2px groove lightgray;
+    margin-top: 2vw;
+    margin-bottom : 2vw;
+    font-weight: bold;
+}
+
+.item-tabela-lista {
+    border: 2px groove lightgray;
+}

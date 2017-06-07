@@ -35,9 +35,17 @@ namespace Imobiliaria.Infraestrutura.Repositorios
             return true;
         }
 
-        public IEnumerable<Produto> Listar()
+        public IEnumerable<object> Listar()
         {
-            return contexto.Produtos.ToList();
+            List<object> produtos = new List<object>();
+            for (int i = 0; i < 3; i++)
+            {
+                produtos.Add (contexto.Produtos
+                                      .Where(x => (int)x.TipoProduto == i)
+                                      .ToList());
+            }
+
+            return produtos;
         }
 
         public Produto Obter(int Id)
