@@ -2,7 +2,9 @@ app.controller('pedidoController', function ($window,
                                             $scope,
                                             $routeParams,
                                             $location,
-                                            pedidoService,
+                                            $localStorage,
+                                            produtoService,
+                                            clienteService,
                                             authService,
                                             toastr){
                                           
@@ -20,25 +22,31 @@ app.controller('pedidoController', function ($window,
     //
     // Clientes
     //
-    //$scope.cliente;
     $scope.mostrarCadastro = false;
-    $scope.avancarCliente = function () {
+
+    $scope.avancarCliente = function (cliente) {
         $scope.estagio = 2; //estagio do pedido = 2 => escolher produto
-        console.log($scope.cliente);
+        clienteService.criar(cliente, $localStorage.headerAuth);
+        listarProdutos();
     }
 
-    $scope.buscarCliente = function (){
-        console.log($scope.search);
-        $scope.mostrarCadastro = true;
-        
-        toastr.info("Usuário não cadastrado")
+    $scope.buscarCliente = function (cliente){
+        clienteService.getByCpf(cliente.Cpf,$localStorage.headerAuth).then(function(response){
+            if (response.data.dados == null)
+                toastr.info("Usuário não cadastrado");
+            else {
+                $scope.cliente = response.data.dados;
+                console.log($scope.cliente.Nome);
+            }
+            $scope.mostrarCadastro = true;
+        })
     }
 
     //
     // Produtos
     //
      function listarProdutos() {
-        pedidoService.getProdutos().then(function(response){
+        produtoService.getProdutos().then(function(response){
             $scope.produtos = response.data.dados;
             console.log($scope.listaTipoProdutos);
         })

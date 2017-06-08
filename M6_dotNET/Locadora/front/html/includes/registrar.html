@@ -6,9 +6,9 @@
         <input type="search" value="000000000-00" ng-model="cliente.Cpf">
     </div>
     <div ng-if="!mostrarCadastro" class="row-form margin-top">
-        <button class="login-button" ng-click="buscarCliente()">Buscar</button>
+        <button class="login-button" ng-click="buscarCliente(cliente)">Buscar</button>
     </div>
-    <form ng-if="mostrarCadastro" novalidate ng-submit="setCliente(cliente)">
+    <form ng-if="mostrarCadastro" novalidate>
             <div class="row-form">
                 <span>Nome</span>
                 <input type="text" placeholder="Ex.: Fausto Silva" required ng-model="cliente.Nome">
@@ -27,7 +27,7 @@
             </div>
             <div class="row-form">
                 <span>Telefone</span>
-                <input type="text" placeholder="(XX)XXXXX-XXXX" required ng-model="cliente.DataNascimento">
+                <input type="text" placeholder="(XX)XXXXX-XXXX" required ng-model="cliente.Telefone">
             </div>
             <div class="row-form row-divide">
                 <div><input type="radio" value="0" required ng-model="cliente.Genero"> Não informado</div>
@@ -36,7 +36,7 @@
             </div>
 
             <div class="row-form margin-top">
-                <button type="submit" class="abs-right" ng-click="avancarCliente()">Avançar</button>
+                <button type="submit" class="abs-right" ng-click="avancarCliente(cliente)">Avançar</button>
             </div>
     </form>
 </div>

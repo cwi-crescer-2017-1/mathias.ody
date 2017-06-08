@@ -45,10 +45,10 @@ namespace Imobiliaria.Infraestrutura.Repositorios
             return clientes;
         }
 
-        public Cliente Obter(int Id)
+        public Cliente Obter(string CPF)
         {
             return contexto.Clientes
-                .Where(x => x.Id == Id)
+                .Where(x => x.CPF == CPF)
                 .FirstOrDefault();
         }
 

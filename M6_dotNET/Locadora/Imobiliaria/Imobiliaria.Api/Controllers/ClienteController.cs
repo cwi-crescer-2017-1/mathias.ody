@@ -23,6 +23,15 @@ namespace Imobiliaria.Api.Controllers
             return Ok(new { dados = clientes });
         }
 
+        // Get cliente por CPF
+        [Route("")]
+        [HttpGet, Route("CPF")]
+        public IHttpActionResult Obter(string CPF)
+        {
+            var cliente = repositorio.Obter(CPF);
+            return Ok(new { dados = cliente });
+        }
+
         // Post cliente
         [HttpPost, Route("")]
         public IHttpActionResult AdicionarCliente([FromBody]RegistrarClienteModel model)
