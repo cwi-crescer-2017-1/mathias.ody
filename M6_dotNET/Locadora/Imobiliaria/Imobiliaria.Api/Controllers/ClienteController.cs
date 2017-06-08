@@ -41,6 +41,20 @@ namespace Imobiliaria.Api.Controllers
             return Ok(new { dados = cliente });
         }
 
+        // Alterar cliente
+        [HttpPut, Route("{id}")]
+        public IHttpActionResult AlterarLivro(int id, Cliente cliente)
+        {
+            if (id != cliente.Id)
+                return BadRequest("O livro que você informou não é o mesmo que quer editar");
+
+            /*if (!repositorio.LivroExiste(livro.Isbn))
+                return BadRequest("Esse livro não se encontra cadastrado");*/
+
+            repositorio.Alterar(cliente);
+            return Ok();
+        }
+
         // Delete cliente
         [HttpDelete, Route("")]
         [BasicAuthorization(Roles = "Administrador")]

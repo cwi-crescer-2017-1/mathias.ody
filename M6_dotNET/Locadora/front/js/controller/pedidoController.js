@@ -6,7 +6,8 @@ app.controller('pedidoController', function ($window,
                                             produtoService,
                                             clienteService,
                                             authService,
-                                            toastr){
+                                            toastr,
+                                            $filter){
                                           
     $scope.estagio = 1;
 
@@ -22,24 +23,73 @@ app.controller('pedidoController', function ($window,
     //
     // Clientes
     //
+    $scope.search = { Cpf : ""}
     $scope.mostrarCadastro = false;
+    var jaExistente = false;
 
     $scope.avancarCliente = function (cliente) {
         $scope.estagio = 2; //estagio do pedido = 2 => escolher produto
-        clienteService.criar(cliente, $localStorage.headerAuth);
+        prepararClienteParaEnvio();
+        if (jaExistente) {
+            if (foiAlterado()) {
+                console.log(cliente);
+                clienteService.alterar(cliente, $localStorage.headerAuth);}
+        }
+        else {
+            clienteService.criar(cliente, $localStorage.headerAuth);
+        }
         listarProdutos();
     }
 
     $scope.buscarCliente = function (cliente){
-        clienteService.getByCpf(cliente.Cpf,$localStorage.headerAuth).then(function(response){
-            if (response.data.dados == null)
+        clienteService.getByCpf($scope.search.Cpf,$localStorage.headerAuth).then(function(response){
+            if (response.data.dados == null){
                 toastr.info("Usuário não cadastrado");
+                $scope.cliente = { CPF : $scope.search.Cpf};
+            }
             else {
+                jaExistente = true;
+                $scope.clienteInicial = angular.copy(response.data.dados);
                 $scope.cliente = response.data.dados;
-                console.log($scope.cliente.Nome);
+                $scope.cliente.DataNascimento = $filter('date')($scope.cliente.DataNascimento, "dd/MM/yyyy");
+                $scope.cliente.Genero = $scope.cliente.Genero.toString();
             }
             $scope.mostrarCadastro = true;
         })
+    }
+
+    function foiAlterado () {
+        if ($scope.clienteInicial == null) { return false; }
+        if (angular.equals($scope.clienteInicial, $scope.cliente)) {
+             return false;
+        }
+        return true;
+    }
+
+    function prepararClienteParaEnvio() {
+        $scope.cliente.DataNascimento = new Date (naoSeiUsarRegex($scope.cliente.DataNascimento.toString()));
+        console.log($scope.cliente);
+        $scope.cliente.Genero = parseInt($scope.cliente.Genero);
+    }
+
+    function naoSeiUsarRegex (token) {
+        let result = "";
+        let dia = "";
+        let mes = "";
+        let ano = "";
+
+        for (let i = 0; i < 2; i++) {
+            dia += token.charAt(i);
+        }
+        for (let j = 3; j < 5; j++) {
+            mes += token.charAt(j);
+        }
+        for (let k = 6; k < 10; k++) {
+            ano += token.charAt(k);
+        }
+        result = ano + "-" + mes + "-" + dia;
+        console.log(result);
+        return result;      
     }
 
     //

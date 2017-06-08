@@ -1,11 +1,11 @@
 <div class="corpo-mini">
     <h1 class="indice">Cadastrar Cliente</h1><br>
-
-    <div class="row-form">
-        <span>Insira o CPF:</span>
-        <input type="search" value="000000000-00" ng-model="cliente.Cpf">
-    </div>
+  
     <div ng-if="!mostrarCadastro" class="row-form margin-top">
+        <div class="row-form">
+            <span>Insira o CPF:</span>
+            <input type="search" value="000000000-00" ng-model="search.Cpf">
+        </div>
         <button class="login-button" ng-click="buscarCliente(cliente)">Buscar</button>
     </div>
     <form ng-if="mostrarCadastro" novalidate>
@@ -19,11 +19,12 @@
             </div>
             <div class="row-form">
                 <span>CPF</span>
-                <input placeholder="XXXXXXXXX-XX" required ng-model="cliente.Cpf">
+                <input placeholder="XXXXXXXXX-XX" required ng-model="cliente.CPF" disabled>
             </div>
             <div class="row-form">
                 <span>Data Nascimento</span>
-                <input type="date" placeholder="dd/mm/aaaa" required ng-model="cliente.DataNascimento">
+                <date-util format="dd/MM/yyyy"></date-util>
+                <input type="text" placeholder="dd/mm/aaaa" required ng-model="cliente.DataNascimento">
             </div>
             <div class="row-form">
                 <span>Telefone</span>

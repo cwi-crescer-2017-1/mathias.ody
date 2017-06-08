@@ -38,7 +38,7 @@ app.factory('clienteService', function ($http){
 
     function editar(cliente, autorizacao) {
         return $http({
-            url: urlBase + '/' + cliente.Isbn,
+            url: urlBase + '/' + cliente.Id,
             method: 'PUT',
             headers: {
             Authorization: autorizacao
@@ -51,7 +51,7 @@ app.factory('clienteService', function ($http){
         getCliente : getCliente,
         getByCpf : getClienteByCpf,
         removeClienteById : removeClienteById,
-        editar : editar,
+        alterar : editar,
         criar : criar
     }
 })
