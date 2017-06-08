@@ -43,8 +43,10 @@ namespace Imobiliaria.Api.Controllers
 
         // Alterar cliente
         [HttpPut, Route("{id}")]
-        public IHttpActionResult AlterarLivro(int id, Cliente cliente)
+        public IHttpActionResult AlterarLivro(int id, EditarClienteModel model)
         {
+            var cliente = new Cliente(model.Id, model.Nome, model.CPF, model.Telefone, model.Endereco, model.Genero, model.DataNascimento);
+
             if (id != cliente.Id)
                 return BadRequest("O livro que você informou não é o mesmo que quer editar");
 

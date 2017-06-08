@@ -28,5 +28,22 @@ namespace Imobiliaria.Dominio.Entidades
             this.Genero = Genero;
             this.DataNascimento = DataNascimento;
         }
+
+        public Cliente( int Id,
+                        string Nome,
+                        string CPF,
+                        string Telefone,
+                        string Endereco,
+                        Genero Genero,
+                        DateTime DataNascimento)
+        {
+            this.Id = Id;
+            this.Nome = Nome;
+            this.CPF = CPF;
+            this.Telefone = Telefone;
+            this.Endereco = Endereco;
+            this.Genero = Genero;
+            this.DataNascimento = DataNascimento;
+        }
     }
 }

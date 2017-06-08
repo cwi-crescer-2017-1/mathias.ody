@@ -8,13 +8,14 @@ app.controller('pedidoController', function ($window,
                                             authService,
                                             toastr,
                                             $filter){
-                                          
+    // Estagio do pedido                                      
     $scope.estagio = 1;
 
 
     //
     // Usuarios
     //
+    $scope.logout = authService.logout;
     $scope.usuario = authService.getUsuario();
     if ($scope.usuario != null) {
         $scope.logado = true;
