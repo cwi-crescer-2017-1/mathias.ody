@@ -1,43 +1,43 @@
 <div class="corpo-mini">
-    <h1 class="indice">Cadastrar Cliente</h1><br>
+    <h1 class="indice">Cliente</h1><br>
   
-    <div ng-if="!mostrarCadastro" class="row-form margin-top">
+    <form ng-if="!mostrarCadastro" class="row-form margin-top" ng-submit="buscarCliente(cliente)">
         <div class="row-form">
             <span>Insira o CPF:</span>
-            <input type="search" value="000000000-00" ng-model="search.Cpf">
+            <input type="text" value="" ng-model="search.Cpf" required>
         </div>
-        <button class="login-button" ng-click="buscarCliente(cliente)">Buscar</button>
-    </div>
-    <form ng-if="mostrarCadastro" novalidate>
+        <button type="submit" class="login-button">Buscar</button>
+    </form>
+    <form ng-if="mostrarCadastro" ng-submit="avancarCliente(cliente)">
             <div class="row-form">
                 <span>Nome</span>
-                <input type="text" placeholder="Ex.: Fausto Silva" required ng-model="cliente.Nome">
+                <input type="text" placeholder="Ex.: Fausto Silva" required ng-model="cliente.Nome" ng-minlength="3" ng-maxlength="100">
             </div>
             <div class="row-form">
                 <span>Endereço</span>
-                <input type="text" placeholder="Ex.: Rua Ignácio Nacho, 1567 - Novo Hamburgo(RS)" required ng-model="cliente.Endereco">
+                <input type="text" placeholder="Ex.: Rua Ignácio Nacho, 1567 - Novo Hamburgo(RS)" required ng-model="cliente.Endereco" ng-minlength="15" ng-maxlength="100">
             </div>
             <div class="row-form">
                 <span>CPF</span>
-                <input placeholder="XXXXXXXXX-XX" required ng-model="cliente.CPF" disabled>
+                <input placeholder="XXXXXXXXX-XX" required ng-model="cliente.Cpf" disabled ng-minlength="10" ng-maxlength="11">
             </div>
             <div class="row-form">
                 <span>Data Nascimento</span>
                 <date-util format="dd/MM/yyyy"></date-util>
-                <input type="text" placeholder="dd/mm/aaaa" required ng-model="cliente.DataNascimento">
+                <input type="text" placeholder="dd/mm/aaaa" required ng-model="cliente.DataNascimento" ng-minlength="10" ng-maxlength="10">
             </div>
             <div class="row-form">
                 <span>Telefone</span>
-                <input type="text" placeholder="(XX)XXXXX-XXXX" required ng-model="cliente.Telefone">
+                <input type="text" placeholder="XX-xxxxxxxxx" required ng-model="cliente.Telefone" ng-minlength="11" ng-maxlength="12"> 
             </div>
             <div class="row-form row-divide">
-                <div><input type="radio" value="0" required ng-model="cliente.Genero"> Não informado</div>
-                <div><input type="radio" value="1" required ng-model="cliente.Genero"> Masculino</div>
-                <div><input type="radio" value="2" required ng-model="cliente.Genero"> Feminino</div>
+                <div><input name="rad" type="radio" value="0" required ng-model="cliente.Genero"> Não informado</div>
+                <div><input name="rad" type="radio" value="1" ng-model="cliente.Genero"> Feminino</div>
+                <div><input name="rad" type="radio" value="2" ng-model="cliente.Genero"> Masculino</div>
             </div>
 
             <div class="row-form margin-top">
-                <button type="submit" class="abs-right" ng-click="avancarCliente(cliente)">Avançar</button>
+                <button type="submit" class="abs-right">Avançar</button>
             </div>
     </form>
 </div>

@@ -1,0 +1,31 @@
+<div class="corpo">
+    <h1 class="indice">Orçamento</h1>
+
+    <table scale-resize class="table">
+        <tbody>
+            <tr>
+                <td class="item-tabela">Produto</td>
+                <td class="item-tabela">Preço</td>
+                <td class="item-tabela">Quantidade</td>
+                <td class="item-tabela">Total</td>
+            </tr>
+            <tr ng-repeat="produto in escolhidos">
+                <td class="item-tabela-lista">{{produto.Nome}}</td>
+                <td class="item-tabela-lista">{{produto.Preco}}</td>
+                <td class="item-tabela-lista">{{produto.QuantidadeSelecionada}}</td>
+                <td class="item-tabela-lista">{{produto.Preco * produto.QuantidadeSelecionada}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="item-tabela-lista">Total Diária</td>
+                <td class="item-tabela-lista">{{orcamento.totalDiaria}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row-form row-divide">Reserva por {{info.quantidadeDiarias}} dia(s), um total de R${{orcamento.totalOrcamento}}.</div>
+
+    <div class="row-form margin-top">
+        <button ng-click="confirmarPedido()" class="abs-right">Confirmar</button>
+    </div>
+</div>   

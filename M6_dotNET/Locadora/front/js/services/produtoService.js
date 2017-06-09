@@ -37,6 +37,6 @@ app.factory('produtoService', function ($http){
         getProdutos : getProdutos,
         produtoById : getProdutoById,
         removeProdutoById : removeProdutoById,
-        editar : editar,
+        editar : editar
     }
 })

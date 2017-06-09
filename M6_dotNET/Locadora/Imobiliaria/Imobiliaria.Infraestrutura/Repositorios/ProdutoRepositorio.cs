@@ -52,8 +52,18 @@ namespace Imobiliaria.Infraestrutura.Repositorios
         {
             return contexto.Produtos
                 .Where(x => x.Id == Id)
-                .Include(x => x.TipoProduto)
                 .FirstOrDefault();
+        }
+
+        public bool ChecarEstoque (int Quantidade, int idProduto, out string mensagem)
+        {
+            var produto = contexto.Produtos.Where(x => x.Id == idProduto).FirstOrDefault();
+            if (produto.Quantidade < Quantidade) {
+                mensagem = @"Não há {produto.Nome} suficiente!";
+                return false;
+            }
+            mensagem = "";
+            return true;
         }
 
         public void Dispose()
