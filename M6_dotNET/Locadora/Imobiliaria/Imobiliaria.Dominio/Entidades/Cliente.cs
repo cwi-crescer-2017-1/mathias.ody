@@ -45,8 +45,6 @@ namespace Imobiliaria.Dominio.Entidades
             this.Genero = Genero;
             this.DataNascimento = DataNascimento;
         }
-<<<<<<< HEAD
-=======
 
         public override bool Validar()
         {
@@ -69,6 +67,5 @@ namespace Imobiliaria.Dominio.Entidades
 
             return Mensagens.Count == 0;
         }
->>>>>>> master
     }
 }

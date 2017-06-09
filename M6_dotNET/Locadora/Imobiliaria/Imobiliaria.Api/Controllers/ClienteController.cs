@@ -52,11 +52,7 @@ namespace Imobiliaria.Api.Controllers
 
         // Alterar cliente
         [HttpPut, Route("{id}")]
-<<<<<<< HEAD
-        public IHttpActionResult AlterarLivro(int id, EditarClienteModel model)
-=======
         public IHttpActionResult AlterarCliente(int id, EditarClienteModel model)
->>>>>>> master
         {
             var cliente = new Cliente(model.Id, model.Nome, model.CPF, model.Telefone, model.Endereco, model.Genero, model.DataNascimento);
 

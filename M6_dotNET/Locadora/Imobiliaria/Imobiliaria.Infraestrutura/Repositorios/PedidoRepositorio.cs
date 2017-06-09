@@ -16,14 +16,15 @@ namespace Imobiliaria.Infraestrutura.Repositorios
         {
             var cliente = new ClienteRepositorio().ObterPorId(idCliente);
             var pedido = new Pedido(cliente, DataPedido, DiariasAlugadas);
-
+            //Avisando o Entity Framework que o cliente já existe:
+            contexto.Entry(pedido.Cliente).State = System.Data.Entity.EntityState.Unchanged;
             contexto.Pedidos.Add(pedido);
             contexto.SaveChanges();
 
             return pedido.Id;
         }
 
-        public Pedido Obter (int id)
+        public Pedido Obter(int id)
         {
             return contexto.Pedidos
                 .Where(x => x.Id == id)

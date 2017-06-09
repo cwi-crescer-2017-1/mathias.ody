@@ -35,7 +35,6 @@ app.controller('pedidoController', function ($window,
         prepararClienteParaEnvio();
         if (jaExistente) {
             if (foiAlterado()) {
-                console.log(cliente);
                 clienteService.alterar(cliente, $localStorage.headerAuth);}
         }
         else {
@@ -71,7 +70,6 @@ app.controller('pedidoController', function ($window,
 
     function prepararClienteParaEnvio() {
         $scope.cliente.DataNascimento = new Date (naoSeiUsarRegex($scope.cliente.DataNascimento.toString()));
-        console.log($scope.cliente);
         $scope.cliente.Genero = parseInt($scope.cliente.Genero);
     }
 
@@ -91,7 +89,6 @@ app.controller('pedidoController', function ($window,
             ano += token.charAt(k);
         }
         result = ano + "-" + mes + "-" + dia;
-        console.log(result);
         return result;      
     }
 
@@ -103,7 +100,6 @@ app.controller('pedidoController', function ($window,
             $scope.produtos = response.data.dados;
             $scope.produtos.forEach(function (listaTipo){
                 listaTipo.forEach(function (produto){
-                    console.log(produto);
                     if (produto.TipoProduto == 2) {
                         produto.QuantidadeSelecionada = 0;
                     }

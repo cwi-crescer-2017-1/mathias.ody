@@ -36,6 +36,7 @@ namespace Imobiliaria.Api.Controllers
 
             var idPedido = repositorio.Adicionar(model.idCliente, DateTime.Now, model.DiariasAlugadas);
 
+
             //Adicionar
             foreach (ItemPedidoModel item in model.Itens)
             {
