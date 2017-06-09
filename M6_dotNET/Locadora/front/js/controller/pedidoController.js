@@ -5,12 +5,14 @@ app.controller('pedidoController', function ($window,
                                             $localStorage,
                                             produtoService,
                                             clienteService,
+                                            pedidoService,
                                             authService,
                                             toastr,
                                             $filter){
     // Estagio do pedido                                      
     $scope.estagio = 1;
-
+    $scope.numeroDiarias;
+    $scope.info = {quantidadeDiarias : 1};
 
     //
     // Usuarios
@@ -46,7 +48,7 @@ app.controller('pedidoController', function ($window,
         clienteService.getByCpf($scope.search.Cpf,$localStorage.headerAuth).then(function(response){
             if (response.data.dados == null){
                 toastr.info("Usuário não cadastrado");
-                $scope.cliente = { CPF : $scope.search.Cpf};
+                $scope.cliente = { Cpf : $scope.search.Cpf};
             }
             else {
                 jaExistente = true;
@@ -99,15 +101,26 @@ app.controller('pedidoController', function ($window,
      function listarProdutos() {
         produtoService.getProdutos().then(function(response){
             $scope.produtos = response.data.dados;
-            console.log($scope.listaTipoProdutos);
+            $scope.produtos.forEach(function (listaTipo){
+                listaTipo.forEach(function (produto){
+                    console.log(produto);
+                    if (produto.TipoProduto == 2) {
+                        produto.QuantidadeSelecionada = 0;
+                    }
+                    else {
+                        produto.QuantidadeSelecionada = 1;
+                    }
+                })
+            })
         })
     }
 
+    // Avançar e calcular
     $scope.avancarProdutos = function () {
-        let produtosEscolhidos = (getProdutosEscolhidos());
-        console.log(produtosEscolhidos);
+        setProdutosEscolhidos(); 
+        setOrcamento();       
+        numeroDiarias = getNumeroDiarias();
 
-        listarProdutos();
         $scope.estagio = 3; //estagio do pedido = 3 => confirmar produto
     }
 
@@ -117,6 +130,10 @@ app.controller('pedidoController', function ($window,
 
     $scope.setPacote = function (pacoteId, pacotes, pacote) {
         apagarOutrosChecksPacote(pacoteId, pacotes, pacote);
+    }
+
+    $scope.setOpcional = function (id, quantidade) {
+        
     }
 
     function apagarOutrosChecksProduto (produtoId, produtos, produto) {
@@ -133,14 +150,55 @@ app.controller('pedidoController', function ($window,
         });
     }
     
-    function getProdutosEscolhidos(){
-        let escolhidos = [];
+    function setProdutosEscolhidos(){
+        $scope.escolhidos = [];
         $scope.produtos.forEach(function (listaTipo){
            listaTipo.forEach(function (produto){ 
                if (produto.checked)
-                    escolhidos.push (produto);
+                    $scope.escolhidos.push (produto);
+                else if (produto.TipoProduto == 2) {
+                    if (produto.QuantidadeSelecionada > 0){
+                        $scope.escolhidos.push (produto);
+                    }
+                }
             })
         })
-        return escolhidos;
     }
+
+    function getNumeroDiarias() {
+        return $scope.info.quantidadeDiarias;
+    }
+
+    function setOrcamento() {
+        let diaria = 0;
+        let total = 0;
+        $scope.escolhidos.forEach (function (produto) {
+            if (produto.checked)
+                diaria += produto.Preco * produto.QuantidadeSelecionada;
+            else if (produto.TipoProduto == 2) {
+                if (produto.QuantidadeSelecionada > 0){
+                    diaria += produto.Preco * produto.QuantidadeSelecionada;
+                }
+            }
+        })
+        total = diaria * $scope.info.quantidadeDiarias;
+        $scope.orcamento = {totalDiaria : diaria, totalOrcamento : total};
+    }
+    //
+    // Confirmação de pedido
+    //
+
+    $scope.confirmarPedido = function() {
+        debugger;
+        let itensProduto = [];
+        $scope.escolhidos.forEach (function (produto){
+            itensProduto.push = {idProduto : produto.Id, Quantidade : produto.QuantidadeSelecionada}
+        })
+        pedido = {idCliente : $scope.cliente.Id,
+                  DiariasAlugadas : $scope.info.quantidadeDiarias,
+                  itens : itensProduto   
+            }
+        pedidoService.pedir(pedido, $localStorage.headerAuth)
+    }
+
 })

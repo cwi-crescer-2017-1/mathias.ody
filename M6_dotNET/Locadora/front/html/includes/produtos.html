@@ -1,4 +1,4 @@
-<div class="corpo">
+<form class="corpo" ng-submit="avancarProdutos()">
     <h1 class="indice">Produtos</h1>
     
     <table scale-resize class="table">
@@ -47,7 +47,16 @@
                 <td class="item-tabela-lista">{{produto.Nome}}</td>
                 <td class="item-tabela-lista">{{produto.Preco}}</td>
                 <td class="item-tabela-lista">{{produto.Quantidade}}</td>
-                <td class="item-tabela-lista"><input type="checkbox" ng-click="setProduto(produto)"></td>
+                <td class="item-tabela-lista"><input class="number-input-produto" type="number" ng-model="produto.QuantidadeSelecionada" min="0" max="{{produto.Quantidade}}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table scale-resize class="table row-divide">
+        <tbody>
+            <tr>
+                <td class="item-tabela">Número de dias</td>
+                <td class="item-tabela"><input type="number" ng-model="info.quantidadeDiarias"></td>
             </tr>
         </tbody>
     </table>
@@ -62,6 +71,6 @@
     </table>
     
     <div class="pages">
-        <button class="center medium-size-btn margin-bottom"><a href="" ng-click="avancarProdutos()">Próximo</a></button>
+        <button type="submit" class="center medium-size-btn margin-bottom">Próximo</button>
     </div>
-</div>
+</form>

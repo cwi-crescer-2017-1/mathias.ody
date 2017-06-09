@@ -1,17 +1,14 @@
 ﻿using Imobiliaria.Api.Models;
 using Imobiliaria.Dominio.Entidades;
 using Imobiliaria.Infraestrutura.Repositorios;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Net.Http;
 using System.Web.Http;
 
 namespace Imobiliaria.Api.Controllers
 {
     [RoutePrefix("api/clientes")]
     [BasicAuthorization]
-    public class ClienteController : ApiController
+    public class ClienteController : ControllerBasica
     {
         private ClienteRepositorio repositorio = new ClienteRepositorio();
 
@@ -34,23 +31,39 @@ namespace Imobiliaria.Api.Controllers
 
         // Post cliente
         [HttpPost, Route("")]
-        public IHttpActionResult AdicionarCliente([FromBody]RegistrarClienteModel model)
+        public HttpResponseMessage AdicionarCliente([FromBody]RegistrarClienteModel model)
         {
-            var cliente = new Cliente(model.Nome, model.CPF, model.Telefone, model.Endereco, model.Genero, model.DataNascimento);
-            repositorio.Criar(cliente);
-            return Ok(new { dados = cliente });
+            var cliente = new Cliente(model.Nome, 
+                                      model.CPF, 
+                                      model.Telefone, 
+                                      model.Endereco, 
+                                      model.Genero, 
+                                      model.DataNascimento);
+            if (cliente.Validar())
+            {
+                repositorio.Criar(cliente);
+            }
+            else
+            {
+                return ResponderErro(cliente.Mensagens);
+            }
+            return ResponderOK(new { dados = cliente });
         }
 
         // Alterar cliente
         [HttpPut, Route("{id}")]
+<<<<<<< HEAD
         public IHttpActionResult AlterarLivro(int id, EditarClienteModel model)
+=======
+        public IHttpActionResult AlterarCliente(int id, EditarClienteModel model)
+>>>>>>> master
         {
             var cliente = new Cliente(model.Id, model.Nome, model.CPF, model.Telefone, model.Endereco, model.Genero, model.DataNascimento);
 
             if (id != cliente.Id)
                 return BadRequest("O livro que você informou não é o mesmo que quer editar");
 
-            /*if (!repositorio.LivroExiste(livro.Isbn))
+            /*if (repositorio.Obter(cliente.Id) != null)
                 return BadRequest("Esse livro não se encontra cadastrado");*/
 
             repositorio.Alterar(cliente);

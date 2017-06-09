@@ -36,11 +36,7 @@ namespace Imobiliaria.Infraestrutura.Repositorios
 
         public IEnumerable<Cliente> Listar()
         {
-            List<Cliente> clientes = new List<Cliente>();
-            for (int i = 0; i < 3; i++)
-            {
-                return contexto.Clientes.ToList();
-            }
+            var clientes = contexto.Clientes.ToList();
 
             return clientes;
         }
@@ -49,6 +45,13 @@ namespace Imobiliaria.Infraestrutura.Repositorios
         {
             return contexto.Clientes
                 .Where(x => x.CPF == CPF)
+                .FirstOrDefault();
+        }
+
+        public Cliente ObterPorId(int Id)
+        {
+            return contexto.Clientes
+                .Where(x => x.Id == Id)
                 .FirstOrDefault();
         }
 
