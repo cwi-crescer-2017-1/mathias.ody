@@ -76,7 +76,7 @@ namespace Imobiliaria.Infraestrutura.Repositorios
                 IdPedido = x.Id,
                 NomeCliente = x.Cliente.Nome,
                 DataPedido = x.DataPedido,
-                DataVencimento = x.DataVencimento,
+                DataEntrega = x.DataEntrega,
                 Valor = x.ValorTotal,
                 Multa = x.Multa,
                 ValorTotal = x.Multa + x.ValorTotal

@@ -1,0 +1,39 @@
+<div class="nav">
+    <div class="titulo-pagina">
+        <h1><a ng-href="#!/">Já Procurou Imóvel?</a></h1>
+    </div>
+    <div class="borda-inferior">
+        <span class="float-left"><a ng-click="logout()" href="">Logout</a></span>
+        <span class="float-right"><a ng-if="!logado" ng-href="#!/login">Login</a></span>
+        <span class="float-right" ng-if="logado">Olá, {{usuario.Nome}}</span>
+    </div>
+</div>
+
+<div class="corpo">
+    <h1 class="indice">Relatório Mensal</h1>
+    
+    <input style="margin-left:15vw" type="text" placeholder="aaaa-mm-dd" value="" mg-model="dataBusca.valor"><button ng-click="buscar()">Buscar</button>
+<div>{{dataBusca.valor}}</div>
+    <table scale-resize class="table">
+        <tbody>
+            <tr>
+                <td class="item-tabela">Nº</td>
+                <td class="item-tabela">Cliente</td>
+                <td class="item-tabela">Data Pedido</td>
+                <td class="item-tabela">Data Entrega</td>
+                <td class="item-tabela">Valor</td>
+                <td class="item-tabela">Multa</td>
+                <td class="item-tabela">Valor total</td>
+            </tr>
+            <tr ng-repeat="pedido in pedidos">
+                <td class="item-tabela-lista">{{pedido.IdPedido}}</td>
+                <td class="item-tabela-lista">{{pedido.NomeCliente}}</td>
+                <td class="item-tabela-lista">{{pedido.DataPedido | date: 'dd/MM/yyyy'}}</td>
+                <td class="item-tabela-lista">{{pedido.DataEntrega | date: 'dd/MM/yyyy'}}</td>
+                <td class="item-tabela-lista">{{pedido.Valor}}</td>
+                <td class="item-tabela-lista">{{pedido.Multa}}</td>
+                <td class="item-tabela-lista">{{pedido.ValorTotal}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

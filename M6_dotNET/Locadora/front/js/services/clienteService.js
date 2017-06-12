@@ -52,6 +52,6 @@ app.factory('clienteService', function ($http){
         getByCpf : getClienteByCpf,
         removeClienteById : removeClienteById,
         alterar : editar,
-        criar : criar
+        criar : criar,
     }
 })

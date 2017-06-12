@@ -32,9 +32,32 @@ app.factory('pedidoService', function ($http){
         });
     }
 
+    function listarAtrasos(autorizacao){
+        return $http({
+            url: urlBase + '/atrasados',
+            method: 'GET',
+            headers: {
+            Authorization: autorizacao
+            },
+        });
+    }
+
+    function buscar (data, autorizacao) {
+        return $http({
+            url: urlBase + '/relatorio',
+            method: 'POST',
+            headers: {
+            Authorization: autorizacao
+            },
+            data: data
+        });
+    }
+
     return {
         pedir : mandarPedido,
         devolucao : obterPedidosParaDevolucao,
-        devolver : devolver
+        devolver : devolver,
+        listarAtrasos:listarAtrasos,
+        buscar:buscar
     }
 })

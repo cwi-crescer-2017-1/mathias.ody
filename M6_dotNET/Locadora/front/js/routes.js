@@ -40,7 +40,7 @@ app.config (function ($routeProvider) {
             }
         })
         .when('/atrasos', {
-            controller : 'relatorioController',
+            controller : 'atrasosController',
             templateUrl: '/html/atrasos.html',
             resolve: {
                 autenticado: function (authService) {

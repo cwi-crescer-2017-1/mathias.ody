@@ -1,4 +1,4 @@
-app.controller('relatorioController', function ($window,
+app.controller('atrasosController', function ($window,
                                             $scope,
                                             $routeParams,
                                             $location,
@@ -10,11 +10,11 @@ app.controller('relatorioController', function ($window,
                                             toastr,
                                             $filter){ 
     
-    
-    $scope.buscar = function () {
-        let dataFormatada = new Date ($scope.dataBusca.valor);
-        pedidoService.buscar(dataFormatada,$localStorage.headerAuth).then(function(response) {
-           $scope.pedidos = response.data.dados;
+    listarAtrasos();
+
+    function listarAtrasos () {
+        pedidoService.listarAtrasos($localStorage.headerAuth).then(function(response) {
+            $scope.pedidos = response.data.dados;
         })
     };
 
