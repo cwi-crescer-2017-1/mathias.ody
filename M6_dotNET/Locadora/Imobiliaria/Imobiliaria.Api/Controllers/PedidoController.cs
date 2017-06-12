@@ -37,7 +37,7 @@ namespace Imobiliaria.Api.Controllers
         [HttpGet, Route("data")]
         public IHttpActionResult Data()
         {
-            return Ok(new DateTime(2017,6,12));
+            return Ok(new DateTime(2017, 6, 12));
         }
 
         //Lista atrasados
@@ -51,9 +51,9 @@ namespace Imobiliaria.Api.Controllers
         //Lista relatorio
         [HttpPost, Route("relatorio")]
         [BasicAuthorization(Roles = "Administrador")]
-        public IHttpActionResult ObterAntesDaData(DateTime data)
+        public IHttpActionResult ObterAntesDaData([FromBody] EnvioDataModel model)
         {
-            var pedidos = repositorio.ObterAntesDaData(data);
+            var pedidos = repositorio.ObterAntesDaData(model.data);
             return Ok(new { dados = pedidos });
         }
 

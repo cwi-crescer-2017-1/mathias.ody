@@ -12,7 +12,7 @@ app.controller('relatorioController', function ($window,
     
     
     $scope.buscar = function () {
-        let dataFormatada = new Date ($scope.dataBusca.valor);
+        let dataFormatada = { data : new Date ($scope.dataBusca.valor)};
         pedidoService.buscar(dataFormatada,$localStorage.headerAuth).then(function(response) {
            $scope.pedidos = response.data.dados;
         })

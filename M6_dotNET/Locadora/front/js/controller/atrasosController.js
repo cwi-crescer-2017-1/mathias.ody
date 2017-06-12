@@ -10,6 +10,12 @@ app.controller('atrasosController', function ($window,
                                             toastr,
                                             $filter){ 
     
+    $scope.logout = authService.logout;
+    $scope.usuario = authService.getUsuario();
+    if ($scope.usuario != null) {
+        $scope.logado = true;
+    }
+    
     listarAtrasos();
 
     function listarAtrasos () {
