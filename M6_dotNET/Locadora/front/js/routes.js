@@ -21,6 +21,15 @@ app.config (function ($routeProvider) {
                 }
             }
         })
+        .when('/pagamento', {
+            controller : 'pagamentoController',
+            templateUrl: '/html/pagamento.html',
+            resolve: {
+                autenticado: function (authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
+        })
         .when('/login', {
             controller : 'loginController',
             templateUrl: '/html/login.html'

@@ -17,5 +17,19 @@
             this.Quantidade = Quantidade;
             this.Preco = Preco;
         }
+
+        public bool Baixar (int quantidade)
+        {
+            if (this.Quantidade - quantidade < 0)
+                return false;
+
+            this.Quantidade -= quantidade;
+            return true;
+        }
+
+        public void Subir(int quantidade)
+        {
+            this.Quantidade += quantidade;
+        }
     }
 }

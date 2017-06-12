@@ -17,12 +17,17 @@ namespace Imobiliaria.Infraestrutura.Repositorios
             var produto = contextoPedido.Produtos
                                                 .Where (x => x.Id == idProduto)
                                                 .FirstOrDefault();
+            bool sucesso = produto.Baixar(quantidade);
+            if (!sucesso)
+                return;
 
             var pedido = contextoPedido.Pedidos
                                                 .Where(x => x.Id == idPedido)
                                                 .FirstOrDefault();
 
             var itemPedido = new ItemPedido(produto, pedido, quantidade);
+
+            contextoPedido.Entry(produto).State = System.Data.Entity.EntityState.Modified;
             contextoPedido.ItemPedidos.Add(itemPedido);
             contextoPedido.SaveChanges();
         }

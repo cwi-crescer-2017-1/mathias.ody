@@ -1,0 +1,28 @@
+<div class="corpo">
+    <h1 class="indice">Produtos</h1>
+    
+    <table scale-resize class="table">
+        <tbody>
+            <tr>
+                <td class="item-tabela">Nº</td>
+                <td class="item-tabela">Cliente</td>
+                <td class="item-tabela">Data Pedido</td>
+                <td class="item-tabela">Data Vencimento</td>
+                <td class="item-tabela">Valor</td>
+                <td class="item-tabela">Multa</td>
+                <td class="item-tabela">Valor total</td>
+                <td class="item-tabela">Devolver</td>
+            </tr>
+            <tr ng-repeat="pedido in pedidos">
+                <td class="item-tabela-lista">{{pedido.IdPedido}}</td>
+                <td class="item-tabela-lista">{{pedido.NomeCliente}}</td>
+                <td class="item-tabela-lista">{{pedido.DataPedido | date: 'dd/MM/yyyy'}}</td>
+                <td class="item-tabela-lista">{{pedido.DataVencimento | date: 'dd/MM/yyyy'}}</td>
+                <td class="item-tabela-lista">{{pedido.Valor}}</td>
+                <td class="item-tabela-lista">{{pedido.Multa}}</td>
+                <td class="item-tabela-lista">{{pedido.ValorTotal}}</td>
+                <td class="item-tabela-lista"><button style="width: 0.3vw" ng-click="devolver(pedido.IdPedido)"></button>
+            </tr>
+        </tbody>
+    </table>
+</div>

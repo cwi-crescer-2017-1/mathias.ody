@@ -18,6 +18,22 @@ namespace Imobiliaria.Api.Controllers
         private PedidoRepositorio repositorio = new PedidoRepositorio();
         private ProdutoRepositorio repositorioProdutos = new ProdutoRepositorio();
 
+        //Lista para devolver
+        [HttpGet, Route("devolver")]
+        public IHttpActionResult ObterListaParaDevolver()
+        {
+            var pedidos = repositorio.ObterPedidosADevolver();
+            return Ok(new { dados = pedidos });
+        }
+
+        //Devolver
+        [HttpGet, Route("devolver/{id}")]
+        public IHttpActionResult Devolver(int id)
+        {
+            repositorio.Devolver(id);
+            return Ok();
+        }
+
         // Post pedido
         [HttpPost, Route("")]
         public IHttpActionResult AdicionarPedido([FromBody]EnviarPedidoModel model)

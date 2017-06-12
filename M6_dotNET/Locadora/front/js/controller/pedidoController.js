@@ -185,16 +185,18 @@ app.controller('pedidoController', function ($window,
     //
 
     $scope.confirmarPedido = function() {
-        debugger;
         let itensProduto = [];
         $scope.escolhidos.forEach (function (produto){
-            itensProduto.push = {idProduto : produto.Id, Quantidade : produto.QuantidadeSelecionada}
+            item = {idProduto : produto.Id, Quantidade : produto.QuantidadeSelecionada};
+            itensProduto.push (item);
         })
         pedido = {idCliente : $scope.cliente.Id,
                   DiariasAlugadas : $scope.info.quantidadeDiarias,
-                  itens : itensProduto   
+                  Itens : itensProduto   
             }
         pedidoService.pedir(pedido, $localStorage.headerAuth)
+        toastr.success("Pedido realizado com sucesso!");
+        $location.path('/home');
+        console.log(pedido);
     }
-
 })

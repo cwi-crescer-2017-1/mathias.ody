@@ -11,7 +11,7 @@ namespace Imobiliaria.Dominio.Entidades
         public DateTime DataPedido { get; private set; }
         public DateTime DataVencimento { get; private set; }
         public DateTime? DataEntrega { get; private set; }
-        public decimal Multa { get; private set; } //multa de acordo com diarias atrasadas
+        public decimal Multa { get; set; } //multa de acordo com diarias atrasadas
         public decimal ValorTotal { get; private set; }
 
         public Pedido () { }
@@ -35,6 +35,22 @@ namespace Imobiliaria.Dominio.Entidades
         public void SetValorTotal(decimal valorTotal)
         {
             ValorTotal = valorTotal;
+        }
+
+        public void Entregar()
+        {
+            DataEntrega = DateTime.Now;
+        }
+
+        public decimal CalcularMulta ()
+        {
+            int atraso = (DateTime.Now - DataVencimento).Days;
+            if (atraso > 0)
+            {
+                decimal valorDiaria = ValorTotal / (DataVencimento - DataPedido).Days;
+                Multa = atraso * valorDiaria;
+            }
+            return Multa;
         }
     }
 }

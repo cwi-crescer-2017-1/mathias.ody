@@ -12,7 +12,29 @@ app.factory('pedidoService', function ($http){
         });
     }
 
+    function obterPedidosParaDevolucao (autorizacao) {
+        return $http({
+            url: urlBase + "/devolver",
+            method: 'GET',
+            headers: {
+            Authorization: autorizacao
+            },
+        });
+    }
+
+    function devolver (id,autorizacao) {
+        return $http({
+            url: urlBase + "/devolver/" + id,
+            method: 'GET',
+            headers: {
+            Authorization: autorizacao
+            },
+        });
+    }
+
     return {
-        pedir : mandarPedido
+        pedir : mandarPedido,
+        devolucao : obterPedidosParaDevolucao,
+        devolver : devolver
     }
 })

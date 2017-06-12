@@ -1,6 +1,7 @@
 ﻿using Imobiliaria.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,57 @@ namespace Imobiliaria.Infraestrutura.Repositorios
                 .FirstOrDefault();
         }
 
+        public void Devolver(int id)
+        {
+            var pedido = contexto.Pedidos
+                                 .Where(x => x.Id == id)
+                                 .FirstOrDefault();
+            pedido.Entregar();
+            pedido.CalcularMulta();
+            Alterar(pedido);
+
+            var itens = contexto.ItemPedidos
+                                 .Include("Produto") 
+                                 .Where(x => x.Pedido.Id == id)
+                                 .ToList();
+
+            foreach (ItemPedido item in itens)
+            {
+                var produto = contexto.Produtos
+                                      .Where(x => x.Id == item.Produto.Id)
+                                      .FirstOrDefault();
+                produto.Subir(item.Quantidade);
+                contexto.Entry(produto).State = System.Data.Entity.EntityState.Modified;
+            }
+            contexto.SaveChanges();
+        }
+
+        public object ObterPedidosADevolver()
+        {
+            List<Pedido> pedidos = contexto.Pedidos
+                                   .Where(x => x.DataEntrega == null)
+                                   .Include("Cliente")
+                                   .ToList();
+
+            foreach (Pedido pedido in pedidos)
+            {
+                pedido.Multa = pedido.CalcularMulta();
+            }
+
+            object pedidosResumidos = pedidos.Select(x => new
+            {
+                IdPedido = x.Id,
+                NomeCliente = x.Cliente.Nome,
+                DataPedido = x.DataPedido,
+                DataVencimento = x.DataVencimento,
+                Valor = x.ValorTotal,
+                Multa = x.Multa,
+                ValorTotal = x.Multa + x.ValorTotal
+            });
+
+            return pedidosResumidos;
+        }
+
         public void SetValorTotal (int idPedido, int dias)
         {
             var pedido = Obter(idPedido);
@@ -48,6 +100,7 @@ namespace Imobiliaria.Infraestrutura.Repositorios
             }
             valorTotal *= dias;
             pedido.SetValorTotal(valorTotal);
+            Alterar(pedido);
         }
 
         public void AdicionarItemPedido (int idProduto, int Quantidade, int idPedido)
