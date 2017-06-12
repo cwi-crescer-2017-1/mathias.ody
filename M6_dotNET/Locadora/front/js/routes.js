@@ -30,6 +30,24 @@ app.config (function ($routeProvider) {
                 }
             }
         })
+        .when('/relatorio', {
+            controller : 'relatorioController',
+            templateUrl: '/html/relatorio.html',
+            resolve: {
+                autenticado: function (authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
+        })
+        .when('/atrasos', {
+            controller : 'relatorioController',
+            templateUrl: '/html/atrasos.html',
+            resolve: {
+                autenticado: function (authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
+        })
         .when('/login', {
             controller : 'loginController',
             templateUrl: '/html/login.html'

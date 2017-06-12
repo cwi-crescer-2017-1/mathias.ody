@@ -9,6 +9,8 @@ app.controller('pedidoController', function ($window,
                                             authService,
                                             toastr,
                                             $filter){
+
+    $scope.isAdm = authService.possuiPermissao("Administrador");                                            
     // Estagio do pedido                                      
     $scope.estagio = 1;
     $scope.numeroDiarias;

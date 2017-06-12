@@ -32,6 +32,57 @@ namespace Imobiliaria.Infraestrutura.Repositorios
                 .FirstOrDefault();
         }
 
+        public object ObterAtrasados ()
+        {
+            var pedidos = contexto.Pedidos
+                                  .Where(x => x.DataVencimento < DateTime.Now)
+                                  .Include("Cliente")
+                                  .OrderBy(x => x.DataVencimento)
+                                  .ToList();
+
+            foreach (Pedido pedido in pedidos)
+            {
+                pedido.Multa = pedido.CalcularMulta();
+            }
+
+            return pedidos.Select(x => new
+            {
+                IdPedido = x.Id,
+                NomeCliente = x.Cliente.Nome,
+                DataPedido = x.DataPedido,
+                DataVencimento = x.DataVencimento,
+                Valor = x.ValorTotal,
+                Multa = x.Multa,
+                ValorTotal = x.Multa + x.ValorTotal
+            });
+        }
+
+        public object ObterAntesDaData(DateTime dataFinal)
+        {
+            DateTime dataInicial = dataFinal.AddDays(-30);
+
+            var pedidos = contexto.Pedidos
+                                  .Where(x => x.DataEntrega != null && x.DataEntrega < dataFinal && x.DataEntrega > dataInicial)
+                                  .Include("Cliente")
+                                  .ToList();
+
+            foreach (Pedido pedido in pedidos)
+            {
+                pedido.Multa = pedido.CalcularMulta();
+            }
+
+            return pedidos.Select(x => new
+            {
+                IdPedido = x.Id,
+                NomeCliente = x.Cliente.Nome,
+                DataPedido = x.DataPedido,
+                DataVencimento = x.DataVencimento,
+                Valor = x.ValorTotal,
+                Multa = x.Multa,
+                ValorTotal = x.Multa + x.ValorTotal
+            });
+        }
+
         public void Devolver(int id)
         {
             var pedido = contexto.Pedidos

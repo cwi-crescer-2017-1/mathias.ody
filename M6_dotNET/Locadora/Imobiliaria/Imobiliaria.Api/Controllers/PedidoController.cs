@@ -34,6 +34,29 @@ namespace Imobiliaria.Api.Controllers
             return Ok();
         }
 
+        [HttpGet, Route("data")]
+        public IHttpActionResult Data()
+        {
+            return Ok(new DateTime(2017,6,12));
+        }
+
+        //Lista atrasados
+        [HttpGet, Route("atrasados")]
+        public IHttpActionResult ObterAtrasados()
+        {
+            var pedidos = repositorio.ObterAtrasados();
+            return Ok(new { dados = pedidos });
+        }
+
+        //Lista relatorio
+        [HttpPost, Route("relatorio")]
+        [BasicAuthorization(Roles = "Administrador")]
+        public IHttpActionResult ObterAntesDaData(DateTime data)
+        {
+            var pedidos = repositorio.ObterAntesDaData(data);
+            return Ok(new { dados = pedidos });
+        }
+
         // Post pedido
         [HttpPost, Route("")]
         public IHttpActionResult AdicionarPedido([FromBody]EnviarPedidoModel model)
