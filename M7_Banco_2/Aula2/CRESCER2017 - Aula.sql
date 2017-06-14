@@ -1,4 +1,7 @@
-  DECLARE
+/* 
+1
+*/
+DECLARE
     
     vCount number;
     CURSOR Lista_Cidades IS
@@ -24,4 +27,36 @@ BEGIN
   DBMS_OUTPUT.PUT_LINE(vCount);
 END;
 
+/*
+2
+*/
 
+DECLARE
+  vValorPedido Pedido.ValorPedido%type;  
+BEGIN
+  SELECT SUM (Quantidade * PrecoUnitario)
+  INTO VValorPedido
+  FROM PedidioItem
+  WHERE IdPedido =: IDPedido;
+  
+  UPDATE Pedido
+  SET ValorPedido = vValorPedido
+  WHERE IDPedido =: IDPedido;
+END;
+
+--PROCEDURE
+CREATE OR REPLACE
+PROCEDURE Atualiza_Valor_Pedido (pIDPedido IN INTEGER) AS
+  vValorPedido  Pedido.ValorPedido%type;
+BEGIN
+
+   Select SUM(Quantidade * PrecoUnitario)
+   into   vValorPedido
+   From   PedidoItem
+   Where  IDPedido = pIDPedido;
+   
+   Update Pedido
+   Set    ValorPedido = vValorPedido
+   Where  IDPedido    = pIDPedido;
+
+END;
