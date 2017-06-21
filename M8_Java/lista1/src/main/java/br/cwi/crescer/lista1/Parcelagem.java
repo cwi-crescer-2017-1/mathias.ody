@@ -6,8 +6,6 @@
 package br.cwi.crescer.lista1;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -26,6 +24,8 @@ public class Parcelagem implements Parcelator{
                                             Date dataPrimeiroVencimento) {
     
     Map<String, BigDecimal> parcelas = new HashMap<String, BigDecimal>();
+    
+    taxaJuros = taxaJuros * 0.01;
     
     Calendar calendar = Calendar.getInstance();
     calendar.setTime(dataPrimeiroVencimento);

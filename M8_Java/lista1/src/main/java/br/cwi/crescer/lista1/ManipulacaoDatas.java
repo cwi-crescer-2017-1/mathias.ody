@@ -27,7 +27,7 @@ public class ManipulacaoDatas implements CalendarUtils {
         calendar.setTime(date);
         int anosDiferenca = calendarAtual.get(Calendar.YEAR) - calendar.get(Calendar.YEAR); 
         int mesesDiferenca =  Math.abs(calendarAtual.get(Calendar.MONTH) - calendar.get(Calendar.MONTH));
-        int diasDiferenca = Math.abs(calendarAtual.get(Calendar.DATE) - calendar.get(Calendar.DATE));
+        int diasDiferenca = Math.abs(calendarAtual.get(Calendar.DAY_OF_MONTH) - calendar.get(Calendar.DAY_OF_MONTH));
         return "" + anosDiferenca + " ano(s), " +
                     mesesDiferenca + " mes(es) e " +
                     diasDiferenca + " dia(s)";

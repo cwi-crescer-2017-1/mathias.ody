@@ -13,7 +13,7 @@ import java.text.Normalizer;
  */
 public class ManipulacaoStrings implements StringUtils {
     public boolean isEmpty(String string) {
-        if(string == null || string.isEmpty())
+        if(string == null || string.isEmpty() || string == " ")
             return true;
         else 
             return false;
