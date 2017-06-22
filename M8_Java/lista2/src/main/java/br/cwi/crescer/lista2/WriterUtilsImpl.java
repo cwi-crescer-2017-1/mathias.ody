@@ -6,7 +6,11 @@
 package br.cwi.crescer.lista2;
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 
 /**
  *
@@ -14,19 +18,25 @@ import java.io.FileWriter;
  */
 public class WriterUtilsImpl implements WriterUtils{
 
-    public void write(String file, String conteudo) {
+    @Override
+    public void write(String path, String conteudo) {
         try {
-            if (!file.contains(".txt")) { throw new Exception ("Arquivo não reconhecido ou em formato inválido."); }
-        }
-        catch (Exception e) { System.out.println(e.getCause()); }
-        
-        try (
-            final FileWriter fileWriter = new FileWriter (file);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            ){
-                bufferedWriter.append(conteudo);
-                bufferedWriter.newLine();
+            final File file = new File(path);
+            final Writer writer = new FileWriter(file);
+            final BufferedWriter bufferReader = new BufferedWriter(writer);
+            bufferReader.append(conteudo);
+            bufferReader.flush();
+            
+            if(file.isFile() == false){
+                throw new RuntimeException("Formato de arquivo não reconhecido ou válido");
             }
-        catch (Exception e) { System.out.println(e.getCause()); }
+                              
+        } 
+        
+        catch (FileNotFoundException e) {
+            e.getMessage();
+        } catch (IOException ex) {
+            ex.getMessage();
+        }
     }
 }

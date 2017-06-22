@@ -350,3 +350,4 @@ nbdist/
 
 # End of https://www.gitignore.io/api/java,maven,netbeans
 /M8_Java/lista1/nbproject/
+/M8_Java/lista2/nbproject/
