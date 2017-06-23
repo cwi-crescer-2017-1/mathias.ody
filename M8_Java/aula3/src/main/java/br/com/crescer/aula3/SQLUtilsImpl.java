@@ -5,14 +5,15 @@
  */
 package br.com.crescer.aula3;
 
-import br.cwi.crescer.lista2.ReaderUtilsImpl;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -51,7 +52,7 @@ public class SQLUtilsImpl implements SQLUtils {
         }
         
         catch (SQLException ex) {
-            Logger.getLogger(SQLUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException(ex.getMessage());
         }
     }
     
@@ -60,41 +61,50 @@ public class SQLUtilsImpl implements SQLUtils {
         if (!file.exists() || filename.endsWith(".csv") || file.isDirectory())
             return;
         
-        final String tableName = filename.substring(0, filename.lastIndexOf("."));
+        final String tableName = filename.substring(0, filename.indexOf("."));      
+        final String path = file.toPath().toString();
         
-        try (
-                final Reader reader = new FileReader(file);
-                final BufferedReader bufferReader = new BufferedReader(reader);
-            ) 
-        {
-            List<String> lines = bufferReader.lines().collect(toList());
-            if(lines.size() <= 1) return; //vazio
-            
-            try (final Statement statement = ConnectionUtils.getConnection().createStatement()) {
-                for (String line : lines) {
-                    String[] expressions = line.split(",");
-                    
-                    for(int i = 0; i < expressions.length - 1; i++) {
-                        statement.addBatch(expressions[i - 1]);
-                    }
-                    statement.executeBatch();
-                }
-                } 
-                catch (Exception e) {
-                    throw new RuntimeException("Erro: " + e.getMessage());
-                }
-            } 
-        
-        catch (FileNotFoundException ex) {
-            Logger.getLogger(SQLUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
+        String importedQueries = "LOAD DATA INFILE '" + path + "' INTO TABLE '" + tableName + "' (Id,Nome)";
+
+        try (final PreparedStatement preparedStatement = ConnectionUtils.getConnection().prepareStatement(importedQueries)) {
+            preparedStatement.executeUpdate();
         } 
-        
-        catch (IOException ex) {
-            Logger.getLogger(SQLUtilsImpl.class.getName()).log(Level.SEVERE, null, ex);
+        catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
         }
     }
-
-    private Object read(String absolutePath) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public File exportCSV(String query) {
+        WriterUtils writer = new WriterUtilsImp();
+        try {
+            String result = executeQuery(query);
+            String path = "exported.csv";
+            writer.write(path, result);
+            File file = new File(path);
+            return file;
+        } 
+        
+        catch (Exception ex) {
+            throw new RuntimeException(ex.getMessage());
+        }
+    }
+    
+    private String generateCSV (ResultSet resultSet) {
+        try {
+            StringBuilder result = new StringBuilder();
+            ResultSetMetaData lines = resultSet.getMetaData();
+            int columns = lines.getColumnCount();
+            while (resultSet.next()) {
+                for (int i = 0; i < columns; i++) {
+                  result.append(resultSet.getString(i + 1)).append(", ");
+                }
+                result.deleteCharAt(result.length() - 2);
+                result.append("\n");
+            }
+            return result;
+        }
+        catch (Exception e) {
+            throw new RuntimeException ("Ocorreu um erro ao gerar o CSV");
+        }
     }
 }
