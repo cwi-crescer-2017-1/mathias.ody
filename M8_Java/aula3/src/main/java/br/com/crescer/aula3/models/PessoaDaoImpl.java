@@ -1,7 +1,6 @@
 package br.com.crescer.aula3.models;
 
 import br.com.crescer.aula3.ConnectionUtils;
-import br.com.crescer.aula3.PessoaDao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

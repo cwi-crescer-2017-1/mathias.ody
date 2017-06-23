@@ -9,6 +9,6 @@ package br.com.crescer.aula3.models;
  *
  * @author jomar.cardoso
  */
-public class CidadeDao {
+public interface CidadeDao extends Dao<Cidade>{
     
 }

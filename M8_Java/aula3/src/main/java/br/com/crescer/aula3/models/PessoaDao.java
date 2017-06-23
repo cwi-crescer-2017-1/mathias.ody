@@ -1,6 +1,4 @@
-package br.com.crescer.aula3;
-
-import br.com.crescer.aula3.models.Pessoa;
+package br.com.crescer.aula3.models;
 
 /**
  * @author carloshenrique

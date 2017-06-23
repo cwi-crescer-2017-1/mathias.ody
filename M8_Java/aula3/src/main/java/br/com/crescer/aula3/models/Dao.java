@@ -1,4 +1,4 @@
-package br.com.crescer.aula3;
+package br.com.crescer.aula3.models;
 
 /**
  * @author carloshenrique

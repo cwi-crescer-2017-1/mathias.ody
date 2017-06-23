@@ -9,6 +9,6 @@ package br.com.crescer.aula3.models;
  *
  * @author jomar.cardoso
  */
-public class PaisDao {
+public interface PaisDao extends Dao<Pais>{
     
 }

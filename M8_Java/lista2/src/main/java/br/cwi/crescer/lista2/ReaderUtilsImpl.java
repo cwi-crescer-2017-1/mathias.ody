@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
+import static java.util.stream.Collectors.toList;
 
 /**
  *
@@ -17,26 +18,25 @@ import java.io.Reader;
 public class ReaderUtilsImpl implements ReaderUtils{
 
     public String read(String string) {
-        try {
-            if (!string.contains(".txt")) { throw new Exception ("Arquivo não reconhecido ou em formato inválido."); }
-        }
-        catch (Exception e) { System.out.println(e.getCause()); }
-        
-        try (
-            final Reader reader = new FileReader (string);
-            final BufferedReader bufferedReader = new BufferedReader(reader);
-            ) {
-            final StringBuilder str = new StringBuilder();
+        if(string.endsWith(".txt") || string.endsWith(".sql") || string.endsWith(".csv")) {
+            final File file = new File(string);
+            if(!file.exists())
+                throw new RuntimeException("Arquivo não encontrado.");
+            if(file.isDirectory())
+                throw new RuntimeException("Arquivo inválido.");
             
-            bufferedReader.lines()
-                                .forEach (x -> str
-                                .append (x + "\n"));
-            
-            return str.toString();
+            try (
+                final Reader reader = new FileReader (string);
+                final BufferedReader bufferedReader = new BufferedReader(reader);
+                ) {
+                
+                return String.join("\n", bufferedReader.lines().collect(toList()));
+            }
+
+            catch (Exception e) { throw new RuntimeException("Erro: " + e.getMessage()); }
         }
-        
-        catch (Exception e) { System.out.println(e.getCause()); }
-        
-        return "Não foi possível ler o arquivo.";  
+        else {
+            throw new RuntimeException("Arquivo não é um arquivo de leitura válido.");
+        }
     }
 }
