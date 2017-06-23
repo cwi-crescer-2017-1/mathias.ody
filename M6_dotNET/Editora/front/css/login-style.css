@@ -32,7 +32,7 @@
 }
 
 .label-login {
-    font-size: 24px;
+    font-size: 2vw;
     display: inline-block;
 }
 
@@ -40,11 +40,11 @@
     width: 30%;
     margin-left: 35%;
     margin-right: 35%;
-    font-size: 24px;
+    font-size: 2vw;
 }
 
 .login-button-duble {
     display:inline-block;
     width: 30%;
-    font-size: 24px;
+    font-size: 2vw;
 }
