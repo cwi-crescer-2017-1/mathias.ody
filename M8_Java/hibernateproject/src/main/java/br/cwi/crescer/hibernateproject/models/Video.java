@@ -7,6 +7,7 @@ package br.cwi.crescer.hibernateproject.models;
 
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -54,7 +55,7 @@ public class Video {
     @Column(name="DATA_LANCAMENTO")
     private Date data_lancamento;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "ID_GENERO")
     private Genero genero;
 

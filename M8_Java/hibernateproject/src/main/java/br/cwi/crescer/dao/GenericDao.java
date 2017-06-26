@@ -32,7 +32,7 @@ public abstract class GenericDao<Entity, ID> implements CrudDao<Entity, ID>  {
     @Override
     public Entity save(Entity e) {
         entityManager.getTransaction().begin();
-        session.saveOrUpdate(e);
+        entityManager.persist(e);
         entityManager.getTransaction().commit();
 
         return e;

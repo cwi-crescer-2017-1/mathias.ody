@@ -7,6 +7,7 @@ package br.cwi.crescer.hibernateproject.models;
 
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,15 +38,15 @@ public class Locacao {
     @Column(name="VALOR_TOTAL")
     private double valor_total;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_FUNCIONARIO")
     private Funcionario funcionario;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_CLIENTE")
     private Cliente cliente;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_VIDEO")
     private Video video;
     
