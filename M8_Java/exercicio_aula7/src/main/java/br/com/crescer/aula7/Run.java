@@ -8,11 +8,6 @@ package br.com.crescer.aula7;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- *
- * @author mathias.ody
- */
-
 @SpringBootApplication
 public class Run {
 

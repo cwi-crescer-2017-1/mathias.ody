@@ -4,6 +4,9 @@
     margin-right: 30%;
     border: 2px groove rgba(0,0,0, 0.1);
     padding: 2vw;
+    background-color: white;
+    border-radius: 1.5vw;
+    color: black;
 }
 
 .login-titulo {
@@ -52,6 +55,7 @@ button {
   text-transform: capitalize;
 
   color: #fff;
+  background-color: rgb(255, 233, 124);
   border: 0 none;
   border-radius: 4px;
 
@@ -83,4 +87,12 @@ button {
 
 .button-publicar {
     float:right;
+}
+
+a:link {
+    color : rgb(227,41,41)
+}
+
+a:visited {
+    color : rgb(227,41,41)
 }
