@@ -1,0 +1,7 @@
+login
+cadastro
+
+feed-post
+	usuario
+		solicitações
+		procurar amigos e mandar solicitação

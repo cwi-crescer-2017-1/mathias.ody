@@ -1,0 +1,35 @@
+<div class="nav">
+    <div class="titulo-pagina">
+        <h1><a ng-href="#!/">FreelaBooks.NET</a></h1>
+    </div>
+    <div class="borda-inferior">
+        <span class="float-left"><a ng-href="#!/assinar">Assinar</a></span>
+        <span ng-if="!logado" class="center"><a ng-href="#!/registrar">Registrar-se</a></span>
+        <span ng-if="logado" class="center"><a ng-href="#!/crud">Área Administrativa</a></span>
+        <span class="float-right"><a ng-if="!logado" ng-href="#!/login">Login</a></span>
+        <span class="float-right" ng-if="logado">Olá, {{usuario.Nome}}</span>
+    </div>
+</div>
+
+<div class="corpo">
+
+    <textarea rows="4" placeholder="Fale um pocuo sobre seus sonhos, seus bifes, seu dia!"></textarea>
+    <button class="button-publicar"><a href="">Publicar!</a></button>
+
+    <h1 class="indice" style="margin-top:80px;">Seus amigos</h1>
+    <div class="catalogo">
+        <div scale-resize class="livros" ng-repeat="livro in lancamentos">
+            <div class="livro">     
+                <img class="capa" ng-src="{{livro.Capa}}">
+                <div class="titulo-livro"><a ng-href="#!/livros/{{livro.Isbn}}">{{livro.Titulo}}</a></div>
+                <div class="genero-livro">{{livro.Genero}}</div>
+                <div class="autor-livro">{{livro.Autor}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pages">
+        <button class="float-left"><a href="" ng-click="voltar()">Anterior</a></button>
+        <button class="float-right"><a href="" ng-click="avancar()">Próximo</a></button>
+    </div>
+</div>

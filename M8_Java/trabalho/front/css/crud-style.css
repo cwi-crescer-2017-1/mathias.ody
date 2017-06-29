@@ -1,0 +1,80 @@
+.item-lista-livro{
+    height:20vw;
+}
+
+.crud-capa {
+    float: left;
+    width: 15%;
+}
+
+.crud-img {
+    width: 80%;
+    height: 80%;
+    margin : 0.5%;
+}
+
+.header-crud {
+    width: 80%;
+    display: inline-block;
+    border-top: 2px groove lightgrey;
+}
+
+.crud-titulo-livro{
+    display: inline-block;
+    width: 60%;
+    margin: 0.5%;
+    font-size: 2vw;
+}
+
+.crud-autor-livro{
+    display: inline-block;
+    width: 35%;
+    margin: 0.5%;
+    font-size: 2vw;
+}
+
+.crud-descricao-livro{
+    margin : 0.5%;
+    font-size: 1.3vw;
+}
+
+.footer-crud{
+    margin:0px;
+    margin-top:15px;
+    margin-bottom:15px;
+    border-bottom: 2px groove lightgrey;
+    height:2vw;
+}
+
+.crud-isbn-livro {
+    margin:0px;
+    float:left;
+    width: 27%;
+    font-size: 1.2vw;
+}
+
+.crud-revisor-livro{
+    text-align: center;
+    margin:0px;
+    display:inline-block;
+    width: 27%;
+    float:left;
+    font-size: 1.2vw;
+}
+
+.crud-publicador-livro{
+    text-align: center;
+    margin:0px;
+    float:right;
+    display:inline-block;
+    width: 27%;
+    font-size: 1.2vw;
+}
+
+.button-crud{
+    font-size: 1vw;
+    height: 1.5vw;
+    width : 5vw; 
+    margin-left : 1vw;
+    float:right;
+}

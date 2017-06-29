@@ -1,0 +1,41 @@
+<div class="nav">
+    <div class="titulo-pagina">
+        <h1><a ng-href="#!/">FreelaBooks.NET</a></h1>
+    </div>
+    <div class="borda-inferior">
+        <span class="float-left"><a ng-href="#!/assinar">Assinar</a></span>
+        <span class="float-right"><a ng-if="logado == true" ng-href="#!/login">Login</a></span>
+        <span class="float-right"><a ng-if="logado != true" ng-href="#!/login">Olá, {{userLogado}}</a></span>
+    </div>
+</div>
+
+<div class="corpo">
+    <div class="login">
+        <h1 class="login-titulo">Editar</h1>
+        <div class="login-subtitulo">Altere os campos abaixo</div>
+        <div class="row-login">
+            <span class="label-login">URL Capa</span>
+            <input class="input-login" type="text" ng-model="editando.Capa">
+        </div>
+        <div class="row-login">
+            <span class="label-login">Título</span>
+            <input class="input-login" type="text" ng-model="editando.Titulo">
+        </div>
+        <div class="row-login">
+            <span class="label-login">Autor</span>
+            <input class="input-login" type="text" ng-model="editando.Autor.Nome">
+        </div>
+        <div class="row-login">
+            <span class="label-login">Gênero</span>
+            <input class="input-login" type="text" ng-model="editando.Genero">
+        </div>
+        <div class="row-login">
+            <span class="label-login">Descrição</span>
+            <textarea class="input-box" rows="5" ng-model="editando.Descricao"></textarea>
+        </div>
+        <div class="row-login">
+            <button ng-click="cancelar()" class="login-button-duble float-left">Cancelar</button>
+            <button ng-click="aceitar()" class="login-button-duble float-right">Ok</button>
+        </div>
+    </div>
+</div>

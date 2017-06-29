@@ -1,0 +1,17 @@
+.detalhes {
+    float:left;
+    margin-left : 30px;
+    width: 300px;
+}
+
+.capa-detalhes-livro {
+    width: 300px;
+    height: 430px;
+    float:left;
+}
+
+.titulo-detalhes-livro {
+    margin-top: 50px;
+    width:100%;
+    float:left;
+}

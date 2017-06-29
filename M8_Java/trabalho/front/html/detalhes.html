@@ -1,0 +1,25 @@
+<div class="nav">
+    <div class="titulo-pagina">
+        <h1><a ng-href="#!/">FreelaBooks.NET</a></h1>
+    </div>
+    <div class="borda-inferior">
+        <span class="float-left"><a ng-href="#!/assinar">Assinar</a></span>
+        <span ng-if="!logado" class="center"><a ng-href="#!/registrar">Registrar-se</a></span>
+        <span ng-if="logado" class="center"><a ng-href="#!/crud">Área Administrativa</a></span>
+        <span class="float-right"><a ng-if="!logado" ng-href="#!/login">Login</a></span>
+        <span class="float-right" ng-if="logado">Olá, {{usuario.Nome}}</span>
+    </div>
+</div>
+
+<div class="corpo">
+    <h1 class="titulo-detalhes-livro">{{detalhes.Titulo}}</h1> 
+        <img class="capa-detalhes-livro" ng-src="{{detalhes.Capa}}">
+        <div class="detalhes"> 
+            <div><strong>Título:</strong> {{detalhes.Titulo}} (ISBN: {{detalhes.Isbn}})</div>
+            <div><strong>Autor:</strong> {{detalhes.Autor.Nome}}</div>
+            <div><strong>Gênero:</strong> {{detalhes.Genero}}</div>
+            <div><strong>Data publicação:</strong> {{detalhes.DataPublicacao | date: 'dd/MM/yyyy'}}</div>
+            <div><strong>Descrição:</strong> {{detalhes.Descricao}}</div>
+        </div>
+    </div>
+</div>

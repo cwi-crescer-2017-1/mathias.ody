@@ -1,0 +1,49 @@
+<div class="nav">
+    <div class="titulo-pagina">
+        <h1><a ng-href="#!/">FreelaBooks.NET</a></h1>
+    </div>
+    <div class="borda-inferior">
+        <span class="float-left"><a ng-href="#!/assinar">Assinar</a></span>
+        <span class="center"><a href="" ng-click="logout()">Logout</a></span>
+        <span class="float-right">Olá, {{usuario.Nome}}</span>
+    </div>
+</div>
+
+<div class="corpo">
+    <div class="header-criar-livro"></div>
+    <div class="item-lista-livro" ng-repeat="livro in livros">
+        <div class="crud-capa">
+            <img class="crud-img" ng-src="{{livro.Capa}}">
+        </div>
+        <div class="header-crud">
+            <div class="crud-titulo-livro"><strong>{{livro.Titulo}}</strong></div>
+            <div class="crud-autor-livro">{{livro.Autor.Nome}}</div>
+        </div>
+        <div class="crud-descricao-livro"><strong>{{livro.Genero}}: </strong>{{livro.Descricao}}</div>
+        <div class="footer-crud">
+            <div class="crud-isbn-livro">ISBN: {{livro.Isbn}}</div>
+
+            <div ng-if="livro.DataRevisao == null && isRevisor" class="crud-revisor-livro">
+                <button ng-click="revisar(livro)">Revisar</button>
+            </div>
+            <div ng-if="livro.DataRevisao == null && !isRevisor" class="crud-revisor-livro">
+                N/revisado
+            </div>
+            <div ng-if="livro.DataRevisao != null" class="crud-revisor-livro">
+                {{livro.DataRevisao | date: dd/MM/yyyy}};
+            </div>
+
+            <div ng-if="livro.DataPublicacao == null && isPublicador" class="crud-revisor-livro">
+                <button>Publicar</button>
+            </div>
+            <div ng-if="livro.DataPublicacao == null && !isPublicador" class="crud-revisor-livro">
+                N/publicado
+            </div>
+            <div ng-if="livro.DataPublicacao != null" class="crud-revisor-livro">
+                {{livro.DataPublicacao}};
+            </div>
+        </div>
+        <button class="button-crud" ng-click="deletar(livro.Isbn)"><a href="">Deletar</a></button>
+        <button class="button-crud"><a ng-href="#!/editar/{{livro.Isbn}}">Editar</a></button>
+    </div>
+</div>
