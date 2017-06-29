@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/Cliente")
+@RequestMapping("/cliente")
 public class ClienteRest {
     @Autowired
     ClienteService ClienteService;
@@ -29,19 +29,19 @@ public class ClienteRest {
         return "Ok";
     }
     
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping("/{id}")
     public String delete(@PathVariable Long id) {
         ClienteService.delete(id);
         return "Ok";
     }
     
-    @GetMapping(value = "/{id}")
+    @GetMapping("/{id}")
     public Cliente get(@PathVariable Long id) {
         return ClienteService.loadById(id);
     }
     
     @ResponseBody
-    @GetMapping
+    @GetMapping("/clientes")
     public List<Cliente> list() {
         return (List<Cliente>) ClienteService.findAll();
     }
