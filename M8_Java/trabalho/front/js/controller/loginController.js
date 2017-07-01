@@ -11,13 +11,12 @@ app.controller('loginController', function (
             $scope.logado = true;
         }
 
-        $scope.login = function (usuario) {
-            authService.login(usuario)
+        $scope.login = function () {
+            authService.login($scope.usuario)
             .then(
             function (response) {
                 $scope.logado = true;
-                $location.path('/administrativo');
-                toastr.success(`Bem vindo ${response.data.dados.Nome}`);
+                toastr.success(`Bem vindo ${response.data.Nome}`);
             },
             function (response) {
                 $scope.logado = false;

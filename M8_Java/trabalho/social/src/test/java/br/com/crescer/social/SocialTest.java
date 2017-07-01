@@ -40,18 +40,12 @@ public class SocialTest {
 //    public void setBefore() {
 //        this.host = "http://localhost:" + port;
 //    }
-//
-//    /**
-//     * Test of health method, of class HealthController.
-//     */
+//    
 //    @Test
 //    public void testHealth() {
 //        assertTrue(testRestTemplate.getForObject(host + HealthController.PATH, Boolean.class));
 //    }
 //
-//    /**
-//     * Test of getUserDetails, of class LoggedUserController.
-//     */
 //    @Test
 //    public void testUser() {
 //        final String user = testRestTemplate

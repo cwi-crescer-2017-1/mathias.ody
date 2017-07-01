@@ -5,19 +5,17 @@ app.config (function ($routeProvider) {
     $routeProvider
         .when('/', {
             controller : 'livroController',
-            templateUrl: '/html/home.html'
+            templateUrl: '/html/home.html',
+            resolve: {
+                    // define que para acessar esta página deve ser um usuário autenticado (mas não restringe o tipo de permissão)
+                autenticado: function (authService) {
+                    return authService.isAutenticadoPromise();
+                }
+            }
         })
         .when('/login', {
             controller : 'loginController',
             templateUrl: '/html/login.html'
-        })
-        .when('/assinar', {
-            controller : 'assinarController',
-            templateUrl: '/html/assinar.html'
-        })
-        .when('/livros/:id', {
-            controller : 'detalhesController',
-            templateUrl: '/html/detalhes.html'
         })
         .when('/crud', {
             controller : 'crudController',
@@ -48,14 +46,14 @@ app.config (function ($routeProvider) {
 app.constant('authConfig', {
 
     // Obrigatória - URL da API que retorna o usuário
-    urlUsuario: 'http://localhost:50255/api/acessos/usuario',
+    urlUsuario: 'http://localhost:9090/api/usuario',
 
     // Obrigatória - URL da aplicação que possui o formulário de login
     urlLogin: '/login',
 
     // Opcional - URL da aplicação para onde será redirecionado (se for informado) após o LOGIN com sucesso
-    urlPrivado: '/crud',
+    urlPrivado: '/',
 
     // Opcional - URL da aplicação para onde será redirecionado (se for informado) após o LOGOUT
-    urlLogout: '/'
+    //urlLogout: '/'
 });

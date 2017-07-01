@@ -43,6 +43,12 @@
     margin-right:0px;
 }
 
+.small-text-login {
+    width : 100%;
+    margin:auto;
+    text-align : center;
+}
+
 button {
   display: flex;
   overflow: hidden;
@@ -98,4 +104,8 @@ a:link {
 
 a:visited {
     color : rgb(227,41,41)
+}
+
+textarea {
+    padding: 5px;
 }

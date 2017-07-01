@@ -3,6 +3,8 @@ package br.com.crescer.social.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
+import static org.springframework.http.HttpMethod.POST;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,12 +16,9 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-/**
- * @author carloshenrique
- */
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
-public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter  {
 
     @Value("${social.security.public:/health}") 
     private String[] securityPublic;
@@ -34,12 +33,16 @@ public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .httpBasic()
                 .and()
+                .cors()
+                .and()
                 .csrf().disable();
     }
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
-        webSecurity.ignoring().antMatchers(securityPublic);
+        webSecurity.ignoring()
+                .antMatchers(securityPublic)
+                .antMatchers(HttpMethod.POST, "/api/usuario");
     }
 
     @Bean
