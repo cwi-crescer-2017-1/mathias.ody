@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import br.com.crescer.social.services.UsuarioService;
+import java.util.Optional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -12,6 +13,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.Mapping;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +25,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UsuarioController {
     
     @Autowired
-    private UsuarioService usuarioService;   
+    private UsuarioService usuarioService; 
+    
+    @GetMapping
+    public Map<String, Object> listarUsuarios(Authentication authentication) {
+        User u = Optional.ofNullable(authentication)
+                .map(Authentication::getPrincipal)
+                .map(User.class::cast)
+                .orElse(null);
+        final HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("dados", u);
+        return hashMap;
+    }
     
     @GetMapping(value = "/usuario")
     public List<Usuario> listUsuarios() {
