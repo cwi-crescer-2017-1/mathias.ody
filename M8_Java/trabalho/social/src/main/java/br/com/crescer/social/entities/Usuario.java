@@ -28,6 +28,11 @@ public class Usuario implements Serializable {
     @SequenceGenerator(name = "SEQ_USUARIO", sequenceName = "SEQ_USUARIO", allocationSize = 1)  
     private Long id;
     
+    @Size(min = 1, max = 400, message = "Numero de caracteres para foto invalido")
+    @Basic
+    @Column(name = "FOTO")
+    private String fotoPerfil;
+    
     @Size(min = 1, max = 40, message = "Numero de caracteres para nome invalido")
     @Basic
     @Column(name = "NOME")
@@ -37,7 +42,7 @@ public class Usuario implements Serializable {
     @Size(min = 1, max = 40, message = "Numero de caracteres para email invalido.")
     //@Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")   
     @Basic(optional = false)
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", unique = true)
     private String email;
     
     @Size(min = 1, max = 80, message = "Numero de caracteres para senha invalido.")
@@ -142,5 +147,13 @@ public class Usuario implements Serializable {
     @Override
     public boolean equals(Object user) {
         return this.id.equals(((Usuario)user).id);
+    }
+    
+    public String getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(String fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
     }
 }

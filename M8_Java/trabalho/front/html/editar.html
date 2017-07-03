@@ -4,38 +4,38 @@
     </div>
     <div class="borda-inferior">
         <span class="float-left"><a ng-href="#!/assinar">Assinar</a></span>
-        <span class="float-right"><a ng-if="logado == true" ng-href="#!/login">Login</a></span>
-        <span class="float-right"><a ng-if="logado != true" ng-href="#!/login">Olá, {{userLogado}}</a></span>
     </div>
 </div>
 
 <div class="corpo">
-    <div class="login">
+    <form class="login">
         <h1 class="login-titulo">Editar</h1>
-        <div class="login-subtitulo">Altere os campos abaixo</div>
         <div class="row-login">
-            <span class="label-login">URL Capa</span>
-            <input class="input-login" type="text" ng-model="editando.Capa">
+            <span class="label-login">Foto</span>
+            <input class="input-login" type="text" ng-model="usuario.fotoPerfil" placeholder="URL (opcional)">
         </div>
         <div class="row-login">
-            <span class="label-login">Título</span>
-            <input class="input-login" type="text" ng-model="editando.Titulo">
+            <span class="label-login">Nome*</span>
+            <input class="input-login" type="text" ng-model="usuario.nome" placeholder="Joaquim">
         </div>
         <div class="row-login">
-            <span class="label-login">Autor</span>
-            <input class="input-login" type="text" ng-model="editando.Autor.Nome">
+            <span class="label-login">E-mail*</span>
+            <input class="input-login" type="e-mail" ng-model="usuario.email" placeholder="exemplo@exemplo.com">
         </div>
         <div class="row-login">
-            <span class="label-login">Gênero</span>
-            <input class="input-login" type="text" ng-model="editando.Genero">
+            <span class="label-login">Nasc.*</span>
+            <input class="input-login" type="text" ng-model="usuario.dataNascimento" placeholder="dd/mm/aaaa">
         </div>
         <div class="row-login">
-            <span class="label-login">Descrição</span>
-            <textarea class="input-box" rows="5" ng-model="editando.Descricao"></textarea>
+            <span class="label-login">Gênero*</span>
+            <select class="input-login" ng-model="usuario.sexo"> 
+                <option value="n" selected>Não informado</option>
+                <option value="m">Masculino</option>
+                <option value="f">Feminino</option>
+            </select>
         </div>
         <div class="row-login">
-            <button ng-click="cancelar()" class="login-button-duble float-left">Cancelar</button>
-            <button ng-click="aceitar()" class="login-button-duble float-right">Ok</button>
+            <button class="login-button" ng-click="editar()"><a href="">Editar</a></button>
         </div>
-    </div>
+    </form>
 </div>

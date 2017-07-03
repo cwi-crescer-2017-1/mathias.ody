@@ -12,31 +12,35 @@
         <h1 class="login-titulo">Registrar-se</h1>
         <div class="login-subtitulo">Uma conta para a todos governar.</div>
         <div class="row-login">
+            <span class="label-login">Foto</span>
+            <input class="input-login" type="text" ng-model="usuario.fotoPerfil" placeholder="URL (opcional)">
+        </div>
+        <div class="row-login">
             <span class="label-login">Nome*</span>
-            <input class="input-login" type="text">
+            <input class="input-login" type="text" ng-model="usuario.nome" placeholder="Joaquim" required>
         </div>
         <div class="row-login">
             <span class="label-login">E-mail*</span>
-            <input class="input-login" type="e-mail">
+            <input class="input-login" type="e-mail" ng-model="usuario.email" placeholder="exemplo@exemplo.com" required>
         </div>
         <div class="row-login">
             <span class="label-login">Senha*</span>
-            <input class="input-login" type="password">
+            <input class="input-login" type="password" ng-model="usuario.senha" placeholder="********" required>
         </div>
         <div class="row-login">
             <span class="label-login">Nasc.*</span>
-            <input class="input-login" type="date">
+            <input class="input-login" type="text" ng-model="usuario.dataNascimento" placeholder="dd/mm/aaaa" required>
         </div>
         <div class="row-login">
             <span class="label-login">Gênero*</span>
-            <select class="input-login"> 
-                <option>Não informado</option>
-                <option>Masculino</option>
-                <option>Feminino</option>
+            <select class="input-login" ng-model="usuario.sexo" required> 
+                <option value="n" selected>Não informado</option>
+                <option value="m">Masculino</option>
+                <option value="f">Feminino</option>
             </select>
         </div>
         <div class="row-login">
-            <button class="login-button"><a href="">Registrar</a></button>
+            <button class="login-button" ng-click="registrar()"><a href="">Registrar</a></button>
         </div>
         <div class="row-login">
             <div class="small-text-login">Ja é um de nós? <a href="#!/login">Cola aqui.</a></div>

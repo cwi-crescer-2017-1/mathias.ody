@@ -36,7 +36,7 @@ angular.module('auth').factory('authService', function (authConfig, $http, $q, $
       function (response) {
 
         // Adiciona usuário e header ao localstorage
-        $localStorage.usuarioLogado = response.data;
+        $localStorage.usuarioLogado = response.data.dados;
         $localStorage.headerAuth = montarHeader(usuario)['Authorization'];
 
         // Adiciona header de autenticação em todos os próximos requests

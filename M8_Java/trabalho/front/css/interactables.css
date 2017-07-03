@@ -62,7 +62,6 @@ button {
   white-space: nowrap;
   text-decoration: none !important;
   text-transform: none;
-  text-transform: capitalize;
 
   color: #fff;
   background-color: rgb(255, 233, 124);
@@ -108,4 +107,23 @@ a:visited {
 
 textarea {
     padding: 5px;
+}
+
+.busca-amigos{
+    float : left;
+    margin-right : 3vw;
+    height: 2.5vw;
+    width : 20vw;
+    border-radius: 1vw;
+    font-size: 2vw;
+}
+
+*:focus {
+    outline: none;
+}
+
+.btn-curtir {
+    float: right;
+    margin-right: 1vw;
+    margin-top: 0.5vw;
 }

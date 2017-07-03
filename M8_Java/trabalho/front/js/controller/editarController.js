@@ -1,7 +1,7 @@
 app.controller('editarController', function ( $scope,
                                                 $routeParams,
                                                 $localStorage,
-                                                livroService,
+                                                usuarioService,
                                                 authService,
                                                 toastr,
                                                 $location){
@@ -12,7 +12,22 @@ app.controller('editarController', function ( $scope,
         $scope.logado = true;
     }
 
-    setarEditarLivro ();
+    $scope.editar = function () {
+        usuarioService.editar($scope.usuario)
+        .then(
+        function (response) {
+            $scope.logado = true;
+            toastr.success(`Editado com sucesso!`);
+            $location.path("/");
+        },
+        function (response) {
+            $scope.logado = false;
+            toastr.error('Ocorreu um error ao editar.');
+        });
+    }
+
+
+    /*setarEditarLivro ();
     
     function setarEditarLivro () {
         livroService.livroId($routeParams.id)
@@ -33,5 +48,5 @@ app.controller('editarController', function ( $scope,
         .then(function() {
             $location.path("/crud");            
         })
-    }
+    }*/
 })

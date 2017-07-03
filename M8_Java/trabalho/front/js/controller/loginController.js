@@ -6,7 +6,11 @@ app.controller('loginController', function (
                                             toastr)
                                             { 
 
-        $scope.usuario = authService.getUsuario();
+        
+         if (authService.getUsuario() != null) {
+            $location.path("/");
+        }     
+
         if ($scope.usuario != null) {
             $scope.logado = true;
         }
@@ -16,7 +20,7 @@ app.controller('loginController', function (
             .then(
             function (response) {
                 $scope.logado = true;
-                toastr.success(`Bem vindo!`);
+                toastr.success(`Bem vindo ${response.data.dados.nome}`);
             },
             function (response) {
                 $scope.logado = false;

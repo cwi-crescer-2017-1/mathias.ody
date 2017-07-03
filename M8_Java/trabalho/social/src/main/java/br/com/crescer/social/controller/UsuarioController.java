@@ -27,7 +27,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService; 
     
-    @GetMapping
+    /*@GetMapping
     public Map<String, Object> listarUsuarios(Authentication authentication) {
         User u = Optional.ofNullable(authentication)
                 .map(Authentication::getPrincipal)
@@ -36,11 +36,16 @@ public class UsuarioController {
         final HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("dados", u);
         return hashMap;
-    }
+    }*/
     
-    @GetMapping(value = "/usuario")
+    @GetMapping(value = "/usuarios")  
     public List<Usuario> listUsuarios() {
         return (List) usuarioService.findAll();
+    }
+    
+    @GetMapping(value = "/usuario/buscar/{nome}")  
+    public List<Usuario> findListUsuarios(@PathVariable String nome) {
+        return usuarioService.findAll(nome);
     }
     
     @GetMapping(value = "/usuario/{id}")
@@ -58,7 +63,7 @@ public class UsuarioController {
         usuarioService.delete(id);
     }
     
-    @PutMapping(value = "/usuario")
+    @PutMapping(value = "/usuario/editar")
     public void updateUsuario(@RequestBody Usuario usuario) {
         usuarioService.update(usuario);
     }
@@ -66,5 +71,47 @@ public class UsuarioController {
     @GetMapping(value = "/usuario/amigos")
     public List<Usuario> getAmigosUsuario(@AuthenticationPrincipal User user) {
         return usuarioService.findByEmail(user.getUsername()).getAmigos();
+    }
+    
+    @GetMapping("/usuarioLogado")
+    public Map<String, Usuario> listarUsuarios(@AuthenticationPrincipal User user) {
+        final Map<String, Usuario> hashMap = new HashMap<>();
+        hashMap.put("dados", usuarioService.findByEmail(user.getUsername()));
+        
+        return hashMap;
+    }
+    
+    @PostMapping(value = "/usuario/enviarSolicitacao/{id}")
+    public void solicitar(@PathVariable Long id, @AuthenticationPrincipal User user) {
+        Usuario logado = usuarioService.findByEmail(user.getUsername());
+        Usuario solicitado = usuarioService.findById(id);
+        
+        usuarioService.enviarSolicitacao(logado, solicitado);
+    }
+    
+    @PostMapping(value = "/usuario/aceitarSolicitacao/{id}")
+    public void aceitarSolicitacao(@PathVariable Long id, @AuthenticationPrincipal User user) {
+        Usuario logado = usuarioService.findByEmail(user.getUsername());
+        Usuario aceito = usuarioService.findById(id);
+        
+        usuarioService.aceitarSolicitacao(logado, aceito);
+    }
+    
+    @PostMapping(value = "/usuario/recusarSolicitacao/{id}")
+    public void recusarSolicitacao(@PathVariable Long id, @AuthenticationPrincipal User user) {
+        Usuario logado = usuarioService.findByEmail(user.getUsername());
+        Usuario recusado = usuarioService.findById(id);
+        
+        usuarioService.recusarSolicitacao(logado, recusado);
+    }
+    
+    @GetMapping(value = "/usuario/solicitacoes")
+    public List<Usuario> getSolicitacoes(@AuthenticationPrincipal User user) {
+        return usuarioService.findByEmail(user.getUsername()).getSolicitacoes();
+    }
+    
+    @PostMapping(value = "/usuario/statusSolicitacao/{id}")
+    public int statusSolicitacao(@PathVariable Long id,@AuthenticationPrincipal User user) {
+        return usuarioService.statusSolicitacao(id);
     }
 }

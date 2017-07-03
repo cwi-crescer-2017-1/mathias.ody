@@ -12,14 +12,16 @@
 </div>
 
 <div class="corpo">
-    <h1 class="titulo-detalhes-livro">{{detalhes.Titulo}}</h1> 
-        <img class="capa-detalhes-livro" ng-src="{{detalhes.Capa}}">
-        <div class="detalhes"> 
-            <div><strong>Título:</strong> {{detalhes.Titulo}} (ISBN: {{detalhes.Isbn}})</div>
-            <div><strong>Autor:</strong> {{detalhes.Autor.Nome}}</div>
-            <div><strong>Gênero:</strong> {{detalhes.Genero}}</div>
-            <div><strong>Data publicação:</strong> {{detalhes.DataPublicacao | date: 'dd/MM/yyyy'}}</div>
-            <div><strong>Descrição:</strong> {{detalhes.Descricao}}</div>
+    <div class="detalhe-pai">
+        <h1 class="titulo-detalhes-livro">{{detalhes.nome}}</h1> 
+            <img class="capa-detalhes-livro" ng-src="{{detalhes.fotoPerfil}}">
+            <div class="detalhes"> 
+                <div><strong>Nome:</strong> {{detalhes.nome}}</div>
+                <div><strong>Data Nacimento:</strong> {{detalhes.dataNascimento}}</div>
+                <div><strong>Gênero:</strong> {{info.genero}}</div>
+                <div><strong>E-mail:</strong> {{detalhes.email}}</div>
+                <div style="margin-top: 20px"><button ng-click="enviarSolicitacao()"><a href="">Enviar solicitação de amizade</a></button></div>
+            </div>
         </div>
     </div>
 </div>

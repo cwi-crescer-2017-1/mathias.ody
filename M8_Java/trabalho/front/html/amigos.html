@@ -1,0 +1,43 @@
+<div class="nav">
+    <div class="titulo-pagina">
+        <a ng-href="#!/"><img src="http://image.ibb.co/f3eD8Q/logo_churras.png" alt="" width="100vw" height="60vw"></a>
+    </div>
+    <div class="borda-inferior">
+        <span class="float-left">Olá, {{usuarioLogado.nome}}</span>
+        <span class="center"><a ng-href="#!/crud">Área Administrativa</a></span>
+        <span class="float-right"><a href="" ng-click="logout()">Logout</a></span>
+    </div>
+</div>
+
+<div class="corpo">
+
+    <h1 style="margin-top:40px;"><button><a ng-href="#!/buscar">Encontrar amigos ></button></a></h1>
+
+    <h1 class="indice" style="margin-top:80px;">Solicitações de amizade</h1>
+    <div class="lista2">
+        <div class="socials" ng-repeat="solicitacao in solicitacoes">
+            <div class="i-lista2">     
+                <img class="capa" ng-src="{{solicitacao.fotoPerfil}}">
+                <div class="nome-usuario"><a ng-href="#!/usuario/{{solicitacao.id}}">{{solicitacao.nome}}</a></div>
+                <div class="float-right" style="margin-right: 1vw; margin-top: 5px;"><button ng-click="recusarSolicitacao(solicitacao.id)"><a href="">Recusar</a></button></div>
+                <div class="float-right" style="margin-right: 1vw; margin-top: 5px;"><button ng-click="aceitarSolicitacao(solicitacao.id)"><a href="">Aceitar</a></button></div>
+            </div>
+        </div>
+    </div>
+
+
+    <h1 class="indice" style="margin-top:80px;">Todos amigos</h1>
+    <div class="lista" style="width:30vw !important; margin-bottom: 50px;">
+        <div scale-resize class="socials" ng-repeat="amizade in amizades">
+            <div class="i-lista">     
+                <img class="capa" ng-src="{{amizade.fotoPerfil}}">
+                <div class="nome-usuario"><a ng-href="#!/usuario/{{usuario.id}}">{{amizade.nome}}</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pages">
+        <button class="float-left"><a href="" ng-click="voltar()">Anterior</a></button>
+        <button class="float-right"><a href="" ng-click="avancar()">Próximo</a></button>
+    </div>
+</div>

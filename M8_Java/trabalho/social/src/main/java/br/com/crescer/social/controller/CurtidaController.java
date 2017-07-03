@@ -23,8 +23,8 @@ public class CurtidaController {
         curtidaService.save(curtida, user, id);
     }
     
-    @PostMapping(value = "/descurtir/{id}")
+    /*@PostMapping(value = "/descurtir/{id}")
     public void descurtir(@PathVariable Long id) {
         curtidaService.delete(id);
-    }
+    }*/
 }
