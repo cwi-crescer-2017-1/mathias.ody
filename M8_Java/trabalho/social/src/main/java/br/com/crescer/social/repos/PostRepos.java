@@ -8,4 +8,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface PostRepos extends PagingAndSortingRepository<Post, Long> {
     List<Post> findByUsuarioInOrderByIdDesc(List<Usuario> usuarios, Pageable pageable);
+    Post findById(Long id);
 }

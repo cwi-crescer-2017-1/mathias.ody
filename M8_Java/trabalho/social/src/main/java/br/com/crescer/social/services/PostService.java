@@ -39,7 +39,9 @@ public class PostService {
     }
     
     public List<Post> getlListPosts(User user, Pageable pageable) {
-        List<Usuario> amigosUsuario = usuarioService.findByEmail(user.getUsername()).getAmigos();
+        Usuario logado = usuarioService.findByEmail(user.getUsername());
+        List<Usuario> amigosUsuario = logado.getAmigos();
+        amigosUsuario.add(logado);
         return repo.findByUsuarioInOrderByIdDesc(amigosUsuario, pageable);
     }
 

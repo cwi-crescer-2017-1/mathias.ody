@@ -19,8 +19,8 @@ public class CurtidaController {
     private CurtidaService curtidaService;
     
     @PostMapping(value = "/curtir/{id}")
-    public void curtir(@RequestBody Curtida curtida, @AuthenticationPrincipal User user, @PathVariable Long id) {
-        curtidaService.save(curtida, user, id);
+    public void curtir(@AuthenticationPrincipal User user, @PathVariable Long id) {
+        curtidaService.save(user, id);
     }
     
     /*@PostMapping(value = "/descurtir/{id}")

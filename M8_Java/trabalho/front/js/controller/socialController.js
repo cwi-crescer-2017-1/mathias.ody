@@ -25,6 +25,7 @@ app.controller('socialController', function ($window,
         socialService.curtir(id)
         .then(function (response) { 
             $scope.listarPosts();
+            console.log($scope.posts[0]);
         },
         function (response) { 
             toastr.error("Ocorreu um erro!");
@@ -35,12 +36,16 @@ app.controller('socialController', function ($window,
          socialService.getPosts()
         .then(function (response) { 
             $scope.posts = response.data;
-            console.log(response.data[0])
         })
 
     };
 
     $scope.listarPosts();
+
+    $scope.hasLiked = function (curtidas) {
+        console.log(curtidas.filter (x => x.usuarioCurtida.id == $scope.usuarioLogado.id).length);
+        return curtidas.filter (x => x.usuarioCurtida.id == $scope.usuarioLogado.id).length > 0;
+    }
 
     /*function setParametros() {
         $scope.parametros = {
@@ -51,9 +56,11 @@ app.controller('socialController', function ($window,
     }*/
 
     $scope.postar = function () {
-        socialService.curtir($scope.post.id)
+        socialService.postar($scope.post)
         .then (function (response) { 
             $scope.listarPosts();
+            $scope.post.texto = "";
+            console.log($scope.post);
         },
         function (response) { 
             toastr.error("Ocorreu um erro");
