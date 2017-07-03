@@ -86,7 +86,8 @@ public class UsuarioController {
         Usuario logado = usuarioService.findByEmail(user.getUsername());
         Usuario solicitado = usuarioService.findById(id);
         
-        usuarioService.enviarSolicitacao(logado, solicitado);
+        if (statusSolicitacao(solicitado.getId()) == 0)
+            usuarioService.enviarSolicitacao(logado, solicitado);
     }
     
     @PostMapping(value = "/usuario/aceitarSolicitacao/{id}")
@@ -94,7 +95,8 @@ public class UsuarioController {
         Usuario logado = usuarioService.findByEmail(user.getUsername());
         Usuario aceito = usuarioService.findById(id);
         
-        usuarioService.aceitarSolicitacao(logado, aceito);
+        if (statusSolicitacao(aceito.getId()) == 2)
+            usuarioService.aceitarSolicitacao(logado, aceito);
     }
     
     @PostMapping(value = "/usuario/recusarSolicitacao/{id}")
@@ -102,7 +104,8 @@ public class UsuarioController {
         Usuario logado = usuarioService.findByEmail(user.getUsername());
         Usuario recusado = usuarioService.findById(id);
         
-        usuarioService.recusarSolicitacao(logado, recusado);
+        if (statusSolicitacao(recusado.getId()) == 3)
+            usuarioService.recusarSolicitacao(logado, recusado);
     }
     
     @GetMapping(value = "/usuario/solicitacoes")
@@ -111,7 +114,7 @@ public class UsuarioController {
     }
     
     @PostMapping(value = "/usuario/statusSolicitacao/{id}")
-    public int statusSolicitacao(@PathVariable Long id,@AuthenticationPrincipal User user) {
+    public int statusSolicitacao(@PathVariable Long id) {
         return usuarioService.statusSolicitacao(id);
     }
 }

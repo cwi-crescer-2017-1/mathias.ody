@@ -8,6 +8,7 @@ app.controller('editarController', function ( $scope,
 
 
     $scope.usuario = authService.getUsuario();
+    $scope.usuario.senha = "";
     if ($scope.usuario != null) {
         $scope.logado = true;
     }

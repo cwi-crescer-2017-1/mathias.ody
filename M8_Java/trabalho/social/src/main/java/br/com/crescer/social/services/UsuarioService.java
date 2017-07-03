@@ -54,6 +54,17 @@ public class UsuarioService {
     }
 
     public Usuario update(Usuario usuario) {
+        Usuario antigo = repo.findOneById(usuario.getId());
+        /*usuario.setAmigos(antigo.getAmigos());
+        usuario.setSolicitacoes(antigo.getSolicitacoes());*/
+        
+        if (antigo.getSenha() == null || antigo.getSenha().isEmpty()){
+            usuario.setSenha(antigo.getSenha());
+        }
+        else {
+            usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+        }
+        
         return repo.save(usuario);
     }
     

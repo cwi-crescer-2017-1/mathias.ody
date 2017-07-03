@@ -6,5 +6,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface UsuarioRepos extends PagingAndSortingRepository<Usuario, Long> {
     public Usuario findOneByEmail(String email);
+    public Usuario findOneById(Long id);
     public List<Usuario> findByNomeContainingIgnoreCase(String nomeUsuario);
 }

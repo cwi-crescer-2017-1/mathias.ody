@@ -15,17 +15,15 @@ app.controller('socialController', function ($window,
         $localStorage.$reset();
     }
     $scope.usuarioLogado = authService.getUsuario();
-
     if ($scope.usuario != null) {
         $scope.logado = true;
     }
+    console.log($scope.usuarioLogado);
 
     $scope.curtir = function (id) {
-        console.log("curtiu")
         socialService.curtir(id)
         .then(function (response) { 
             $scope.listarPosts();
-            console.log($scope.posts[0]);
         },
         function (response) { 
             toastr.error("Ocorreu um erro!");
@@ -37,13 +35,11 @@ app.controller('socialController', function ($window,
         .then(function (response) { 
             $scope.posts = response.data;
         })
-
     };
 
     $scope.listarPosts();
 
     $scope.hasLiked = function (curtidas) {
-        console.log(curtidas.filter (x => x.usuarioCurtida.id == $scope.usuarioLogado.id).length);
         return curtidas.filter (x => x.usuarioCurtida.id == $scope.usuarioLogado.id).length > 0;
     }
 

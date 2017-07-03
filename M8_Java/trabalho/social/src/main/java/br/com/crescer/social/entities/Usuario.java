@@ -139,6 +139,10 @@ public class Usuario implements Serializable {
     public List<Usuario> getSolicitacoes() {
         return solicitacoes;
     }
+    
+    public void setSolicitacoes(List<Usuario> solicitacoes) {
+        this.solicitacoes = solicitacoes;
+    }
 
     public void setConvites(List<Usuario> solicitacoes) {
         this.solicitacoes = solicitacoes;
