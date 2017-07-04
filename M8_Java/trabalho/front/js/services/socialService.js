@@ -16,6 +16,13 @@ app.factory('socialService', function ($http){
         });
     }
 
+    function getPostsUser (id) {
+        return $http({
+            url: urlBase + "posts/" + id,
+            method: 'GET',
+        });
+    }
+
     function curtir(id) {
         return $http({
             url: urlBase + 'curtir/' + id,
@@ -26,6 +33,7 @@ app.factory('socialService', function ($http){
     return {
         postar : postar,
         getPosts: getPosts,
-        curtir: curtir
+        curtir: curtir,
+        getPostsUser : getPostsUser
     }
 })

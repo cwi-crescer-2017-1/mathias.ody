@@ -65,7 +65,7 @@ public class UsuarioController {
     
     @PutMapping(value = "/usuario/editar")
     public void updateUsuario(@RequestBody Usuario usuario) {
-        usuarioService.update(usuario);
+        usuarioService.updateEditar(usuario);
     }
     
     @GetMapping(value = "/usuario/amigos")

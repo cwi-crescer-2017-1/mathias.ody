@@ -25,3 +25,14 @@
     font-size: 1.5vw;
     font-style: italic;
 }
+
+.search-button {
+    margin: auto;
+    font-size: 2vw;
+    margin-top:40px;
+}
+
+.info-amizades {
+    font-style:italic; 
+    text-align:center;
+}

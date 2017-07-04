@@ -90,7 +90,7 @@ textarea{
 
 .i-lista .nome-usuario{
     display:inline-block;
-    transform: translateY(2vw);
+    margin-top: 25px;
 }
 
 .i-lista .capa {
@@ -129,7 +129,7 @@ textarea{
 
 .i-lista2 .nome-usuario{
     display:inline-block;
-    transform: translateY(1vw);
+    margin-top: 15px;
 }
 
 .i-lista2 .capa {

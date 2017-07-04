@@ -18,7 +18,6 @@ app.controller('socialController', function ($window,
     if ($scope.usuario != null) {
         $scope.logado = true;
     }
-    console.log($scope.usuarioLogado);
 
     $scope.curtir = function (id) {
         socialService.curtir(id)

@@ -8,6 +8,17 @@ app.controller('buscarController', function (
                                             usuarioService,
                                             toastr
                                             ){ 
+    
+    
+     $scope.logout = function () {
+        authService.logout();
+        $localStorage.$reset();
+    }
+    $scope.usuarioLogado = authService.getUsuario();
+    if ($scope.usuario != null) {
+        $scope.logado = true;
+    }
+    
     $scope.buscar = function () {
         usuarioService.findListUsuarios($scope.busca.nome)
         .then (function(response){

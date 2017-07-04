@@ -13,6 +13,15 @@ app.controller('editarController', function ( $scope,
         $scope.logado = true;
     }
 
+     $scope.logout = function () {
+        authService.logout();
+        $localStorage.$reset();
+    }
+
+    if ($scope.usuario != null) {
+        $scope.logado = true;
+    }
+
     $scope.editar = function () {
         usuarioService.editar($scope.usuario)
         .then(

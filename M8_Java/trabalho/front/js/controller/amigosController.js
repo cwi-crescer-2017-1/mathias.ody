@@ -9,6 +9,16 @@ app.controller('amigosController', function (
                                             toastr
                                             ){ 
 
+     $scope.logout = function () {
+        authService.logout();
+        $localStorage.$reset();
+    }
+    $scope.usuarioLogado = authService.getUsuario();
+    if ($scope.usuario != null) {
+        $scope.logado = true;
+    }
+    
+    
     $scope.getSolicitacoes = function () {
        usuarioService.getInvitations($routeParams.id)
         .then(function (response) { 

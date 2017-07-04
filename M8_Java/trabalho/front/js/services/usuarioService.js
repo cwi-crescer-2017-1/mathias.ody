@@ -83,6 +83,6 @@ app.factory('usuarioService', function ($http){
         refuseInvitation : refuseInvitation,
         getFriends : getFriends,
         editar : editar,
-        statusSolicitacao : statusSolicitacao
+        statusSolicitacao : statusSolicitacao,
     }
 })

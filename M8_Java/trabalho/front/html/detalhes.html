@@ -1,13 +1,11 @@
 <div class="nav">
     <div class="titulo-pagina">
-        <h1><a ng-href="#!/">FreelaBooks.NET</a></h1>
+        <a ng-href="#!/"><img src="https://files.slack.com/files-tmb/T4WL4EAU8-F63DLBYD8-a0c2a7ec95/logo_churras_480.png" alt="" width="100vw" height="60vw"></a>
     </div>
     <div class="borda-inferior">
-        <span class="float-left"><a ng-href="#!/assinar">Assinar</a></span>
-        <span ng-if="!logado" class="center"><a ng-href="#!/registrar">Registrar-se</a></span>
-        <span ng-if="logado" class="center"><a ng-href="#!/crud">Área Administrativa</a></span>
-        <span class="float-right"><a ng-if="!logado" ng-href="#!/login">Login</a></span>
-        <span class="float-right" ng-if="logado">Olá, {{usuario.Nome}}</span>
+        <span class="float-left"><a ng-href="#!/editar">Olá, {{usuarioLogado.nome}}</a></span>
+        <span class="center"><a ng-href="#!/amigos">Amigos</a></span>
+        <span class="float-right"><a href="" ng-click="logout()">Logout</a></span>
     </div>
 </div>
 
@@ -20,7 +18,24 @@
                 <div><strong>Data Nacimento:</strong> {{detalhes.dataNascimento}}</div>
                 <div><strong>Gênero:</strong> {{info.genero}}</div>
                 <div><strong>E-mail:</strong> {{detalhes.email}}</div>
-                <div style="margin-top: 20px"><button ng-click="enviarSolicitacao()"><a href="">Enviar solicitação de amizade</a></button></div>
+                <div ng-if="detalhes.status == 0" class="item-lista-usuarios"><button ng-click="enviarSolicitacao(detalhes.id)"><a href="">Enviar solicitação</a></button></div>
+                <div ng-if="detalhes.status == 1" class="item-lista-usuarios">Solicitação enviada</div>
+                <div ng-if="detalhes.status == 2" class="item-lista-usuarios"><button ng-click="aceitarSolicitacao(detalhes.id)"><a href="">Aceitar solicitação</a></button></div>
+                <div ng-if="detalhes.status == 3" class="item-lista-usuarios">Amigo</div>
+            </div>
+        </div>
+
+        <h1 class="indice" style="margin-top:80px;">Posts de {{detalhes.nome}}</h1>
+        <div class="catalogo">
+            <div class="posts" ng-repeat="post in posts">
+                <div class="post">     
+                    <img class="capa" ng-src="{{post.usuario.fotoPerfil}}">
+                    <div class="titulo-social"><strong>{{post.usuario.nome}}</strong></div>
+                    <div class="titulo-social">{{post.texto}}</div>
+                </div>
+                <div class="btn-curtir" ng-if="hasLiked(post.curtidas)  == false"><button ng-click="curtir(post.id)"><a href="">Curtir</a></button></div>
+                <div class="btn-curtir" ng-if="hasLiked(post.curtidas)"><button ng-click="curtir(post.id)"><a href="">Descurtir</a></button></div>
+                <div class="curtidas">{{post.curtidas.length}} curtidas</div>
             </div>
         </div>
     </div>

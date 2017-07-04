@@ -53,18 +53,22 @@ public class UsuarioService {
         return repo.save(usuario);
     }
 
-    public Usuario update(Usuario usuario) {
+    public Usuario updateEditar(Usuario usuario) {
         Usuario antigo = repo.findOneById(usuario.getId());
-        /*usuario.setAmigos(antigo.getAmigos());
-        usuario.setSolicitacoes(antigo.getSolicitacoes());*/
+        usuario.setAmigos(antigo.getAmigos());
+        usuario.setSolicitacoes(antigo.getSolicitacoes());
         
-        if (antigo.getSenha() == null || antigo.getSenha().isEmpty()){
+        if (usuario.getSenha() == null || usuario.getSenha().isEmpty()){
             usuario.setSenha(antigo.getSenha());
         }
         else {
             usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
         }
-        
+
+        return repo.save(usuario);
+    }
+    
+    public Usuario update(Usuario usuario) {
         return repo.save(usuario);
     }
     
