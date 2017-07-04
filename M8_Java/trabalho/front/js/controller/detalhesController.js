@@ -45,9 +45,7 @@ app.controller('detalhesController', function ( $scope,
     detalhesLivro ();
 
     function detalhesLivro () {
-        if ($routeParams.id == $scope.usuario.id){
-            $location.path("/");
-        } 
+
 
        usuarioService.findUsuario($routeParams.id)
         .then(function (response) {
