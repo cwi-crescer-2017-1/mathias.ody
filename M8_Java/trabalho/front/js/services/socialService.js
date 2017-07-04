@@ -9,9 +9,9 @@ app.factory('socialService', function ($http){
         });
     }
 
-    function getPosts() {
+    function getPosts(page) {
         return $http({
-            url: urlBase + 'posts',
+            url: urlBase + 'posts?page=' + page +'&size=10',
             method: 'GET',
         });
     }

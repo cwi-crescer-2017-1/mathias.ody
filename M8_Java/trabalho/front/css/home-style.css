@@ -61,7 +61,7 @@
 textarea{
     margin-top: 30px;
     width : 55vw;
-    resize: vertical; 
+    resize: none; 
     border-radius: 1vw;
     font-size: 1.1vw;
     float:right;

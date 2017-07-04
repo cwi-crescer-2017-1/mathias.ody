@@ -3,9 +3,11 @@
         <a ng-href="#!/"><img src="https://files.slack.com/files-tmb/T4WL4EAU8-F63DLBYD8-a0c2a7ec95/logo_churras_480.png" alt="" width="100vw" height="60vw"></a>
     </div>
     <div class="borda-inferior">
-        <span class="float-left"><a ng-href="#!/editar">Olá, {{usuarioLogado.nome}}</a></span>
-        <span class="center"><a ng-href="#!/amigos">Amigos</a></span>
-        <span class="float-right"><a href="" ng-click="logout()">Logout</a></span>
+        <span class="menu-superior-item"><a ng-href="#!/editar">Olá, {{usuarioLogado.nome.split(" ")[0]}}</a></span>
+        <span class="menu-superior-item menu-selected"><a ng-href="#!/">Home</a></span>
+        <span class="menu-superior-item"><a ng-href="#!/amigos">Amigos</a></span>
+        <span class="menu-superior-item"><a ng-href="#!/buscar">Buscar Amigos</a></span>
+        <span class="menu-superior-item"><a href="" ng-click="logout()">Logout</a></span>
     </div>
 </div>
 
@@ -30,7 +32,7 @@
     </div>
 
     <div class="pages">
-        <button class="float-left"><a href="" ng-click="voltar()">Anterior</a></button>
-        <button class="float-right"><a href="" ng-click="avancar()">Próximo</a></button>
+        <button ng-if="pagina > 0" class="float-left"><a href="" ng-click="voltar()">Anterior</a></button>
+        <button ng-if="temProximo" class="float-right"><a href="" ng-click="avancar()">Próximo</a></button>
     </div>
 </div>

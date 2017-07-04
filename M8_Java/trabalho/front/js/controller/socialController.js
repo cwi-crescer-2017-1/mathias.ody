@@ -10,6 +10,29 @@ app.controller('socialController', function ($window,
                                    
     //setParametros(0,5);
     
+    $scope.pagina = 0;
+    $scope.temProximo = true;
+
+    $scope.avancar = function () {
+        $scope.pagina ++;
+        $scope.listarPosts();
+        $scope.checarProximo();
+    }
+
+    $scope.voltar = function  () {
+        $scope.pagina --;
+        $scope.listarPosts();
+    }
+
+    $scope.checarProximo = function () {
+         socialService.getPosts($scope.pagina + 1)
+        .then(function (response) { 
+            if (response.data.length == 0) { $scope.temProximo = false; }
+            else { $scope.temProximo = true; };
+        })
+    };
+
+    ///////////
     $scope.logout = function () {
         authService.logout();
         $localStorage.$reset();
@@ -23,6 +46,7 @@ app.controller('socialController', function ($window,
         socialService.curtir(id)
         .then(function (response) { 
             $scope.listarPosts();
+            $scope.checarProximo();
         },
         function (response) { 
             toastr.error("Ocorreu um erro!");
@@ -30,13 +54,14 @@ app.controller('socialController', function ($window,
     }
 
     $scope.listarPosts = function () {
-         socialService.getPosts()
+         socialService.getPosts($scope.pagina)
         .then(function (response) { 
             $scope.posts = response.data;
         })
     };
 
     $scope.listarPosts();
+    $scope.checarProximo();
 
     $scope.hasLiked = function (curtidas) {
         return curtidas.filter (x => x.usuarioCurtida.id == $scope.usuarioLogado.id).length > 0;
@@ -54,28 +79,15 @@ app.controller('socialController', function ($window,
         socialService.postar($scope.post)
         .then (function (response) { 
             $scope.listarPosts();
+            $scope.checarProximo();
             $scope.post.texto = "";
             console.log($scope.post);
         },
         function (response) { 
             toastr.error("Ocorreu um erro");
             $scope.listarPosts();
+            $scope.checarProximo();
         })
-    }
-
-    $scope.avancar = function () {
-        $scope.parametros.jump += $scope.parametros.bring;  
-        listarOutros();
-        //assegurarResize();
-    }
-
-    $scope.voltar = function  () {
-        $scope.parametros.jump -= $scope.parametros.bring; 
-        if($scope.parametros.jump < 0){
-            $scope.parametros.jump = 0;
-        }
-        listarOutros();
-        assegurarResize();
     }
 
      //pagina carregada

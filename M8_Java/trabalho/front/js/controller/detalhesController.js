@@ -6,6 +6,32 @@ app.controller('detalhesController', function ( $scope,
                                                 $location,
                                                 toastr){
     
+
+     $scope.pagina = 0;
+    $scope.temProximo = true;
+
+    $scope.avancar = function () {
+        $scope.pagina ++;
+        $scope.listarPosts();
+        $scope.checarProximo();
+    }
+
+    $scope.voltar = function  () {
+        $scope.pagina --;
+         $scope.listarPosts();
+        $scope.checarProximo();
+    }
+
+    $scope.checarProximo = function () {
+         socialService.getPosts($scope.pagina + 1)
+        .then(function (response) { 
+            if (response.data.length == 0) { $scope.temProximo = false; }
+            else { $scope.temProximo = true; };
+        })
+    };
+
+
+
      $scope.logout = function () {
         authService.logout();
         $localStorage.$reset();
@@ -26,7 +52,8 @@ app.controller('detalhesController', function ( $scope,
        usuarioService.findUsuario($routeParams.id)
         .then(function (response) {
             $scope.detalhes = response.data;
-            $scope.listarPosts();
+             $scope.listarPosts();
+            $scope.checarProximo();
 
             if($scope.detalhes.sexo == "n") {
                  $scope.info.genero = "Não informado";
@@ -55,7 +82,8 @@ app.controller('detalhesController', function ( $scope,
     $scope.curtir = function (id) {
         socialService.curtir(id)
         .then(function (response) { 
-            $scope.listarPosts();
+             $scope.listarPosts();
+            $scope.checarProximo();
         },
         function (response) { 
             toastr.error("Ocorreu um erro!");
