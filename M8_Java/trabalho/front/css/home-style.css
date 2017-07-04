@@ -15,15 +15,15 @@
     margin-right: auto !important;
     width: 60vw;
     margin : 60px;
-    background-color: rgb(255,184,14);
     border-radius: 2vw;
+    background-color: rgb(255, 255, 255);  
 }
 
 .post {
     margin: auto;
     width: 55vw;
     text-align: center;
-    color : rgb(152,33,33);
+    color : black;
     padding-bottom : 30px;
     padding-top : 30px;
     min-height: 7vw;
@@ -34,12 +34,12 @@
     width : 7vw;
     float : left;
     margin-right: 5vw;
-    border-radius : 2.5vw;
+    border-radius : 50%;
 }
 
 .titulo-social{
     font-size : 1.4vw;
-    overflow-x: hidden;
+    word-break : break-all;
 }
 
 .genero-livro{
@@ -54,8 +54,9 @@
     width:20vw;
     margin:50px auto;
     font-size: 15px;
+    margin-top: 50px;
     margin-bottom: 50px;
-    transform: translateY(-35px);
+    transform: translateY(-15px);
 }
 
 textarea{
@@ -74,12 +75,14 @@ textarea{
 }
 
 .lista{
-    background-color : rgb(255,184,14);
+    background-color : rgb(255, 255, 255);
     width: 50vw;
     margin-top: 70px;
     border-radius : 1vw;
     margin-left : auto;
     margin-right : auto;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 
 .i-lista{
@@ -113,12 +116,14 @@ textarea{
 
 /* lista para solicitacoes ja feitas*/
 .lista2{
-    background-color : rgb(255,184,14);
+    background-color : rgb(255, 255, 255);
     width: 30vw;
     margin-top: 70px;
     border-radius : 0.8vw;
     margin-left : auto;
     margin-right : auto;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 
 .i-lista2{
@@ -147,7 +152,7 @@ textarea{
 
 .fotoPerfil {
     display:inline-block; 
-    border-radius: 2vw;
+    border-radius: 50%;
     width : 10vw;
     height: 10vw;
 }

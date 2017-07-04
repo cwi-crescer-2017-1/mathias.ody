@@ -64,7 +64,7 @@ button {
   text-transform: none;
 
   color: #fff;
-  background-color: rgb(255, 233, 124);
+  background-color: lightgrey;
   border: 0 none;
   border-radius: 4px;
 
@@ -79,6 +79,10 @@ button {
   justify-content: center;
   align-items: center;
   flex: 0 0 160px;
+}
+
+button:hover {
+    background-color: orange;
 }
 
 .login-button {
@@ -98,11 +102,11 @@ button {
 }
 
 a:link {
-    color : rgb(227,41,41)
+    color : darkred
 }
 
 a:visited {
-    color : rgb(227,41,41)
+    color : darkred
 }
 
 textarea {

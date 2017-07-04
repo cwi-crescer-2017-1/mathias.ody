@@ -5,7 +5,7 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     background-image: url('http://www.ricardoantunes.com.br/wp-content/uploads/2016/06/churrasco.jpg'); 
     background-size: auto auto;
-    color: rgb(255,184,14);
+    color: grey;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -15,7 +15,6 @@ a {
 }
 
 a:hover {
-    font-weight: bold;
     text-decoration: none;
 }
 
@@ -49,11 +48,12 @@ div {
     margin: 10px auto;
     margin-bottom: 0px;
     font-size: 1.6vw;
-    border-top: 2px solid rgb(152,33,33);
+    border-top: 2px solid darkred;
 }
 
-.borda-inferior a:hover {
-    color : yellow;
+.menu-superior-item:hover {
+    background-color : yellow;
+    border-bottom: 4px solid yellow;
 }
 
 .menu-selected {
@@ -80,7 +80,7 @@ div {
     min-height: 100%;
     margin-left : auto; 
     margin-right : auto; 
-    background-color: rgba(227,41,41,0.8); 
+    background-color: #fafafa; 
     background-size: auto 100vh; 
     padding-left: 2vw;
     padding-right: 2vw;
