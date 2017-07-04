@@ -9,7 +9,8 @@ app.controller('buscarController', function (
                                             toastr
                                             ){ 
     
-    
+    $scope.nenhumEncontrado = false;
+
      $scope.logout = function () {
         authService.logout();
         $localStorage.$reset();
@@ -23,6 +24,12 @@ app.controller('buscarController', function (
         usuarioService.findListUsuarios($scope.busca.nome)
         .then (function(response){
                $scope.usuariosEncontrados = response.data;
+               if ($scope.usuariosEncontrados.length == 0) {
+                   $scope.nenhumEncontrado = true;
+               }
+               else {
+                    $scope.nenhumEncontrado = false;
+               }
                $scope.usuariosEncontrados.forEach(function(element) {
                    $scope.getStatus(element);
                });

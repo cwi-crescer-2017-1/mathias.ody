@@ -20,7 +20,8 @@
     </div>
 
     <div class="lista">
-        <div scale-resize class="socials" ng-repeat="usuario in usuariosEncontrados">
+        <div ng-if="nenhumEncontrado == true" class="info-amizades">Nenhum usuário encontrado</div>
+        <div ng-if="nenhumEncontrado == false" scale-resize class="socials" ng-repeat="usuario in usuariosEncontrados">
             <div class="i-lista">     
                 <img class="capa" ng-src="{{usuario.fotoPerfil}}">
                 <div class="nome-usuario"><a ng-href="#!/usuario/{{usuario.id}}">{{usuario.nome}}</a></div>
